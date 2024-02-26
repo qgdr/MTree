@@ -31,6 +31,8 @@
 
         <!-- Custom theme stylesheets -->
 
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
     <body class="sidebar-visible no-js">
     <div id="body-container">
@@ -89,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="PDEIntro/init.html"><strong aria-hidden="true">1.</strong> 偏微分方程简介</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="PDEIntro/PDEdef.html"><strong aria-hidden="true">1.1.</strong> PDE的定义</a></li><li class="chapter-item expanded "><a href="PDEIntro/Laplace.html"><strong aria-hidden="true">1.2.</strong> Laplace方程</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -176,8 +178,68 @@
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <h2 id="教材"><a class="header" href="#教材">教材</a></h2>
-<p>Lawrence C.Evans Partial differential equations</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+<p><a href="../../Library/Evans-2010-PartialDifferentialEquations.pdf">Lawrence C.Evans Partial differential equations</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="偏微分方程简介"><a class="header" href="#偏微分方程简介">偏微分方程简介</a></h1>
+<p>本章介绍各个偏微分方程的定义以及一些常用的结论。</p>
+<h2 id="准备符号"><a class="header" href="#准备符号">准备符号</a></h2>
+<p>令 \( \alpha=(\alpha_1, ... , \alpha_n), \quad \alpha_n \ge 0 \)，</p>
+<p>$$ |\alpha| := \alpha_1 + ... + \alpha_n $$
+$$ \alpha ! := \alpha_1!\cdots\alpha_n! $$</p>
+<p>$$ D^\alpha u(x) := \frac{\partial^{\alpha_1} u}{\partial x^{\alpha_1}}\cdots\frac{\partial^{\alpha_n} u}{\partial x^{\alpha_n}} $$
+$$ D^k u(x) = \{ D^\alpha u(x) \mid |\alpha|=k \} $$</p>
+<p>nabla算子
+$$ \nabla u = (\frac{\partial u}{\partial x_i}, ..., \frac{\partial u}{\partial x_n}) $$
+Laplace算子
+$$ \Delta u = \nabla\cdot\nabla u = \frac{\partial^2 u}{\partial x_i^2} + ... + \frac{\partial^2 u}{\partial x_n^2} $$</p>
+<h2 id="exercise"><a class="header" href="#exercise">Exercise</a></h2>
+<ol>
+<li>\( D^k u(x) \) 有几项？
+事实上，就是将 \(n\) 个苹果，放进 \(k\) 个盒子，那么显然有 \( \begin{pmatrix}n+k-1\\ k \end{pmatrix} \) 种放法。</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pde-定义"><a class="header" href="#pde-定义">PDE 定义</a></h1>
+<p><a href="PDEIntro/../Introduction.html#%E6%95%99%E6%9D%90">PDE 1.1</a></p>
+<p>令 \( k\ge 1 \)，\( U \) 是一个 \( R^n \) 中的<strong>开集</strong>。
+给定函数
+$$
+\begin{equation}
+F: R^{n^k} \times R^{n^{k-1}} \times \cdots \times R^n \times R \times U \to R
+\end{equation}
+$$
+与未知函数
+$$
+u: U \to R
+$$
+等式
+$$
+\begin{equation}
+F(D^ku(x), D^{k-1}u(x), ... , Du(x), u(x), x)=0 \quad (x\in U)
+\end{equation}
+$$
+称为 \( k \) 阶偏微分方程。</p>
+<h2 id="按线性性分类"><a class="header" href="#按线性性分类">按线性性分类</a></h2>
+<ol>
+<li>线性 linear： $$ \sum_{|\alpha|\le k}a_\alpha(x) D^\alpha u = f(x) $$</li>
+<li>半线性 semilinear：$$ \sum_{|\alpha|=k}a_\alpha(x) D^\alpha u + a_0(D^{k-1}u, ... , Du, u, x) = 0 $$</li>
+<li>次线性 quasilinear：$$ \sum_{|\alpha|=k}a_\alpha(D^{k-1}u, ... , Du, u, x) D^\alpha u + a_0(D^{k-1}u, ... , Du, u, x) = 0 $$</li>
+<li>非线性 nonlinear：非线性的依赖最高阶导。</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="laplace方程"><a class="header" href="#laplace方程">Laplace方程</a></h1>
+<p><a href="PDEIntro/../Introduction.html#%E6%95%99%E6%9D%90">PDE 2.2</a></p>
+<ol>
+<li>Laplace's equation  $$ \Delta u = 0 $$</li>
+<li>Poisson's equation  $$ -\Delta u = f $$</li>
+</ol>
+<p>满足 Laplace 方程的函数称为 <strong>调和函数</strong>(harmonic function)</p>
+<h2 id="调和函数"><a class="header" href="#调和函数">调和函数</a></h2>
+<p>调和函数是函数本身的几何性质，所以坐标轴平移、旋转都不影响函数的调和性质。</p>
+<h3 id="调和函数基本解"><a class="header" href="#调和函数基本解">调和函数基本解</a></h3>
+<p>$$
+\Phi(x) :=
+\begin{cases}
+-\frac{1}{2\pi}\log|x|  &amp; (n=2) \\
+\frac{1}{n(n-2)\alpha(n)}\frac{1}{|x|^{n-2}}    &amp; (n \ge 3)
+\end{cases}
+$$</p>
 
                     </main>
 
@@ -196,22 +258,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
@@ -232,7 +278,9 @@
 
         <script>
         window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
         });
         </script>
 
