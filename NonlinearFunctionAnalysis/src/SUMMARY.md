@@ -2,4 +2,4 @@
 
 [Introduction](./Introduction.md)
 
-- [Chapter 1](./chapter_1.md)
+- [预备知识](./Prerequisites/init.md)
