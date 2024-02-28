@@ -1,6 +1,6 @@
 # Laplace方程
 
-[PDE 2.2](../Introduction.md#教材)
+[Lawrence C.Evans Partial differential equations 2.2](../Introduction.md#教材)
 
 1. Laplace's equation  $$ \Delta u = 0 $$  
 2. Poisson's equation  $$ -\Delta u = f $$  

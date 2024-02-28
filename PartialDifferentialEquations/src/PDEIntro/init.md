@@ -19,5 +19,10 @@ $$ \Delta u = \nabla\cdot\nabla u = \frac{\partial^2 u}{\partial x_i^2} + ... + 
 
 ## Exercise
 
-1. \\( D^k u(x) \\) 有几项？
-    事实上，就是将 \\(n\\) 个苹果，放进 \\(k\\) 个盒子，那么显然有 \\( \begin{pmatrix}n+k-1\\\\ k \end{pmatrix} \\) 种放法。
+> \\( D^k u(x) \\) 有几项？
+> 
+> 事实上，就是将 \\(n\\) 个苹果，放进 \\(k\\) 个盒子，那么显然有 \\( \begin{pmatrix}n+k-1\\\\ k \end{pmatrix} \\) 种放法。
+<!-- 
+<div class="warning">
+\(D^k u(x)\) 有几项？
+</div> -->

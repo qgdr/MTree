@@ -31,6 +31,8 @@
 
         <!-- Custom theme stylesheets -->
 
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
     <body class="sidebar-visible no-js">
     <div id="body-container">
@@ -89,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="TopoSpc/init.html"><strong aria-hidden="true">1.</strong> 拓扑空间</a></li><li class="chapter-item expanded "><a href="Compact/init.html"><strong aria-hidden="true">2.</strong> 紧性</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="TopoSpc/init.html"><strong aria-hidden="true">1.</strong> 拓扑空间</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="TopoSpc/induct.html"><strong aria-hidden="true">1.1.</strong> 引入</a></li></ol></li><li class="chapter-item expanded "><a href="Closed/init.html"><strong aria-hidden="true">2.</strong> 闭集</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Closed/closure.html"><strong aria-hidden="true">2.1.</strong> 闭包</a></li><li class="chapter-item expanded "><a href="Closed/limit.html"><strong aria-hidden="true">2.2.</strong> 极限</a></li></ol></li><li class="chapter-item expanded "><a href="Compact/init.html"><strong aria-hidden="true">3.</strong> 紧性</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -176,8 +178,70 @@
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <h2 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h2>
-<p>[Topology James R. Munkres] <a href="/Library/%E6%8B%93%E6%89%91%E5%AD%A6%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89%E7%86%8A%E9%87%91%E5%9F%8E%E8%AF%91.pdf">中译版</a></p>
+<p><a href="/Library/Munkres%20-%202000%20-%20Topology.pdf">Topology James R. Munkres</a> | <a href="/Library/%E6%8B%93%E6%89%91%E5%AD%A6%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89%E7%86%8A%E9%87%91%E5%9F%8E%E8%AF%91.pdf">中译版</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="拓扑空间"><a class="header" href="#拓扑空间">拓扑空间</a></h1>
+<p>我们在这一章给出拓扑空间的定义，并研究在集合上构造拓扑的一些方法。
+作为实直线和欧式空间中相应概念的自然推广，我们还将引入开集、闭集、极限点和连续函数的概念。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="引入"><a class="header" href="#引入">引入</a></h1>
+<p><a href="TopoSpc/../Introduction.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">Topology James R. Munkres 12 13</a></p>
+<p>我们在数学分析当中已经学习过 \(R^n\) 空间中的开集、闭集、连续、收敛等概念。
+它们描述了一个基本的问题：哪些点是‘挨着’的、哪些点是不‘挨着’的。</p>
+<p>在 \(R^n\) 中我们用欧式距离来度量点的‘远近’；
+但我们可以更加抽象的用度量所诱导的<strong>开集</strong>来说明点与点的关系。</p>
+<p>当我们描述空间的连续性、点列的收敛性时，忽视空间的度量，只用留下的开集进行描述，似乎并没有什么影响。
+因此我们认识到，一个集合内点与点的‘远近’关系是由这些<strong>开集</strong>直接决定的。</p>
+<p>当集合只加上这些开集的结构时，我们得到一个最基本的空间结构：<strong>拓扑</strong>(topology)。</p>
+<p>而我们要凭空定义出这样一个拓扑结构，似乎有些不切实际。
+所以我们提取 \(R^n\) 空间中的开集的基本结构，对一般的拓扑结构进行定义。</p>
+<blockquote>
+<p>思考 \(R^n\) 中开集最基本的结构是什么（当然空间上的度量已经神奇的消失了）？
+这个过程就像是从几何理论中抽出最基本的几条公理一样，其他任何几何性质都将由这些公理来推出。
+你能否给出开集的‘公理’呢？</p>
+</blockquote>
+<h2 id="拓扑空间的定义"><a class="header" href="#拓扑空间的定义">拓扑空间的定义</a></h2>
+<p><strong>定义</strong>：    集合 \(X\) 上的一个<strong>拓扑</strong>(topology) 是 \(X\) 的子集族 \(\mathcal{T}\) ，\(\mathcal{T}\) 中的元素就是我们需要的<strong>开集</strong>。它们满足以下条件：</p>
+<ol>
+<li>\(\varnothing\) 和 \(X\) 在 \(\mathcal{T}\) 中。</li>
+<li>开集的<strong>任意并</strong>还是开集。</li>
+<li>开集的<strong>有限交</strong>也是开集。
+一个定义了拓扑的集合就叫做<strong>拓扑空间</strong>(topological space)。</li>
+</ol>
+<p>自然而然的，开集的补定义为<strong>闭集</strong>。
+且满足：</p>
+<ol>
+<li>\(\varnothing\) 和 \(X\) 都是闭集。</li>
+<li>闭集的<strong>任意交</strong>还是闭集。</li>
+<li>闭集的<strong>有限并</strong>也是闭集。</li>
+</ol>
+<blockquote>
+<p>思考：为什么拓扑中的元素可以‘任意’并，而交集只能是’有限‘的呢？
+在 \(R^n\) 中，无限个开集的交可能是闭集，甚至可能是一个点！这直接就破坏了空间的连续性，使得空间中所有点之间都是‘不挨着’的。这就没有意义了。</p>
+<p>任何子集都是开集的拓扑称为离散拓扑。</p>
+</blockquote>
+<blockquote>
+<p>如果有一个\(X\)中的子集，使得拓扑中的开集要么和他不交，要么包含他，那么对于这个子集之外的任何点，在拓扑中看这个子集中的点都没有区别，那么这个子集就可以‘坍缩’成一个点了。</p>
+</blockquote>
+<blockquote>
+<p>一个集合可以即开又闭吗？
+显然 \(\varnothing\) 和 \(X\)是这样的。</p>
+</blockquote>
+<h2 id="拓扑的基"><a class="header" href="#拓扑的基">拓扑的基</a></h2>
+<p>我们在数学分析中了解到，想要直接研究 \(R^n\) 中任意的的开集不太容易，但任意开集可以由一族开矩体或开球的并合成。我们可以将能生成任意开集的一族开矩形或开球称作<strong>基</strong>。</p>
+<blockquote>
+<p>思考：由于开集的有限交还是开集，那么想要这组基能生成任意开集，那么应当能找到“更小”的开集来生成开集的交。（除非再也没有更小的交集了，这个时候考虑上一节中的‘坍缩’问题，这个拓扑是不是就成了离散拓扑了呢？）因此，我们对于基的定义也会加入这一条略显突兀的性质。</p>
+</blockquote>
+<p><strong>定义</strong>：    令 \(X\) 是一个拓扑空间。它的一个<strong>基</strong>(basis) 是一个子集族 \(\mathcal{B}\)(其成员称为<strong>基元素</strong>(basis element))，使得</p>
+<ol>
+<li>\(\cup_{B\in\mathcal{B}}B = X\)，</li>
+<li>若 \(x\in B_1\cap B_2\) ，则存在 \(B_3\) 满足 \(x\in B_3\subset B_1\cap B_2\)。</li>
+</ol>
+<p>并称 \(\mathcal{T}\) 是由 \(\mathcal{B}\) 生成的。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="闭集"><a class="header" href="#闭集">闭集</a></h1>
+<p><a href="Closed/../Introduction.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">Topology James R. Munkres 17</a></p>
+<p>我们在<a href="Closed/../TopoSpc/induct.html#%E6%8B%93%E6%89%91%E7%A9%BA%E9%97%B4%E7%9A%84%E5%AE%9A%E4%B9%89">拓扑空间</a>中定义了一般拓扑空间的开集，并定义开集的补集为闭集。</p>
+<p>让我们回想数学分析中开、闭、极限等概念。我们之前说过，他们由拓扑直接决定。那么我们就要对这些内容重新进行描述和拓展。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="闭包"><a class="header" href="#闭包">闭包</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="极限"><a class="header" href="#极限">极限</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="紧性"><a class="header" href="#紧性">紧性</a></h1>
 
                     </main>
@@ -217,7 +281,9 @@
 
         <script>
         window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
         });
         </script>
 

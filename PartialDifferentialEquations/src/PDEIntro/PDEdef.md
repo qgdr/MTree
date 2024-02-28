@@ -1,6 +1,6 @@
 # PDE 定义
 
-[PDE 1.1](../Introduction.md#教材)
+[Lawrence C.Evans Partial differential equations 1.1](../Introduction.md#教材)
 
 令 \\( k\ge 1 \\)，\\( U \\) 是一个 \\( R^n \\) 中的**开集**。
 给定函数
