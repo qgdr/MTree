@@ -7,4 +7,4 @@
 [非线性泛函分析引论][textbook]
 [非线性泛函分析]
 
-[textbook]:../../Library/非线性泛函分析引论.pdf
+[textbook]: /Library/非线性泛函分析引论.pdf
