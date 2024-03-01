@@ -1,5 +1,5 @@
 # 泛函分析
 
-[Introduce](./Introduce.md)
+[Introduce](./Introduction.md)
 
 - [Chapter 1](./chapter_1.md)

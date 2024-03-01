@@ -1,4 +1,4 @@
-# Introduce
+# Introduction
 
 ## 教材
 
