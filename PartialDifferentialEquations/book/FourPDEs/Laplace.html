@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduce - Functional Analysis</title>
+        <title>Laplace方程 - Partial Differential Equations</title>
 
 
         <!-- Custom HTML head -->
@@ -12,30 +12,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
     <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -88,7 +90,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Introduction.html" class="active">Introduce</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../Introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../PDEIntro/init.html"><strong aria-hidden="true">1.</strong> 偏微分方程简介</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../PDEIntro/PDEdef.html"><strong aria-hidden="true">1.1.</strong> PDE的定义</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">解的表示</li><li class="chapter-item expanded "><a href="../FourPDEs/init.html"><strong aria-hidden="true">2.</strong> 四种重要的方程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../FourPDEs/Laplace.html" class="active"><strong aria-hidden="true">2.1.</strong> Laplace方程</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -141,10 +143,10 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Functional Analysis</h1>
+                    <h1 class="menu-title">Partial Differential Equations</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -173,18 +175,69 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<h2 id="教材"><a class="header" href="#教材">教材</a></h2>
-<p>Functional Analysis, Sobolev Spaces and Partial Differential Equations</p>
+                        <h1 id="laplace方程"><a class="header" href="#laplace方程">Laplace方程</a></h1>
+<p><a href="../Introduction.html#%E6%95%99%E6%9D%90">Lawrence C.Evans Partial differential equations 2.2</a></p>
+<ol>
+<li>Laplace's equation  $$ \Delta u = 0 $$</li>
+<li>Poisson's equation  $$ -\Delta u = f $$</li>
+</ol>
+<p>满足 Laplace 方程的函数称为 <strong>调和函数</strong>(harmonic function)。
+调和函数是函数本身的几何性质，所以坐标轴平移、旋转都不影响函数的调和性质。</p>
+<h2 id="调和函数基本解"><a class="header" href="#调和函数基本解">调和函数基本解</a></h2>
+<p>$$
+\Phi(x) :=
+\begin{cases}
+-\frac{1}{2\pi}\log|x|  &amp; (n=2) \\
+\frac{1}{n(n-2)\alpha(n)}\frac{1}{|x|^{n-2}}    &amp; (n \ge 3)
+\end{cases}
+$$</p>
+<blockquote>
+<p>基本解的形式是通过解<strong>径向函数</strong>得到的，它满足 Laplace 方程，但它有一个<strong>奇点</strong> 0。<br />
+思考：基本解的系数是怎么选取的呢？<br />
+在这之前让我们想想基本解有什么用
+（参考<a href="../../../RealAnalysis/book/Conv/Superposition.html">叠加原理</a>）。<br />
+<a href="../../../RealAnalysis/src/Conv/Superposition.html"></a>
+就是因为基本解在奇点处不满足Laplace方程，那么 \(-\Delta\circ\Phi(0)\) 总应该有个特殊的‘值'，
+那么我们只要选取一个合适的值，让 \(-\Delta\circ\Phi(0) = \delta\) ，
+那么根据叠加原理，\(u=\Phi\ast f\) 就是满足 Poisson 方程的函数。</p>
+</blockquote>
+<h2 id="poisson方程的解"><a class="header" href="#poisson方程的解">Poisson方程的解</a></h2>
+<p>$$
+u(x) = \Phi\ast f(x) = \int_{R^n} \Phi(x-y)f(y) dx
+$$
+我们这里给出的是满足方程的全空间的解，所以还没有边界条件的限制。<br />
+我们上一节已经从直观上得到了 Poisson 方程的解。只需要严格的证明就行。<br />
+但是，我们这里只对
+$$ f\in C_c^2(\mathbb{R^n}) $$
+来证明
+（这自然是因为对更低光滑性的 \(f\) 的证明稍微有点困难，而不是解本身错误）。
+事实上，对于 \(f\) 所在空间的选取，也是随着这个证明的需要而定的。</p>
+<ol>
+<li>为了保证函数是存在的，我们意识到需要证明 \(\int_{B(0, r)}\Phi(x)\) 是有界的。</li>
+<li>利用卷积性质，得到
+$$ u_{x_i}=\int_{R^n}\Phi(y)f_{x_i}(x-y)dy $$
+$$ u_{x_ix_j}=\int_{R^n}\Phi(y)f_{x_ix_j}(x-y)dy $$
+这里就是为什么对 \(f\) 的连续性有要求。</li>
+<li>由于我们不想动 \(f\)，那么就通过 <a href="../../../MathematicalAnalysis/book/SurfaceIntegral/GaussGreen.html">Gauss-Green定理</a> <a href="../../../MathematicalAnalysis/src/SurfaceIntegral/GaussGreen.html"></a> 来将微分算子转移到 \(\Phi\) 上</li>
+<li>由于 \(\Phi\) 在 0 处是奇点，将积分分为两部分 $$ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J_\epsilon $$ 当 \(\epsilon\to 0\) 的时候，\(I_\epsilon\to 0\), \(J_\epsilon\to f(x)\)。
+整理即可。</li>
+</ol>
+<p>证明见<a href="../Introduction.html#%E6%95%99%E6%9D%90">Lawrence C.Evans Partial differential equations 2.2.1.b Thm 1</a></p>
+<blockquote>
+<p>练习: 对于 \(n\ge 3\) 和 \(f\in C_c^2(R^2)\)， \(u(x)\) 是否是有界函数？</p>
+<p>如果你熟悉<strong>叠加原理</strong>那么直观上你会觉得这是显然的。
+因为\(f\) 有界，支撑集也有界，而我们已经证明了 \(\int_{B(0, r)}\Phi(x)\) 是有界的，而且它随着 \(r\)<strong>单调</strong>!
+<img src="./PhiInt.jpg" alt="phi" /></p>
+</blockquote>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-
-                            <a rel="next prefetch" href="chapter_1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                            <a rel="prev" href="../FourPDEs/init.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
                             </a>
+
 
                         <div style="clear: both"></div>
                     </nav>
@@ -192,10 +245,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-
-                    <a rel="next prefetch" href="chapter_1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                    <a rel="prev" href="../FourPDEs/init.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
                     </a>
+
             </nav>
 
         </div>
@@ -208,13 +261,13 @@
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 
