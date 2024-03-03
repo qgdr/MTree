@@ -47,15 +47,47 @@ $$ f\in C_c^2(\mathbb{R^n}) $$
    $$ u_{x_ix_j}=\int_{R^n}\Phi(y)f_{x_ix_j}(x-y)dy $$
    这里就是为什么对 \\(f\\) 的连续性有要求。
 3. 由于我们不想动 \\(f\\)，那么就通过 [Gauss-Green定理](../../../MathematicalAnalysis/book/SurfaceIntegral/GaussGreen.html) [](../../../MathematicalAnalysis/src/SurfaceIntegral/GaussGreen.md) 来将微分算子转移到 \\(\Phi\\) 上
-4. 由于 \\(\Phi\\) 在 0 处是奇点，将积分分为两部分 $$ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J_\epsilon $$ 当 \\(\epsilon\to 0\\) 的时候，\\(I_\epsilon\to 0\\), \\(J_\epsilon\to f(x)\\)。
+4. 由于 \\(\Phi\\) 在 0 处是奇点，将积分区间分为两部分 $$ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J_\epsilon $$ 当 \\(\epsilon\to 0\\) 的时候，\\(I_\epsilon\to 0\\), \\(J_\epsilon\to f(x)\\)。
 整理即可。
 
 证明见[Lawrence C.Evans Partial differential equations 2.2.1.b Thm 1](../Introduction.md#教材)
 
 
-> 练习: 对于 \\(n\ge 3\\) 和 \\(f\in C_c^2(R^2)\\)， \\(u(x)\\) 是否是有界函数？
+> 练习: 对于 \\(n\ge 3\\) 和 \\(f\in C_c^2(R^2)\\)， \\(u(x)\\) 是否是一致有界？
 >
-> 如果你熟悉**叠加原理**那么直观上你会觉得这是显然的。
-> 因为\\(f\\) 有界，支撑集也有界，而我们已经证明了 \\(\int_{B(0, r)}\Phi(x)\\) 是有界的，而且它随着 \\(r\\)**单调**!
+> 如果你熟悉**叠加原理**那么直观上你会觉得这是显然的。  
+> 因为\\(f\\) 有界，支撑集也有界 \\(supp(f)\subset B(0,r_0)\\)，
+> $$ u(x_0) = \Phi*f(x_0) = \int_{B(x_0, r)}\Phi(x)f(x_0-x)dx \le C|\int_{B(x_0, r)}\Phi(x)| $$
+> 而我们已经证明了 \\(\int_{B(0, r)}\Phi(x)\\) 是有界的（且随 \\(r\to 0\\)趋于0），而且\\(\Phi\\) 随着 \\(r\\)**单调减**!
 > ![phi](./PhiInt.jpg)
+>
+> 技术上证明有界性并不困难。由于 \\(\Phi\\) 在球内积分有界，且随 \\(r\\) 的增大趋于 0。
+> <img align="right" src="./two_circles.png" height="200"/>
+> 那么只要对积分区间如图分割即可。
+> \\(B(x_0, r)\\) 要么在橙色球内部，要么在紫色球外面，这使得积分都是有界的。
+>
+> 但这样证明有点丑陋，事实上，在我们的直观中，由于单调性，以原点为中心的积分本身就应该是最大的，因为在中心处更大的函数值是‘更多’的。
+> 我们只是暂时缺乏一套说明他的语言。但我们很快就可以将几何直观翻译成数学语言。
+> $$
+\begin{align}
+    \int_{B(x_0, r)}\Phi(x)dx &= -\int yd\mu(\\{x\in B(x_0, r)| \Phi(x)>y\\})  \\\\
+    &= \int_{y\in(0, \infty)} \mu(\\{x\in B(x_0, r)| \Phi(x)>y\\})dy   \\\\
+    &= \int_{y\in(0, \infty)} \mu(\\{x\in B(x_0, r)| \Phi(x)>y\\})dy   \\\\
+    &= \int_{y\in(0, \infty)} \mu(\\{x| \Phi(x)>y\\}\cap B(x_0, r))dy   \\\\
+\end{align}
+> $$
+> 注意到 \\(\\{x| \Phi(x)>y\\} = B(0, \Phi^{-1}(y))\\)， 
+> 而我们直观上很容易得到
+> $$ \mu(B(0, r_1) \cap B(0, r_2)) = \mu(B(0, \min\\{r_1, r_2\\})) \ge \mu(B(x_1, r_1) \cap B(x_2, r_2)) $$
+> 因此
+> $$
+\begin{align}
+    \int_{B(x_0, r)}\Phi(x)dx
+    &= \int_{y\in(0, \infty)} \mu(\\{x| \Phi(x)>y\\}\cap B(x_0, r))dy   \\\\
+    &\le \int_{y\in(0, \infty)} \mu(\\{x| \Phi(x)>y\\}\cap B(0, r))dy   \\\\
+    &= \int_{B(0, r)}\Phi(x)dx
+\end{align}
+> $$
+> 甚至我们可以得出 \\( \int_{B(x_0, r)}\Phi(x)dx \\) 是随 \\(|x_0|\\) 单调递减的。
+> 证明只需要小小改动一下，请你尝试一下吧。
 > 
