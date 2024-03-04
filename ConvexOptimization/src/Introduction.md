@@ -8,3 +8,7 @@
     - [Convex Optimization Stephen Boyd and Lieven Vandenberghe](https://stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf)
     - [Lecture slides](https://stanford.edu/~boyd/cvxbook/bv_cvxslides.pdf)
 
+## 依赖
+
+[线性代数](../../LinearAlgebra/book/)
+[泛函分析](../../FunctionalAnalysis/book/)

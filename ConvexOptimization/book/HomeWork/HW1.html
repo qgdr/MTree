@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - Convex Optimization</title>
-        <base href="/">
+        <title>HW1 - Convex Optimization</title>
 
 
         <!-- Custom HTML head -->
@@ -13,21 +12,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
@@ -38,7 +37,7 @@
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -91,7 +90,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="AffineAndConvex/init.html"><strong aria-hidden="true">1.</strong> 仿射与凸集</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="HomeWork/HW1.html">HW1</a></li><li class="chapter-item expanded affix "><a href="HomeWork/HW2.html">HW2</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../Introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../AffineAndConvex/init.html"><strong aria-hidden="true">1.</strong> 仿射与凸集</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../HomeWork/HW1.html" class="active">HW1</a></li><li class="chapter-item expanded affix "><a href="../HomeWork/HW2.html">HW2</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -147,7 +146,7 @@
                     <h1 class="menu-title">Convex Optimization</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -176,14 +175,86 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="hw1"><a class="header" href="#hw1">HW1</a></h1>
+<p><a href="../../HWpdf/Homework1-2024.pdf">HW1</a></p>
+<h2 id="1-exercise-210-of-convex-optimization"><a class="header" href="#1-exercise-210-of-convex-optimization"><a href="../Introduction.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">1. Exercise 2.10 of Convex Optimization</a></a></h2>
+<p>$$ C=\{ x\in R^n | x^T A x + b^T x + c \le 0\} $$
+with \( A\in S^n, \quad b\in R^n, \quad c\in R \).</p>
+<p>(a) Show that \( C\) is \( A\succeq  0\) (which means \( A\) is positive semidefinite).</p>
+<blockquote>
+<p>It is sufficient to show that \( f(x) = x^T A x + b^T x + c \) is a convex function (for the <strong>epi</strong> of a convex function is convex.)
+i.e. $$ \frac{f(x_1) + f(x_2)}{2} \ge f(\frac{x_1+x_2}{2}) $$
+that is
+$$ x_1^TAx_1 + x_2^TAx_2 \ge \frac{1}{2}(x_1^T+x_2^T)A(x_1 + x_2) $$
+$$ \Leftrightarrow x_1^TAx_1 + x_2^TAx_2 \ge x_1^TAx_2 + x_2^TAx_1 $$
+$$ \Leftrightarrow (x_1-x_2)^TA(x_1 - x_2) \ge 0 $$
+it is true since \( A\) is positive semidefinite. \(\blacksquare\)</p>
+</blockquote>
+<p>(b) Show that intersection of \(C\) and the hyperplane defined by \(g^T x + h = 0 \) ( where \(g \ne 0\) ) is convex if \(A + λgg^T \succeq 0 \) for some \(λ ∈ R \). Are the converses of these statements true?</p>
+<blockquote>
+<p>Let $$ H = \{x | g^T x + h = 0\} $$
+for \(x\in H\), \(x\in C\) equavalent to
+$$ x^T (A+ λgg^T) x + b^T x + c + λh^2 \le 0 $$
+whose solution set defined \(\tilde{C}\),<br />
+if \( A + λgg^T \succeq 0 \) for some \(λ ∈ R \), then
+\(\tilde{C}\) is convex.
+$$ x \in H \cap C = H \cap \tilde{C} $$
+is intersection of two convex sets, so it is convex.  \(\blacksquare\)</p>
+<p>the converses is <strong>false</strong>.
+let's consider the case
+$$ A = \begin{bmatrix} -1 &amp; 0 \\ 0 &amp; -1 \end{bmatrix}, g = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, b=0, h = 0, c = 0 $$
+where \( C=R^2\), \( H = \{ (x_1, x_2) | x_2 = 0\} \),
+\( C \cap H \) is obvious convex,
+but \( A + λgg^T = \begin{bmatrix} -1 &amp; 0 \\ 0 &amp; -1 + λ \end{bmatrix}\) can never be positive semidefinite.</p>
+</blockquote>
+<h2 id="2-exercise-218-of-convex-optimization"><a class="header" href="#2-exercise-218-of-convex-optimization"><a href="../Introduction.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">2. Exercise 2.18 of Convex Optimization</a></a></h2>
+<p>Invertible linear-fractional functions.<br />
+$$ f(x) = \frac{Ax+b}{c^Tx+d}, \qquad dom f = \{x | c^Tx+d &gt; 0\} $$
+Suppose the matrix
+$$ Q=\begin{bmatrix} A &amp; b \\ c^T &amp; d \end{bmatrix} $$
+is nonsingular. Show that \(f\) is an invertible linear fractional function.</p>
+<blockquote>
+<p>let \( y = (Ax+b)/(c^Tx+d) \), then
+$$ Q\begin{bmatrix} x \\ 1 \end{bmatrix} = (c^Tx+d)\begin{bmatrix} y \\ 1 \end{bmatrix} $$
+since \(Q\) is inversible, and \(\{x | c^Tx+d &gt; 0\}\) we get
+$$ x = P(\begin{bmatrix} x \\ 1 \end{bmatrix})
+= P(Q^{-1}\begin{bmatrix} y \\ 1 \end{bmatrix}) $$
+so \(f\) is bijective.<br />
+For
+$$ Q = \begin{bmatrix} A &amp; b \\ c^T &amp; d \end{bmatrix}
+= \begin{bmatrix} I &amp;  \\ c^TA^{-1} &amp; 1 \end{bmatrix}
+\begin{bmatrix} A &amp;  \\  &amp; d-c^TA^{-1}b \end{bmatrix}
+\begin{bmatrix} I &amp; A^{-1}b \\  &amp; 1 \end{bmatrix}
+$$
+$$ Q^{-1}
+= \begin{bmatrix} I &amp; -A^{-1}b \\  &amp; 1 \end{bmatrix}
+\begin{bmatrix} A^{-1} &amp;  \\  &amp; (d-c^TA^{-1}b)^{-1} \end{bmatrix}
+\begin{bmatrix} I &amp;  \\ -c^TA^{-1} &amp; 1 \end{bmatrix} \\
+\begin{bmatrix}
+A^{-1} + A^{-1}b (d-c^TA^{-1}b)^{-1} c^TA^{-1} &amp; -A^{-1}b (d-c^TA^{-1}b)^{-1} \\
+-(d-c^TA^{-1}b)^{-1} c^TA^{-1} &amp; (d-c^TA^{-1}b)^{-1}
+\end{bmatrix}
+$$
+so,
+$$ x = \frac{(A^{-1} (d-c^TA^{-1}b) + A^{-1}b c^TA^{-1})y - A^{-1}b }{-c^TA^{-1}y + 1} $$
+$$ dom f^{-1} = \{ y | (d-c^TA^{-1}b)(-c^TA^{-1}y + 1) &gt; 0 \} $$</p>
+</blockquote>
+<h2 id="convex-hullsparse-representation-of-a-polytope"><a class="header" href="#convex-hullsparse-representation-of-a-polytope">convex hull/Sparse Representation of a Polytope</a></h2>
+<p>reference:
+<a href="./Cai%20and%20Zhang%20-%202014%20-%20Sparse%20Representation%20of%20a%20Polytope%20and%20Recovery%20o.pdf">Sparse representation of a polytope and recovery of sparse signals and low-rank matrices</a></p>
+<p>Please give the Sparse Representation of a Polytope \(A = \{x ∈ R^n : ‖x‖_∞ ≤ θ, ‖x‖_1 ≤ sθ\} \).</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../AffineAndConvex/init.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
+                            <a rel="next prefetch" href="../HomeWork/HW2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -191,7 +262,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../AffineAndConvex/init.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
+                    <a rel="next prefetch" href="../HomeWork/HW2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
@@ -204,13 +281,13 @@
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 

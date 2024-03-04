@@ -91,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="AffineAndConvex/init.html"><strong aria-hidden="true">1.</strong> 仿射与凸集</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="AffineAndConvex/init.html"><strong aria-hidden="true">1.</strong> 仿射与凸集</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="HomeWork/HW1.html">HW1</a></li><li class="chapter-item expanded affix "><a href="HomeWork/HW2.html">HW2</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -187,7 +187,80 @@
 </ul>
 </li>
 </ul>
+<h2 id="依赖"><a class="header" href="#依赖">依赖</a></h2>
+<p><a href="../../LinearAlgebra/book/">线性代数</a>
+<a href="../../FunctionalAnalysis/book/">泛函分析</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="仿射与凸集"><a class="header" href="#仿射与凸集">仿射与凸集</a></h1>
+<p>仿射集其实就是一个子空间进行了平移，或者说是超平面的交。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hw1"><a class="header" href="#hw1">HW1</a></h1>
+<p><a href="HomeWork/../../HWpdf/Homework1-2024.pdf">HW1</a></p>
+<h2 id="1-exercise-210-of-convex-optimization"><a class="header" href="#1-exercise-210-of-convex-optimization"><a href="HomeWork/../Introduction.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">1. Exercise 2.10 of Convex Optimization</a></a></h2>
+<p>$$ C=\{ x\in R^n | x^T A x + b^T x + c \le 0\} $$
+with \( A\in S^n, \quad b\in R^n, \quad c\in R \).</p>
+<p>(a) Show that \( C\) is \( A\succeq  0\) (which means \( A\) is positive semidefinite).</p>
+<blockquote>
+<p>It is sufficient to show that \( f(x) = x^T A x + b^T x + c \) is a convex function (for the <strong>epi</strong> of a convex function is convex.)
+i.e. $$ \frac{f(x_1) + f(x_2)}{2} \ge f(\frac{x_1+x_2}{2}) $$
+that is
+$$ x_1^TAx_1 + x_2^TAx_2 \ge \frac{1}{2}(x_1^T+x_2^T)A(x_1 + x_2) $$
+$$ \Leftrightarrow x_1^TAx_1 + x_2^TAx_2 \ge x_1^TAx_2 + x_2^TAx_1 $$
+$$ \Leftrightarrow (x_1-x_2)^TA(x_1 - x_2) \ge 0 $$
+it is true since \( A\) is positive semidefinite. \(\blacksquare\)</p>
+</blockquote>
+<p>(b) Show that intersection of \(C\) and the hyperplane defined by \(g^T x + h = 0 \) ( where \(g \ne 0\) ) is convex if \(A + λgg^T \succeq 0 \) for some \(λ ∈ R \). Are the converses of these statements true?</p>
+<blockquote>
+<p>Let $$ H = \{x | g^T x + h = 0\} $$
+for \(x\in H\), \(x\in C\) equavalent to
+$$ x^T (A+ λgg^T) x + b^T x + c + λh^2 \le 0 $$
+whose solution set defined \(\tilde{C}\),<br />
+if \( A + λgg^T \succeq 0 \) for some \(λ ∈ R \), then
+\(\tilde{C}\) is convex.
+$$ x \in H \cap C = H \cap \tilde{C} $$
+is intersection of two convex sets, so it is convex.  \(\blacksquare\)</p>
+<p>the converses is <strong>false</strong>.
+let's consider the case
+$$ A = \begin{bmatrix} -1 &amp; 0 \\ 0 &amp; -1 \end{bmatrix}, g = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, b=0, h = 0, c = 0 $$
+where \( C=R^2\), \( H = \{ (x_1, x_2) | x_2 = 0\} \),
+\( C \cap H \) is obvious convex,
+but \( A + λgg^T = \begin{bmatrix} -1 &amp; 0 \\ 0 &amp; -1 + λ \end{bmatrix}\) can never be positive semidefinite.</p>
+</blockquote>
+<h2 id="2-exercise-218-of-convex-optimization"><a class="header" href="#2-exercise-218-of-convex-optimization"><a href="HomeWork/../Introduction.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">2. Exercise 2.18 of Convex Optimization</a></a></h2>
+<p>Invertible linear-fractional functions.<br />
+$$ f(x) = \frac{Ax+b}{c^Tx+d}, \qquad dom f = \{x | c^Tx+d &gt; 0\} $$
+Suppose the matrix
+$$ Q=\begin{bmatrix} A &amp; b \\ c^T &amp; d \end{bmatrix} $$
+is nonsingular. Show that \(f\) is an invertible linear fractional function.</p>
+<blockquote>
+<p>let \( y = (Ax+b)/(c^Tx+d) \), then
+$$ Q\begin{bmatrix} x \\ 1 \end{bmatrix} = (c^Tx+d)\begin{bmatrix} y \\ 1 \end{bmatrix} $$
+since \(Q\) is inversible, and \(\{x | c^Tx+d &gt; 0\}\) we get
+$$ x = P(\begin{bmatrix} x \\ 1 \end{bmatrix})
+= P(Q^{-1}\begin{bmatrix} y \\ 1 \end{bmatrix}) $$
+so \(f\) is bijective.<br />
+For
+$$ Q = \begin{bmatrix} A &amp; b \\ c^T &amp; d \end{bmatrix}
+= \begin{bmatrix} I &amp;  \\ c^TA^{-1} &amp; 1 \end{bmatrix}
+\begin{bmatrix} A &amp;  \\  &amp; d-c^TA^{-1}b \end{bmatrix}
+\begin{bmatrix} I &amp; A^{-1}b \\  &amp; 1 \end{bmatrix}
+$$
+$$ Q^{-1}
+= \begin{bmatrix} I &amp; -A^{-1}b \\  &amp; 1 \end{bmatrix}
+\begin{bmatrix} A^{-1} &amp;  \\  &amp; (d-c^TA^{-1}b)^{-1} \end{bmatrix}
+\begin{bmatrix} I &amp;  \\ -c^TA^{-1} &amp; 1 \end{bmatrix} \\
+\begin{bmatrix}
+A^{-1} + A^{-1}b (d-c^TA^{-1}b)^{-1} c^TA^{-1} &amp; -A^{-1}b (d-c^TA^{-1}b)^{-1} \\
+-(d-c^TA^{-1}b)^{-1} c^TA^{-1} &amp; (d-c^TA^{-1}b)^{-1}
+\end{bmatrix}
+$$
+so,
+$$ x = \frac{(A^{-1} (d-c^TA^{-1}b) + A^{-1}b c^TA^{-1})y - A^{-1}b }{-c^TA^{-1}y + 1} $$
+$$ dom f^{-1} = \{ y | (d-c^TA^{-1}b)(-c^TA^{-1}y + 1) &gt; 0 \} $$</p>
+</blockquote>
+<h2 id="convex-hullsparse-representation-of-a-polytope"><a class="header" href="#convex-hullsparse-representation-of-a-polytope">convex hull/Sparse Representation of a Polytope</a></h2>
+<p>reference:
+<a href="HomeWork/./Cai%20and%20Zhang%20-%202014%20-%20Sparse%20Representation%20of%20a%20Polytope%20and%20Recovery%20o.pdf">Sparse representation of a polytope and recovery of sparse signals and low-rank matrices</a></p>
+<p>Please give the Sparse Representation of a Polytope \(A = \{x ∈ R^n : ‖x‖_∞ ≤ θ, ‖x‖_1 ≤ sθ\} \).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hw2"><a class="header" href="#hw2">HW2</a></h1>
 
                     </main>
 
