@@ -126,7 +126,7 @@ is nonsingular. Show that \\(f\\) is an invertible linear fractional function.
 > (c^T\tilde{A}^{-1}b)^{-1} c^T\tilde{A}^{-1} & -(c^T\tilde{A}^{-1}b)^{-1}
 > \end{bmatrix}
 > $$
-> （啊，我实在是不想写了，领会意思吧！我都不知道这是在干啥。）
+> （啊，我实在是不想写了，领会意思吧！我都不知道这有什么用。）
 
 
 ## convex hull/Sparse Representation of a Polytope
@@ -153,7 +153,7 @@ $$
 > Let 
 > $$ v=[a_1, ..., a_n], \quad with \quad \sum_{i=1}^n a_i = \\|v\\|\_1 \in (k, k+1] $$
 > \\( where \quad 0< a_i < 1, k\in Z, k<s \\)   
-> Then the extrime points of \\(U(1, s, v)\\) is the set \\{u\in R^n\\} \\) that elements of \\(u\\) are permutation of k ones,  one \\( \\|v\\|\_1-k \\) and zeros.   
+> Then the extrime points of \\(U(1, s, v)\\) is the subset of \\( \\{u\in R^n\\} \\) that elements of \\(u\\) are permutation of k ones,  one \\( \\|v\\|\_1-k \\) and zeros.   
 > e.g. 
 > ![pic](./SparseConvexHull.png)
 > for \\( U(0.6, 2, [1/2, 1/4, 1/4]) \\), its extrime points are \\( [1, 1/2, 0], [1, 0, 1/2], [0, 1, 1/2], [1/2, 1, 0], [1/2, 0, 1], [0, 1/2, 1] \\), just like the graph in the paper.
