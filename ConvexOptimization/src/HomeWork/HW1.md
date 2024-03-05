@@ -46,11 +46,13 @@ is nonsingular. Show that \\(f\\) is an invertible linear fractional function.
 
 > let \\( y = \(Ax+b)/(c^Tx+d) \\), then
 > $$ Q\begin{bmatrix} x \\\\ 1 \end{bmatrix} = (c^Tx+d)\begin{bmatrix} y \\\\ 1 \end{bmatrix} $$
-> since \\(Q\\) is inversible, and \\(\\{x | c^Tx+d > 0\\}\\) we get 
+> since \\(Q\\) is inversible, and \\( c^Tx+d > 0 \\), we get
+> $$ Q^{-1}\begin{bmatrix} y \\\\ 1 \end{bmatrix} = \frac{1}{c^Tx+d} \begin{bmatrix} x \\\\ 1 \end{bmatrix} $$ 
+> Then
 > $$ x = P(\begin{bmatrix} x \\\\ 1 \end{bmatrix}) 
 > = P(Q^{-1}\begin{bmatrix} y \\\\ 1 \end{bmatrix}) $$
 > so \\(f\\) is bijective.  
-> For 
+> For \\(A\\) invertable,
 > $$ Q = \begin{bmatrix} A & b \\\\ c^T & d \end{bmatrix}
 > = \begin{bmatrix} I &  \\\\ c^TA^{-1} & 1 \end{bmatrix}
 > \begin{bmatrix} A &  \\\\  & d-c^TA^{-1}b \end{bmatrix}
@@ -60,7 +62,7 @@ is nonsingular. Show that \\(f\\) is an invertible linear fractional function.
 > = \begin{bmatrix} I & -A^{-1}b \\\\  & 1 \end{bmatrix}
 > \begin{bmatrix} A^{-1} &  \\\\  & (d-c^TA^{-1}b)^{-1} \end{bmatrix}
 > \begin{bmatrix} I &  \\\\ -c^TA^{-1} & 1 \end{bmatrix} \\\\
-> \begin{bmatrix} 
+> = \begin{bmatrix} 
 > A^{-1} + A^{-1}b (d-c^TA^{-1}b)^{-1} c^TA^{-1} & -A^{-1}b (d-c^TA^{-1}b)^{-1} \\\\
 > -(d-c^TA^{-1}b)^{-1} c^TA^{-1} & (d-c^TA^{-1}b)^{-1}
 > \end{bmatrix}
@@ -68,6 +70,8 @@ is nonsingular. Show that \\(f\\) is an invertible linear fractional function.
 > so,
 > $$ x = \frac{(A^{-1} (d-c^TA^{-1}b) + A^{-1}b c^TA^{-1})y - A^{-1}b }{-c^TA^{-1}y + 1} $$
 > $$ dom f^{-1} = \\{ y | (d-c^TA^{-1}b)(-c^TA^{-1}y + 1) > 0 \\} $$
+> 
+> If \\(A\\) is **not** invertable, for \\(Q\\) is nonsingular, the eigenvalues of \\(A\\) must have only one dimension, denoted \\(\lambda v\\), and \\( c^Tv\ne 0 \\)
 
 
 ## convex hull/Sparse Representation of a Polytope
@@ -95,4 +99,7 @@ $$
 > $$ v=[a_1, ..., a_n], \quad with \quad \sum_{i=1}^n a_i = \\|v\\|\_1 \in (k, k+1] $$
 > \\( where \quad 0< a_i < 1, k\in Z, k<s \\)   
 > Then the extrime points of \\(U(1, s, v)\\) is the set \\{u\in R^n\\} \\) that elements of \\(u\\) are permutation of k ones,  one \\( \\|v\\|\_1-k \\) and zeros.   
-> e.g. for \\( U(0.6, 2, [1/2, 1/4, 1/4]) \\), its extrime points are \\( [1, 1/2, 0], [1, 0, 1/2], [0, 1, 1/2], [1/2, 1, 0], [1/2, 0, 1], [0, 1/2, 1] \\), just like the graph in the paper.
+> e.g. 
+> ![pic](./SparseConvexHull.png)
+> for \\( U(0.6, 2, [1/2, 1/4, 1/4]) \\), its extrime points are \\( [1, 1/2, 0], [1, 0, 1/2], [0, 1, 1/2], [1/2, 1, 0], [1/2, 0, 1], [0, 1/2, 1] \\), just like the graph in the paper.
+> 
