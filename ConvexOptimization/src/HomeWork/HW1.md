@@ -77,3 +77,22 @@ reference:
 
 Please give the Sparse Representation of a Polytope \\(A = \\{x ∈ R^n : ‖x‖_∞ ≤ θ, ‖x‖_1 ≤ sθ\\} \\).
 
+For any \\(v ∈ R^n\\), define the set of sparse vectors \\( U (\theta, s, v) ⊂ R^n \\) by    
+$$
+U (\theta, s, v) = \\{ u \in R^n : supp(u) \subset supp(v) \quad \\|u\\|\_0 = s, \\|u\\|\_1 = \\|v\\|\_1, \\|u\\|_{\infty} ≤ \theta \\} 
+$$
+
+Any \\( v\in A\\) can be represented as
+$$ 
+v = \sum_{i=1}^N \lambda_i u_i, \quad with \quad 0\le\lambda_i\le 1, \quad \sum_{i=1}^N \lambda_i = 1, \quad u_i \in U(\theta, s, v)\\ 
+$$
+
+> Without loss of generality, we can assume that \\(\theta=1\\).    
+> Just consider the case \\(v \succeq 0\\). Without loss of generality, we can assume \\(supp(v) = \\{1, .. p\\} \\). Then we can deduce the case to \\( n = p\\).  
+> So we assume that \\(|supp(v)|=n\\).
+> The convex hull of \\(U(1, s, v)\\) is just the part of hyperplane, defined by \\( \\|u\\|\_1 = \\|v\\|\_1 \\), cutting through the \\(n\\) dimensional cube \\( [0, 1]^n\\).     
+> Let 
+> $$ v=[a_1, ..., a_n], \quad with \quad \sum_{i=1}^n a_i = \\|v\\|\_1 \in (k, k+1] $$
+> \\( where \quad 0< a_i < 1, k\in Z, k<s \\)   
+> Then the extrime points of \\(U(1, s, v)\\) is the set \\{u\in R^n\\} \\) that elements of \\(u\\) are permutation of k ones,  one \\( \\|v\\|\_1-k \\) and zeros.   
+> e.g. for \\( U(0.6, 2, [1/2, 1/4, 1/4]) \\), its extrime points are \\( [1, 1/2, 0], [1, 0, 1/2], [0, 1, 1/2], [1/2, 1, 0], [1/2, 0, 1], [0, 1/2, 1] \\), just like the graph in the paper.
