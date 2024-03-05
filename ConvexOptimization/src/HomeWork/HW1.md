@@ -52,7 +52,9 @@ is nonsingular. Show that \\(f\\) is an invertible linear fractional function.
 > $$ x = P(\begin{bmatrix} x \\\\ 1 \end{bmatrix}) 
 > = P(Q^{-1}\begin{bmatrix} y \\\\ 1 \end{bmatrix}) $$
 > so \\(f\\) is bijective.  
-> For \\(A\\) invertable,
+>
+> [Schur complement Matrix Analysis 0.8.5](../../../Library/Matrix%20analysis%20Cambridge%20University%20Press%20.pdf)
+> 1. For \\(A\\) invertible,
 > $$ Q = \begin{bmatrix} A & b \\\\ c^T & d \end{bmatrix}
 > = \begin{bmatrix} I &  \\\\ c^TA^{-1} & 1 \end{bmatrix}
 > \begin{bmatrix} A &  \\\\  & d-c^TA^{-1}b \end{bmatrix}
@@ -70,8 +72,61 @@ is nonsingular. Show that \\(f\\) is an invertible linear fractional function.
 > so,
 > $$ x = \frac{(A^{-1} (d-c^TA^{-1}b) + A^{-1}b c^TA^{-1})y - A^{-1}b }{-c^TA^{-1}y + 1} $$
 > $$ dom f^{-1} = \\{ y | (d-c^TA^{-1}b)(-c^TA^{-1}y + 1) > 0 \\} $$
+>
+> 2. If \\(d \ne 0\\), similarly, we get
+> $$ Q = \begin{bmatrix} A & b \\\\ c^T & d \end{bmatrix}
+> = \begin{bmatrix} I & bd^{-1} \\\\  & 1 \end{bmatrix}
+> \begin{bmatrix} A-bd^{-1}c^T &  \\\\  & d \end{bmatrix}
+> \begin{bmatrix} I &  \\\\ d^{-1}c^T & 1 \end{bmatrix}
+> $$
+> $$ Q^{-1}
+> = \begin{bmatrix} I &  \\\\ -d^{-1}c^T & 1 \end{bmatrix}
+> \begin{bmatrix} (A-bd^{-1}c^T)^{-1} &  \\\\  & d^{-1} \end{bmatrix}
+> \begin{bmatrix} I & -bd^{-1} \\\\  & 1 \end{bmatrix} \\\\
+> = \begin{bmatrix}
+> (A-bd^{-1}c^T)^{-1}   &   -(A-bd^{-1}c^T)^{-1}bd^{-1} \\\\
+> -d^{-1}c^T(A-bd^{-1}c^T)^{-1}     &   d^{-1}+d^{-1}c^T(A-bd^{-1}c^T)^{-1}bd^{-1}
+> \end{bmatrix}
+> $$ 
+> So,
+> $$ x = \frac{d(dA-bc^T)^{-1}y - (dA-bc^T)^{-1}b}{-c^T(dA-bc^T)^{-1}y + d^{-1}+d^{-1}c^T(dA-bc^T)^{-1}b} $$
+> $$ dom f^{-1} = \\{ y | -c^T(dA-bc^T)^{-1}y + d^{-1}+d^{-1}c^T(dA-bc^T)^{-1}b > 0 \\} $$
 > 
-> If \\(A\\) is **not** invertable, for \\(Q\\) is nonsingular, the eigenvalues of \\(A\\) must have only one dimension, denoted \\(\lambda v\\), and \\( c^Tv\ne 0 \\)
+> 3. If \\(A\\) is **not** invertable and \\(d = 0\\), （啊！我要疯了，哪里有这个定理啊，我快算死了！）   
+> Since $$ Q = \begin{bmatrix} A & b \\\\ c^T & 0 \end{bmatrix} $$ is nonsingular,
+> we have
+> -  \\(rank(A) = n-1\\), the kernel space  denoted \\(\lambda v\\),  
+> - \\(rank([A \quad b] = n) \\) 
+> - \\( c^Tv\ne 0 \\),  
+> - \\(b \ne 0\\).    
+> Then we conclude \\( A + bc^T \\) is invertible!    
+> Otherwise, there is some vector \\(u\\) s.t. \\( Au + bc^Tu = 0\\), 
+> but we have \\( rank([A \quad b]) > rank(A) = n-1\\), 
+> we deduce \\( Au = 0 \\) and \\(bc^Tu = 0\\).
+> so we get \\( u = \lambda v\\), and then \\( 0 = \lambda bc^Tv \Rightarrow \lambda = 0\\)    
+> Now, we can get
+> $$ 
+> Q = \begin{bmatrix}
+>    A & b \\\\ c^T & 0
+> \end{bmatrix}
+> = \begin{bmatrix}
+>    A+bc^T & b \\\\ c^T & 0
+> \end{bmatrix}
+> \begin{bmatrix}
+>    I & 0 \\\\ -c^T & 1
+> \end{bmatrix}
+> $$
+> denote \\( \tilde{A} = A + bc^T \\)
+> $$
+> Q^{-1} = \\\\ \begin{bmatrix}
+>    I & 0 \\\\ c^T & 1
+> \end{bmatrix}
+> \begin{bmatrix} 
+> \tilde{A}^{-1} - \tilde{A}^{-1}b (c^T\tilde{A}^{-1}b)^{-1} c^T\tilde{A}^{-1} & -\tilde{A}^{-1}b (c^T\tilde{A}^{-1}b)^{-1} \\\\
+> (c^T\tilde{A}^{-1}b)^{-1} c^T\tilde{A}^{-1} & -(c^T\tilde{A}^{-1}b)^{-1}
+> \end{bmatrix}
+> $$
+> （啊，我实在是不想写了，领会意思吧！我都不知道这是在干啥。）
 
 
 ## convex hull/Sparse Representation of a Polytope

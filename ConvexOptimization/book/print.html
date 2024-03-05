@@ -238,8 +238,11 @@ $$ Q^{-1}\begin{bmatrix} y \\ 1 \end{bmatrix} = \frac{1}{c^Tx+d} \begin{bmatrix}
 Then
 $$ x = P(\begin{bmatrix} x \\ 1 \end{bmatrix})
 = P(Q^{-1}\begin{bmatrix} y \\ 1 \end{bmatrix}) $$
-so \(f\) is bijective.<br />
-For \(A\) invertable,
+so \(f\) is bijective.</p>
+<p><a href="HomeWork/../../../Library/Matrix%20analysis%20Cambridge%20University%20Press%20.pdf">Schur complement Matrix Analysis 0.8.5</a></p>
+<ol>
+<li>
+<p>For \(A\) invertible,
 $$ Q = \begin{bmatrix} A &amp; b \\ c^T &amp; d \end{bmatrix}
 = \begin{bmatrix} I &amp;  \\ c^TA^{-1} &amp; 1 \end{bmatrix}
 \begin{bmatrix} A &amp;  \\  &amp; d-c^TA^{-1}b \end{bmatrix}
@@ -257,7 +260,67 @@ $$
 so,
 $$ x = \frac{(A^{-1} (d-c^TA^{-1}b) + A^{-1}b c^TA^{-1})y - A^{-1}b }{-c^TA^{-1}y + 1} $$
 $$ dom f^{-1} = \{ y | (d-c^TA^{-1}b)(-c^TA^{-1}y + 1) &gt; 0 \} $$</p>
-<p>If \(A\) is <strong>not</strong> invertable, for \(Q\) is nonsingular, the eigenvalues of \(A\) must have only one dimension, denoted \(\lambda v\), and \( c^Tv\ne 0 \)</p>
+</li>
+<li>
+<p>If \(d \ne 0\), similarly, we get
+$$ Q = \begin{bmatrix} A &amp; b \\ c^T &amp; d \end{bmatrix}
+= \begin{bmatrix} I &amp; bd^{-1} \\  &amp; 1 \end{bmatrix}
+\begin{bmatrix} A-bd^{-1}c^T &amp;  \\  &amp; d \end{bmatrix}
+\begin{bmatrix} I &amp;  \\ d^{-1}c^T &amp; 1 \end{bmatrix}
+$$
+$$ Q^{-1}
+= \begin{bmatrix} I &amp;  \\ -d^{-1}c^T &amp; 1 \end{bmatrix}
+\begin{bmatrix} (A-bd^{-1}c^T)^{-1} &amp;  \\  &amp; d^{-1} \end{bmatrix}
+\begin{bmatrix} I &amp; -bd^{-1} \\  &amp; 1 \end{bmatrix} \\
+= \begin{bmatrix}
+(A-bd^{-1}c^T)^{-1}   &amp;   -(A-bd^{-1}c^T)^{-1}bd^{-1} \\
+-d^{-1}c^T(A-bd^{-1}c^T)^{-1}     &amp;   d^{-1}+d^{-1}c^T(A-bd^{-1}c^T)^{-1}bd^{-1}
+\end{bmatrix}
+$$
+So,
+$$ x = \frac{d(dA-bc^T)^{-1}y - (dA-bc^T)^{-1}b}{-c^T(dA-bc^T)^{-1}y + d^{-1}+d^{-1}c^T(dA-bc^T)^{-1}b} $$
+$$ dom f^{-1} = \{ y | -c^T(dA-bc^T)^{-1}y + d^{-1}+d^{-1}c^T(dA-bc^T)^{-1}b &gt; 0 \} $$</p>
+</li>
+<li>
+<p>If \(A\) is <strong>not</strong> invertable and \(d = 0\), （啊！我要疯了，哪里有这个定理啊，我快算死了！）<br />
+Since $$ Q = \begin{bmatrix} A &amp; b \\ c^T &amp; 0 \end{bmatrix} $$ is nonsingular,
+we have</p>
+</li>
+</ol>
+<ul>
+<li>\(rank(A) = n-1\), the kernel space  denoted \(\lambda v\),</li>
+<li>\(rank([A \quad b] = n) \)</li>
+<li>\( c^Tv\ne 0 \),</li>
+<li>\(b \ne 0\).<br />
+Then we conclude \( A + bc^T \) is invertible!<br />
+Otherwise, there is some vector \(u\) s.t. \( Au + bc^Tu = 0\),
+but we have \( rank([A \quad b]) &gt; rank(A) = n-1\),
+we deduce \( Au = 0 \) and \(bc^Tu = 0\).
+so we get \( u = \lambda v\), and then \( 0 = \lambda bc^Tv \Rightarrow \lambda = 0\)<br />
+Now, we can get
+$$
+Q = \begin{bmatrix}
+A &amp; b \\ c^T &amp; 0
+\end{bmatrix}
+= \begin{bmatrix}
+A+bc^T &amp; b \\ c^T &amp; 0
+\end{bmatrix}
+\begin{bmatrix}
+I &amp; 0 \\ -c^T &amp; 1
+\end{bmatrix}
+$$
+denote \( \tilde{A} = A + bc^T \)
+$$
+Q^{-1} = \\ \begin{bmatrix}
+I &amp; 0 \\ c^T &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+\tilde{A}^{-1} - \tilde{A}^{-1}b (c^T\tilde{A}^{-1}b)^{-1} c^T\tilde{A}^{-1} &amp; -\tilde{A}^{-1}b (c^T\tilde{A}^{-1}b)^{-1} \\
+(c^T\tilde{A}^{-1}b)^{-1} c^T\tilde{A}^{-1} &amp; -(c^T\tilde{A}^{-1}b)^{-1}
+\end{bmatrix}
+$$
+（啊，我实在是不想写了，领会意思吧！我都不知道这是在干啥。）</li>
+</ul>
 </blockquote>
 <h2 id="convex-hullsparse-representation-of-a-polytope"><a class="header" href="#convex-hullsparse-representation-of-a-polytope">convex hull/Sparse Representation of a Polytope</a></h2>
 <p>reference:
