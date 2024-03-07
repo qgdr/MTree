@@ -1,6 +1,8 @@
 # HW1
 
-[HW1](../../HWpdf/Homework1-2024.pdf)
+[HW1pdf](../../HWpdf/Homework1-2024.pdf)
+
+<!-- toc -->
 
 ## [1. Exercise 2.10 of Convex Optimization](../Introduction.md#参考资料)
 
@@ -129,7 +131,7 @@ is nonsingular. Show that \\(f\\) is an invertible linear fractional function.
 > （啊，我实在是不想写了，领会意思吧！我都不知道这有什么用。）
 
 
-## convex hull/Sparse Representation of a Polytope
+## 3. convex hull/Sparse Representation of a Polytope
 
 reference:
 [Sparse representation of a polytope and recovery of sparse signals and low-rank matrices](./Cai%20and%20Zhang%20-%202014%20-%20Sparse%20Representation%20of%20a%20Polytope%20and%20Recovery%20o.pdf)
@@ -138,7 +140,7 @@ Please give the Sparse Representation of a Polytope \\(A = \\{x ∈ R^n : ‖x�
 
 For any \\(v ∈ R^n\\), define the set of sparse vectors \\( U (\theta, s, v) ⊂ R^n \\) by    
 $$
-U (\theta, s, v) = \\{ u \in R^n : supp(u) \subset supp(v) \quad \\|u\\|\_0 = s, \\|u\\|\_1 = \\|v\\|\_1, \\|u\\|_{\infty} ≤ \theta \\} 
+U (\theta, s, v) = \\{ u \in R^n : supp(u) \subset supp(v) \quad \\|u\\|\_0 \le s, \\|u\\|\_1 = \\|v\\|\_1, \\|u\\|_{\infty} ≤ \theta \\} 
 $$
 
 Any \\( v\in A\\) can be represented as
@@ -146,15 +148,28 @@ $$
 v = \sum_{i=1}^N \lambda_i u_i, \quad with \quad 0\le\lambda_i\le 1, \quad \sum_{i=1}^N \lambda_i = 1, \quad u_i \in U(\theta, s, v)\\ 
 $$
 
-> Without loss of generality, we can assume that \\(\theta=1\\).    
-> Just consider the case \\(v \succeq 0\\). Without loss of generality, we can assume \\(supp(v) = \\{1, .. p\\} \\). Then we can deduce the case to \\( n = p\\).  
-> So we assume that \\(|supp(v)|=n\\).
-> The convex hull of \\(U(1, s, v)\\) is just the part of hyperplane, defined by \\( \\|u\\|\_1 = \\|v\\|\_1 \\), cutting through the \\(n\\) dimensional cube \\( [0, 1]^n\\).     
-> Let 
-> $$ v=[a_1, ..., a_n], \quad with \quad \sum_{i=1}^n a_i = \\|v\\|\_1 \in (k, k+1] $$
-> \\( where \quad 0< a_i < 1, k\in Z, k<s \\)   
-> Then the extrime points of \\(U(1, s, v)\\) is the subset of \\( \\{u\in R^n\\} \\) that elements of \\(u\\) are permutation of k ones,  one \\( \\|v\\|\_1-k \\) and zeros.   
-> e.g. 
-> ![pic](./SparseConvexHull.png)
-> for \\( U(0.6, 2, [1/2, 1/4, 1/4]) \\), its extrime points are \\( [1, 1/2, 0], [1, 0, 1/2], [0, 1, 1/2], [1/2, 1, 0], [1/2, 0, 1], [0, 1/2, 1] \\), just like the graph in the paper.
+> In the paper, the main idea of the proof is to fix some components of \\(v\\) and then view the left components as a vector \\(\tilde{v}\\) that analogous to the origin problem in lower dimension. 
+> And use the technique of decomposition of vector to the edge of the intersection of cube and hyperplane to decrease at least one dimension.
+> The requests of \\(j\\) is found just to make sure that the decomposition of \\(\tilde{v}\\) satisfies the condition of \\(U(\theta, s, \tilde{v})\\).
+>
+> **But** here, we give a another expression, and deduce a little stronger conclusion.    
+> Without loss of generality, we can assume that \\(\theta=1\\), and just consider the case \\(v \succeq 0\\).      
+> For some \\(v\in A, \\|v\\|\_1 = t\\), we define 
+> $$ P(t) = \\{ (a_i)_{i=1}^n \in U(1, s, v) : at\\, most\\, one\\, element \notin \\{ 0, 1 \\}\\} $$
+> Indeed, \\(P(t)\\) is the extrime points of \\(conv\\,U(1, s, v)\\).         
+> And points in \\(P(k,t)\\) is obviously \\(\lceil t\rceil\\)-sparse vectors.
+> 
+> e.g. For some \\(v, \\|v\\|= 1.5 \\)
+> ![convU](./SparseConvexHull.png)
+> \\(P(1, 0.5) = \\{ [1, 1/2, 0], [1, 0, 1/2], [0, 1, 1/2], [1/2, 1, 0], [1/2, 0, 1], [0, 1/2, 1] \\} \\), just like the graph in the paper.
+> 
+> We claim that \\(v\\) can be expressed by \\(P(k,t)\\).
+>
+> Consider \\(v=[a_1, ... , a_n], v\in A\\), if \\(v\notin P(t)\\), then it has two components, WLOG, noted \\(a_1, a_2 \notin \\{0, 1\\} \\). 
+> - If \\(a_1+a_2 \le 1\\), then $$ v = \lambda_1u_1 + \lambda_2u_2, $$ where \\(\lambda_1 = \frac{a_1}{a_1+a_2}, \lambda_2=\frac{a_2}{a_1+a_2} \\) and \\( u_1 = [a_1+a_2, 0, a_3, ..., a_n], u_2 = [0, a_1+a_2, a_3, ..., a_n] \\).
+> - If \\(1< a_1+a_2 < 2\\), then $$ v = \lambda_1u_1 + \lambda_2u_2, $$ where \\(\lambda_1 = \frac{1-a_1}{2-a_1+a_2}, \lambda_2=\frac{1-a_2}{2-a_1+a_2} \\) and \\( u_1 = [a_1+a_2-1, 1, a_3, ..., a_n], u_2 = [1, a_1+a_2-1, a_3, ..., a_n] \\).
+> ![sparsedecom](./SparseDecom.png)     
+> It's obvious that \\(\lambda_1+\lambda_2 = 1\\) and \\(\\|u\\|\_i=t, i=1, 2\\).
+> And the number of components of \\(u_1, u_2\\) that not in \\(\\{0, 1\\}\\) is less than \\(v\\).     
+> So, by induction, we can conclude that \\(v\\) can be expressed by \\(P(t)\\).
 > 

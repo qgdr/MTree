@@ -7,3 +7,9 @@ title = "Convex Optimization"
 
 [output.html]
 mathjax-support = true
+
+[preprocessor]
+
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]
