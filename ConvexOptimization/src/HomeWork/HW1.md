@@ -23,7 +23,7 @@ with \\( A\in S^n, \quad b\in R^n, \quad c\in R \\).
 >
 > Let $$ H = \\{x | g^T x + h = 0\\} $$
 > for \\(x\in H\\), \\(x\in C\\) equavalent to
-> $$ x^T (A+ λgg^T) x + b^T x + c + λh^2 \le 0 $$
+> $$ x^T (A+ λgg^T) x + b^T x + c - λh^2 \le 0 $$
 > whose solution set defined \\(\tilde{C}\\),   
 > if \\( A + λgg^T \succeq 0 \\) for some \\(λ ∈ R \\), then
 > \\(\tilde{C}\\) is convex.
