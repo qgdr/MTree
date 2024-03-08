@@ -90,4 +90,32 @@ $$ f\in C_c^2(\mathbb{R^n}) $$
 > $$
 > 甚至我们可以得出 \\( \int_{B(x_0, r)}\Phi(x)dx \\) 是随 \\(|x_0|\\) 单调递减的。
 > 证明只需要小小改动一下，请你尝试一下吧。
+
+
+## Problems
 > 
+> 2. Laplace方程是旋转不变的；即，若 \\(O\\) 是一个正交方阵， 定义
+> $$ v(x):=u(Ox) $$ 
+> 那么 \\(\Delta v = 0\\).  
+> （调和是一种曲面内蕴的几何性质。）   
+> $$ \nabla v = \nabla u(Ox) O $$ 
+> $$ \begin{bmatrix}
+>    v_{11} & \cdots & v_{1n} \\\\ \vdots &  & \vdots \\\\ v_{n1} & \cdots & v_{nn} 
+> \end{bmatrix} = \nabla (\nabla v) = \nabla(\nabla u(Ox) O) = O^T \begin{bmatrix}
+>    u_{11} & \cdots & u_{1n} \\\\ \vdots &  & \vdots \\\\ u_{n1} & \cdots & u_{nn} 
+> \end{bmatrix} O $$
+> 而 \\( \Delta v = v_{11}+...+v_{nn} = trace(V) = trace(O^T U O) = trace(U) = \Delta u = 0\\)。
+>
+> 4. 令 \\(U\\) 是有界开集，\\(u\in C^2(U)\cap C(\bar{U})\\) 是调和函数，那么
+> $$ \max_{\bar{U}}u = \max_{\partial U}u $$    
+> 对于 \\(\epsilon>0\\) 定义， \\(u_\epsilon := u+\epsilon|x|^2 \\)。则 \\(\Delta u_\epsilon > 0\\)
+> 由于 \\(U\\) 有界，且 \\(u\\) 在 \\(\bar{U}\\) 上连续，所以 \\(u, |x|\\) 有界。
+> \\(u_\epsilon\\) 的最小值不能在内部取得。
+> 否则，若 \\(u(x_0) = \max_{\bar{U}}u \\)，且 \\(B(x_0, \delta) \subseteq \bar{U} \\)，
+> 那么 $$ u(x_0) < {-\mkern -19mu\int}\_{B(x_0, \delta)} u(x) \le {-\mkern -19mu\int}\_{B(x_0, \delta)} u(x_0) = u(x_0) $$
+> 矛盾。所以，
+> $$ \max_{\bar{U}}u_\epsilon = \max_{\partial U}u_\epsilon $$
+> 我们有
+> $$ \max_{\bar{U}}u = \lim_{\epsilon\to 0} \max_{\bar{U}}u_\epsilon = \lim_{\epsilon\to 0} \max_{\partial U}u = \max_{\partial U}u $$
+>
+> 5. 如果 \\(v\in C^2(\bar{U}) \\)，且 $$ -\Delta \le 0 \quad in \\, U $$，我们称 \\(v\\) 是一个**次调和函数**(subharmonic)。
