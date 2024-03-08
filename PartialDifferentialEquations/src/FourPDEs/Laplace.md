@@ -119,3 +119,4 @@ $$ f\in C_c^2(\mathbb{R^n}) $$
 > $$ \max_{\bar{U}}u = \lim_{\epsilon\to 0} \max_{\bar{U}}u_\epsilon = \lim_{\epsilon\to 0} \max_{\partial U}u = \max_{\partial U}u $$
 >
 > 5. 如果 \\(v\in C^2(\bar{U}) \\)，且 $$ -\Delta \le 0 \quad in \\, U $$，我们称 \\(v\\) 是一个**次调和函数**(subharmonic)。
+> 
