@@ -262,22 +262,25 @@ $$
 <h2 id="problems"><a class="header" href="#problems">Problems</a></h2>
 <blockquote>
 <ol start="2">
-<li>
-<p>Laplace方程是旋转不变的；即，若 \(O\) 是一个正交方阵， 定义
+<li>证明 Laplace方程是旋转不变的；即，若 \(O\) 是一个正交方阵， 定义
 $$ v(x):=u(Ox) $$
 那么 \(\Delta v = 0\).<br />
 （调和是一种曲面内蕴的几何性质。）<br />
+<em>Proof</em>:<br />
 $$ \nabla v = \nabla u(Ox) O $$
 $$ \begin{bmatrix}
 v_{11} &amp; \cdots &amp; v_{1n} \\ \vdots &amp;  &amp; \vdots \\ v_{n1} &amp; \cdots &amp; v_{nn}
 \end{bmatrix} = \nabla (\nabla v) = \nabla(\nabla u(Ox) O) = O^T \begin{bmatrix}
 u_{11} &amp; \cdots &amp; u_{1n} \\ \vdots &amp;  &amp; \vdots \\ u_{n1} &amp; \cdots &amp; u_{nn}
 \end{bmatrix} O $$
-而 \( \Delta v = v_{11}+...+v_{nn} = trace(V) = trace(O^T U O) = trace(U) = \Delta u = 0\)。</p>
-</li>
-<li>
-<p>令 \(U\) 是有界开集，\(u\in C^2(U)\cap C(\bar{U})\) 是调和函数，那么
+而 \( \Delta v = v_{11}+...+v_{nn} = trace(V) = trace(O^T U O) = trace(U) = \Delta u = 0\)。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="4">
+<li>令 \(U\) 是有界开集，\(u\in C^2(U)\cap C(\bar{U})\) 是调和函数，证明
 $$ \max_{\bar{U}}u = \max_{\partial U}u $$<br />
+<em>Proof</em>:<br />
 对于 \(\epsilon&gt;0\) 定义， \(u_\epsilon := u+\epsilon|x|^2 \)。则 \(\Delta u_\epsilon &gt; 0\)
 由于 \(U\) 有界，且 \(u\) 在 \(\bar{U}\) 上连续，所以 \(u, |x|\) 有界。
 \(u_\epsilon\) 的最小值不能在内部取得。
@@ -286,11 +289,31 @@ $$ \max_{\bar{U}}u = \max_{\partial U}u $$<br />
 矛盾。所以，
 $$ \max_{\bar{U}}u_\epsilon = \max_{\partial U}u_\epsilon $$
 我们有
-$$ \max_{\bar{U}}u = \lim_{\epsilon\to 0} \max_{\bar{U}}u_\epsilon = \lim_{\epsilon\to 0} \max_{\partial U}u = \max_{\partial U}u $$</p>
-</li>
-<li>
-<p>如果 \(v\in C^2(\bar{U}) \)，且 $$ -\Delta \le 0 \quad in \, U $$，我们称 \(v\) 是一个<strong>次调和函数</strong>(subharmonic)。</p>
-</li>
+$$ \max_{\bar{U}}u = \lim_{\epsilon\to 0} \max_{\bar{U}}u_\epsilon = \lim_{\epsilon\to 0} \max_{\partial U}u = \max_{\partial U}u $$</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="5">
+<li>如果 \(v\in C^2(\bar{U}) \)，且 $$ -\Delta \le 0 \quad in \, U $$，我们称 \(v\) 是一个<strong>次调和函数</strong>(subharmonic)。<br />
+(a) 证明
+$$ v(x)\le {-\mkern -19mu\int}_{B(x, r)} v(y)dy \quad for \, all \, B(x,r) \subset U $$<br />
+(b) 证明 \( \max_{\bar{U}}v = \max_{\partial U} v \)<br />
+(c) 令 \(\phi : R \rightarrow R \) 是光滑凸函数。
+设 \(u\) 是调和函数，而 \(v := \phi(u) \) 。证明 \(v\) 是次调和的。<br />
+(d) 证明当 \(u\)是调和函数时，\( v:=|Du|^2 \) 是次调和的 。<br />
+<em>Proof</em>:<br />
+(a) 与 <a href="../Introduction.html#%E6%95%99%E6%9D%90">PDE 2.2.2 Thm 2</a> 几乎完全一样，令
+$$ \phi(r) := {-\mkern -19mu\int}_{\partial B(x, r)} v(y) dy $$
+$$ \phi'(r) = \frac{r}{n}{-\mkern -19mu\int}_{B(x,r)}\Delta v(y)dy \ge 0 $$
+$$ \phi(r) \ge \lim_{t\to 0}\phi(t) = v(x) $$
+So,
+$$ {-\mkern -19mu\int}_{B(x,r)}vdy = \frac{1}{r}\int_0^r \phi(r) dr \ge v(x) $$
+<strong>注意</strong>： \(\phi'(0)=0\)，这说明 \(\phi(r)\) 是二阶的，仔细思考一下为什么？<br />
+(b) 与上一题的证明一样，注意一下 \( \Delta v_\epsilon &gt; 0\)<br />
+(c) 由于 \(\phi\) 是凸函数
+$$ {-\mkern -19mu\int}_{\partial B(x,r)}v(y)dy = {-\mkern -19mu\int}_{\partial B(x,r)} \phi(u(y))dy \ge \phi({-\mkern -19mu\int}_{\partial B(x,r)}u(y)dy) = \phi(u(x)) = v(x) $$
+函数 \(v\in C^2(U)\) 满足 \( {-\mkern -17mu\int}_{\partial B(x,r)}v(y)dy \ge v(x) \) 等价于 \( v\) 是调和函数。<br />
+(d) 当 \(u\) 是调和函数时，\(Du\) 调和函数。而 \( \cdot \rightarrow |\cdot|^2\) 是凸函数，所以由 (c) \(v\) 是次调和函数。</li>
 </ol>
 </blockquote>
 

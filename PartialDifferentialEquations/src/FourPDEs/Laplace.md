@@ -94,10 +94,11 @@ $$ f\in C_c^2(\mathbb{R^n}) $$
 
 ## Problems
 > 
-> 2. Laplace方程是旋转不变的；即，若 \\(O\\) 是一个正交方阵， 定义
+> 2. 证明 Laplace方程是旋转不变的；即，若 \\(O\\) 是一个正交方阵， 定义
 > $$ v(x):=u(Ox) $$ 
 > 那么 \\(\Delta v = 0\\).  
 > （调和是一种曲面内蕴的几何性质。）   
+> *Proof*:    
 > $$ \nabla v = \nabla u(Ox) O $$ 
 > $$ \begin{bmatrix}
 >    v_{11} & \cdots & v_{1n} \\\\ \vdots &  & \vdots \\\\ v_{n1} & \cdots & v_{nn} 
@@ -106,8 +107,10 @@ $$ f\in C_c^2(\mathbb{R^n}) $$
 > \end{bmatrix} O $$
 > 而 \\( \Delta v = v_{11}+...+v_{nn} = trace(V) = trace(O^T U O) = trace(U) = \Delta u = 0\\)。
 >
-> 4. 令 \\(U\\) 是有界开集，\\(u\in C^2(U)\cap C(\bar{U})\\) 是调和函数，那么
+
+> 4. 令 \\(U\\) 是有界开集，\\(u\in C^2(U)\cap C(\bar{U})\\) 是调和函数，证明
 > $$ \max_{\bar{U}}u = \max_{\partial U}u $$    
+> *Proof*:  
 > 对于 \\(\epsilon>0\\) 定义， \\(u_\epsilon := u+\epsilon|x|^2 \\)。则 \\(\Delta u_\epsilon > 0\\)
 > 由于 \\(U\\) 有界，且 \\(u\\) 在 \\(\bar{U}\\) 上连续，所以 \\(u, |x|\\) 有界。
 > \\(u_\epsilon\\) 的最小值不能在内部取得。
@@ -118,5 +121,25 @@ $$ f\in C_c^2(\mathbb{R^n}) $$
 > 我们有
 > $$ \max_{\bar{U}}u = \lim_{\epsilon\to 0} \max_{\bar{U}}u_\epsilon = \lim_{\epsilon\to 0} \max_{\partial U}u = \max_{\partial U}u $$
 >
-> 5. 如果 \\(v\in C^2(\bar{U}) \\)，且 $$ -\Delta \le 0 \quad in \\, U $$，我们称 \\(v\\) 是一个**次调和函数**(subharmonic)。
-> 
+
+> 5. 如果 \\(v\in C^2(\bar{U}) \\)，且 $$ -\Delta \le 0 \quad in \\, U $$，我们称 \\(v\\) 是一个**次调和函数**(subharmonic)。   
+> (a) 证明 
+> $$ v(x)\le {-\mkern -19mu\int}_{B(x, r)} v(y)dy \quad for \\, all \\, B(x,r) \subset U $$    
+> (b) 证明 \\( \max\_{\bar{U}}v = \max\_{\partial U} v \\)  
+> (c) 令 \\(\phi : R \rightarrow R \\) 是光滑凸函数。
+> 设 \\(u\\) 是调和函数，而 \\(v := \phi(u) \\) 。证明 \\(v\\) 是次调和的。     
+> (d) 证明当 \\(u\\)是调和函数时，\\( v:=|Du|^2 \\) 是次调和的 。  
+> *Proof*:      
+> (a) 与 [PDE 2.2.2 Thm 2](../Introduction.md#教材) 几乎完全一样，令
+> $$ \phi(r) := {-\mkern -19mu\int}\_{\partial B(x, r)} v(y) dy $$
+> $$ \phi'(r) = \frac{r}{n}{-\mkern -19mu\int}\_{B(x,r)}\Delta v(y)dy \ge 0 $$
+> $$ \phi(r) \ge \lim\_{t\to 0}\phi(t) = v(x) $$
+> So, 
+> $$ {-\mkern -19mu\int}\_{B(x,r)}vdy = \frac{1}{r}\int_0^r \phi(r) dr \ge v(x) $$
+> **注意**： \\(\phi'(0)=0\\)，这说明 \\(\phi(r)\\) 是二阶的，仔细思考一下为什么？     
+> (b) 与上一题的证明一样，注意一下 \\( \Delta v\_\epsilon > 0\\)    
+> (c) 由于 \\(\phi\\) 是凸函数 
+> $$ {-\mkern -19mu\int}\_{\partial B(x,r)}v(y)dy = {-\mkern -19mu\int}\_{\partial B(x,r)} \phi(u(y))dy \ge \phi({-\mkern -19mu\int}\_{\partial B(x,r)}u(y)dy) = \phi(u(x)) = v(x) $$
+> 函数 \\(v\in C^2(U)\\) 满足 \\( {-\mkern -17mu\int}\_{\partial B(x,r)}v(y)dy \ge v(x) \\) 等价于 \\( v\\) 是调和函数。        
+> (d) 当 \\(u\\) 是调和函数时，\\(Du\\) 调和函数。而 \\( \cdot \rightarrow |\cdot|^2\\) 是凸函数，所以由 (c) \\(v\\) 是次调和函数。
+
