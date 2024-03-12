@@ -4,7 +4,7 @@
 
 <!-- toc -->
 
-## [1. Exercise 2.10 of Convex Optimization](../Introduction.md#参考资料)
+## 1. Exercise 2.10 of Convex Optimization
 
 $$ C=\\{ x\in R^n | x^T A x + b^T x + c \le 0\\} $$
 with \\( A\in S^n, \quad b\in R^n, \quad c\in R \\).
@@ -38,7 +38,7 @@ with \\( A\in S^n, \quad b\in R^n, \quad c\in R \\).
 > but \\( A + λgg^T = \begin{bmatrix} -1 & 0 \\\\ 0 & -1 + λ \end{bmatrix}\\) can never be positive semidefinite.
 
 
-## [2. Exercise 2.18 of Convex Optimization](../Introduction.md#参考资料)
+## 2. Exercise 2.18 of Convex Optimization
 
 Invertible linear-fractional functions.     
 $$ f(x) = \frac{Ax+b}{c^Tx+d}, \qquad dom f = \\{x | c^Tx+d > 0\\} $$

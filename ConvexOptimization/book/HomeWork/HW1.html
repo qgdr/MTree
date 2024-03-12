@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -174,15 +175,11 @@
                 </script>
 
                 <div id="content" class="content">
-                    <main>
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
                         <h1 id="hw1"><a class="header" href="#hw1">HW1</a></h1>
 <p><a href="../../HWpdf/Homework1-2024.pdf">HW1pdf</a></p>
-<ul>
-<li><a href="#1-exercise-210-of-convex-optimization">1. Exercise 2.10 of Convex Optimization</a></li>
-<li><a href="#2-exercise-218-of-convex-optimization">2. Exercise 2.18 of Convex Optimization</a></li>
-<li><a href="#3-convex-hullsparse-representation-of-a-polytope">3. convex hull/Sparse Representation of a Polytope</a></li>
-</ul>
-<h2 id="1-exercise-210-of-convex-optimization"><a class="header" href="#1-exercise-210-of-convex-optimization"><a href="../Introduction.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">1. Exercise 2.10 of Convex Optimization</a></a></h2>
+<!-- toc -->
+<h2 id="1-exercise-210-of-convex-optimization"><a class="header" href="#1-exercise-210-of-convex-optimization">1. Exercise 2.10 of Convex Optimization</a></h2>
 <p>$$ C=\{ x\in R^n | x^T A x + b^T x + c \le 0\} $$
 with \( A\in S^n, \quad b\in R^n, \quad c\in R \).</p>
 <p>(a) Show that \( C\) is \( A\succeq  0\) (which means \( A\) is positive semidefinite).</p>
@@ -212,7 +209,7 @@ where \( C=R^2\), \( H = \{ (x_1, x_2) | x_2 = 0\} \),
 \( C \cap H \) is obvious convex,
 but \( A + λgg^T = \begin{bmatrix} -1 &amp; 0 \\ 0 &amp; -1 + λ \end{bmatrix}\) can never be positive semidefinite.</p>
 </blockquote>
-<h2 id="2-exercise-218-of-convex-optimization"><a class="header" href="#2-exercise-218-of-convex-optimization"><a href="../Introduction.html#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">2. Exercise 2.18 of Convex Optimization</a></a></h2>
+<h2 id="2-exercise-218-of-convex-optimization"><a class="header" href="#2-exercise-218-of-convex-optimization">2. Exercise 2.18 of Convex Optimization</a></h2>
 <p>Invertible linear-fractional functions.<br />
 $$ f(x) = \frac{Ax+b}{c^Tx+d}, \qquad dom f = \{x | c^Tx+d &gt; 0\} $$
 Suppose the matrix
@@ -393,6 +390,7 @@ So, by induction, we can conclude that \(v\) can be expressed by \(P(t)\).</li>
         <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="../theme/pagetoc.js"></script>
 
 
     </div>

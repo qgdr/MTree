@@ -6,10 +6,10 @@ src = "src"
 title = "Convex Optimization"
 
 [output.html]
+additional-css = ["theme/pagetoc.css"]
+additional-js = ["theme/pagetoc.js"]
 mathjax-support = true
 
 [preprocessor]
 
-[preprocessor.toc]
-command = "mdbook-toc"
-renderer = ["html"]
+[preprocessor.pagetoc]
