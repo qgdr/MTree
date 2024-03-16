@@ -1,12 +1,9 @@
-BOOKS = $(shell ls */book.toml | sed 's/\/book.toml//')
-build:
-	@for book in $(BOOKS); do \
-		echo "Building $$book"; \
-		mdbook build $$book; \
-	done
 
-watch:
-	@for book in $(BOOKS); do \
-		echo "watching $$book"; \
-		mdbook watch $$book; \
-	done
+mkdocs.yml: template.yml $(shell find ./docs -name 'mkdocs.yml')
+	python make.py
+
+build: mkdocs.yml
+	mkdocs build
+
+serve: mkdocs.yml
+	mkdocs serve

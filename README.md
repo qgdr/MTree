@@ -4,6 +4,3 @@
 
 利用vscode的foam插件生成markdown文件之间的链接图。
 
-## 生成链接图
-
-Foam: show graph

@@ -1,0 +1,8 @@
+nav:
+- index.md
+- 实数与极限: 
+  - RealandLimit/index.md
+  - 有限覆盖定理: RealandLimit/compact.md
+- 曲面积分: 
+  - SurfaceIntegral/index.md
+  - Gauss-Green公式: SurfaceIntegral/GaussGreen.md

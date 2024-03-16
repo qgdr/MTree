@@ -1,0 +1,151 @@
+site_name: My Docs
+site_author: qgdr
+site_description: 数学知识框架与观点理解
+
+# repository: qgdr/MTree
+copyright: Copyright &copy; 2024-2025 qgdr</br>The website content is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+
+theme:
+  name: material
+  language: zh
+  features:
+    - announce.dismiss
+    - content.action.edit
+    # - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.tabs
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.prune
+    # - navigation.sections
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  icon: 
+    logo: material/pi
+  palette:  # 调色
+    - scheme: default
+      primary: pink
+      toggle:
+        icon: material/weather-night
+        name: shift night
+
+    - scheme: slate
+      primary: green
+      toggle:
+        icon: material/weather-sunny
+        name: shift day
+
+  font:
+    text: Noto Sans SC
+    code: Fira Code
+  # favicon: assets/images/favicon.png
+  # logo: assets/images/logo.svg
+  # icon:
+  #   logo: logo
+  #   repo: github
+  #   edit: github
+
+  extra:
+    social:
+      - icon: material/github
+        link: https://github.com/qgdr
+      # - icon: material/bilibili
+    generator: false
+    status:
+      new: 最近添加
+
+
+plugins:
+  - search
+
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: none
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: false
+      auto_caption: false
+      caption_position: bottom
+
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  # - pymdownx.emoji:
+  #     emoji_index: !!python/name:materialx.emoji.twemoji
+  #     emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.keys
+  # - pymdownx.magiclink:
+  #     repo_url_shorthand: true
+  #     user: squidfunk
+  #     repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  # - javascripts/katex.js 
+  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+
+
+extra_css:
+  - stylesheets/extra.css
+  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+
+
+# Page tree
+nav:
+  - index.md
+  - MathematicalAnalysis: MathematicalAnalysis/
+  - ConvexOptimization: ConvexOptimization/
+  - PartialDifferentialEquations: PartialDifferentialEquations/
+  - Topology: Topology/
+  - Test: test.md

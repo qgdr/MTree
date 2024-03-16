@@ -1,0 +1,13 @@
+nav:
+- index.md
+
+- 拓扑空间: 
+  - TopoSpc/index.md
+  - 引入: TopoSpc/induct.md
+- 闭集: 
+  - Closed/index.md
+  - 闭包: Closed/closure.md
+  - 极限: Closed/limit.md
+
+- 紧性: 
+  - Compact/index.md

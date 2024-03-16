@@ -1,0 +1,8 @@
+nav:
+- index.md
+- 偏微分方程简介: 
+  - PDEIntro/index.md  
+  - PDE的定义: PDEIntro/PDEdef.md
+- 四种重要的方程: 
+  - FourPDEs/index.md
+  - Laplace方程: FourPDEs/Laplace.md

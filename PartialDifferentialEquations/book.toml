@@ -1,9 +1,0 @@
-[book]
-authors = ["hjx"]
-language = "en"
-multilingual = false
-src = "src"
-title = "Partial Differential Equations"
-
-[output.html]
-mathjax-support = true
