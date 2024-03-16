@@ -1485,30 +1485,30 @@
 
 
 <h1 id="pde">PDE 定义<a class="headerlink" href="#pde" title="Permanent link">&para;</a></h1>
-<p><a href="../Introduction.md#教材">Lawrence C.Evans Partial differential equations 1.1</a></p>
-<p>令 \( k\ge 1 \)，\( U \) 是一个 \( R^n \) 中的**开集**。
-给定函数
-$$
+<p><a href="../../#教材">Lawrence C.Evans Partial differential equations 1.1</a></p>
+<p>令 \( k\ge 1 \)，\( U \) 是一个 \( R^n \) 中的 <strong>开集</strong>。 
+给定函数</p>
+<div class="arithmatex">\[
 \begin{equation}
-    F: R<sup>{n</sup>k} \times R<sup k-1="k-1">{n</sup>} \times \cdots \times R^n \times R \times U \to R
+    F: R^{n^k} \times R^{n^{k-1}} \times \cdots \times R^n \times R \times U \to R
 \end{equation}
-$$
-与未知函数
-$$
+\]</div>
+<p>与未知函数</p>
+<div class="arithmatex">\[
 u: U \to R
-$$
-等式
-$$
+\]</div>
+<p>等式</p>
+<div class="arithmatex">\[
 \begin{equation}
 F(D^ku(x), D^{k-1}u(x), ... , Du(x), u(x), x)=0 \quad (x\in U)
 \end{equation}
-$$
-称为 \( k \) 阶偏微分方程。</p>
+\]</div>
+<p>称为 <span class="arithmatex">\( k \)</span> 阶偏微分方程。</p>
 <h2 id="_1">按线性性分类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ol>
 <li>线性 linear： $$ \sum_{|\alpha|\le k}a_\alpha(x) D^\alpha u = f(x) $$  </li>
-<li>半线性 semilinear：$$ \sum_{|\alpha|=k}a_\alpha(x) D^\alpha u + a_0(D^{k-1}u, ... , Du, u, x) = 0 $$  </li>
-<li>次线性 quasilinear：$$ \sum_{|\alpha|=k}a_\alpha(D^{k-1}u, ... , Du, u, x) D^\alpha u + a_0(D^{k-1}u, ... , Du, u, x) = 0 $$  </li>
+<li>半线性 semilinear：$$ \sum_{ |\alpha|=k} a_\alpha(x) D^\alpha u + a_0(D^{k-1}u, ... , Du, u, x) = 0 $$  </li>
+<li>次线性 quasilinear：$$ \sum_{ |\alpha|=k}a_\alpha(D^{k-1}u, ... , Du, u, x) D^\alpha u + a_0(D^{k-1}u, ... , Du, u, x) = 0 $$  </li>
 <li>非线性 nonlinear：非线性的依赖最高阶导。</li>
 </ol>
 

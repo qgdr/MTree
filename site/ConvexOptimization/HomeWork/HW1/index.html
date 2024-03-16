@@ -1525,104 +1525,112 @@
 <!-- toc -->
 
 <h2 id="1-exercise-210-of-convex-optimization">1. Exercise 2.10 of Convex Optimization<a class="headerlink" href="#1-exercise-210-of-convex-optimization" title="Permanent link">&para;</a></h2>
-<p>$$ C=\{ x\in R^n | x^T A x + b^T x + c \le 0\} $$
-with \( A\in S^n, \quad b\in R^n, \quad c\in R \).</p>
-<p>(a) Show that \( C\) is \( A\succeq  0\) (which means \( A\) is positive semidefinite).    </p>
-<blockquote>
-<p>It is sufficient to show that \( f(x) = x^T A x + b^T x + c \) is a convex function (for the <strong>epi</strong> of a convex function is convex.)
-  i.e. $$ \frac{f(x_1) + f(x_2)}{2} \ge f(\frac{x_1+x_2}{2}) $$
-  that is 
-  $$ x_1^TAx_1 + x_2^TAx_2 \ge \frac{1}{2}(x_1<sup>T+x_2</sup>T)A(x_1 + x_2) $$
-  $$ \Leftrightarrow x_1^TAx_1 + x_2^TAx_2 \ge x_1^TAx_2 + x_2^TAx_1 $$
-  $$ \Leftrightarrow (x_1-x_2)^TA(x_1 - x_2) \ge 0 $$
-  it is true since \( A\) is positive semidefinite. \(\blacksquare\)  </p>
-</blockquote>
-<p>(b) Show that intersection of \(C\) and the hyperplane defined by \(g^T x + h = 0 \) ( where \(g \ne 0\) ) is convex if \(A + λgg^T \succeq 0 \) for some \(λ ∈ R \). Are the converses of these statements true?</p>
-<blockquote>
-<p>Let $$ H = \{x | g^T x + h = 0\} $$
-for \(x\in H\), \(x\in C\) equavalent to
+<div class="arithmatex">\[ C=\{ x\in R^n | x^T A x + b^T x + c \le 0\} \]</div>
+<p>with <span class="arithmatex">\(A\in S^n, \quad b\in R^n, \quad c\in R\)</span>.</p>
+<p>(a) Show that <span class="arithmatex">\(C\)</span> is <span class="arithmatex">\(A\succeq 0\)</span> (which means <span class="arithmatex">\(A\)</span> is positive semidefinite).    </p>
+<div class="admonition solve">
+<p class="admonition-title">Solve</p>
+<p>It is sufficient to show that <span class="arithmatex">\(f(x) = x^T A x + b^T x + c\)</span> is a convex function (for the <strong>epi</strong> of a convex function is convex.)
+i.e. $$ \frac{f(x_1) + f(x_2)}{2} \ge f(\frac{x_1+x_2}{2}) $$
+that is </p>
+<div class="arithmatex">\[ \begin{align}
+    &amp;x_1^TAx_1 + x_2^TAx_2 \ge \frac{1}{2}(x_1^T+x_2^T)A(x_1 + x_2)  \\ 
+    &amp;\Leftrightarrow x_1^TAx_1 + x_2^TAx_2 \ge x_1^TAx_2 + x_2^TAx_1  \\  
+    &amp;\Leftrightarrow (x_1-x_2)^TA(x_1 - x_2) \ge 0
+\end{align} \]</div>
+<p>it is true since <span class="arithmatex">\(A\)</span> is positive semidefinite. <span class="arithmatex">\(\blacksquare\)</span>  </p>
+</div>
+<p>(b) Show that intersection of <span class="arithmatex">\(C\)</span> and the hyperplane defined by <span class="arithmatex">\(g^T x + h = 0\)</span> ( where <span class="arithmatex">\(g \ne 0\)</span> ) is convex if <span class="arithmatex">\(A + λgg^T \succeq 0\)</span> for some <span class="arithmatex">\(λ ∈ R\)</span>. Are the converses of these statements true?</p>
+<div class="admonition solve">
+<p class="admonition-title">Solve</p>
+<p>Let $$ H = { x | g^T x + h = 0 } $$
+for <span class="arithmatex">\(x\in H\)</span>, <span class="arithmatex">\(x\in C\)</span> equavalent to
 $$ x^T (A+ λgg^T) x + b^T x + c - λh^2 \le 0 $$
-whose solution set defined \(\tilde{C}\), <br />
-if \( A + λgg^T \succeq 0 \) for some \(λ ∈ R \), then
-\(\tilde{C}\) is convex.
+whose solution set defined <span class="arithmatex">\(\tilde{C}\)</span>, <br />
+if <span class="arithmatex">\(A + λgg^T \succeq 0\)</span> for some <span class="arithmatex">\(λ ∈ R\)</span>, then
+<span class="arithmatex">\(\tilde{C}\)</span> is convex.
 $$ x \in H \cap C = H \cap \tilde{C} $$
-is intersection of two convex sets, so it is convex.  \(\blacksquare\)  </p>
+is intersection of two convex sets, so it is convex.  <span class="arithmatex">\(\blacksquare\)</span>  </p>
 <p>the converses is <strong>false</strong>.
 let's consider the case
 $$ A = \begin{bmatrix} -1 &amp; 0 \\ 0 &amp; -1 \end{bmatrix}, g = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, b=0, h = 0, c = 0 $$
-where \( C=R^2\), \( H = \{ (x_1, x_2) | x_2 = 0\} \),
-\( C \cap H \) is obvious convex,
-but \( A + λgg^T = \begin{bmatrix} -1 &amp; 0 \\ 0 &amp; -1 + λ \end{bmatrix}\) can never be positive semidefinite.</p>
-</blockquote>
+where <span class="arithmatex">\(C=R^2\)</span>, <span class="arithmatex">\(H = \{ (x_1, x_2) | x_2 = 0\}\)</span>, 
+<span class="arithmatex">\(C \cap H\)</span> is obvious convex,
+but <span class="arithmatex">\(A + λgg^T = \begin{bmatrix} -1 &amp; 0 \\\\ 0 &amp; -1 + λ \end{bmatrix}\)</span> can never be positive semidefinite.</p>
+</div>
 <h2 id="2-exercise-218-of-convex-optimization">2. Exercise 2.18 of Convex Optimization<a class="headerlink" href="#2-exercise-218-of-convex-optimization" title="Permanent link">&para;</a></h2>
-<p>Invertible linear-fractional functions.   <br />
-$$ f(x) = \frac{Ax+b}{c^Tx+d}, \qquad dom f = \{x | c^Tx+d &gt; 0\} $$
-Suppose the matrix
-$$ Q=\begin{bmatrix} A &amp; b \\ c^T &amp; d \end{bmatrix} $$
-is nonsingular. Show that \(f\) is an invertible linear fractional function.</p>
-<blockquote>
-<p>let \( y = (Ax+b)/(c^Tx+d) \), then
-$$ Q\begin{bmatrix} x \\ 1 \end{bmatrix} = (c^Tx+d)\begin{bmatrix} y \\ 1 \end{bmatrix} $$
-since \(Q\) is inversible, and \( c^Tx+d &gt; 0 \), we get
-$$ Q^{-1}\begin{bmatrix} y \\ 1 \end{bmatrix} = \frac{1}{c^Tx+d} \begin{bmatrix} x \\ 1 \end{bmatrix} $$ 
-Then
-$$ x = P(\begin{bmatrix} x \\ 1 \end{bmatrix}) 
+<p>Invertible linear-fractional functions.     </p>
+<div class="arithmatex">\[ f(x) = \frac{Ax+b}{c^Tx+d}, \qquad dom f = \{x | c^Tx+d &gt; 0\} \]</div>
+<p>Suppose the matrix</p>
+<div class="arithmatex">\[ Q=\begin{bmatrix} A &amp; b \\ c^T &amp; d \end{bmatrix} \]</div>
+<p>is nonsingular. Show that <span class="arithmatex">\(f\)</span> is an invertible linear fractional function.</p>
+<div class="admonition solve">
+<p class="admonition-title">Solve</p>
+<p>let <span class="arithmatex">\(y = (Ax+b)/(c^Tx+d)\)</span>, then</p>
+<div class="arithmatex">\[ Q\begin{bmatrix} x \\ 1 \end{bmatrix} = (c^Tx+d)\begin{bmatrix} y \\ 1 \end{bmatrix} \]</div>
+<p>since <span class="arithmatex">\(Q\)</span> is inversible, and <span class="arithmatex">\(c^Tx+d &gt; 0\)</span>, we get</p>
+<div class="arithmatex">\[ Q^{-1}\begin{bmatrix} y \\ 1 \end{bmatrix} = \frac{1}{c^Tx+d} \begin{bmatrix} x \\ 1 \end{bmatrix} \]</div>
+<p>Then</p>
+<p>$$ x = P(\begin{bmatrix} x \\ 1 \end{bmatrix}) 
 = P(Q^{-1}\begin{bmatrix} y \\ 1 \end{bmatrix}) $$
-so \(f\) is bijective.  </p>
+so <span class="arithmatex">\(f\)</span> is bijective.  </p>
 <p><a href="../../../Library/Matrix%20analysis%20Cambridge%20University%20Press%20.pdf">Schur complement Matrix Analysis 0.8.5</a>
-1. For \(A\) invertible,
-$$ Q = \begin{bmatrix} A &amp; b \\ c^T &amp; d \end{bmatrix}
-= \begin{bmatrix} I &amp;  \\ c<sup -1="-1">TA</sup> &amp; 1 \end{bmatrix}
-\begin{bmatrix} A &amp;  \\  &amp; d-c<sup -1="-1">TA</sup>b \end{bmatrix}
-\begin{bmatrix} I &amp; A^{-1}b \\  &amp; 1 \end{bmatrix}
-$$ 
-$$ Q^{-1}
-= \begin{bmatrix} I &amp; -A^{-1}b \\  &amp; 1 \end{bmatrix}
-\begin{bmatrix} A^{-1} &amp;  \\  &amp; (d-c<sup -1="-1">TA</sup>b)^{-1} \end{bmatrix}
-\begin{bmatrix} I &amp;  \\ -c<sup -1="-1">TA</sup> &amp; 1 \end{bmatrix} \\
+1. For <span class="arithmatex">\(A\)</span> invertible,</p>
+<div class="arithmatex">\[
+    Q = \begin{bmatrix} A &amp; b \\ c^T &amp; d \end{bmatrix}
+    = \begin{bmatrix} I &amp;  \\ c^TA^{-1} &amp; 1 \end{bmatrix}
+    \begin{bmatrix} A &amp;  \\ &amp; d-c^TA^{-1}b \end{bmatrix}
+    \begin{bmatrix} I &amp; A^{-1}b \\ &amp; 1 \end{bmatrix}
+\]</div>
+<div class="arithmatex">\[ Q^{-1}
+= \begin{bmatrix} I &amp; -A^{-1}b \\\\  &amp; 1 \end{bmatrix}
+\begin{bmatrix} A^{-1} &amp;  \\\\  &amp; (d-c^TA^{-1}b)^{-1} \end{bmatrix}
+\begin{bmatrix} I &amp;  \\\\ -c^TA^{-1} &amp; 1 \end{bmatrix} \\\\
 = \begin{bmatrix} 
-A^{-1} + A^{-1}b (d-c<sup -1="-1">TA</sup>b)^{-1} c<sup -1="-1">TA</sup> &amp; -A^{-1}b (d-c<sup -1="-1">TA</sup>b)^{-1} \\
--(d-c<sup -1="-1">TA</sup>b)^{-1} c<sup -1="-1">TA</sup> &amp; (d-c<sup -1="-1">TA</sup>b)^{-1}
+A^{-1} + A^{-1}b (d-c^TA^{-1}b)^{-1} c^TA^{-1} &amp; -A^{-1}b (d-c^TA^{-1}b)^{-1} \\\\
+-(d-c^TA^{-1}b)^{-1} c^TA^{-1} &amp; (d-c^TA^{-1}b)^{-1}
 \end{bmatrix}
-$$ 
-so,
-$$ x = \frac{(A^{-1} (d-c<sup -1="-1">TA</sup>b) + A^{-1}b c<sup -1="-1">TA</sup>)y - A^{-1}b }{-c<sup -1="-1">TA</sup>y + 1} $$
-$$ dom f^{-1} = \{ y | (d-c<sup -1="-1">TA</sup>b)(-c<sup -1="-1">TA</sup>y + 1) &gt; 0 \} $$</p>
+\]</div>
+<p>so,</p>
+<div class="arithmatex">\[ x = \frac{(A^{-1} (d-c^TA^{-1}b) + A^{-1}b c^TA^{-1})y - A^{-1}b }{-c^TA^{-1}y + 1} \]</div>
+<div class="arithmatex">\[ dom f^{-1} = \{ y | (d-c^TA^{-1}b)(-c^TA^{-1}y + 1) &gt; 0 \} \]</div>
+</div>
+<div class="admonition solve">
+<p class="admonition-title">Solve</p>
 <ol>
-<li>
-<p>If \(d \ne 0\), similarly, we get
-$$ Q = \begin{bmatrix} A &amp; b \\ c^T &amp; d \end{bmatrix}
-= \begin{bmatrix} I &amp; bd^{-1} \\  &amp; 1 \end{bmatrix}
-\begin{bmatrix} A-bd<sup>{-1}c</sup>T &amp;  \\  &amp; d \end{bmatrix}
-\begin{bmatrix} I &amp;  \\ d<sup>{-1}c</sup>T &amp; 1 \end{bmatrix}
-$$
-$$ Q^{-1}
-= \begin{bmatrix} I &amp;  \\ -d<sup>{-1}c</sup>T &amp; 1 \end{bmatrix}
-\begin{bmatrix} (A-bd<sup>{-1}c</sup>T)^{-1} &amp;  \\  &amp; d^{-1} \end{bmatrix}
-\begin{bmatrix} I &amp; -bd^{-1} \\  &amp; 1 \end{bmatrix} \\
+<li>If <span class="arithmatex">\(d \ne 0\)</span>, similarly, we get</li>
+</ol>
+<div class="arithmatex">\[ Q = \begin{bmatrix} A &amp; b \\\\ c^T &amp; d \end{bmatrix}
+= \begin{bmatrix} I &amp; bd^{-1} \\\\  &amp; 1 \end{bmatrix}
+\begin{bmatrix} A-bd^{-1}c^T &amp;  \\\\  &amp; d \end{bmatrix}
+\begin{bmatrix} I &amp;  \\\\ d^{-1}c^T &amp; 1 \end{bmatrix}
+\]</div>
+<div class="arithmatex">\[
+Q^{-1}
+= \begin{bmatrix} I &amp;  \\\\ -d^{-1}c^T &amp; 1 \end{bmatrix}
+\begin{bmatrix} (A-bd^{-1}c^T)^{-1} &amp;  \\\\  &amp; d^{-1} \end{bmatrix}
+\begin{bmatrix} I &amp; -bd^{-1} \\\\  &amp; 1 \end{bmatrix} \\\\
 = \begin{bmatrix}
-(A-bd<sup>{-1}c</sup>T)^{-1}   &amp;   -(A-bd<sup>{-1}c</sup>T)<sup -1="-1">{-1}bd</sup> \\
--d<sup>{-1}c</sup>T(A-bd<sup>{-1}c</sup>T)^{-1}     &amp;   d<sup -1="-1">{-1}+d</sup>c<sup -1="-1">T(A-bd</sup>c<sup -1="-1">T)</sup>bd^{-1}
+(A-bd^{-1}c^T)^{-1}   &amp;   -(A-bd^{-1}c^T)^{-1}bd^{-1} \\\\
+-d^{-1}c^T(A-bd^{-1}c^T)^{-1}     &amp;   d^{-1}+d^{-1}c^T(A-bd^{-1}c^T)^{-1}bd^{-1}
 \end{bmatrix}
-$$ 
-So,
-$$ x = \frac{d(dA-bc<sup -1="-1">T)</sup>y - (dA-bc<sup -1="-1">T)</sup>b}{-c<sup>T(dA-bc</sup>T)^{-1}y + d<sup -1="-1">{-1}+d</sup>c<sup>T(dA-bc</sup>T)^{-1}b} $$
-$$ dom f^{-1} = \{ y | -c<sup>T(dA-bc</sup>T)^{-1}y + d<sup -1="-1">{-1}+d</sup>c<sup>T(dA-bc</sup>T)^{-1}b &gt; 0 \} $$</p>
-</li>
-<li>
-<p>If \(A\) is <strong>not</strong> invertable and \(d = 0\), （啊！我要疯了，哪里有这个定理啊，我快算死了！） <br />
+\]</div>
+<p>So,</p>
+<div class="arithmatex">\[ x = \frac{d(dA-bc^T)^{-1}y - (dA-bc^T)^{-1}b}{-c^T(dA-bc^T)^{-1}y + d^{-1}+d^{-1}c^T(dA-bc^T)^{-1}b} \]</div>
+<div class="arithmatex">\[ dom f^{-1} = \{ y | -c^T(dA-bc^T)^{-1}y + d^{-1}+d^{-1}c^T(dA-bc^T)^{-1}b &gt; 0 \} \]</div>
+<ol>
+<li>If <span class="arithmatex">\(A\)</span> is <strong>not</strong> invertable and <span class="arithmatex">\(d = 0\)</span>, （啊！我要疯了，哪里有这个定理啊，我快算死了！） <br />
 Since $$ Q = \begin{bmatrix} A &amp; b \\ c^T &amp; 0 \end{bmatrix} $$ is nonsingular,
-we have</p>
-</li>
-<li>\(rank(A) = n-1\), the kernel space  denoted \(\lambda v\),  </li>
-<li>\(rank([A \quad b] = n) \) </li>
-<li>\( c^Tv\ne 0 \),  </li>
-<li>\(b \ne 0\).  <br />
-Then we conclude \( A + bc^T \) is invertible!  <br />
-Otherwise, there is some vector \(u\) s.t. \( Au + bc^Tu = 0\), 
-but we have \( rank([A \quad b]) &gt; rank(A) = n-1\), 
-we deduce \( Au = 0 \) and \(bc^Tu = 0\).
-so we get \( u = \lambda v\), and then \( 0 = \lambda bc^Tv \Rightarrow \lambda = 0\)  <br />
+we have</li>
+<li><span class="arithmatex">\(rank(A) = n-1\)</span>, the kernel space  denoted <span class="arithmatex">\(\lambda v\)</span>,  </li>
+<li><span class="arithmatex">\(rank([A \quad b] = n)\)</span> </li>
+<li><span class="arithmatex">\(c^Tv\ne 0\)</span>,  </li>
+<li><span class="arithmatex">\(b \ne 0\)</span>.  <br />
+Then we conclude <span class="arithmatex">\(A + bc^T\)</span> is invertible!  <br />
+Otherwise, there is some vector <span class="arithmatex">\(u\)</span> s.t. <span class="arithmatex">\(Au + bc^Tu = 0\)</span>, 
+but we have <span class="arithmatex">\(rank([A \quad b]) &gt; rank(A) = n-1\)</span>, 
+we deduce <span class="arithmatex">\(Au = 0\)</span> and <span class="arithmatex">\(bc^Tu = 0\)</span>.
+so we get <span class="arithmatex">\(u = \lambda v\)</span>, and then <span class="arithmatex">\(0 = \lambda bc^Tv \Rightarrow \lambda = 0\)</span>  <br />
 Now, we can get
 $$ 
 Q = \begin{bmatrix}
@@ -1635,54 +1643,56 @@ Q = \begin{bmatrix}
    I &amp; 0 \\ -c^T &amp; 1
 \end{bmatrix}
 $$
-denote \( \tilde{A} = A + bc^T \)
-$$
+denote <span class="arithmatex">\(\tilde{A} = A + bc^T\)</span>, </li>
+</ol>
+<div class="arithmatex">\[
 Q^{-1} = \\ \begin{bmatrix}
    I &amp; 0 \\ c^T &amp; 1
 \end{bmatrix}
 \begin{bmatrix} 
-\tilde{A}^{-1} - \tilde{A}^{-1}b (c<sup -1="-1">T\tilde{A}</sup>b)^{-1} c<sup -1="-1">T\tilde{A}</sup> &amp; -\tilde{A}^{-1}b (c<sup -1="-1">T\tilde{A}</sup>b)^{-1} \\
-(c<sup -1="-1">T\tilde{A}</sup>b)^{-1} c<sup -1="-1">T\tilde{A}</sup> &amp; -(c<sup -1="-1">T\tilde{A}</sup>b)^{-1}
+\tilde{A}^{-1} - \tilde{A}^{-1}b (c^T\tilde{A}^{-1}b)^{-1} c^T\tilde{A}^{-1} &amp; -\tilde{A}^{-1}b (c^T\tilde{A}^{-1}b)^{-1} \\
+(c^T\tilde{A}^{-1}b)^{-1} c^T\tilde{A}^{-1} &amp; -(c^T\tilde{A}^{-1}b)^{-1}
 \end{bmatrix}
-$$
-（啊，我实在是不想写了，领会意思吧！我都不知道这有什么用。）</li>
-</ol>
-</blockquote>
+\]</div>
+<p>（啊，我实在是不想写了，领会意思吧！我都不知道这有什么用。）</p>
+</div>
 <h2 id="3-convex-hullsparse-representation-of-a-polytope">3. convex hull/Sparse Representation of a Polytope<a class="headerlink" href="#3-convex-hullsparse-representation-of-a-polytope" title="Permanent link">&para;</a></h2>
 <p>reference:
 <a href="../Cai%20and%20Zhang%20-%202014%20-%20Sparse%20Representation%20of%20a%20Polytope%20and%20Recovery%20o.pdf">Sparse representation of a polytope and recovery of sparse signals and low-rank matrices</a></p>
-<p>Please give the Sparse Representation of a Polytope \(A = \{x ∈ R^n : ‖x‖_∞ ≤ θ, ‖x‖_1 ≤ sθ\} \).</p>
-<p>For any \(v ∈ R^n\), define the set of sparse vectors \( U (\theta, s, v) ⊂ R^n \) by  <br />
-$$
+<p>Please give the Sparse Representation of a Polytope <span class="arithmatex">\(A = \{x ∈ R^n : ‖x‖_∞ ≤ θ, ‖x‖_1 ≤ sθ\}\)</span>.</p>
+<p>For any <span class="arithmatex">\(v ∈ R^n\)</span>, define the set of sparse vectors <span class="arithmatex">\(U (\theta, s, v) ⊂ R^n\)</span> by</p>
+<div class="arithmatex">\[
 U (\theta, s, v) = \{ u \in R^n : supp(u) \subset supp(v) \quad \|u\|_0 \le s, \|u\|_1 = \|v\|_1, \|u\|_{\infty} ≤ \theta \} 
-$$</p>
-<p>Any \( v\in A\) can be represented as
+\]</div>
+<p>Any <span class="arithmatex">\(v\in A\)</span> can be represented as
 $$ 
-v = \sum_{i=1}^N \lambda_i u_i, \quad with \quad 0\le\lambda_i\le 1, \quad \sum_{i=1}^N \lambda_i = 1, \quad u_i \in U(\theta, s, v)\ 
+v = \sum_{i=1}^N \lambda_i u_i, \quad with \quad 0\le\lambda_i\le 1, \quad \sum_{i=1}^N \lambda_i = 1, \quad u_i \in U(\theta, s, v)
 $$</p>
-<blockquote>
-<p>In the paper, the main idea of the proof is to fix some components of \(v\) and then view the left components as a vector \(\tilde{v}\) that analogous to the origin problem in lower dimension. 
+<div class="admonition solve">
+<p class="admonition-title">Solve</p>
+<p>In the paper, the main idea of the proof is to fix some components of <span class="arithmatex">\(v\)</span> and then view the left components as a vector <span class="arithmatex">\(\tilde{v}\)</span> that analogous to the origin problem in lower dimension. 
 And use the technique of decomposition of vector to the edge of the intersection of cube and hyperplane to decrease at least one dimension.
-The requests of \(j\) is found just to make sure that the decomposition of \(\tilde{v}\) satisfies the condition of \(U(\theta, s, \tilde{v})\).</p>
+The requests of <span class="arithmatex">\(j\)</span> is found just to make sure that the decomposition of <span class="arithmatex">\(\tilde{v}\)</span> satisfies the condition of <span class="arithmatex">\(U(\theta, s, \tilde{v})\)</span>.</p>
 <p><strong>But</strong> here, we give a another expression, and deduce a little stronger conclusion.  <br />
-Without loss of generality, we can assume that \(\theta=1\), and just consider the case \(v \succeq 0\).    <br />
-For some \(v\in A, \|v\|_1 = t\), we define 
-$$ P(t) = \{ (a_i)_{i=1}^n \in U(1, s, v) : at\, most\, one\, element \notin \{ 0, 1 \}\} $$
-Indeed, \(P(t)\) is the extrime points of \(conv\,U(1, s, v)\).       <br />
-And points in \(P(k,t)\) is obviously \(\lceil t\rceil\)-sparse vectors.</p>
-<p>e.g. For some \(v, \|v\|= 1.5 \)
+Without loss of generality, we can assume that <span class="arithmatex">\(\theta=1\)</span>, and just consider the case <span class="arithmatex">\(v \succeq 0\)</span>.    <br />
+For some <span class="arithmatex">\(v\in A, \|v\|_1 = t\)</span>, we define</p>
+<div class="arithmatex">\[ P(t) = \{ (a_i)_{i=1}^n \in U(1, s, v) : at\\, most\\, one\\, element \notin \{ 0, 1 \}\} \]</div>
+<p>Indeed, <span class="arithmatex">\(P(t)\)</span> is the extrime points of <span class="arithmatex">\(conv\\,U(1, s, v)\)</span>.       <br />
+And points in <span class="arithmatex">\(P(k,t)\)</span> is obviously <span class="arithmatex">\(\lceil t\rceil\)</span>-sparse vectors.</p>
+<p>e.g. For some <span class="arithmatex">\(v, \|v\|= 1.5\)</span>
 <a class="glightbox" href="../SparseConvexHull.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="convU" src="../SparseConvexHull.png" /></a>
-\(P(1, 0.5) = \{ [1, &frac12;, 0], [1, 0, &frac12;], [0, 1, &frac12;], [&frac12;, 1, 0], [&frac12;, 0, 1], [0, &frac12;, 1] \} \), just like the graph in the paper.</p>
-<p>We claim that \(v\) can be expressed by \(P(k,t)\).</p>
-<p>Consider \(v=[a_1, ... , a_n], v\in A\), if \(v\notin P(t)\), then it has two components, WLOG, noted \(a_1, a_2 \notin \{0, 1\} \). 
-- If \(a_1+a_2 \le 1\), then $$ v = \lambda_1u_1 + \lambda_2u_2, $$ where \(\lambda_1 = \frac{a_1}{a_1+a_2}, \lambda_2=\frac{a_2}{a_1+a_2} \) and \( u_1 = [a_1+a_2, 0, a_3, ..., a_n], u_2 = [0, a_1+a_2, a_3, ..., a_n] \).
-- If \(1&lt; a_1+a_2 &lt; 2\), then $$ v = \lambda_1u_1 + \lambda_2u_2, $$ where \(\lambda_1 = \frac{1-a_1}{2-a_1+a_2}, \lambda_2=\frac{1-a_2}{2-a_1+a_2} \) and \( u_1 = [a_1+a_2-1, 1, a_3, ..., a_n], u_2 = [1, a_1+a_2-1, a_3, ..., a_n] \).
+<span class="arithmatex">\(P(1, 0.5) = \{ [1, 1/2, 0], [1, 0, 1/2], [0, 1, 1/2], [1/2, 1, 0], [1/2, 0, 1], [0, 1/2, 1] \}\)</span>, just like the graph in the paper.</p>
+<p>We claim that <span class="arithmatex">\(v\)</span> can be expressed by <span class="arithmatex">\(P(k,t)\)</span>.</p>
+<p>Consider <span class="arithmatex">\(v=[a_1, ... , a_n], v\in A\)</span>, if <span class="arithmatex">\(v\notin P(t)\)</span>, then it has two components, WLOG, noted <span class="arithmatex">\(a_1, a_2 \notin \{0, 1\}\)</span>. </p>
+<ul>
+<li>If <span class="arithmatex">\(a_1+a_2 \le 1\)</span>, then $$ v = \lambda_1u_1 + \lambda_2u_2, $$ where <span class="arithmatex">\(\lambda_1 = \frac{a_1}{a_1+a_2}, \lambda_2=\frac{a_2}{a_1+a_2}\)</span> and <span class="arithmatex">\(u_1 = [a_1+a_2, 0, a_3, ..., a_n], u_2 = [0, a_1+a_2, a_3, ..., a_n]\)</span>.</li>
+<li>If <span class="arithmatex">\(1&lt; a_1+a_2 &lt; 2\)</span>, then $$ v = \lambda_1u_1 + \lambda_2u_2, $$ where <span class="arithmatex">\(\lambda_1 = \frac{1-a_1}{2-a_1+a_2}, \lambda_2=\frac{1-a_2}{2-a_1+a_2}\)</span> and <span class="arithmatex">\(u_1 = [a_1+a_2-1, 1, a_3, ..., a_n], u_2 = [1, a_1+a_2-1, a_3, ..., a_n]\)</span>.
 <a class="glightbox" href="../SparseDecom.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="sparsedecom" src="../SparseDecom.png" /></a>   <br />
-It's obvious that \(\lambda_1+\lambda_2 = 1\) and \(\|u\|_i=t, i=1, 2\).
-And the number of components of \(u_1, u_2\) that not in \(\{0, 1\}\) is less than \(v\).   <br />
-So, by induction, we can conclude that \(v\) can be expressed by \(P(t)\).
-</p>
-</blockquote>
+It's obvious that <span class="arithmatex">\(\lambda_1+\lambda_2 = 1\)</span> and <span class="arithmatex">\(\|u\|_i=t, i=1, 2\)</span>.
+And the number of components of <span class="arithmatex">\(u_1, u_2\)</span> that not in <span class="arithmatex">\(\{0, 1\}\)</span> is less than <span class="arithmatex">\(v\)</span>.   <br />
+So, by induction, we can conclude that <span class="arithmatex">\(v\)</span> can be expressed by <span class="arithmatex">\(P(t)\)</span>.</li>
+</ul>
+</div>
 
 
 

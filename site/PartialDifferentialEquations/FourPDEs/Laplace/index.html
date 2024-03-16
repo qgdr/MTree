@@ -1521,7 +1521,7 @@
 
 
 <h1 id="laplace">Laplace方程<a class="headerlink" href="#laplace" title="Permanent link">&para;</a></h1>
-<p><a href="../Introduction.md#教材">Lawrence C.Evans Partial differential equations 2.2</a></p>
+<p><a href="../../#教材">Lawrence C.Evans Partial differential equations 2.2</a></p>
 <ol>
 <li>Laplace's equation  $$ \Delta u = 0 $$  </li>
 <li>Poisson's equation  $$ -\Delta u = f $$  </li>
@@ -1532,135 +1532,155 @@
 <div class="arithmatex">\[
 \Phi(x) :=
 \begin{cases}
-    -\frac{1}{2\pi}\log|x|  &amp; (n=2) \\\\
+    -\frac{1}{2\pi}\log|x|  &amp; (n=2) \\
     \frac{1}{n(n-2)\alpha(n)}\frac{1}{|x|^{n-2}}    &amp; (n \ge 3)
 \end{cases}
 \]</div>
-<blockquote>
-<p>基本解的形式是通过解**径向函数**得到的，它满足 Laplace 方程，但它有一个**奇点** 0。<br />
-思考：基本解的系数是怎么选取的呢？ <br />
+<p>基本解的形式是通过解 <strong>径向函数</strong> 得到的，它满足 Laplace 方程，但它有一个 <strong>奇点</strong> 0。  </p>
+<div class="admonition think">
+<p class="admonition-title">Think</p>
+<p>基本解的系数是怎么选取的呢？ <br />
 在这之前让我们想想基本解有什么用
-（参考<a href="../../../RealAnalysis/book/Conv/Superposition.html">叠加原理</a>）。<br />
-<a href="../../../RealAnalysis/src/Conv/Superposition.md"></a>
-就是因为基本解在奇点处不满足Laplace方程，那么 \(-\Delta\circ\Phi(0)\) 总应该有个特殊的‘值'，
-那么我们只要选取一个合适的值，让 \(-\Delta\circ\Phi(0) = \delta\) ，
-那么根据叠加原理，\(u=\Phi\ast f\) 就是满足 Poisson 方程的函数。</p>
-</blockquote>
+（参考<a href="../../../RealAnalysis/Convolution/Superposition/">叠加原理</a>）。<br />
+就是因为基本解在奇点处不满足Laplace方程，那么 <span class="arithmatex">\(-\Delta\circ\Phi(0)\)</span> 总应该有个特殊的‘值'，
+那么我们只要选取一个合适的值，让 <span class="arithmatex">\(-\Delta\circ\Phi(0) = \delta\)</span> ，
+那么根据叠加原理，<span class="arithmatex">\(u=\Phi\ast f\)</span> 就是满足 Poisson 方程的函数。</p>
+</div>
 <h2 id="poisson">Poisson方程的解<a class="headerlink" href="#poisson" title="Permanent link">&para;</a></h2>
-<p>$$
+<div class="arithmatex">\[
 u(x) = \Phi\ast f(x) = \int_{R^n} \Phi(x-y)f(y) dx
-$$
-我们这里给出的是满足方程的全空间的解，所以还没有边界条件的限制。  <br />
+\]</div>
+<p>我们这里给出的是满足方程的全空间的解，所以还没有边界条件的限制。  <br />
 我们上一节已经从直观上得到了 Poisson 方程的解。只需要严格的证明就行。 <br />
-但是，我们这里只对
-$$ f\in C_c<sup>2(\mathbb{R</sup>n}) $$ 
-来证明
-（这自然是因为对更低光滑性的 \(f\) 的证明稍微有点困难，而不是解本身错误）。
-事实上，对于 \(f\) 所在空间的选取，也是随着这个证明的需要而定的。</p>
+但是，我们这里只对</p>
+<div class="arithmatex">\[ f\in C_c^2(\mathbb{R^n}) \]</div>
+<p>来证明
+（这自然是因为对更低光滑性的 <span class="arithmatex">\(f\)</span> 的证明稍微有点困难，而不是解本身错误）。
+事实上，对于 <span class="arithmatex">\(f\)</span> 所在空间的选取，也是随着这个证明的需要而定的。</p>
 <ol>
-<li>为了保证函数是存在的，我们意识到需要证明 \(\int_{B(0, r)}\Phi(x)\) 是有界的。</li>
-<li>利用卷积性质，得到 
-   $$ u_{x_i}=\int_{R^n}\Phi(y)f_{x_i}(x-y)dy $$
-   $$ u_{x_ix_j}=\int_{R^n}\Phi(y)f_{x_ix_j}(x-y)dy $$
-   这里就是为什么对 \(f\) 的连续性有要求。</li>
-<li>由于我们不想动 \(f\)，那么就通过 <a href="../../../MathematicalAnalysis/book/SurfaceIntegral/GaussGreen.html">Gauss-Green定理</a> <a href="../../../MathematicalAnalysis/src/SurfaceIntegral/GaussGreen.md"></a> 来将微分算子转移到 \(\Phi\) 上</li>
-<li>由于 \(\Phi\) 在 0 处是奇点，将积分区间分为两部分 $$ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J_\epsilon $$ 当 \(\epsilon\to 0\) 的时候，\(I_\epsilon\to 0\), \(J_\epsilon\to f(x)\)。
-整理即可。</li>
+<li>
+<p>为了保证函数是存在的，我们意识到需要证明 <span class="arithmatex">\(\int_{B(0, r)}\Phi(x)\)</span> 是有界的。</p>
+</li>
+<li>
+<p>利用卷积性质，得到 
+   $$ u_{x_i}=\int_{R^n}\Phi(y)f_{x_i}(x-y)dy $$  <br />
+   $$ u_{x_ix_j}=\int_{R^n}\Phi(y)f_{x_ix_j}(x-y)dy $$<br />
+   这里就是为什么对 <span class="arithmatex">\(f\)</span> 的连续性有要求。</p>
+</li>
+<li>
+<p>由于我们不想动 <span class="arithmatex">\(f\)</span>，那么就通过 <a href="../../../MathematicalAnalysis/SurfaceIntegral/GaussGreen/">Gauss-Green定理</a> 来将微分算子转移到 <span class="arithmatex">\(\Phi\)</span> 上。  </p>
+</li>
+<li>
+<p>由于 <span class="arithmatex">\(\Phi\)</span> 在 0 处是奇点，将积分区间分为两部分 
+   $$ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J_\epsilon $$ 
+   当 <span class="arithmatex">\(\epsilon\to 0\)</span> 的时候，<span class="arithmatex">\(I_\epsilon\to 0\)</span>, <span class="arithmatex">\(J_\epsilon\to f(x)\)</span>。
+整理即可。</p>
+</li>
 </ol>
-<p>证明见<a href="../Introduction.md#教材">Lawrence C.Evans Partial differential equations 2.2.1.b Thm 1</a></p>
-<blockquote>
-<p>练习: 对于 \(n\ge 3\) 和 \(f\in C_c<sup>2(R</sup>2)\)， \(u(x)\) 是否是一致有界？</p>
-<p>如果你熟悉**叠加原理**那么直观上你会觉得这是显然的。<br />
-因为\(f\) 有界，支撑集也有界 \(supp(f)\subset B(0,r_0)\)，
+<p>证明见<a href="../../#教材">Lawrence C.Evans Partial differential equations 2.2.1.b Thm 1</a></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>对于 <span class="arithmatex">\(n\ge 3\)</span> 和 <span class="arithmatex">\(f\in C_c^2(R^2)\)</span>， <span class="arithmatex">\(u(x)\)</span> 是否是一致有界？</p>
+</div>
+<div class="admonition solve">
+<p class="admonition-title">Solve</p>
+<p>如果你熟悉 <strong>叠加原理</strong> 那么直观上你会觉得这是显然的。<br />
+因为<span class="arithmatex">\(f\)</span> 有界，支撑集也有界 <span class="arithmatex">\(supp(f)\subset B(0,r_0)\)</span>，
 $$ u(x_0) = \Phi*f(x_0) = \int_{B(x_0, r)}\Phi(x)f(x_0-x)dx \le C|\int_{B(x_0, r)}\Phi(x)| $$
-而我们已经证明了 \(\int_{B(0, r)}\Phi(x)\) 是有界的（且随 \(r\to 0\)趋于0），而且\(\Phi\) 随着 \(r\)<strong>单调减</strong>!
+而我们已经证明了 <span class="arithmatex">\(\int_{B(0, r)}\Phi(x)\)</span> 是有界的（且随 <span class="arithmatex">\(r\to 0\)</span>趋于0），而且<span class="arithmatex">\(\Phi\)</span> 随着 <span class="arithmatex">\(r\)</span> <strong>单调减</strong> !
 <a class="glightbox" href="../PhiInt.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="phi" src="../PhiInt.jpg" /></a></p>
-<p>技术上证明有界性并不困难。由于 \(\Phi\) 在球内积分有界，且随 \(r\) 的增大趋于 0。
-<a class="glightbox" href="./two_circles.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img align="right" src="./two_circles.png" height="200"/></a>
-那么只要对积分区间如图分割即可。
-\(B(x_0, r)\) 要么在橙色球内部，要么在紫色球外面，这使得积分都是有界的。</p>
+<p>技术上证明有界性并不困难。由于 <span class="arithmatex">\(\Phi\)</span> 在球内积分有界，且随 <span class="arithmatex">\(r\)</span> 的增大趋于 0。</p>
+<p><a class="glightbox" href="../two_circles.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img align="right" alt="2c" src="../two_circles.png" width="200" /></a></p>
+<p>那么只要对积分区间如图分割即可。  <br />
+<span class="arithmatex">\(B(x_0, r)\)</span> 要么在橙色球内部，要么在紫色球外面，这使得积分都是有界的。</p>
 <p>但这样证明有点丑陋，事实上，在我们的直观中，由于单调性，以原点为中心的积分本身就应该是最大的，因为在中心处更大的函数值是‘更多’的。
-我们只是暂时缺乏一套说明他的语言。但我们很快就可以将几何直观翻译成数学语言。
-$$
+我们只是暂时缺乏一套说明他的语言。但我们很快就可以将几何直观翻译成数学语言。</p>
+<div class="arithmatex">\[
 \begin{align}
     \int_{B(x_0, r)}\Phi(x)dx &amp;= -\int yd\mu(\{x\in B(x_0, r)| \Phi(x)&gt;y\})  \\
     &amp;= \int_{y\in(0, \infty)} \mu(\{x\in B(x_0, r)| \Phi(x)&gt;y\})dy   \\
     &amp;= \int_{y\in(0, \infty)} \mu(\{x\in B(x_0, r)| \Phi(x)&gt;y\})dy   \\
     &amp;= \int_{y\in(0, \infty)} \mu(\{x| \Phi(x)&gt;y\}\cap B(x_0, r))dy   \\
 \end{align}
-$$
-注意到 \(\{x| \Phi(x)&gt;y\} = B(0, \Phi^{-1}(y))\)， 
-而我们直观上很容易得到
-$$ \mu(B(0, r_1) \cap B(0, r_2)) = \mu(B(0, \min\{r_1, r_2\})) \ge \mu(B(x_1, r_1) \cap B(x_2, r_2)) $$
-因此
-$$
+\]</div>
+<p>注意到 <span class="arithmatex">\(\{x| \Phi(x)&gt;y\} = B(0, \Phi^{-1}(y))\)</span>， 
+而我们直观上很容易得到</p>
+<div class="arithmatex">\[ \mu(B(0, r_1) \cap B(0, r_2)) = \mu(B(0, \min\{r_1, r_2\})) \ge \mu(B(x_1, r_1) \cap B(x_2, r_2)) \]</div>
+<p>因此</p>
+<div class="arithmatex">\[
 \begin{align}
     \int_{B(x_0, r)}\Phi(x)dx
     &amp;= \int_{y\in(0, \infty)} \mu(\{x| \Phi(x)&gt;y\}\cap B(x_0, r))dy   \\
     &amp;\le \int_{y\in(0, \infty)} \mu(\{x| \Phi(x)&gt;y\}\cap B(0, r))dy   \\
     &amp;= \int_{B(0, r)}\Phi(x)dx
 \end{align}
-$$
-甚至我们可以得出 \( \int_{B(x_0, r)}\Phi(x)dx \) 是随 \(|x_0|\) 单调递减的。
+\]</div>
+<p>甚至我们可以得出 <span class="arithmatex">\( \int_{B(x_0, r)}\Phi(x)dx \)</span> 是随 <span class="arithmatex">\(|x_0|\)</span> 单调递减的。
 证明只需要小小改动一下，请你尝试一下吧。</p>
-</blockquote>
+</div>
 <h2 id="problems">Problems<a class="headerlink" href="#problems" title="Permanent link">&para;</a></h2>
-<blockquote>
-<ol>
-<li>
-<p>证明 Laplace方程是旋转不变的；即，若 \(O\) 是一个正交方阵， 定义
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>2 . 证明 Laplace方程是旋转不变的；即，若 <span class="arithmatex">\(O\)</span> 是一个正交方阵， 定义
 $$ v(x):=u(Ox) $$ 
-那么 \(\Delta v = 0\).<br />
-（调和是一种曲面内蕴的几何性质。） <br />
-<em>Proof</em>:  <br />
-$$ \nabla v = \nabla u(Ox) O $$ 
-$$ \begin{bmatrix}
-   v_{11} &amp; \cdots &amp; v_{1n} \\ \vdots &amp;  &amp; \vdots \\ v_{n1} &amp; \cdots &amp; v_{nn} 
+那么 <span class="arithmatex">\(\Delta v = 0\)</span>.<br />
+（调和是一种曲面内蕴的几何性质。） </p>
+</div>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<div class="arithmatex">\[ \nabla v = \nabla u(Ox) O \]</div>
+<div class="arithmatex">\[ \begin{bmatrix}
+v_{11} &amp; \cdots &amp; v_{1n} \\ \vdots &amp;  &amp; \vdots \\ v_{n1} &amp; \cdots &amp; v_{nn} 
 \end{bmatrix} = \nabla (\nabla v) = \nabla(\nabla u(Ox) O) = O^T \begin{bmatrix}
-   u_{11} &amp; \cdots &amp; u_{1n} \\ \vdots &amp;  &amp; \vdots \\ u_{n1} &amp; \cdots &amp; u_{nn} 
-\end{bmatrix} O $$
-而 \( \Delta v = v_{11}+...+v_{nn} = trace(V) = trace(O^T U O) = trace(U) = \Delta u = 0\)。
-</p>
-</li>
-<li>
-<p>令 \(U\) 是有界开集，\(u\in C^2(U)\cap C(\bar{U})\) 是调和函数，证明
-$$ \max_{\bar{U}}u = \max_{\partial U}u $$  <br />
-<em>Proof</em>:<br />
-对于 \(\epsilon&gt;0\) 定义， \(u_\epsilon := u+\epsilon|x|^2 \)。则 \(\Delta u_\epsilon &gt; 0\)
-由于 \(U\) 有界，且 \(u\) 在 \(\bar{U}\) 上连续，所以 \(u, |x|\) 有界。
-\(u_\epsilon\) 的最小值不能在内部取得。
-否则，若 \(u(x_0) = \max_{\bar{U}}u \)，且 \(B(x_0, \delta) \subseteq \bar{U} \)，
-那么 $$ u(x_0) &lt; {-\mkern -19mu\int}_{B(x_0, \delta)} u(x) \le {-\mkern -19mu\int}_{B(x_0, \delta)} u(x_0) = u(x_0) $$
-矛盾。所以，
-$$ \max_{\bar{U}}u_\epsilon = \max_{\partial U}u_\epsilon $$
-我们有
-$$ \max_{\bar{U}}u = \lim_{\epsilon\to 0} \max_{\bar{U}}u_\epsilon = \lim_{\epsilon\to 0} \max_{\partial U}u = \max_{\partial U}u $$
-</p>
-</li>
-<li>
-<p>如果 \(v\in C^2(\bar{U}) \)，且 $$ -\Delta \le 0 \quad in \, U $$，我们称 \(v\) 是一个**次调和函数**(subharmonic)。 <br />
-(a) 证明 
-$$ v(x)\le {-\mkern -19mu\int}_{B(x, r)} v(y)dy \quad for \, all \, B(x,r) \subset U $$  <br />
-(b) 证明 \( \max_{\bar{U}}v = \max_{\partial U} v \)<br />
-&copy; 令 \(\phi : R \rightarrow R \) 是光滑凸函数。
-设 \(u\) 是调和函数，而 \(v := \phi(u) \) 。证明 \(v\) 是次调和的。   <br />
-(d) 证明当 \(u\)是调和函数时，\( v:=|Du|^2 \) 是次调和的 。<br />
-<em>Proof</em>:    <br />
-(a) 与 <a href="../Introduction.md#教材">PDE 2.2.2 Thm 2</a> 几乎完全一样，令
-$$ \phi&reg; := {-\mkern -19mu\int}_{\partial B(x, r)} v(y) dy $$
-$$ \phi'&reg; = \frac{r}{n}{-\mkern -19mu\int}_{B(x,r)}\Delta v(y)dy \ge 0 $$
-$$ \phi&reg; \ge \lim_{t\to 0}\phi(t) = v(x) $$
-So, 
-$$ {-\mkern -19mu\int}_{B(x,r)}vdy = \frac{1}{r}\int_0^r \phi&reg; dr \ge v(x) $$
-<strong>注意</strong>： \(\phi'(0)=0\)，这说明 \(\phi&reg;\) 是二阶的，仔细思考一下为什么？   <br />
-(b) 与上一题的证明一样，注意一下 \( \Delta v_\epsilon &gt; 0\)  <br />
-&copy; 由于 \(\phi\) 是凸函数 
-$$ {-\mkern -19mu\int}_{\partial B(x,r)}v(y)dy = {-\mkern -19mu\int}_{\partial B(x,r)} \phi(u(y))dy \ge \phi({-\mkern -19mu\int}_{\partial B(x,r)}u(y)dy) = \phi(u(x)) = v(x) $$
-函数 \(v\in C^2(U)\) 满足 \( {-\mkern -17mu\int}_{\partial B(x,r)}v(y)dy \ge v(x) \) 等价于 \( v\) 是调和函数。      <br />
-(d) 当 \(u\) 是调和函数时，\(Du\) 调和函数。而 \( \cdot \rightarrow |\cdot|^2\) 是凸函数，所以由 &copy; \(v\) 是次调和函数。</p>
-</li>
-</ol>
-</blockquote>
+u_{11} &amp; \cdots &amp; u_{1n} \\ \vdots &amp;  &amp; \vdots \\ u_{n1} &amp; \cdots &amp; u_{nn} 
+\end{bmatrix} O \]</div>
+<p>而 <span class="arithmatex">\( \Delta v = v_{11}+...+v_{nn} = trace(V) = trace(O^T U O) = trace(U) = \Delta u = 0\)</span>。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>4 . 令 <span class="arithmatex">\(U\)</span> 是有界开集，<span class="arithmatex">\(u\in C^2(U)\cap C(\bar{U})\)</span> 是调和函数，证明</p>
+<div class="arithmatex">\[ \max_{\bar{U}}u = \max_{\partial U}u \]</div>
+</div>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>对于 <span class="arithmatex">\(\epsilon&gt;0\)</span> 定义， <span class="arithmatex">\(u_\epsilon := u+\epsilon|x|^2 \)</span>。则 <span class="arithmatex">\(\Delta u_\epsilon &gt; 0\)</span>
+由于 <span class="arithmatex">\(U\)</span> 有界，且 <span class="arithmatex">\(u\)</span> 在 <span class="arithmatex">\(\bar{U}\)</span> 上连续，所以 <span class="arithmatex">\(u, |x|\)</span> 有界。
+<span class="arithmatex">\(u_\epsilon\)</span> 的最小值不能在内部取得。
+否则，若 <span class="arithmatex">\(u(x_0) = \max_{\bar{U}}u \)</span>，且 <span class="arithmatex">\(B(x_0, \delta) \subseteq \bar{U} \)</span>，
+那么 </p>
+<div class="arithmatex">\[ u(x_0) &lt; {-\mkern -19mu\int}_{B(x_0, \delta)} u(x) \le {-\mkern -19mu\int}_{B(x_0, \delta)} u(x_0) = u(x_0) \]</div>
+<p>矛盾。所以，</p>
+<div class="arithmatex">\[ \max_{\bar{U}}u_\epsilon = \max_{\partial U}u_\epsilon \]</div>
+<p>我们有</p>
+<div class="arithmatex">\[ \max_{\bar{U}}u = \lim_{\epsilon\to 0} \max_{\bar{U}}u_\epsilon = \lim_{\epsilon\to 0} \max_{\partial U}u = \max_{\partial U}u \]</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>5 . 如果 <span class="arithmatex">\(v\in C^2(\bar{U}) \)</span>，且 $$ -\Delta \le 0 \quad in \, U $$
+我们称 <span class="arithmatex">\(v\)</span> 是一个 <strong>次调和函数</strong> (subharmonic)。 </p>
+<p>a. 证明 </p>
+<div class="arithmatex">\[ v(x)\le {-\mkern -19mu\int}_{B(x, r)} v(y)dy \quad for \\, all \\, B(x,r) \subset U \]</div>
+<p>b. 证明 <span class="arithmatex">\( \max_{\bar{U}}v = \max_{\partial U} v \)</span><br />
+c. 令 <span class="arithmatex">\(\phi : R \rightarrow R \)</span> 是光滑凸函数。
+设 <span class="arithmatex">\(u\)</span> 是调和函数，而 <span class="arithmatex">\(v := \phi(u) \)</span> 。证明 <span class="arithmatex">\(v\)</span> 是次调和的。   <br />
+d. 证明当 <span class="arithmatex">\(u\)</span>是调和函数时，<span class="arithmatex">\( v:=|Du|^2 \)</span> 是次调和的 。  </p>
+</div>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>a. 与 <a href="../../#教材">PDE 2.2.2 Thm 2</a> 几乎完全一样，令</p>
+<div class="arithmatex">\[ \phi(r) := {-\mkern -19mu\int}_{\partial B(x, r)} v(y) dy \]</div>
+<div class="arithmatex">\[ \phi'(r) = \frac{r}{n}{-\mkern -19mu\int}_{B(x,r)}\Delta v(y)dy \ge 0 \]</div>
+<div class="arithmatex">\[ \phi(r) \ge \lim_{t\to 0}\phi(t) = v(x) \]</div>
+<p>So, </p>
+<div class="arithmatex">\[ {-\mkern -19mu\int}_{B(x,r)}vdy = \frac{1}{r}\int_0^r \phi(r) dr \ge v(x) \]</div>
+<p><strong>注意</strong>： <span class="arithmatex">\(\phi'(0)=0\)</span>，这说明 <span class="arithmatex">\(\phi(r)\)</span> 是二阶的，仔细思考一下为什么？</p>
+<p>b. 与上一题的证明一样，注意一下 <span class="arithmatex">\( \Delta v_\epsilon &gt; 0\)</span></p>
+<p>c. 由于 <span class="arithmatex">\(\phi\)</span> 是凸函数</p>
+<div class="arithmatex">\[ {-\mkern -19mu\int}_{\partial B(x,r)}v(y)dy = {-\mkern -19mu\int}_{\partial B(x,r)} \phi(u(y))dy \ge \phi({-\mkern -19mu\int}_{\partial B(x,r)}u(y)dy) = \phi(u(x)) = v(x) \]</div>
+<p>函数 <span class="arithmatex">\(v\in C^2(U)\)</span> 满足 <span class="arithmatex">\( {-\mkern -17mu\int}_{\partial B(x,r)}v(y)dy \ge v(x) \)</span> 等价于 <span class="arithmatex">\( v\)</span> 是调和函数。</p>
+<p>d. 当 <span class="arithmatex">\(u\)</span> 是调和函数时，<span class="arithmatex">\(Du\)</span> 调和函数。   <br />
+而 <span class="arithmatex">\( \cdot \rightarrow |\cdot|^2\)</span> 是凸函数，所以由 c. <span class="arithmatex">\(v\)</span> 是次调和函数。</p>
+</div>
 
 
 
@@ -1715,13 +1735,13 @@ $$ {-\mkern -19mu\int}_{\partial B(x,r)}v(y)dy = {-\mkern -19mu\int}_{\partial B
         
         
           
-          <a href="../../../Topology/" class="md-footer__link md-footer__link--next" aria-label="下一页: Introduction">
+          <a href="../../../Topology/" class="md-footer__link md-footer__link--next" aria-label="下一页: 拓扑学">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Introduction
+                拓扑学
               </div>
             </div>
             <div class="md-footer__button md-icon">
