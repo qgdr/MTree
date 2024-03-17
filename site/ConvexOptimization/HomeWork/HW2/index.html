@@ -793,6 +793,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    HW2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -802,6 +813,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-exercise-318-357-of-convex-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Exercise 3.18, 3.57 of Convex Optimization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-exercise-212-of-exercise-336-of-convex-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Exercise 2.12 of 最优化：建模、算法与理论, Exercise 3.36 of Convex Optimization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-exercise-26-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Exercise 2.6 of 最优化：建模、算法与理论
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1415,6 +1472,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-exercise-318-357-of-convex-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Exercise 3.18, 3.57 of Convex Optimization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-exercise-212-of-exercise-336-of-convex-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Exercise 2.12 of 最优化：建模、算法与理论, Exercise 3.36 of Convex Optimization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-exercise-26-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Exercise 2.6 of 最优化：建模、算法与理论
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1430,6 +1522,120 @@
 
 <h1 id="hw2">HW2<a class="headerlink" href="#hw2" title="Permanent link">&para;</a></h1>
 <p><a href="../../HWpdf/Homework2%20of%20Optimization-2024.pdf">HW2pdf</a></p>
+<h2 id="1-exercise-318-357-of-convex-optimization">1. Exercise 3.18, 3.57 of <a href="../../#ee364a-convex-optimization-i-professor-stephen-boyd-stanford-university">Convex Optimization</a><a class="headerlink" href="#1-exercise-318-357-of-convex-optimization" title="Permanent link">&para;</a></h2>
+<p>a. <span class="arithmatex">\(f(\mathbf{X}) = tr(\mathbf{X}^{-1})\)</span> is convex on <span class="arithmatex">\(dom f=S_{++}^n\)</span></p>
+<p>b. <span class="arithmatex">\(f(\mathbf{X}) = (\det(\mathbf{X}))^{1/n}\)</span> is concave on <span class="arithmatex">\(dom f=S_{++}^n\)</span></p>
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p><strong>a</strong>. consider <span class="arithmatex">\(g(t)=f(X+tY)\)</span>, where <span class="arithmatex">\(X\in S_{++}^n, Y\in S^n\)</span>. We have</p>
+<div class="arithmatex">\[ \begin{align}
+g(t) &amp;= tr((X+tY)^{-1}) \\
+    &amp;= tr((X^{1/2}(I + tZ)X^{1/2})^{-1}) \quad (where \, Z=X^{-1/2}YX^{-1/2} \in S^n)   \\
+    &amp;= tr(X^{-1}(I + tZ)^{-1}) \\
+    &amp;= tr(X^{-1}U^T(I + t\Lambda)^{-1}U) \quad (where \, \Lambda=UZU^T diagonal, U \, unit)   \\
+    &amp;=\sum_{i=1}^n (UX^{-1}U^T)_{ii} (1+t\lambda_i)^{-1}
+\end{align} \]</div>
+<p>Since <span class="arithmatex">\(UX^{-1}U^T\in S_{++}^n\)</span>, we get <span class="arithmatex">\((UX^{-1}U^T)_{ii}&gt;0\)</span>.    <br />
+And <span class="arithmatex">\(X+tY\succ 0\)</span> iif <span class="arithmatex">\(I+t\Lambda\succ 0\)</span>. <br />
+If <span class="arithmatex">\(Y\neq 0\)</span>, then <span class="arithmatex">\(\Lambda \neq 0\)</span>, when <span class="arithmatex">\(1+t\lambda_i&gt;0, i=1,..., n\)</span></p>
+<div class="arithmatex">\[g''(t)=\sum_{i=1}^n (UX^{-1}U^T)_{ii} 2\lambda_i^2
+(1+t\lambda_i)^{-3} &gt; 0\]</div>
+<p>So <span class="arithmatex">\(g(t)\)</span> is strictly convex.   <br />
+And then, we have <span class="arithmatex">\(f(\mathbf{X}) = tr(\mathbf{X}^{-1})\)</span> is strictly convex.</p>
+<hr />
+<p><strong>b</strong>. Similarly, we have</p>
+<div class="arithmatex">\[ \begin{align}
+g(t) &amp;= (\det(X+tY))^{1/n} \\
+    &amp;= ( \det(X^{1/2}(I + tZ)X^{1/2}) )^{1/n}    \\
+    &amp;= ( \det(X)\det(I+t\Lambda) )^{1/n}  \\
+    &amp;= (\det(X))^{1/n}\prod_{i=1}^n (1+t\lambda_i)^{1/n}
+\end{align} \]</div>
+<div class="arithmatex">\[ \begin{align}   
+g''(t) &amp;= g(t) (\sum_{i=1}^n -\frac{n-1}{n^2(1+t\lambda_i)^{2}} + \sum_{i\neq j}\frac{1}{n^2(1+t\lambda_i)(1+t\lambda_j)}) \\
+&amp;= - g(t) (\frac{1}{n}\sum_{i=1}^n \frac{1}{(1+t\lambda_i)^{2}} - (\frac{1}{n}\sum_{i=1}^n \frac{1}{1+t\lambda_i})^2 ) \le 0
+\end{align} \]</div>
+<p>Since <span class="arithmatex">\(\det(X)&gt;0\)</span>, we get <span class="arithmatex">\(g(t)\)</span> is concave. (By the way, we deduce that geometric mean is concave.)<br />
+And then we have <span class="arithmatex">\(f(\mathbf{X}) = (\det(\mathbf{X}))^{1/n}\)</span> is concave.</p>
+</div>
+<h2 id="2-exercise-212-of-exercise-336-of-convex-optimization">2. Exercise 2.12 of <a href="../../#最优化建模算法与理论">最优化：建模、算法与理论</a>, Exercise 3.36 of <a href="../../#ee364a-convex-optimization-i-professor-stephen-boyd-stanford-university">Convex Optimization</a><a class="headerlink" href="#2-exercise-212-of-exercise-336-of-convex-optimization" title="Permanent link">&para;</a></h2>
+<p>Derive the conjugates of the following functions</p>
+<p>a. Max function. <span class="arithmatex">\(f(\mathbf{x})=\max_{i=1,..,n} x_i\)</span> on <span class="arithmatex">\(R^n\)</span>.     </p>
+<p>b. Sum of largest elements. <span class="arithmatex">\(f(\mathbf{x}) = \sum_{i=1}^r x_{[i]}\)</span> on <span class="arithmatex">\(R^n\)</span>.     </p>
+<p>c. Log function of the Matrix: <span class="arithmatex">\(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \)</span>.</p>
+<div class="admonition solve">
+<p class="admonition-title">Solve</p>
+<div class="arithmatex">\[ f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} \]</div>
+<p><strong>a</strong>. </p>
+<ol>
+<li>If <span class="arithmatex">\(y_i &lt; 0\)</span> for some <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{x_i &lt; 0}\{y^T (0, ..., x_i, ..., 0) - 0\} = +\infty \)</span>.</li>
+<li>If <span class="arithmatex">\(\sum_{i=1}^n y_i \neq 1\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{t}\{y^T ( t, ..., t) - t\} = +\infty \)</span>.</li>
+<li>If If <span class="arithmatex">\(\sum_{i=1}^n y_i = 1\)</span> and <span class="arithmatex">\(y_i \ge 0\)</span> for all <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} = \sum_{i=1}^n y_i\max_{i=1}^n x_i - f(x) = 0\)</span>.   </li>
+</ol>
+<p>So we have</p>
+<div class="arithmatex">\[ f^*(y) = \begin{cases}
+    0, &amp; y_i \ge 0 \text{ and } \sum_{i=1}^n y_i = 1 \\
+    +\infty, &amp; \text{otherwise}
+\end{cases} \]</div>
+<hr />
+<p><strong>b</strong>.</p>
+<p>Similarly,      </p>
+<ol>
+<li>If <span class="arithmatex">\(y_i &lt; 0\)</span> for some <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{x_i &lt; 0}\{y^T (0, ..., x_i, ..., 0) - 0 \} = +\infty \)</span>.  </li>
+<li>If <span class="arithmatex">\(y_i &gt;1\)</span> for some <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{x_i &gt;0}\{y^T (0, ..., x_i, ..., 0) -x_i \} = +\infty \)</span>.    </li>
+<li>If <span class="arithmatex">\(\sum_{i=1}^n y_i \neq r\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{t}\{y^T ( t, ..., t) - rt\} = +\infty \)</span>.</li>
+<li>If <span class="arithmatex">\(\sum_{i=1}^n y_i = r\)</span> and <span class="arithmatex">\(0 \le y_i \le 1\)</span>, then</li>
+</ol>
+<div class="arithmatex">\[\begin{align}    
+y^Tx &amp;= \sum_{i=1}^r y_i x_{[i]} + \sum_{i=r+1}^n y_i x_{[i]} \\
+&amp;\le \sum_{i=1}^r y_i x_{[i]} + \sum_{i=1}^r (1-y_i) x_{[r+1]} \\
+&amp;\le \sum_{i=1}^r y_i x_{[i]} + \sum_{i=1}^r (1-y_i) x_{[i]} = 0 
+\end{align}\]</div>
+<p>It can be get when <span class="arithmatex">\(x=0\)</span>
+Summarise:</p>
+<div class="arithmatex">\[f^*(y) = \begin{cases}
+    0, &amp; 0 \le y_i \le 1 \text{ and } \sum_{i=1}^n y_i = r \\
+    +\infty, &amp; \text{otherwise}
+\end{cases} \]</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>c</strong>.</p>
+<p>Since <span class="arithmatex">\(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \)</span>,</p>
+<div class="arithmatex">\[ f^*(\mathbf{Y}) = \sup_{\mathbf{X} \in dom f} \{ tr(\mathbf{Y}^T\mathbf{X}) + \ln \det(\mathbf{X}) \}\]</div>
+<p>（这什么玩意？根本就不对！先说结论）
+$$ f^*(\mathbf{Y}) \equiv +\infty, \text{ if } n &gt; 1 $$</p>
+<p>根据奇异值分解， 设 <span class="arithmatex">\( Y = U D V^T \)</span>, 其中 <span class="arithmatex">\( D \)</span> 是对角矩阵, <span class="arithmatex">\( U, V \)</span> 是正交矩阵，且 <font color=Red> \( \det(U)=\det(V)=1 \) </font>。</p>
+<p>令 <span class="arithmatex">\( X=U \Lambda V^T \)</span>，则 <span class="arithmatex">\(tr(Y^TX)=tr( V D U^T U \Lambda V^T) = \sum_{i=1}^n d_i \lambda_i \)</span>.<br />
+若 <span class="arithmatex">\(d_1 &gt; 0\)</span>，令 <span class="arithmatex">\( \lambda_1 = t^{n-1}, \lambda_i = 1/t, i\geq 2 \)</span>，那么</p>
+<div class="arithmatex">\[ tr(Y^TX)+\ln \det(X) = d_1 t^{n-1} + \sum_{i=2}^{n}d_i/t + 0 \to +\infty \]</div>
+<p>若 <span class="arithmatex">\(d_1 &lt; 0\)</span>，令 <span class="arithmatex">\( \lambda_1 = -t^{n-1}, \lambda_2 = -1/t, \lambda_i = 1/t, i\geq 3 \)</span>，那么</p>
+<div class="arithmatex">\[ tr(Y^TX)+\ln \det(X) = -d_1 t^{n-1} + (d_2+\sum_{i=3}^{n}d_i)/t + 0 \to +\infty \]</div>
+</div>
+<h2 id="3-exercise-26-of">3. Exercise 2.6 of <a href="../../#最优化建模算法与理论">最优化：建模、算法与理论</a><a class="headerlink" href="#3-exercise-26-of" title="Permanent link">&para;</a></h2>
+<p>Compute the gradient of the functions with matrix variables.</p>
+<p>a. <span class="arithmatex">\(f (\mathbf{X}) = Tr (\mathbf{X}^T\mathbf{A}\mathbf{X})\)</span>, where <span class="arithmatex">\(\mathbf{X} ∈ R^{m×n}\)</span>, <span class="arithmatex">\(\mathbf{A} ∈ R^{m×m}\)</span> (may not symmetrix);</p>
+<p>b. <span class="arithmatex">\(f (\mathbf{X}) = \ln \det(\mathbf{X})\)</span>, where <span class="arithmatex">\(\mathbf{X} ∈ R^{n×n}\)</span> and domain is <span class="arithmatex">\(\{\mathbf{X} | det(\mathbf{X}) &gt; 0\}\)</span>.</p>
+<div class="admonition solve">
+<p class="admonition-title">Solve</p>
+<p><strong>a</strong>.</p>
+<div class="arithmatex">\[ \begin{align}
+f(X+tV)-f(X) &amp;= Tr((X^T+tV^T)A(X+tV))-Tr(X^TAX) \\
+    &amp;= t Tr(V^TAX) + t Tr(X^TAV) + t^2 Tr(V^TAV) \\
+    &amp;= t Tr((AX)^T V) + t Tr((A^TX)^T V) + O (t^2)
+\end{align} \]</div>
+<p>So, <span class="arithmatex">\( \nabla f(X) = AX+A^TX \)</span></p>
+<hr />
+<p><strong>b</strong>.</p>
+<p>Let</p>
+<div class="arithmatex">\[ \begin{align}
+f(X+tV)-f(X) &amp;=\ln\det (X+tV) - \ln \det (X) \\
+    &amp;= \ln(\det(X+tV)/\det(X)) \\
+    &amp;= \ln(\det(I+tVX^{-1}))    \\
+    &amp;= \ln(1+Tr(VX^{-1})t+O(t^2))  \\
+    &amp;= Tr((X^{-T})^T V) + O(t^2)
+\end{align} \]</div>
+<p>So, <span class="arithmatex">\( \nabla f(X) = X^{-T} \)</span></p>
+</div>
 
 
 
