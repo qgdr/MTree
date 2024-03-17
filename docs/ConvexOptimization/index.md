@@ -4,9 +4,12 @@
 
 ## 参考资料
 
-- [EE364a: Convex Optimization I Professor Stephen Boyd, Stanford University](https://stanford.edu/~boyd/cvxbook/)
-    - [Convex Optimization Stephen Boyd and Lieven Vandenberghe](https://stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf)
-    - [Lecture slides](https://stanford.edu/~boyd/cvxbook/bv_cvxslides.pdf)
+### [EE364a: Convex Optimization I Professor Stephen Boyd, Stanford University](https://stanford.edu/~boyd/cvxbook/)
+
+- [Convex Optimization Stephen Boyd and Lieven Vandenberghe](https://stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf)
+- [Lecture slides](https://stanford.edu/~boyd/cvxbook/bv_cvxslides.pdf)
+
+### [最优化：建模、算法与理论](../Library/最优化-建模、算法与理论(第二版).pdf)
 
 ## 依赖
 

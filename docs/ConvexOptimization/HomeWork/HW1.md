@@ -1,6 +1,6 @@
 # HW1
 
-[HW1pdf](../../HWpdf/Homework1-2024.pdf)
+[HW1pdf](../HWpdf/Homework1-2024.pdf)
 
 <!-- toc -->
 
@@ -11,8 +11,12 @@ $$ C=\{ x\in R^n | x^T A x + b^T x + c \le 0\} $$
 with $A\in S^n, \quad b\in R^n, \quad c\in R$.
 
 (a) Show that $C$ is $A\succeq 0$ (which means $A$ is positive semidefinite).    
-!!! solve
-    It is sufficient to show that $f(x) = x^T A x + b^T x + c$ is a convex function (for the **epi** of a convex function is convex.)
+
+(b) Show that intersection of $C$ and the hyperplane defined by $g^T x + h = 0$ ( where $g \ne 0$ ) is convex if $A + λgg^T \succeq 0$ for some $λ ∈ R$. Are the converses of these statements true?
+
+!!! proof
+
+    **a**. It is sufficient to show that $f(x) = x^T A x + b^T x + c$ is a convex function (for the **epi** of a convex function is convex.)
     i.e. $$ \frac{f(x_1) + f(x_2)}{2} \ge f(\frac{x_1+x_2}{2}) $$
     that is 
 
@@ -22,11 +26,11 @@ with $A\in S^n, \quad b\in R^n, \quad c\in R$.
         &\Leftrightarrow (x_1-x_2)^TA(x_1 - x_2) \ge 0
     \end{align} $$
     
-    it is true since $A$ is positive semidefinite. $\blacksquare$  
+    it is true since $A$ is positive semidefinite. $\blacksquare$
 
-(b) Show that intersection of $C$ and the hyperplane defined by $g^T x + h = 0$ ( where $g \ne 0$ ) is convex if $A + λgg^T \succeq 0$ for some $λ ∈ R$. Are the converses of these statements true?
-!!! solve
-    Let $$ H = \{ x | g^T x + h = 0 \} $$
+    ---
+
+    **b**. Let $$ H = \{ x | g^T x + h = 0 \} $$
     for $x\in H$, $x\in C$ equavalent to
     $$ x^T (A+ λgg^T) x + b^T x + c - λh^2 \le 0 $$
     whose solution set defined $\tilde{C}$,   
@@ -70,8 +74,10 @@ is nonsingular. Show that $f$ is an invertible linear fractional function.
     = P(Q^{-1}\begin{bmatrix} y \\\\ 1 \end{bmatrix}) $$
     so $f$ is bijective.  
 
-    [Schur complement Matrix Analysis 0.8.5](../../../Library/Matrix%20analysis%20Cambridge%20University%20Press%20.pdf)
-    1. For $A$ invertible,
+    ---
+
+    [Schur complement Matrix Analysis 0.8.5](../../../Library/Matrix%20analysis%20Cambridge%20University%20Press%20.pdf)    
+    1 . For $A$ invertible,
     
     $$
         Q = \begin{bmatrix} A & b \\ c^T & d \end{bmatrix}
@@ -96,8 +102,7 @@ is nonsingular. Show that $f$ is an invertible linear fractional function.
 
     $$ dom f^{-1} = \{ y | (d-c^TA^{-1}b)(-c^TA^{-1}y + 1) > 0 \} $$
 
-!!! solve
-    1. If $d \ne 0$, similarly, we get
+    2 . If $d \ne 0$, similarly, we get
 
     $$ Q = \begin{bmatrix} A & b \\\\ c^T & d \end{bmatrix}
     = \begin{bmatrix} I & bd^{-1} \\\\  & 1 \end{bmatrix}
@@ -122,13 +127,15 @@ is nonsingular. Show that $f$ is an invertible linear fractional function.
 
     $$ dom f^{-1} = \{ y | -c^T(dA-bc^T)^{-1}y + d^{-1}+d^{-1}c^T(dA-bc^T)^{-1}b > 0 \} $$
     
-    2. If $A$ is **not** invertable and $d = 0$, （啊！我要疯了，哪里有这个定理啊，我快算死了！）   
+    3 . If $A$ is **not** invertable and $d = 0$, （啊！我要疯了，哪里有这个定理啊，我快算死了！）   
     Since $$ Q = \begin{bmatrix} A & b \\\\ c^T & 0 \end{bmatrix} $$ is nonsingular,
     we have
+
     - $rank(A) = n-1$, the kernel space  denoted $\lambda v$,  
     - $rank([A \quad b] = n)$ 
     - $c^Tv\ne 0$,  
-    - $b \ne 0$.    
+    - $b \ne 0$.  
+  
     Then we conclude $A + bc^T$ is invertible!    
     Otherwise, there is some vector $u$ s.t. $Au + bc^Tu = 0$, 
     but we have $rank([A \quad b]) > rank(A) = n-1$, 
@@ -183,6 +190,8 @@ $$
     And use the technique of decomposition of vector to the edge of the intersection of cube and hyperplane to decrease at least one dimension.
     The requests of $j$ is found just to make sure that the decomposition of $\tilde{v}$ satisfies the condition of $U(\theta, s, \tilde{v})$.
 
+    ---
+    
     **But** here, we give a another expression, and deduce a little stronger conclusion.    
     Without loss of generality, we can assume that $\theta=1$, and just consider the case $v \succeq 0$.      
     For some $v\in A, \|v\|_1 = t$, we define
