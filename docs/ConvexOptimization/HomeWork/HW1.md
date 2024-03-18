@@ -88,7 +88,7 @@ is nonsingular. Show that $f$ is an invertible linear fractional function.
 
     ---
 
-    [Schur complement Matrix Analysis 0.8.5](../../../Library/Matrix%20analysis%20Cambridge%20University%20Press%20.pdf)    
+    [Schur complement Matrix Analysis 0.8.5](../../Library/Matrix%20analysis%20Cambridge%20University%20Press%20.pdf)    
     1 . For $A$ invertible,
     
     $$
