@@ -92,6 +92,7 @@ site_author: qgdr
 site_description: "\u6570\u5B66\u77E5\u8BC6\u6846\u67B6\u4E0E\u89C2\u70B9\u7406\u89E3"
 site_name: My Docs
 theme:
+  custom_dir: overrides
   extra:
     generator: false
     social:

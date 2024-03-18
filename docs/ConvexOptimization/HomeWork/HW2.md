@@ -66,9 +66,10 @@ c. Log function of the Matrix: \(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \).
 
     **a**. 
 
-    1. If \(y_i < 0\) for some \(i\), then \(f^*(y) \ge \sup_{x_i < 0}\{y^T (0, ..., x_i, ..., 0) - 0\} = +\infty \).
-    2. If \(\sum_{i=1}^n y_i \neq 1\), then \(f^*(y) \ge \sup_{t}\{y^T ( t, ..., t) - t\} = +\infty \).
-    3. If If \(\sum_{i=1}^n y_i = 1\) and \(y_i \ge 0\) for all \(i\), then \(f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} = \sum_{i=1}^n y_i\max_{i=1}^n x_i - f(x) = 0\).   
+    1. If \(y_i < 0\) for some \(i\), then \(f^*(y) \ge \sup_{x_i < 0}\{y^T (0, ..., x_i, ..., 0) - 0\} = +\infty \).   
+    2. If \(\sum_{i=1}^n y_i \neq 1\), then \(f^*(y) \ge \sup_{t}\{y^T ( t, ..., t) - t\} = +\infty \).     
+    3. If \(\sum_{i=1}^n y_i = 1\) and \(y_i \ge 0\) for all \(i\), then    
+    \(f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} = \sum_{i=1}^n y_i\max_{i=1}^n x_i - f(x) = 0\).   
 
     So we have
 
@@ -83,9 +84,9 @@ c. Log function of the Matrix: \(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \).
 
     Similarly,      
 
-    1. If \(y_i < 0\) for some \(i\), then \(f^*(y) \ge \sup_{x_i < 0}\{y^T (0, ..., x_i, ..., 0) - 0 \} = +\infty \).  
+    1. If \(y_i < 0\) for some \(i\), then \(f^*(y) \ge \sup_{x_i < 0}\{y^T (0, ..., x_i, ..., 0) - 0 \} = +\infty \).      
     2. If \(y_i >1\) for some \(i\), then \(f^*(y) \ge \sup_{x_i >0}\{y^T (0, ..., x_i, ..., 0) -x_i \} = +\infty \).    
-    3. If \(\sum_{i=1}^n y_i \neq r\), then \(f^*(y) \ge \sup_{t}\{y^T ( t, ..., t) - rt\} = +\infty \).
+    3. If \(\sum_{i=1}^n y_i \neq r\), then \(f^*(y) \ge \sup_{t}\{y^T ( t, ..., t) - rt\} = +\infty \).    
     4. If \(\sum_{i=1}^n y_i = r\) and \(0 \le y_i \le 1\), then
 
     $$\begin{align}    
@@ -111,9 +112,10 @@ c. Log function of the Matrix: \(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \).
     $$ f^*(\mathbf{Y}) = \sup_{\mathbf{X} \in dom f} \{ tr(\mathbf{Y}^T\mathbf{X}) + \ln \det(\mathbf{X}) \}$$
 
     （这什么玩意？根本就不对！先说结论）
+
     $$ f^*(\mathbf{Y}) \equiv +\infty, \text{ if } n > 1 $$
 
-    根据奇异值分解， 设 \( Y = U D V^T \), 其中 \( D \) 是对角矩阵, \( U, V \) 是正交矩阵，且 <font color=Red> \\( \det(U)=\det(V)=1 \\) </font>。
+    根据奇异值分解， 设 \( Y = U D V^T \), 其中 \( D \) 是对角矩阵, \( U, V \) 是正交矩阵，且 <font color=Red> \( \det(U)=\det(V)=1 \) </font>。
 
     令 \( X=U \Lambda V^T \)，则 \(tr(Y^TX)=tr( V D U^T U \Lambda V^T) = \sum_{i=1}^n d_i \lambda_i \).  
     若 \(d_1 > 0\)，令 \( \lambda_1 = t^{n-1}, \lambda_i = 1/t, i\geq 2 \)，那么

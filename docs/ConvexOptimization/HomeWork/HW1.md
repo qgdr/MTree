@@ -17,7 +17,10 @@ with $A\in S^n, \quad b\in R^n, \quad c\in R$.
 !!! proof
 
     **a**. It is sufficient to show that $f(x) = x^T A x + b^T x + c$ is a convex function (for the **epi** of a convex function is convex.)
-    i.e. $$ \frac{f(x_1) + f(x_2)}{2} \ge f(\frac{x_1+x_2}{2}) $$
+    i.e. 
+
+    $$ \frac{f(x_1) + f(x_2)}{2} \ge f(\frac{x_1+x_2}{2}) $$
+
     that is 
 
     $$ \begin{align}
@@ -26,25 +29,34 @@ with $A\in S^n, \quad b\in R^n, \quad c\in R$.
         &\Leftrightarrow (x_1-x_2)^TA(x_1 - x_2) \ge 0
     \end{align} $$
     
-    it is true since $A$ is positive semidefinite. $\blacksquare$
+    it is true since $A$ is positive semidefinite. 
 
     ---
 
-    **b**. Let $$ H = \{ x | g^T x + h = 0 \} $$
+    **b**. Let 
+    
+    $$ H = \{ x | g^T x + h = 0 \} $$
+
     for $x\in H$, $x\in C$ equavalent to
+
     $$ x^T (A+ λgg^T) x + b^T x + c - λh^2 \le 0 $$
+    
     whose solution set defined $\tilde{C}$,   
     if $A + λgg^T \succeq 0$ for some $λ ∈ R$, then
     $\tilde{C}$ is convex.
+
     $$ x \in H \cap C = H \cap \tilde{C} $$
-    is intersection of two convex sets, so it is convex.  $\blacksquare$  
+
+    is intersection of two convex sets, so it is convex.    
 
     the converses is **false**.
     let's consider the case
-    $$ A = \begin{bmatrix} -1 & 0 \\\\ 0 & -1 \end{bmatrix}, g = \begin{bmatrix} 0 \\\\ 1 \end{bmatrix}, b=0, h = 0, c = 0 $$
+
+    $$ A = \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix}, g = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, b=0, h = 0, c = 0 $$
+
     where $C=R^2$, $H = \{ (x_1, x_2) | x_2 = 0\}$, 
     $C \cap H$ is obvious convex,
-    but $A + λgg^T = \begin{bmatrix} -1 & 0 \\\\ 0 & -1 + λ \end{bmatrix}$ can never be positive semidefinite.
+    but $A + λgg^T = \begin{bmatrix} -1 & 0 \\ 0 & -1 + λ \end{bmatrix}$ can never be positive semidefinite.
 
 
 ## 2. Exercise 2.18 of Convex Optimization
@@ -70,8 +82,8 @@ is nonsingular. Show that $f$ is an invertible linear fractional function.
 
     Then
 
-    $$ x = P(\begin{bmatrix} x \\\\ 1 \end{bmatrix}) 
-    = P(Q^{-1}\begin{bmatrix} y \\\\ 1 \end{bmatrix}) $$
+    $$ x = P(\begin{bmatrix} x \\ 1 \end{bmatrix}) 
+    = P(Q^{-1}\begin{bmatrix} y \\ 1 \end{bmatrix}) $$
     so $f$ is bijective.  
 
     ---
@@ -87,11 +99,11 @@ is nonsingular. Show that $f$ is an invertible linear fractional function.
     $$
 
     $$ Q^{-1}
-    = \begin{bmatrix} I & -A^{-1}b \\\\  & 1 \end{bmatrix}
-    \begin{bmatrix} A^{-1} &  \\\\  & (d-c^TA^{-1}b)^{-1} \end{bmatrix}
-    \begin{bmatrix} I &  \\\\ -c^TA^{-1} & 1 \end{bmatrix} \\\\
+    = \begin{bmatrix} I & -A^{-1}b \\  & 1 \end{bmatrix}
+    \begin{bmatrix} A^{-1} &  \\  & (d-c^TA^{-1}b)^{-1} \end{bmatrix}
+    \begin{bmatrix} I &  \\ -c^TA^{-1} & 1 \end{bmatrix} \\
     = \begin{bmatrix} 
-    A^{-1} + A^{-1}b (d-c^TA^{-1}b)^{-1} c^TA^{-1} & -A^{-1}b (d-c^TA^{-1}b)^{-1} \\\\
+    A^{-1} + A^{-1}b (d-c^TA^{-1}b)^{-1} c^TA^{-1} & -A^{-1}b (d-c^TA^{-1}b)^{-1} \\
     -(d-c^TA^{-1}b)^{-1} c^TA^{-1} & (d-c^TA^{-1}b)^{-1}
     \end{bmatrix}
     $$ 
@@ -104,19 +116,19 @@ is nonsingular. Show that $f$ is an invertible linear fractional function.
 
     2 . If $d \ne 0$, similarly, we get
 
-    $$ Q = \begin{bmatrix} A & b \\\\ c^T & d \end{bmatrix}
-    = \begin{bmatrix} I & bd^{-1} \\\\  & 1 \end{bmatrix}
-    \begin{bmatrix} A-bd^{-1}c^T &  \\\\  & d \end{bmatrix}
-    \begin{bmatrix} I &  \\\\ d^{-1}c^T & 1 \end{bmatrix}
+    $$ Q = \begin{bmatrix} A & b \\ c^T & d \end{bmatrix}
+    = \begin{bmatrix} I & bd^{-1} \\  & 1 \end{bmatrix}
+    \begin{bmatrix} A-bd^{-1}c^T &  \\  & d \end{bmatrix}
+    \begin{bmatrix} I &  \\ d^{-1}c^T & 1 \end{bmatrix}
     $$
 
     $$
     Q^{-1}
-    = \begin{bmatrix} I &  \\\\ -d^{-1}c^T & 1 \end{bmatrix}
-    \begin{bmatrix} (A-bd^{-1}c^T)^{-1} &  \\\\  & d^{-1} \end{bmatrix}
-    \begin{bmatrix} I & -bd^{-1} \\\\  & 1 \end{bmatrix} \\\\
+    = \begin{bmatrix} I &  \\ -d^{-1}c^T & 1 \end{bmatrix}
+    \begin{bmatrix} (A-bd^{-1}c^T)^{-1} &  \\  & d^{-1} \end{bmatrix}
+    \begin{bmatrix} I & -bd^{-1} \\  & 1 \end{bmatrix} \\
     = \begin{bmatrix}
-    (A-bd^{-1}c^T)^{-1}   &   -(A-bd^{-1}c^T)^{-1}bd^{-1} \\\\
+    (A-bd^{-1}c^T)^{-1}   &   -(A-bd^{-1}c^T)^{-1}bd^{-1} \\
     -d^{-1}c^T(A-bd^{-1}c^T)^{-1}     &   d^{-1}+d^{-1}c^T(A-bd^{-1}c^T)^{-1}bd^{-1}
     \end{bmatrix}
     $$ 
@@ -128,7 +140,11 @@ is nonsingular. Show that $f$ is an invertible linear fractional function.
     $$ dom f^{-1} = \{ y | -c^T(dA-bc^T)^{-1}y + d^{-1}+d^{-1}c^T(dA-bc^T)^{-1}b > 0 \} $$
     
     3 . If $A$ is **not** invertable and $d = 0$, （啊！我要疯了，哪里有这个定理啊，我快算死了！）   
-    Since $$ Q = \begin{bmatrix} A & b \\\\ c^T & 0 \end{bmatrix} $$ is nonsingular,
+    Since 
+    
+    $$ Q = \begin{bmatrix} A & b \\ c^T & 0 \end{bmatrix} $$ 
+    
+    is nonsingular,
     we have
 
     - $rank(A) = n-1$, the kernel space  denoted $\lambda v$,  
@@ -142,17 +158,19 @@ is nonsingular. Show that $f$ is an invertible linear fractional function.
     we deduce $Au = 0$ and $bc^Tu = 0$.
     so we get $u = \lambda v$, and then $0 = \lambda bc^Tv \Rightarrow \lambda = 0$    
     Now, we can get
+
     $$ 
     Q = \begin{bmatrix}
-       A & b \\\\ c^T & 0
+       A & b \\ c^T & 0
     \end{bmatrix}
     = \begin{bmatrix}
-       A+bc^T & b \\\\ c^T & 0
+       A+bc^T & b \\ c^T & 0
     \end{bmatrix}
     \begin{bmatrix}
-       I & 0 \\\\ -c^T & 1
+       I & 0 \\ -c^T & 1
     \end{bmatrix}
     $$
+
     denote $\tilde{A} = A + bc^T$, 
 
     $$
@@ -182,9 +200,11 @@ U (\theta, s, v) = \{ u \in R^n : supp(u) \subset supp(v) \quad \|u\|_0 \le s, \
 $$
 
 Any $v\in A$ can be represented as
+
 $$ 
 v = \sum_{i=1}^N \lambda_i u_i, \quad with \quad 0\le\lambda_i\le 1, \quad \sum_{i=1}^N \lambda_i = 1, \quad u_i \in U(\theta, s, v)
 $$
+
 !!! solve
     In the paper, the main idea of the proof is to fix some components of $v$ and then view the left components as a vector $\tilde{v}$ that analogous to the origin problem in lower dimension. 
     And use the technique of decomposition of vector to the edge of the intersection of cube and hyperplane to decrease at least one dimension.
@@ -209,8 +229,19 @@ $$
 
     Consider $v=[a_1, ... , a_n], v\in A$, if $v\notin P(t)$, then it has two components, WLOG, noted $a_1, a_2 \notin \{0, 1\}$. 
 
-    - If $a_1+a_2 \le 1$, then $$ v = \lambda_1u_1 + \lambda_2u_2, $$ where $\lambda_1 = \frac{a_1}{a_1+a_2}, \lambda_2=\frac{a_2}{a_1+a_2}$ and $u_1 = [a_1+a_2, 0, a_3, ..., a_n], u_2 = [0, a_1+a_2, a_3, ..., a_n]$.
-    - If $1< a_1+a_2 < 2$, then $$ v = \lambda_1u_1 + \lambda_2u_2, $$ where $\lambda_1 = \frac{1-a_1}{2-a_1+a_2}, \lambda_2=\frac{1-a_2}{2-a_1+a_2}$ and $u_1 = [a_1+a_2-1, 1, a_3, ..., a_n], u_2 = [1, a_1+a_2-1, a_3, ..., a_n]$.
+    - If $a_1+a_2 \le 1$, then 
+    
+    $$ v = \lambda_1u_1 + \lambda_2u_2, $$ 
+    
+    where $\lambda_1 = \frac{a_1}{a_1+a_2}, \lambda_2=\frac{a_2}{a_1+a_2}$  
+    and $u_1 = [a_1+a_2, 0, a_3, ..., a_n], u_2 = [0, a_1+a_2, a_3, ..., a_n]$.
+
+    - If $1< a_1+a_2 < 2$, then 
+    
+    $$ v = \lambda_1u_1 + \lambda_2u_2, $$ 
+    
+    where $\lambda_1 = \frac{1-a_1}{2-a_1+a_2}, \lambda_2=\frac{1-a_2}{2-a_1+a_2}$       
+    and $u_1 = [a_1+a_2-1, 1, a_3, ..., a_n], u_2 = [1, a_1+a_2-1, a_3, ..., a_n]$.
     ![sparsedecom](./SparseDecom.png)     
     It's obvious that $\lambda_1+\lambda_2 = 1$ and $\|u\|_i=t, i=1, 2$.
     And the number of components of $u_1, u_2$ that not in $\{0, 1\}$ is less than $v$.     

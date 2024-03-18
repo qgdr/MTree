@@ -1517,9 +1517,14 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-                  
+                  <!-- Tags -->
 
 
+<!-- Actions -->
+<!-- Actions -->
+
+
+<!-- Page content -->
 <h1 id="hw2">HW2<a class="headerlink" href="#hw2" title="Permanent link">&para;</a></h1>
 <p><a href="../../HWpdf/Homework2%20of%20Optimization-2024.pdf">HW2pdf</a></p>
 <h2 id="1-exercise-318-357-of-convex-optimization">1. Exercise 3.18, 3.57 of <a href="../../#ee364a-convex-optimization-i-professor-stephen-boyd-stanford-university">Convex Optimization</a><a class="headerlink" href="#1-exercise-318-357-of-convex-optimization" title="Permanent link">&para;</a></h2>
@@ -1567,9 +1572,10 @@ And then we have <span class="arithmatex">\(f(\mathbf{X}) = (\det(\mathbf{X}))^{
 <div class="arithmatex">\[ f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} \]</div>
 <p><strong>a</strong>. </p>
 <ol>
-<li>If <span class="arithmatex">\(y_i &lt; 0\)</span> for some <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{x_i &lt; 0}\{y^T (0, ..., x_i, ..., 0) - 0\} = +\infty \)</span>.</li>
-<li>If <span class="arithmatex">\(\sum_{i=1}^n y_i \neq 1\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{t}\{y^T ( t, ..., t) - t\} = +\infty \)</span>.</li>
-<li>If If <span class="arithmatex">\(\sum_{i=1}^n y_i = 1\)</span> and <span class="arithmatex">\(y_i \ge 0\)</span> for all <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} = \sum_{i=1}^n y_i\max_{i=1}^n x_i - f(x) = 0\)</span>.   </li>
+<li>If <span class="arithmatex">\(y_i &lt; 0\)</span> for some <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{x_i &lt; 0}\{y^T (0, ..., x_i, ..., 0) - 0\} = +\infty \)</span>.   </li>
+<li>If <span class="arithmatex">\(\sum_{i=1}^n y_i \neq 1\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{t}\{y^T ( t, ..., t) - t\} = +\infty \)</span>.     </li>
+<li>If <span class="arithmatex">\(\sum_{i=1}^n y_i = 1\)</span> and <span class="arithmatex">\(y_i \ge 0\)</span> for all <span class="arithmatex">\(i\)</span>, then  <br />
+<span class="arithmatex">\(f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} = \sum_{i=1}^n y_i\max_{i=1}^n x_i - f(x) = 0\)</span>.   </li>
 </ol>
 <p>So we have</p>
 <div class="arithmatex">\[ f^*(y) = \begin{cases}
@@ -1580,9 +1586,9 @@ And then we have <span class="arithmatex">\(f(\mathbf{X}) = (\det(\mathbf{X}))^{
 <p><strong>b</strong>.</p>
 <p>Similarly,      </p>
 <ol>
-<li>If <span class="arithmatex">\(y_i &lt; 0\)</span> for some <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{x_i &lt; 0}\{y^T (0, ..., x_i, ..., 0) - 0 \} = +\infty \)</span>.  </li>
+<li>If <span class="arithmatex">\(y_i &lt; 0\)</span> for some <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{x_i &lt; 0}\{y^T (0, ..., x_i, ..., 0) - 0 \} = +\infty \)</span>.      </li>
 <li>If <span class="arithmatex">\(y_i &gt;1\)</span> for some <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{x_i &gt;0}\{y^T (0, ..., x_i, ..., 0) -x_i \} = +\infty \)</span>.    </li>
-<li>If <span class="arithmatex">\(\sum_{i=1}^n y_i \neq r\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{t}\{y^T ( t, ..., t) - rt\} = +\infty \)</span>.</li>
+<li>If <span class="arithmatex">\(\sum_{i=1}^n y_i \neq r\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{t}\{y^T ( t, ..., t) - rt\} = +\infty \)</span>.    </li>
 <li>If <span class="arithmatex">\(\sum_{i=1}^n y_i = r\)</span> and <span class="arithmatex">\(0 \le y_i \le 1\)</span>, then</li>
 </ol>
 <div class="arithmatex">\[\begin{align}    
@@ -1602,9 +1608,9 @@ Summarise:</p>
 <p><strong>c</strong>.</p>
 <p>Since <span class="arithmatex">\(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \)</span>,</p>
 <div class="arithmatex">\[ f^*(\mathbf{Y}) = \sup_{\mathbf{X} \in dom f} \{ tr(\mathbf{Y}^T\mathbf{X}) + \ln \det(\mathbf{X}) \}\]</div>
-<p>（这什么玩意？根本就不对！先说结论）
-$$ f^*(\mathbf{Y}) \equiv +\infty, \text{ if } n &gt; 1 $$</p>
-<p>根据奇异值分解， 设 <span class="arithmatex">\( Y = U D V^T \)</span>, 其中 <span class="arithmatex">\( D \)</span> 是对角矩阵, <span class="arithmatex">\( U, V \)</span> 是正交矩阵，且 <font color=Red> \( \det(U)=\det(V)=1 \) </font>。</p>
+<p>（这什么玩意？根本就不对！先说结论）</p>
+<div class="arithmatex">\[ f^*(\mathbf{Y}) \equiv +\infty, \text{ if } n &gt; 1 \]</div>
+<p>根据奇异值分解， 设 <span class="arithmatex">\( Y = U D V^T \)</span>, 其中 <span class="arithmatex">\( D \)</span> 是对角矩阵, <span class="arithmatex">\( U, V \)</span> 是正交矩阵，且 <font color=Red> <span class="arithmatex">\( \det(U)=\det(V)=1 \)</span> </font>。</p>
 <p>令 <span class="arithmatex">\( X=U \Lambda V^T \)</span>，则 <span class="arithmatex">\(tr(Y^TX)=tr( V D U^T U \Lambda V^T) = \sum_{i=1}^n d_i \lambda_i \)</span>.<br />
 若 <span class="arithmatex">\(d_1 &gt; 0\)</span>，令 <span class="arithmatex">\( \lambda_1 = t^{n-1}, \lambda_i = 1/t, i\geq 2 \)</span>，那么</p>
 <div class="arithmatex">\[ tr(Y^TX)+\ln \det(X) = d_1 t^{n-1} + \sum_{i=2}^{n}d_i/t + 0 \to +\infty \]</div>
@@ -1637,16 +1643,71 @@ f(X+tV)-f(X) &amp;=\ln\det (X+tV) - \ln \det (X) \\
 <p>So, <span class="arithmatex">\( \nabla f(X) = X^{-T} \)</span></p>
 </div>
 
+<!-- Source file information -->
+
+
+<!-- Was this page helpful? -->
 
 
 
 
+<!-- Previous and next pages link -->
+<nav
+class="md-footer__inner md-grid"
+aria-label="页脚"
+
+>
+
+<!-- Link to previous page -->
+
+  
+  <a
+    href="../HW1/"
+    class="md-footer__link md-footer__link--prev"
+    aria-label="上一页: HW1"
+    rel="prev"
+  >
+    <div class="md-footer__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+    </div>
+    <div class="md-footer__title">
+      <span class="md-footer__direction">
+        上一页
+      </span>
+      <div class="md-ellipsis">
+        HW1
+      </div>
+    </div>
+  </a>
 
 
+<!-- Link to next page -->
 
+  
+  <a
+    href="../../../PartialDifferentialEquations/"
+    class="md-footer__link md-footer__link--next"
+    aria-label="下一页: Introduction"
+    rel="next"
+  >
+    <div class="md-footer__title">
+      <span class="md-footer__direction">
+        下一页
+      </span>
+      <div class="md-ellipsis">
+        Introduction
+      </div>
+    </div>
+    <div class="md-footer__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+    </div>
+  </a>
 
+</nav>
 
-
+<!-- Comment system -->
 
                 
               </article>

@@ -7,6 +7,7 @@ copyright: Copyright &copy; 2024-2025 qgdr</br>The website content is licensed u
 
 theme:
   name: material
+  custom_dir: overrides
   language: zh
   features:
     - announce.dismiss
