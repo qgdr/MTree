@@ -12,4 +12,5 @@ MSG = "update docs"
 
 commit:
 	mkdocs build
+	git add .
 	git commit -am "$(MSG)"
