@@ -122,7 +122,7 @@ c. Log function of the Matrix: \(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \).
 
     若 \(d_1 < 0\)，令 \( \lambda_1 = -t^{n-1}, \lambda_2 = -1/t, \lambda_i = 1/t, i\geq 3 \)，那么
 
-    $$ tr(Y^TX)+\ln \det(X) = -d_1 t^{n-1} + (d_2+\sum_{i=3}^{n}d_i)/t + 0 \to +\infty $$
+    $$ tr(Y^TX)+\ln \det(X) = -d_1 t^{n-1} + (-d_2+\sum_{i=3}^{n}d_i)/t + 0 \to +\infty $$
 
 
 ## 3. Exercise 2.6 of [最优化：建模、算法与理论][ref2]

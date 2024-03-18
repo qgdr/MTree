@@ -7,3 +7,8 @@ build: mkdocs.yml
 
 serve: mkdocs.yml
 	mkdocs serve
+
+MSG = "update docs"
+
+commit: build
+	git commit -am "$(MSG)"
