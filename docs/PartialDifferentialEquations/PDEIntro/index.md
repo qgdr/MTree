@@ -13,13 +13,19 @@ $$ \alpha ! := \alpha_1!\cdots\alpha_n! $$
 $$ \begin{pmatrix} |\alpha| \\ \alpha \end{pmatrix} := \frac{ |\alpha|!}{\alpha!} $$
 
 对于多元变量 \( x=(x_1, ... , x_n) \)，
+
 $$ x^\alpha := x_1^{\alpha_1}\cdots x_n^{\alpha_n} $$
+
 $$ D^\alpha u(x) := \frac{\partial^{|\alpha|} u(x)}{\partial x^{\alpha_1}\cdots\partial x^{\alpha_n}} $$
+
 $$ D^k u(x) = \\{ D^\alpha u(x) \mid |\alpha|=k \\} $$
 
 nabla算子
+
 $$ \nabla u = (\frac{\partial u}{\partial x_i}, ..., \frac{\partial u}{\partial x_n}) $$
+
 Laplace算子
+
 $$ \Delta u = \nabla\cdot\nabla u = \frac{\partial^2 u}{\partial x_i^2} + ... + \frac{\partial^2 u}{\partial x_n^2} $$
 
 ## Problems

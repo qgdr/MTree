@@ -10,5 +10,6 @@ serve: mkdocs.yml
 
 MSG = "update docs"
 
-commit: build
+commit:
+	mkdocs build
 	git commit -am "$(MSG)"

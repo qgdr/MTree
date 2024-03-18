@@ -2,8 +2,13 @@
 
 [Lawrence C.Evans Partial differential equations 2.2](../index.md#教材)
 
-1. Laplace's equation  $$ \Delta u = 0 $$  
-2. Poisson's equation  $$ -\Delta u = f $$  
+1. Laplace's equation
+
+$$ \Delta u = 0 $$
+
+2. Poisson's equation
+
+$$ -\Delta u = f $$
 
 满足 Laplace 方程的函数称为 **调和函数**(harmonic function)。
 调和函数是函数本身的几何性质，所以坐标轴平移、旋转都不影响函数的调和性质。
@@ -44,18 +49,23 @@ $$ f\in C_c^2(\mathbb{R^n}) $$
 事实上，对于 \(f\) 所在空间的选取，也是随着这个证明的需要而定的。
 
 
-1. 为了保证函数是存在的，我们意识到需要证明 \(\int_{B(0, r)}\Phi(x)\) 是有界的。
+1 . 为了保证函数是存在的，我们意识到需要证明 \(\int_{B(0, r)}\Phi(x)\) 是有界的。
 
-2. 利用卷积性质，得到 
-   $$ u_{x_i}=\int_{R^n}\Phi(y)f_{x_i}(x-y)dy $$    
-   $$ u_{x_ix_j}=\int_{R^n}\Phi(y)f_{x_ix_j}(x-y)dy $$  
-   这里就是为什么对 \(f\) 的连续性有要求。
+2 . 利用卷积性质，得到
 
-3. 由于我们不想动 \(f\)，那么就通过 [Gauss-Green定理](../../MathematicalAnalysis/SurfaceIntegral/GaussGreen.md) 来将微分算子转移到 \(\Phi\) 上。  
+$$ u_{x_i}=\int_{R^n}\Phi(y)f_{x_i}(x-y)dy $$
 
-4. 由于 \(\Phi\) 在 0 处是奇点，将积分区间分为两部分 
-   $$ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J_\epsilon $$ 
-   当 \(\epsilon\to 0\) 的时候，\(I_\epsilon\to 0\), \(J_\epsilon\to f(x)\)。
+$$ u_{x_ix_j}=\int_{R^n}\Phi(y)f_{x_ix_j}(x-y)dy $$ 
+
+这里就是为什么对 \(f\) 的连续性有要求。
+
+3 . 由于我们不想动 \(f\)，那么就通过 [Gauss-Green定理](../../MathematicalAnalysis/SurfaceIntegral/GaussGreen.md) 来将微分算子转移到 \(\Phi\) 上。  
+
+4 . 由于 \(\Phi\) 在 0 处是奇点，将积分区间分为两部分 
+
+$$ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J_\epsilon $$ 
+
+当 \(\epsilon\to 0\) 的时候，\(I_\epsilon\to 0\), \(J_\epsilon\to f(x)\)。
 整理即可。
 
 证明见[Lawrence C.Evans Partial differential equations 2.2.1.b Thm 1](../index.md#教材)
@@ -66,7 +76,9 @@ $$ f\in C_c^2(\mathbb{R^n}) $$
 !!! solve
     如果你熟悉 **叠加原理** 那么直观上你会觉得这是显然的。  
     因为\(f\) 有界，支撑集也有界 \(supp(f)\subset B(0,r_0)\)，
+
     $$ u(x_0) = \Phi*f(x_0) = \int_{B(x_0, r)}\Phi(x)f(x_0-x)dx \le C|\int_{B(x_0, r)}\Phi(x)| $$
+
     而我们已经证明了 \(\int_{B(0, r)}\Phi(x)\) 是有界的（且随 \(r\to 0\)趋于0），而且\(\Phi\) 随着 \(r\) **单调减** !
     ![phi](./PhiInt.jpg)
 
@@ -113,10 +125,13 @@ $$ f\in C_c^2(\mathbb{R^n}) $$
 
 !!! question
     2 . 证明 Laplace方程是旋转不变的；即，若 \(O\) 是一个正交方阵， 定义
+
     $$ v(x):=u(Ox) $$ 
+
     那么 \(\Delta v = 0\).  
     （调和是一种曲面内蕴的几何性质。） 
-!!! proof     
+!!! proof  
+
     $$ \nabla v = \nabla u(Ox) O $$ 
 
     $$ \begin{bmatrix}
@@ -150,7 +165,10 @@ $$ f\in C_c^2(\mathbb{R^n}) $$
     $$ \max_{\bar{U}}u = \lim_{\epsilon\to 0} \max_{\bar{U}}u_\epsilon = \lim_{\epsilon\to 0} \max_{\partial U}u = \max_{\partial U}u $$
 
 !!! question
-    5 . 如果 \(v\in C^2(\bar{U}) \)，且 $$ -\Delta \le 0 \quad in \\, U $$
+    5 . 如果 \(v\in C^2(\bar{U}) \)，且 
+    
+    $$ -\Delta \le 0 \quad in \\, U $$
+    
     我们称 \(v\) 是一个 **次调和函数** (subharmonic)。 
 
     a. 证明 

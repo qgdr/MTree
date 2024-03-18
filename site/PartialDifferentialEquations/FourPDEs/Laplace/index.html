@@ -1528,9 +1528,13 @@
 <h1 id="laplace">Laplace方程<a class="headerlink" href="#laplace" title="Permanent link">&para;</a></h1>
 <p><a href="../../#教材">Lawrence C.Evans Partial differential equations 2.2</a></p>
 <ol>
-<li>Laplace's equation  $$ \Delta u = 0 $$  </li>
-<li>Poisson's equation  $$ -\Delta u = f $$  </li>
+<li>Laplace's equation</li>
 </ol>
+<div class="arithmatex">\[ \Delta u = 0 \]</div>
+<ol>
+<li>Poisson's equation</li>
+</ol>
+<div class="arithmatex">\[ -\Delta u = f \]</div>
 <p>满足 Laplace 方程的函数称为 <strong>调和函数</strong>(harmonic function)。
 调和函数是函数本身的几何性质，所以坐标轴平移、旋转都不影响函数的调和性质。</p>
 <h2 id="_1">调和函数基本解<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -1562,26 +1566,16 @@ u(x) = \Phi\ast f(x) = \int_{R^n} \Phi(x-y)f(y) dx
 <p>来证明
 （这自然是因为对更低光滑性的 <span class="arithmatex">\(f\)</span> 的证明稍微有点困难，而不是解本身错误）。
 事实上，对于 <span class="arithmatex">\(f\)</span> 所在空间的选取，也是随着这个证明的需要而定的。</p>
-<ol>
-<li>
-<p>为了保证函数是存在的，我们意识到需要证明 <span class="arithmatex">\(\int_{B(0, r)}\Phi(x)\)</span> 是有界的。</p>
-</li>
-<li>
-<p>利用卷积性质，得到 
-   $$ u_{x_i}=\int_{R^n}\Phi(y)f_{x_i}(x-y)dy $$  <br />
-   $$ u_{x_ix_j}=\int_{R^n}\Phi(y)f_{x_ix_j}(x-y)dy $$<br />
-   这里就是为什么对 <span class="arithmatex">\(f\)</span> 的连续性有要求。</p>
-</li>
-<li>
-<p>由于我们不想动 <span class="arithmatex">\(f\)</span>，那么就通过 <a href="../../../MathematicalAnalysis/SurfaceIntegral/GaussGreen/">Gauss-Green定理</a> 来将微分算子转移到 <span class="arithmatex">\(\Phi\)</span> 上。  </p>
-</li>
-<li>
-<p>由于 <span class="arithmatex">\(\Phi\)</span> 在 0 处是奇点，将积分区间分为两部分 
-   $$ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J_\epsilon $$ 
-   当 <span class="arithmatex">\(\epsilon\to 0\)</span> 的时候，<span class="arithmatex">\(I_\epsilon\to 0\)</span>, <span class="arithmatex">\(J_\epsilon\to f(x)\)</span>。
+<p>1 . 为了保证函数是存在的，我们意识到需要证明 <span class="arithmatex">\(\int_{B(0, r)}\Phi(x)\)</span> 是有界的。</p>
+<p>2 . 利用卷积性质，得到</p>
+<div class="arithmatex">\[ u_{x_i}=\int_{R^n}\Phi(y)f_{x_i}(x-y)dy \]</div>
+<div class="arithmatex">\[ u_{x_ix_j}=\int_{R^n}\Phi(y)f_{x_ix_j}(x-y)dy \]</div>
+<p>这里就是为什么对 <span class="arithmatex">\(f\)</span> 的连续性有要求。</p>
+<p>3 . 由于我们不想动 <span class="arithmatex">\(f\)</span>，那么就通过 <a href="../../../MathematicalAnalysis/SurfaceIntegral/GaussGreen/">Gauss-Green定理</a> 来将微分算子转移到 <span class="arithmatex">\(\Phi\)</span> 上。  </p>
+<p>4 . 由于 <span class="arithmatex">\(\Phi\)</span> 在 0 处是奇点，将积分区间分为两部分 </p>
+<div class="arithmatex">\[ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J_\epsilon \]</div>
+<p>当 <span class="arithmatex">\(\epsilon\to 0\)</span> 的时候，<span class="arithmatex">\(I_\epsilon\to 0\)</span>, <span class="arithmatex">\(J_\epsilon\to f(x)\)</span>。
 整理即可。</p>
-</li>
-</ol>
 <p>证明见<a href="../../#教材">Lawrence C.Evans Partial differential equations 2.2.1.b Thm 1</a></p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
@@ -1590,9 +1584,9 @@ u(x) = \Phi\ast f(x) = \int_{R^n} \Phi(x-y)f(y) dx
 <div class="admonition solve">
 <p class="admonition-title">Solve</p>
 <p>如果你熟悉 <strong>叠加原理</strong> 那么直观上你会觉得这是显然的。<br />
-因为<span class="arithmatex">\(f\)</span> 有界，支撑集也有界 <span class="arithmatex">\(supp(f)\subset B(0,r_0)\)</span>，
-$$ u(x_0) = \Phi*f(x_0) = \int_{B(x_0, r)}\Phi(x)f(x_0-x)dx \le C|\int_{B(x_0, r)}\Phi(x)| $$
-而我们已经证明了 <span class="arithmatex">\(\int_{B(0, r)}\Phi(x)\)</span> 是有界的（且随 <span class="arithmatex">\(r\to 0\)</span>趋于0），而且<span class="arithmatex">\(\Phi\)</span> 随着 <span class="arithmatex">\(r\)</span> <strong>单调减</strong> !
+因为<span class="arithmatex">\(f\)</span> 有界，支撑集也有界 <span class="arithmatex">\(supp(f)\subset B(0,r_0)\)</span>，</p>
+<div class="arithmatex">\[ u(x_0) = \Phi*f(x_0) = \int_{B(x_0, r)}\Phi(x)f(x_0-x)dx \le C|\int_{B(x_0, r)}\Phi(x)| \]</div>
+<p>而我们已经证明了 <span class="arithmatex">\(\int_{B(0, r)}\Phi(x)\)</span> 是有界的（且随 <span class="arithmatex">\(r\to 0\)</span>趋于0），而且<span class="arithmatex">\(\Phi\)</span> 随着 <span class="arithmatex">\(r\)</span> <strong>单调减</strong> !
 <a class="glightbox" href="../PhiInt.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="phi" src="../PhiInt.jpg" /></a></p>
 <p>技术上证明有界性并不困难。由于 <span class="arithmatex">\(\Phi\)</span> 在球内积分有界，且随 <span class="arithmatex">\(r\)</span> 的增大趋于 0。</p>
 <p><a class="glightbox" href="../two_circles.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img align="right" alt="2c" src="../two_circles.png" width="200" /></a></p>
@@ -1626,9 +1620,9 @@ $$ u(x_0) = \Phi*f(x_0) = \int_{B(x_0, r)}\Phi(x)f(x_0-x)dx \le C|\int_{B(x_0, r
 <h2 id="problems">Problems<a class="headerlink" href="#problems" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>2 . 证明 Laplace方程是旋转不变的；即，若 <span class="arithmatex">\(O\)</span> 是一个正交方阵， 定义
-$$ v(x):=u(Ox) $$ 
-那么 <span class="arithmatex">\(\Delta v = 0\)</span>.<br />
+<p>2 . 证明 Laplace方程是旋转不变的；即，若 <span class="arithmatex">\(O\)</span> 是一个正交方阵， 定义</p>
+<div class="arithmatex">\[ v(x):=u(Ox) \]</div>
+<p>那么 <span class="arithmatex">\(\Delta v = 0\)</span>.<br />
 （调和是一种曲面内蕴的几何性质。） </p>
 </div>
 <div class="admonition proof">
@@ -1661,8 +1655,9 @@ u_{11} &amp; \cdots &amp; u_{1n} \\ \vdots &amp;  &amp; \vdots \\ u_{n1} &amp; \
 </div>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>5 . 如果 <span class="arithmatex">\(v\in C^2(\bar{U}) \)</span>，且 $$ -\Delta \le 0 \quad in \, U $$
-我们称 <span class="arithmatex">\(v\)</span> 是一个 <strong>次调和函数</strong> (subharmonic)。 </p>
+<p>5 . 如果 <span class="arithmatex">\(v\in C^2(\bar{U}) \)</span>，且 </p>
+<div class="arithmatex">\[ -\Delta \le 0 \quad in \\, U \]</div>
+<p>我们称 <span class="arithmatex">\(v\)</span> 是一个 <strong>次调和函数</strong> (subharmonic)。 </p>
 <p>a. 证明 </p>
 <div class="arithmatex">\[ v(x)\le {-\mkern -19mu\int}_{B(x, r)} v(y)dy \quad for \\, all \\, B(x,r) \subset U \]</div>
 <p>b. 证明 <span class="arithmatex">\( \max_{\bar{U}}v = \max_{\partial U} v \)</span><br />
