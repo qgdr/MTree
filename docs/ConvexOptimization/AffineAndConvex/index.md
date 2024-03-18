@@ -1,3 +1,3 @@
 # 仿射与凸集
 
-仿射集其实就是一个子空间进行了平移，或者说是超平面的交。
+<iframe height=600 width=150% src="caplt.html" frameborder="0" allowfullscreen></iframe>
