@@ -84,6 +84,7 @@ is nonsingular. Show that $f$ is an invertible linear fractional function.
 
     $$ x = P(\begin{bmatrix} x \\ 1 \end{bmatrix}) 
     = P(Q^{-1}\begin{bmatrix} y \\ 1 \end{bmatrix}) $$
+    
     so $f$ is bijective.  
 
     ---
