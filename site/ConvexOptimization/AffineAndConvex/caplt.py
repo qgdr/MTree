@@ -22,7 +22,7 @@ fig.add_scatter3d(x=points[:,0], y=points[:,1], z=points[:,2], mode='markers', m
 s, t = np.meshgrid(np.linspace(-5, 5, 2), np.linspace(-5, 5, 2))
 surf = np.array([s * (points[1, i] - points[0, i]) + t * (points[2, i] - points[0, i]) + points[0, i] for i in  range(3)])
 
-fig.add_surface(x=surf[0], y=surf[1], z=surf[2], opacity=0.2)
+fig.add_surface(x=surf[0], y=surf[1], z=surf[2], opacity=0.2, showscale=False)
 fig.update_coloraxes(showscale=False)
 fig.update_layout(
     scene = dict(

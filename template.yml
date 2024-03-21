@@ -1,4 +1,4 @@
-site_name: My Docs
+site_name: MTree
 site_author: qgdr
 site_description: 数学知识框架与观点理解
 
@@ -146,7 +146,8 @@ extra_css:
 nav:
   - index.md
   - MathematicalAnalysis: MathematicalAnalysis/
-  - ConvexOptimization: ConvexOptimization/
-  - PartialDifferentialEquations: PartialDifferentialEquations/
   - Topology: Topology/
-  - Test: test.md
+  - ConvexOptimization: ConvexOptimization/
+  - FunctionalAnalysis: FunctionalAnalysis/
+  - PartialDifferentialEquations: PartialDifferentialEquations/
+  - Research: Research/

@@ -1,2 +1,4 @@
 nav:
 - index.md
+- CompactOperators:
+  - CompactOperators/index.md

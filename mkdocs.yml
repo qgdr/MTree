@@ -44,12 +44,25 @@ nav:
   - "\u66F2\u9762\u79EF\u5206":
     - MathematicalAnalysis/SurfaceIntegral/index.md
     - "Gauss-Green\u516C\u5F0F": MathematicalAnalysis/SurfaceIntegral/GaussGreen.md
+- Topology:
+  - Topology/index.md
+  - "\u62D3\u6251\u7A7A\u95F4":
+    - Topology/TopoSpc/index.md
+    - "\u5F15\u5165": Topology/TopoSpc/induct.md
+    - "\u95ED\u96C6": Topology/TopoSpc/closure.md
+    - "\u6781\u9650": Topology/TopoSpc/limit.md
+    - "\u7D27\u6027": Topology/TopoSpc/compact.md
 - ConvexOptimization:
   - ConvexOptimization/index.md
   - "\u4EFF\u5C04\u4E0E\u51F8\u96C6": ConvexOptimization/AffineAndConvex/index.md
+  - "\u51F8\u51FD\u6570": ConvexOptimization/ConvexFunction/index.md
   - HW:
     - HW1: ConvexOptimization/HomeWork/HW1.md
     - HW2: ConvexOptimization/HomeWork/HW2.md
+- FunctionalAnalysis:
+  - FunctionalAnalysis/index.md
+  - CompactOperators:
+    - FunctionalAnalysis/CompactOperators/index.md
 - PartialDifferentialEquations:
   - PartialDifferentialEquations/index.md
   - "\u504F\u5FAE\u5206\u65B9\u7A0B\u7B80\u4ECB":
@@ -58,18 +71,15 @@ nav:
   - "\u56DB\u79CD\u91CD\u8981\u7684\u65B9\u7A0B":
     - PartialDifferentialEquations/FourPDEs/index.md
     - "Laplace\u65B9\u7A0B": PartialDifferentialEquations/FourPDEs/Laplace.md
-- Topology:
-  - Topology/index.md
-  - "\u62D3\u6251\u7A7A\u95F4":
-    - Topology/TopoSpc/index.md
-    - "\u5F15\u5165": Topology/TopoSpc/induct.md
-  - "\u95ED\u96C6":
-    - Topology/Closed/index.md
-    - "\u95ED\u5305": Topology/Closed/closure.md
-    - "\u6781\u9650": Topology/Closed/limit.md
-  - "\u7D27\u6027":
-    - Topology/Compact/index.md
-- Test: test.md
+- Research:
+  - Research/index.md
+  - CQHF:
+    - Research/CQHF/index.md
+    - HTFDE:
+      - Research/CQHF/HTFDE/index.md
+      - Preliminaries:
+        - MultivaluedAnalysis: Research/CQHF/HTFDE/Preliminaries/MultivaluedAnalysis.md
+        - FractionalCalculus: Research/CQHF/HTFDE/Preliminaries/FractionalCalculus.md
 plugins:
 - search
 - glightbox:
@@ -90,7 +100,7 @@ plugins:
         - src
 site_author: qgdr
 site_description: "\u6570\u5B66\u77E5\u8BC6\u6846\u67B6\u4E0E\u89C2\u70B9\u7406\u89E3"
-site_name: My Docs
+site_name: MTree
 theme:
   custom_dir: overrides
   extra:
