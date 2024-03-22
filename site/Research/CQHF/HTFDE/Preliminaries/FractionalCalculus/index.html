@@ -1729,6 +1729,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#riemann-liouville_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Riemann-Liouville 分数阶导数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hadamard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hadamard 积分
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hadamard_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hadamard 导数
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1804,6 +1831,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#riemann-liouville_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Riemann-Liouville 分数阶导数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hadamard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hadamard 积分
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hadamard_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hadamard 导数
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1836,13 +1890,53 @@
 那么 </p>
 <div class="arithmatex">\[ \begin{align}
     \int_0^x \int_0^{x_1} \cdots \int_0^{x_{n-1}} f(x_n) dx_1 \cdots dx_{n}
-    &amp;= f * \overbrace{u * \cdots * u}^n \\
-    &amp;= f * \frac{x^{n-1}}{(n-1)!} \\
+    &amp;= (f\chi_{R_+}) * \overbrace{u * \cdots * u}^n \\
+    &amp;= (f\chi_{R_+}) * \frac{x^{n-1}}{(n-1)!} \\
     &amp;= \int_0^x \frac{(x-t)^{n-1}}{(n-1)!}f(t) dt
 \end{align} \]</div>
 <p>将 <span class="arithmatex">\(n\)</span> 连续化， 我们得到</p>
 <div class="arithmatex">\[ _{RL}I^q f(t) = \frac{1}{\Gamma(q)} \int_0^t (t-s)^{q-1} f(s) ds \]</div>
 <p>当然，如果你清楚的记得各个部分所表示的内容， 那么不妨记 <span class="arithmatex">\( \Gamma(q) = (q-1)! \)</span></p>
+<p>那么 <span class="arithmatex">\(\Gamma(q)\)</span> 又是怎么得出来的？ <br />
+同样从 n 次积分公式出发，什么函数积分是不变的？   <br />
+当然是指数函数 <span class="arithmatex">\(e^x\)</span>，我们有</p>
+<div class="arithmatex">\[ \begin{align}
+    e^x &amp;= \int_{-\infty}^x \int_{-\infty}^{x_1} \cdots \int_{-\infty}^{x_{n-1}} e^{x_n} dx_1 \cdots dx_{n} \\
+    &amp;= e^x * \frac{x^{n-1}}{(n-1)!} \\
+    &amp;= \int_{-\infty}^x \frac{(x-t)^{n-1}}{(n-1)!}e^t dt
+\end{align} \]</div>
+<p>令 <span class="arithmatex">\(x=0\)</span> 自然就有</p>
+<div class="arithmatex">\[ 1 = \int_{-\infty}^0 \frac{(-t)^{n-1}}{(n-1)!}e^t dt = \int_0^{\infty} \frac{t^{n-1}}{(n-1)!}e^{-t} dt \]</div>
+<p>我们有理由相信上式可以连续化,即</p>
+<div class="arithmatex">\[ \Gamma(q) = \int_0^{\infty} t^{q-1} e^{-t} dt \]</div>
+<p>而且，由于我们通过卷积来理解多重积分，那么由于卷积性质</p>
+<div class="arithmatex">\[ x_1(t)*x_2(t) \stackrel{\mathcal{L}}{\longleftrightarrow} X_1(s)X_2(s) \]</div>
+<p>我们天然期望从 <strong>频域</strong> 角度对它进行分析</p>
+<p>而由于积分算子 <span class="arithmatex">\(u(t)\)</span> 对应的 Laplace 变换是 <span class="arithmatex">\(\frac{1}{s}\)</span>，我们很容易猜想</p>
+<div class="arithmatex">\[ \frac{x^{q-1}}{\Gamma(q)} \stackrel{\mathcal{L}}{\longleftrightarrow} \frac{1}{s^q} \]</div>
+<p>进而，对于 <span class="arithmatex">\(p&gt;0, q&gt;0\)</span></p>
+<div class="arithmatex">\[ \frac{t^{p-1}}{\Gamma(p)} * \frac{t^{q-1}}{\Gamma(q)} = \frac{t^{p+q}}{\Gamma(p+q)} \]</div>
+<p>取 <span class="arithmatex">\(t=1\)</span>，我们就得到了</p>
+<div class="arithmatex">\[ B(p, q) = \frac{\Gamma(p) \Gamma(q)}{\Gamma(p+q)} = \int_0^1 t^{p-1}(1-t^{q-1}) dt \]</div>
+<h2 id="riemann-liouville_1">Riemann-Liouville 分数阶导数<a class="headerlink" href="#riemann-liouville_1" title="Permanent link">&para;</a></h2>
+<p>我们能定义正的分数阶积分，但想要直接定义分数阶导数貌似有点困难。      <br />
+Riemann-Liouville 的做法是先分数阶积分，再整数阶导数。 （相对应的 Caputo 选择先整数阶微分，再积分）。   <br />
+对于 <span class="arithmatex">\(q&gt;0\)</span>，<span class="arithmatex">\(q\)</span> 阶 Riemann-Liouville 微分为</p>
+<div class="arithmatex">\[ _{RL}D^q f(t) = \frac{1}{\Gamma(n-q)} \frac{d^n}{dt^n}\int_0^t (t-s)^{n-q-1} f(s) ds, \quad n-1&lt;q&lt;n \]</div>
+<h2 id="hadamard">Hadamard 积分<a class="headerlink" href="#hadamard" title="Permanent link">&para;</a></h2>
+<p>在力学和工程学中观察到某些过程的对数性质。</p>
+<p>让我们重写 Riemann-Liouville 的积分公式</p>
+<div class="arithmatex">\[ _{RL}I^q_{x_0, x} g(x) = \frac{1}{\Gamma(q)} \int_{x_0}^x (x-y)^{q-1} g(y) dy \]</div>
+<p>令 <span class="arithmatex">\(s=e^y\)</span>, <span class="arithmatex">\(t=e^x\)</span>, <span class="arithmatex">\(a=e^{x_0}\)</span>，<span class="arithmatex">\(f(s)=f(e^y) = g(y)\)</span>, 那么</p>
+<p><a class="glightbox" href="../Hadamardlog.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="hadamard" src="../Hadamardlog.png" /></a></p>
+<div class="arithmatex">\[ _{RL}I^q_{x_0, x} f(e^x) = \frac{1}{\Gamma(q)} \int_{a}^t (\log \frac{t}{s})^{q-1} f(s) \frac{ds}{s} \]</div>
+<p>那么，我们就形式的记</p>
+<div class="arithmatex">\[ _{H}I^q_{a, t} f(t) = \frac{1}{\Gamma(q)} \int_{a}^t (\log \frac{t}{s})^{q-1} f(s) \frac{ds}{s} \]</div>
+<h2 id="hadamard_1">Hadamard 导数<a class="headerlink" href="#hadamard_1" title="Permanent link">&para;</a></h2>
+<p>又由于 <span class="arithmatex">\(\dfrac{d}{dy}g(y) = s\dfrac{d}{ds}f(s)\)</span>，
+因此我们形式地定义算子 <span class="arithmatex">\(\delta=t\dfrac{d}{dt}\)</span>，并类似的得到</p>
+<div class="arithmatex">\[ _{H}D^q f(t) = \frac{1}{\Gamma(n-q)} \delta^n \int_0^t (\log\frac{t}{s})^{n-q-1} f(s) \frac{ds}{s}, \quad n-1&lt;q&lt;n \]</div>
+<p>这样，它在实际上就是 Riemann-Liouville 的积分公式，只不过要自变量要经过对数变换。</p>
 
 <!-- Source file information -->
 
