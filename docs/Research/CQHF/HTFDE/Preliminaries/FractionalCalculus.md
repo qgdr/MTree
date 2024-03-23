@@ -16,8 +16,8 @@ $$ \int_0^x \int_0^{x_1} \cdots \int_0^{x_{n-1}} f(x_n) dx_1 \cdots dx_{n} = \in
 
 $$ \begin{align}
     \int_0^x \int_0^{x_1} \cdots \int_0^{x_{n-1}} f(x_n) dx_1 \cdots dx_{n}
-    &= (f\chi_{R_+}) * \overbrace{u * \cdots * u}^n \\
-    &= (f\chi_{R_+}) * \frac{x^{n-1}}{(n-1)!} \\
+    &= (f(x)u(x)) * \overbrace{u * \cdots * u}^n \\
+    &= (f(x)u(x)) * \frac{x^{n-1}u(x)}{(n-1)!} \\
     &= \int_0^x \frac{(x-t)^{n-1}}{(n-1)!}f(t) dt
 \end{align} $$
 
@@ -54,11 +54,11 @@ $$ x_1(t)*x_2(t) \stackrel{\mathcal{L}}{\longleftrightarrow} X_1(s)X_2(s) $$
 
 而由于积分算子 \(u(t)\) 对应的 Laplace 变换是 \(\frac{1}{s}\)，我们很容易猜想
 
-$$ \frac{x^{q-1}}{\Gamma(q)} \stackrel{\mathcal{L}}{\longleftrightarrow} \frac{1}{s^q} $$
+$$ \frac{t^{q-1}u(t)}{\Gamma(q)} \stackrel{\mathcal{L}}{\longleftrightarrow} \frac{1}{s^q} $$
 
 进而，对于 \(p>0, q>0\)
 
-$$ \frac{t^{p-1}}{\Gamma(p)} * \frac{t^{q-1}}{\Gamma(q)} = \frac{t^{p+q}}{\Gamma(p+q)} $$
+$$ \frac{t^{p-1}u(t)}{\Gamma(p)} * \frac{t^{q-1}u(t)}{\Gamma(q)} = \frac{t^{p+q}u(t)}{\Gamma(p+q)} $$
 
 取 \(t=1\)，我们就得到了
 
@@ -71,7 +71,25 @@ $$ B(p, q) = \frac{\Gamma(p) \Gamma(q)}{\Gamma(p+q)} = \int_0^1 t^{p-1}(1-t^{q-1
 Riemann-Liouville 的做法是先分数阶积分，再整数阶导数。 （相对应的 Caputo 选择先整数阶微分，再积分）。     
 对于 \(q>0\)，\(q\) 阶 Riemann-Liouville 微分为
 
-$$ _{RL}D^q f(t) = \frac{1}{\Gamma(n-q)} \frac{d^n}{dt^n}\int_0^t (t-s)^{n-q-1} f(s) ds, \quad n-1<q<n $$
+$$ _{RL}D^q f(t) = D^n \circ {_{RL}I^{n-q}_{0, t}} f(t) = \frac{1}{\Gamma(n-q)} \frac{d^n}{dt^n}\int_0^t (t-s)^{n-q-1} f(s) ds, \quad n-1<q<n $$
+
+而 Caputo 微分则是
+
+$$ _{C}D^q f(t) =  {_{RL}I^{n-q}_{0, t}} \circ D^n f(t) = \frac{1}{\Gamma(n-q)} \int_0^t (t-s)^{n-q-1} f^{(n)}(s) ds, \quad n-1<q<n $$
+
+他们之间有什么关系呢？
+
+由 Taylor 展开式，我们有
+
+$$ f(t)=f(0) + \frac{f'(0)t}{1!} + \cdots + \frac{f^{(n-1)t^{(n-1)}}(0)}{(n-1)!} + I^n f^{(n)}(t) $$
+
+但是，我们发现 
+
+$$ _{RL}D^q \circ I^n f^{(n)}(t) = D^n \circ {_{RL}I^{n-q}_{0, t}} \circ I^n f^{(n)}(t) = {_{RL}I^{n-q}_{0, t}}  f^{(n)}(t) $$
+
+因此
+
+$$ _{RL}D^q f(t) - _{C}D^q f(t) = \sum_{k=0}^{n-1} \frac{f^{(k)}(0)t^{k-p}}{\Gamma(k+1-q)} $$
 
 ## Hadamard 积分
 
