@@ -1979,7 +1979,9 @@
 <p>而由于积分算子 <span class="arithmatex">\(u(t)\)</span> 对应的 Laplace 变换是 <span class="arithmatex">\(\frac{1}{s}\)</span>，我们很容易猜想</p>
 <div class="arithmatex">\[ \frac{t^{q-1}u(t)}{\Gamma(q)} \stackrel{\mathcal{L}}{\longleftrightarrow} \frac{1}{s^q} \]</div>
 <p>进而，对于 <span class="arithmatex">\(p&gt;0, q&gt;0\)</span></p>
-<div class="arithmatex">\[ \frac{t^{p-1}u(t)}{\Gamma(p)} * \frac{t^{q-1}u(t)}{\Gamma(q)} = \frac{t^{p+q}u(t)}{\Gamma(p+q)} \]</div>
+<div class="arithmatex">\[ \frac{t^{p-1}u(t)}{\Gamma(p)} * \frac{t^{q-1}u(t)}{\Gamma(q)} = \frac{t^{p+q-1}u(t)}{\Gamma(p+q)} \]</div>
+<p>这也说明 </p>
+<div class="arithmatex">\[ _{RL}I^q \frac{t^{p-1}}{\Gamma(p)} = \frac{t^{p+q-1}}{\Gamma(p+q)} \]</div>
 <p>取 <span class="arithmatex">\(t=1\)</span>，我们就得到了</p>
 <div class="arithmatex">\[ B(p, q) = \frac{\Gamma(p) \Gamma(q)}{\Gamma(p+q)} = \int_0^1 t^{p-1}(1-t^{q-1}) dt \]</div>
 <h2 id="riemann-liouville_1">Riemann-Liouville 分数阶导数<a class="headerlink" href="#riemann-liouville_1" title="Permanent link">&para;</a></h2>
@@ -1991,11 +1993,11 @@ Riemann-Liouville 的做法是先分数阶积分，再整数阶导数。 （相�
 <div class="arithmatex">\[ _{C}D^q f(t) =  {_{RL}I^{n-q}_{0, t}} \circ D^n f(t) = \frac{1}{\Gamma(n-q)} \int_0^t (t-s)^{n-q-1} f^{(n)}(s) ds, \quad n-1&lt;q&lt;n \]</div>
 <p>他们之间有什么关系呢？</p>
 <p>由 Taylor 展开式，我们有</p>
-<div class="arithmatex">\[ f(t)=f(0) + \frac{f'(0)t}{1!} + \cdots + \frac{f^{(n-1)t^{(n-1)}}(0)}{(n-1)!} + I^n f^{(n)}(t) \]</div>
+<div class="arithmatex">\[ f(t)=f(0) + \frac{f'(0)t}{1!} + \cdots + \frac{f^{(n-1)}(0)t^{(n-1)}}{(n-1)!} + I^n f^{(n)}(t) \]</div>
 <p>但是，我们发现 </p>
 <div class="arithmatex">\[ _{RL}D^q \circ I^n f^{(n)}(t) = D^n \circ {_{RL}I^{n-q}_{0, t}} \circ I^n f^{(n)}(t) = {_{RL}I^{n-q}_{0, t}}  f^{(n)}(t) \]</div>
 <p>因此</p>
-<div class="arithmatex">\[ _{RL}D^q f(t) - _{C}D^q f(t) = \sum_{k=0}^{n-1} \frac{f^{(k)}(0)t^{k-p}}{\Gamma(k+1-q)} \]</div>
+<div class="arithmatex">\[ _{RL}D^q f(t) - _{C}D^q f(t) = \sum_{k=0}^{n-1} \frac{f^{(k)}(0)t^{k-q}}{\Gamma(k+1-q)} \]</div>
 
 <!-- Source file information -->
 

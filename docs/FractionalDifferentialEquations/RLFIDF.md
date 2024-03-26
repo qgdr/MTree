@@ -59,7 +59,11 @@ $$ \frac{t^{q-1}u(t)}{\Gamma(q)} \stackrel{\mathcal{L}}{\longleftrightarrow} \fr
 
 进而，对于 \(p>0, q>0\)
 
-$$ \frac{t^{p-1}u(t)}{\Gamma(p)} * \frac{t^{q-1}u(t)}{\Gamma(q)} = \frac{t^{p+q}u(t)}{\Gamma(p+q)} $$
+$$ \frac{t^{p-1}u(t)}{\Gamma(p)} * \frac{t^{q-1}u(t)}{\Gamma(q)} = \frac{t^{p+q-1}u(t)}{\Gamma(p+q)} $$
+
+这也说明 
+
+$$ _{RL}I^q \frac{t^{p-1}}{\Gamma(p)} = \frac{t^{p+q-1}}{\Gamma(p+q)} $$
 
 取 \(t=1\)，我们就得到了
 
@@ -82,7 +86,9 @@ $$ _{C}D^q f(t) =  {_{RL}I^{n-q}_{0, t}} \circ D^n f(t) = \frac{1}{\Gamma(n-q)} 
 
 由 Taylor 展开式，我们有
 
-$$ f(t)=f(0) + \frac{f'(0)t}{1!} + \cdots + \frac{f^{(n-1)t^{(n-1)}}(0)}{(n-1)!} + I^n f^{(n)}(t) $$
+$$ f(t)=f(0) + \frac{f'(0)t}{1!} + \cdots + \frac{f^{(n-1)}(0)t^{(n-1)}}{(n-1)!} + I^n f^{(n)}(t) $$
+
+
 
 但是，我们发现 
 
@@ -90,4 +96,4 @@ $$ _{RL}D^q \circ I^n f^{(n)}(t) = D^n \circ {_{RL}I^{n-q}_{0, t}} \circ I^n f^{
 
 因此
 
-$$ _{RL}D^q f(t) - _{C}D^q f(t) = \sum_{k=0}^{n-1} \frac{f^{(k)}(0)t^{k-p}}{\Gamma(k+1-q)} $$
+$$ _{RL}D^q f(t) - _{C}D^q f(t) = \sum_{k=0}^{n-1} \frac{f^{(k)}(0)t^{k-q}}{\Gamma(k+1-q)} $$
