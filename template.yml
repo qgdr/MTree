@@ -150,4 +150,5 @@ nav:
   - ConvexOptimization: ConvexOptimization/
   - FunctionalAnalysis: FunctionalAnalysis/
   - PartialDifferentialEquations: PartialDifferentialEquations/
+  - FractionalDifferentialEquations: FractionalDifferentialEquations/
   - Research: Research/

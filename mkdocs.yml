@@ -71,6 +71,9 @@ nav:
   - "\u56DB\u79CD\u91CD\u8981\u7684\u65B9\u7A0B":
     - PartialDifferentialEquations/FourPDEs/index.md
     - "Laplace\u65B9\u7A0B": PartialDifferentialEquations/FourPDEs/Laplace.md
+- FractionalDifferentialEquations:
+  - FractionalDifferentialEquations/index.md
+  - "\u5206\u6570\u9636\u5FAE\u79EF\u5206": FractionalDifferentialEquations/RLFIDF.md
 - Research:
   - Research/index.md
   - CQHF:

@@ -5,7 +5,7 @@ mkdocs.yml: template.yml $(shell find ./docs -name 'mkdocs.yml')
 build: mkdocs.yml
 	mkdocs build
 
-serve: mkdocs.yml
+serve: build
 	mkdocs serve
 
 MSG = "update docs"
