@@ -32,4 +32,5 @@ $$ f(x) ≤ \liminf_{n→∞} f(y_n) $$
 !!! note
     这两种定义是等价的。
 
-![lsc](media/images/convexfunc/lsc_ManimCE_v0.18.0.png)
+    ![lsc](media/images/convexfunc/lsc_ManimCE_v0.18.0.png)
+    

@@ -55,7 +55,9 @@ nav:
 - ConvexOptimization:
   - ConvexOptimization/index.md
   - "\u4EFF\u5C04\u4E0E\u51F8\u96C6": ConvexOptimization/AffineAndConvex/index.md
-  - "\u51F8\u51FD\u6570": ConvexOptimization/ConvexFunction/index.md
+  - "\u51F8\u51FD\u6570":
+    - ConvexOptimization/ConvexFunction/index.md
+    - "\u5171\u8F6D\u51FD\u6570": ConvexOptimization/ConvexFunction/ConjugateFunction.md
   - HW:
     - HW1: ConvexOptimization/HomeWork/HW1.md
     - HW2: ConvexOptimization/HomeWork/HW2.md

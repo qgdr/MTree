@@ -1,4 +1,5 @@
 from manim import * 
+from scipy.optimize import fsolve, minimize
 
 class ConvexFunc(Scene):
     """
@@ -114,3 +115,72 @@ class lsc(Scene):
 
         self.add(d1, d2, d3, d4)
         
+
+class Conjugate(Scene):
+    """
+    画一个非凸曲线，和两条切线
+    """
+    def construct(self):
+        x_range = [-3, 3, 1]
+        y_range = [-3, 3, 1]
+        axes = Axes(
+            x_range=x_range,
+            y_range=y_range,
+            x_length=8,
+            y_length=8,
+            axis_config={"stroke_color": BLUE},
+            tips=False,
+        )
+        # axes.add_coordinates()
+        self.add(axes)
+        def func(x):
+            return 1/4 * x**4 -1/4*x**2 + 1/4*x + 1
+        def tangent(x):
+            return 1 * x**3 - 1/2*x + 1/4
+        
+        curve = axes.plot(func, x_range=[-3, 3], color=RED)
+        self.add(curve)
+
+        
+        x1 = -1.2
+        x2 = 1.5
+        self.add(
+            Dot(axes.c2p(x1, func(x1)), color=YELLOW),
+            Dot(axes.c2p(x2, func(x2)), color=YELLOW)
+        )
+        def fs1(x):
+            return tangent(x1) * (x - x1) + func(x1)
+        def fs2(x):
+            return tangent(x2) * (x - x2) + func(x2)
+        line1 = axes.plot(fs1, x_range=[-3, 3], color=YELLOW)
+        line2 = axes.plot(fs2, x_range=[-3, 3], color=YELLOW)
+
+        self.add( line1 ,line2 )
+
+        self.add(
+            Dot(axes.c2p(0, fs1(0)), color=GREEN),
+            Dot(axes.c2p(0, fs2(0)), color=GREEN)
+        )
+
+        self.add(
+            Tex(r"$(0, -f^*(y_1))$", color=WHITE, font_size=20).shift(axes.c2p(0, fs1(0))).shift(LEFT*.8),
+            Tex(r"$(0, -f^*(y_2))$", color=WHITE, font_size=20).shift(axes.c2p(0, fs2(0))).shift(RIGHT*.8)
+        )
+        
+        x_c, = fsolve(lambda x: fs1(x) - fs2(x), x0=0)
+        x_m, = minimize(lambda x: -(tangent(x1) + tangent(x2)) / 2 * x + func(x), x0=0).x
+        def fs_c(x):
+            return (tangent(x1) + tangent(x2)) / 2 * (x - x_c) + fs1(x_c)
+        def fs_m(x):
+            return (tangent(x1) + tangent(x2)) / 2 * (x - x_m) + func(x_m)
+        
+        line_c = DashedLine( axes.c2p(-3, fs_c(-3)), axes.c2p(3, fs_c(3)) )
+        line_m = DashedLine( axes.c2p(-3, fs_m(-3)), axes.c2p(3, fs_m(3)) )
+        self.add(line_c, line_m)
+
+        self.add(
+            Dot(axes.c2p(0, fs_c(0)), color=ORANGE), 
+            Tex(r"$(0, -\dfrac{f^*(y_1) + f^*(y_2)}{2}))$", color=WHITE, font_size=20).shift(axes.c2p(0, fs_c(0))).shift(LEFT*.8),
+            Dot(axes.c2p(0, fs_m(0)), color=RED),
+            Tex(r"$(0, -f^*(\dfrac{y_1 + y_2}{2}))$", color=WHITE, font_size=20).shift(axes.c2p(0, fs_m(0))).shift(UP*.5),
+        )
