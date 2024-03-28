@@ -114,9 +114,78 @@ class lsc(Scene):
         d4 = Circle(radius=.1, color=RED).set_fill(opacity=0).shift(axes.c2p(x2, funcbase(x2)))
 
         self.add(d1, d2, d3, d4)
-        
 
-class Conjugate(Scene):
+
+class ConjugateFunc(Scene):
+    """
+    画一个视频，沿曲线上的点，一条固定斜率为 y 的直线移动，直线与 y 轴的交点记成 (0, -f^*(y))
+    """  
+    def construct(self):
+        x_range = [-3, 3, 1]
+        y_range = [-3, 3, 1]
+        axes = Axes(
+            x_range=x_range,
+            y_range=y_range,
+            x_length=8,
+            y_length=8,
+            axis_config={"stroke_color": BLUE},
+            tips=False,
+        )
+        self.add(axes)
+        def func(x):
+            return 1/4 * x**4 -1/4*x**2 + 1/4*x + 1
+        
+        curve = axes.plot(func, x_range=[-3, 3], color=RED)
+        self.add(curve)
+
+        y = 1
+        alpha = ValueTracker(0.45)
+        point = always_redraw(
+            lambda: Dot(
+                curve.point_from_proportion(alpha.get_value()),
+                color=BLUE
+            )
+        )
+
+        def fx(x):
+            pos = curve.point_from_proportion(alpha.get_value())
+            pos = axes.p2c(pos)
+            return y*x - y*pos[0] + pos[1]
+            
+        line = always_redraw(
+            lambda: axes.plot(
+                fx,
+                x_range=[-3, 3],
+                color=YELLOW
+            )
+        )
+
+        nf0 = always_redraw(
+            lambda: Dot(axes.c2p(0, fx(0)), color=GREEN)
+        )
+        nf0tail = TracedPath(nf0.get_center, dissipating_time=1, stroke_color=LIGHT_BROWN, stroke_width=15, stroke_opacity=[1, 0.3])
+
+        texnf0 = always_redraw(
+            lambda: Tex(r"$f(x)-y^T x$", color=WHITE, font_size=20).shift(UP*fx(0)+LEFT*.4)
+        )
+        self.add(axes, curve)
+        self.add(nf0, nf0tail, texnf0, point, line)
+        self.play(alpha.animate.set_value(0.55), rate_func=linear, run_time=3)
+
+        x_m, = minimize(lambda x: -y*x + func(x), x0=0).x
+        nfs = - y*x_m + func(x_m)
+        self.play(
+            FadeOut(point, line, nf0, texnf0),
+            Create(axes.plot(lambda x: y*x + nfs, color=ORANGE)),
+            Create(Dot(axes.c2p(x_m, func(x_m)), color=BLUE)),
+            Create(Dot(axes.c2p(0, nfs), color=GREEN)),
+            Create(Tex(r"$-f^*(y)$", color=WHITE, font_size=20).shift(UP*nfs+LEFT*.4)),
+        )
+        self.wait()
+
+
+
+class ConjugateConvex(Scene):
     """
     画一个非凸曲线，和两条切线
     """
@@ -163,8 +232,8 @@ class Conjugate(Scene):
         )
 
         self.add(
-            Tex(r"$(0, -f^*(y_1))$", color=WHITE, font_size=20).shift(axes.c2p(0, fs1(0))).shift(LEFT*.8),
-            Tex(r"$(0, -f^*(y_2))$", color=WHITE, font_size=20).shift(axes.c2p(0, fs2(0))).shift(RIGHT*.8)
+            Tex(r"$-f^*(y_1)$", color=WHITE, font_size=20).shift(axes.c2p(0, fs1(0))).shift(LEFT*.8),
+            Tex(r"$-f^*(y_2)$", color=WHITE, font_size=20).shift(axes.c2p(0, fs2(0))).shift(RIGHT*.8)
         )
         
         x_c, = fsolve(lambda x: fs1(x) - fs2(x), x0=0)
@@ -180,7 +249,7 @@ class Conjugate(Scene):
 
         self.add(
             Dot(axes.c2p(0, fs_c(0)), color=ORANGE), 
-            Tex(r"$(0, -\dfrac{f^*(y_1) + f^*(y_2)}{2}))$", color=WHITE, font_size=20).shift(axes.c2p(0, fs_c(0))).shift(LEFT*.8),
+            Tex(r"$-\dfrac{f^*(y_1) + f^*(y_2)}{2})$", color=WHITE, font_size=20).shift(axes.c2p(0, fs_c(0))).shift(LEFT*.8),
             Dot(axes.c2p(0, fs_m(0)), color=RED),
-            Tex(r"$(0, -f^*(\dfrac{y_1 + y_2}{2}))$", color=WHITE, font_size=20).shift(axes.c2p(0, fs_m(0))).shift(UP*.5),
+            Tex(r"$-f^*(\dfrac{y_1 + y_2}{2})$", color=WHITE, font_size=20).shift(axes.c2p(0, fs_m(0))).shift(UP*.5),
         )

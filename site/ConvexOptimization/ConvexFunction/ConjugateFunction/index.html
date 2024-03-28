@@ -1936,10 +1936,16 @@
 <p>设函数 <span class="arithmatex">\(f: R^n \to R\)</span>，函数 <span class="arithmatex">\(f^*: R^n \to R\)</span>，</p>
 <div class="arithmatex">\[ f^*(y) = \sup_{x\in \text{dom}f} \{y^T x - f(x)\} \]</div>
 <p>称为 <span class="arithmatex">\(f\)</span> 的 <strong>共轭函数</strong>(conjugate function)。</p>
+<div class="admonition view">
+<p class="admonition-title">View</p>
+<p>我们如何直观的理解什么是共轭函数呢？</p>
+<div class="arithmatex">\[ f^*(y) = \sup_{x\in \text{dom}f} \{y^T x - f(x)\} = -\inf_{x\in \text{dom}f} \{f(x) - y^T x\} \]</div>
+<p><video src="../media/videos/convexfunc/720p30/ConjugateFunc.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video></p>
+</div>
 <div class="admonition theorem">
 <p class="admonition-title">Theorem</p>
 <p>共轭函数是无条件凸的！</p>
-<p><a class="glightbox" href="../media/images/convexfunc/Conjugate_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="conjugate" src="../media/images/convexfunc/Conjugate_ManimCE_v0.18.0.png" /></a></p>
+<p><a class="glightbox" href="../media/images/convexfunc/ConjugateConvex_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="conjugate" src="../media/images/convexfunc/ConjugateConvex_ManimCE_v0.18.0.png" /></a></p>
 </div>
 
 <!-- Source file information -->
