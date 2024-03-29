@@ -1,2 +1,5 @@
 nav:
 - index.md
+- 初值问题:
+  - InitialValueProblems/index.md
+  - 线性多步法: InitialValueProblems/LinearMultistepMethods.md

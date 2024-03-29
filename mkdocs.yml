@@ -44,6 +44,9 @@ nav:
   - "\u66F2\u9762\u79EF\u5206":
     - MathematicalAnalysis/SurfaceIntegral/index.md
     - "Gauss-Green\u516C\u5F0F": MathematicalAnalysis/SurfaceIntegral/GaussGreen.md
+- LinearAlgebra:
+  - LinearAlgebra/index.md
+  - SVD: LinearAlgebra/svd.md
 - Topology:
   - Topology/index.md
   - "\u62D3\u6251\u7A7A\u95F4":
@@ -65,6 +68,11 @@ nav:
   - FunctionalAnalysis/index.md
   - CompactOperators:
     - FunctionalAnalysis/CompactOperators/index.md
+- FiniteDifferenceMethods:
+  - FiniteDifferenceMethods/index.md
+  - "\u521D\u503C\u95EE\u9898":
+    - FiniteDifferenceMethods/InitialValueProblems/index.md
+    - "\u7EBF\u6027\u591A\u6B65\u6CD5": FiniteDifferenceMethods/InitialValueProblems/LinearMultistepMethods.md
 - PartialDifferentialEquations:
   - PartialDifferentialEquations/index.md
   - "\u504F\u5FAE\u5206\u65B9\u7A0B\u7B80\u4ECB":
@@ -122,7 +130,6 @@ theme:
   - content.code.copy
   - content.tabs.link
   - content.tooltips
-  - navigation.tabs
   - navigation.indexes
   - navigation.top
   - navigation.footer

@@ -19,7 +19,7 @@ theme:
     - content.tooltips
     # - header.autohide
     # - navigation.expand
-    - navigation.tabs
+    # - navigation.tabs
     - navigation.indexes
     # - navigation.instant
     # - navigation.prune
@@ -146,9 +146,11 @@ extra_css:
 nav:
   - index.md
   - MathematicalAnalysis: MathematicalAnalysis/
+  - LinearAlgebra: LinearAlgebra/
   - Topology: Topology/
   - ConvexOptimization: ConvexOptimization/
   - FunctionalAnalysis: FunctionalAnalysis/
+  - FiniteDifferenceMethods: FiniteDifferenceMethods/
   - PartialDifferentialEquations: PartialDifferentialEquations/
   - FractionalDifferentialEquations: FractionalDifferentialEquations/
   - Research: Research/
