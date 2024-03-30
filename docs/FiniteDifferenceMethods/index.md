@@ -19,3 +19,9 @@ Randall J. LeVeque
 ### [信号与系统 奥本海默](../Library/Alan%20V.%20Oppenheim_%20Alan%20S.%20Willsky%20-%20信号与系统%20.pdf)
 
 
+## 学习指南
+
+学好线性代数。
+强烈建议先学习 《信号与系统 奥本海默》。
+对算法进行代码实现。
+

@@ -1282,6 +1282,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    线性多步法
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1291,6 +1302,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      相容性 (consistency)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#characteristic-polynomials" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征多项式 (Characteristic Polynomials)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1912,6 +1960,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      相容性 (consistency)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#characteristic-polynomials" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征多项式 (Characteristic Polynomials)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1939,6 +2013,14 @@
 <p>就得到了 <span class="arithmatex">\(r\)</span> 步 LMM 公式</p>
 <div class="arithmatex">\[ \sum_{j=0}^r \alpha_j U^{n+j} = k\sum_{j=0}^r \beta_j f(U^{n+j}, t_{n+j}) \]</div>
 <p><span class="arithmatex">\(U^{n+r}\)</span> 由前面的 <span class="arithmatex">\(n-1\)</span> 个 <span class="arithmatex">\( U^{n+r-1}, U^{n+r-2}, \cdots, U^{n} \)</span> 和 <span class="arithmatex">\(f\)</span> 在这些点处的值按等式获得。</p>
+<h2 id="consistency">相容性 (consistency)<a class="headerlink" href="#consistency" title="Permanent link">&para;</a></h2>
+<p>计算原方程有限差分近似的局部截断误差，想要满足相容性，必须满足</p>
+<div class="arithmatex">\[ \sum_{j=0}^r \alpha_j = 0 \quad \text{and} \quad \sum_{j=0}^r j\alpha_j = \sum_{j=0}^r \beta_j \]</div>
+<p>当然我们可以粗糙的的理解：<span class="arithmatex">\(\dfrac{U^{n+j}-U^{n}}{h}\)</span> 近似看成 <span class="arithmatex">\(ju'\)</span></p>
+<h2 id="characteristic-polynomials">特征多项式 (Characteristic Polynomials)<a class="headerlink" href="#characteristic-polynomials" title="Permanent link">&para;</a></h2>
+<div class="arithmatex">\[ \rho(\zeta)=\sum_{j=0}^r \alpha_j \zeta^{j} \quad \text{and} \quad \sigma(\zeta)=\sum_{j=0}^r \beta_j \zeta^{j} \]</div>
+<p>那么相容性条件就等价于</p>
+<div class="arithmatex">\[ \rho(1) = 0 \quad \text{and} \quad \rho'(1) = \sigma(1)\]</div>
 
 <!-- Source file information -->
 
