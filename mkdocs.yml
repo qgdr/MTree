@@ -64,6 +64,7 @@ nav:
   - HW:
     - HW1: ConvexOptimization/HomeWork/HW1.md
     - HW2: ConvexOptimization/HomeWork/HW2.md
+    - HW3: ConvexOptimization/HomeWork/HW3.md
 - FunctionalAnalysis:
   - FunctionalAnalysis/index.md
   - CompactOperators:
