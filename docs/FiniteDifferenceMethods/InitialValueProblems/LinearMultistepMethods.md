@@ -1,4 +1,4 @@
-# 线性多步法 (Linear Multistep Methods)
+# 线性多步法 Linear Multistep Methods
 
 [Finite Difference Methods 5.9, Chapter 6][textbook]
 

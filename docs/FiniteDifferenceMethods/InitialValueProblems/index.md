@@ -1,4 +1,4 @@
-# 初值问题 (Initial Value Problems)
+# 初值问题 Initial Value Problems
 
 [Finite Difference Methods Chapter 5][textbook]
 

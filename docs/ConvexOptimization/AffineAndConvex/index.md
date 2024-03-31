@@ -1,4 +1,4 @@
-# 仿射与凸集
+# 仿射与凸集 Affine & Convex set
 
 <iframe height=600 width=150% src="caplt.html" frameborder="0" allowfullscreen></iframe>
 

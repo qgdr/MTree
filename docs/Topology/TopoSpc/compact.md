@@ -18,7 +18,7 @@
 
 **开覆盖**：如果一族开集 \(\mathscr{U}\) 满足 \(A \subset \cup_{U \in \mathscr{U}} U\)，则\(\mathscr{U}\) 称为 \(A\) 的 **开覆盖** 
 
-**紧致**： 如果对 \(A\) 的任何开覆盖 \(\mathscr{U}\)， 都存在有限个 \(\mathscr{U}\) 中的开集 \(U_i, i = 1, 2, \dots, n\)，使得 \(A \subset \cup_{i=1}^n U_i\)，则称 \(A\) 为紧致 (Compact) 的。
+**紧致**： 如果对 \(A\) 的任何开覆盖 \(\mathscr{U}\)， 都存在有限个 \(\mathscr{U}\) 中的开集 \(U_i, i = 1, 2, \dots, n\)，使得 \(A \subset \cup_{i=1}^n U_i\)，则称 \(A\) 为紧致 ( Compact ) 的。
 
 **列紧**： 如果 \(A\) 中的任何序列 \(\{x_n\}\), 均存在收敛的子列，那么称 \(A\) 为列紧的。   
 列紧集又称为 **相对紧集**。     

@@ -1,4 +1,4 @@
-# 凸函数
+# 凸函数 Convex Function
 
 函数 \(f：R^n→R\) 是 **凸**(convex) 的，如果 \(\text{dom} f\) 是凸集，且对所有的 \(x，y∈\text{dom} f\)，和 \(0≤θ≤1\) ，都有
 

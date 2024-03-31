@@ -1,4 +1,4 @@
-# 偏微分方程
+# 偏微分方程 Partial Differential Equations
 
 ## 教材
 

@@ -1,4 +1,4 @@
-# 紧算子
+# 紧算子 Compact Operators
 
 [Functional Analysis, Sobolev Spaces and Partial Differential Equations Chapter 6](../index.md#教材)
 

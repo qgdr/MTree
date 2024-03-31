@@ -1,4 +1,4 @@
-# 有限差分法
+# 有限差分法 Finite Difference Methods
 
 ## 教材  
 
