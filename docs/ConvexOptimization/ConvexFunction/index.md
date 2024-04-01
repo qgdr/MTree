@@ -9,7 +9,7 @@ $$ f(\theta x+(1-\theta y)) ≤ \theta f(x)+(1-\theta)f(y) $$
 ![convexfunc](media/images/convexfunc/ConvexFunc_ManimCE_v0.18.0.png)
 
 
-## 上方图
+## 上境图 EpiGraph
 
 $$ epi(f) = \{ (x, t) \in R^{n+1} | f(x) ≤ t \} $$
 
@@ -19,7 +19,7 @@ $$ epi(f) = \{ (x, t) \in R^{n+1} | f(x) ≤ t \} $$
     \(f\) 是凸函数，当且仅当 \(epi(f)\) 是凸集。
 
 
-## 下半连续函数
+## 下半连续函数 LSC
 
 定义1：\(epi(f)\) 是闭集，则称 \(f\) 是下半连续函数。
 

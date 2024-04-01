@@ -1094,6 +1094,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-exercise-530-of-convex-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Exercise 5.30 of Convex Optimization
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1989,6 +1998,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-exercise-530-of-convex-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Exercise 5.30 of Convex Optimization
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2017,11 +2035,107 @@
 <div class="arithmatex">\[ \text{minimize} \|Ax - b\|_p \]</div>
 <p>where <span class="arithmatex">\(A \in C^{m\times n}, b \in C^m\)</span>, and <span class="arithmatex">\(x \in C^n\)</span>.  <br />
 For <span class="arithmatex">\(p\le 1\)</span>, the complex <span class="arithmatex">\(l_p\)</span>-norm is defined by</p>
-<div class="arithmatex">\[ \|y\|_p = \left(\sum_{i=1}^m |y_i|^p\right)^{1/p} \]</div>
+<div class="arithmatex">\[ \|y\|_p = \left(\sum_{j=1}^m |y_j|^p\right)^{1/p} \]</div>
 <p>For <span class="arithmatex">\(p=1,2, \text{and} \infty\)</span>, express the complex <span class="arithmatex">\(l_p\)</span>-norm approximation problem as a QCQP or SOCP with real variables and date.</p>
-<div class="admonition solve">
-<p class="admonition-title">Solve</p>
+<div class="admonition solution">
+<p class="admonition-title">Solution</p>
+<p>Let </p>
+<div class="arithmatex">\[ \begin{align}
+A = X + iY,     \qquad  &amp; X, Y \in R^{m\times n}, \\
+x = u + iv,     \qquad  &amp; u,v \in R^n, \\
+b = c + id,     \qquad  &amp; c,d \in R^m.
+\end{align} \]</div>
+<p>a. For <span class="arithmatex">\(p=1\)</span>, it is equivalent to minimize</p>
+<div class="arithmatex">\[ \begin{align}
+    \sum_{j=0}^m |X[j, :]u - c_j + i(Y[j, :]v - d_j)|
+\end{align} \]</div>
+<p>Take each item as <span class="arithmatex">\(t_j\)</span>, then we get</p>
+<div class="arithmatex">\[ \begin{align}
+    \text{minimize} \qquad &amp; \sum_{j=0}^m t_j   \\
+    \text{subject to} \qquad &amp; |X[j, :]u - c_j + i(Y[j, :]v - d_j)| \le t_j, \\
+    &amp; \quad j=1,\dots,m
+\end{align} \]</div>
+<p>So finally, the problem is in the SOCP form as</p>
+<div class="arithmatex">\[ \begin{align}
+    \text{minimize} \qquad &amp; \sum_{j=0}^m t_j   \\
+    \text{subject to} \qquad &amp; 
+    \left\| \begin{bmatrix}
+    X[j, :] &amp; -Y[j, :] \\ Y[j, :] &amp; X[j, :]
+    \end{bmatrix}
+    \begin{bmatrix}
+        u \\ v
+    \end{bmatrix}
+    - \begin{bmatrix}
+        c_j \\ d_j
+    \end{bmatrix}
+    \right\|_2^2 \le t, \\
+    &amp; \quad j=1,\dots,m
+\end{align} \]</div>
+<hr />
+<p>b. For <span class="arithmatex">\(p=2\)</span>, minimize <span class="arithmatex">\( \|\cdot\|_2 \)</span> is equivalent to minimize <span class="arithmatex">\( \| \cdot \|_2^2 \)</span>. Then</p>
+<div class="arithmatex">\[\begin{align}    
+\|Ax - b\|_2^2 &amp;= \| (X+iY)(u+iv)-(c+id) \|_2^2  \\
+&amp;= \| Xu-Yv-c \|_2^2 + \| Xv+Yu-d \|_2^2 \\
+&amp;= \left\| \begin{bmatrix}
+    X &amp; -Y \\ Y &amp; X
+\end{bmatrix}
+\begin{bmatrix}
+    u \\ v
+\end{bmatrix}
+- \begin{bmatrix}
+    c \\ d
+\end{bmatrix}
+\right\|_2^2
+\end{align}\]</div>
+<p>That is in the QCQP form.</p>
+<hr />
+<p>c. For <span class="arithmatex">\(p=\infty\)</span>, the problem is equivalent to</p>
+<div class="arithmatex">\[ \begin{align}
+    \text{minimize} \qquad &amp; t   \\
+    \text{subject to} \qquad &amp; |X[j, :]u - c_j + i(Y[j, :]v - d_j)| \le t, \\
+    &amp; \quad j=1,\dots,m
+\end{align}
+\]</div>
+<p>So, the problem is in the SOCP form as</p>
+<div class="arithmatex">\[ \begin{align}
+    \text{minimize} \qquad &amp; t   \\
+    \text{subject to} \qquad &amp; 
+    \left\| \begin{bmatrix}
+    X[j, :] &amp; -Y[j, :] \\ Y[j, :] &amp; X[j, :]
+    \end{bmatrix}
+    \begin{bmatrix}
+        u \\ v
+    \end{bmatrix}
+    - \begin{bmatrix}
+        c_j \\ d_j
+    \end{bmatrix}
+    \right\|_2 \le t, \\
+    &amp; \quad j=1,\dots,m
+\end{align} \]</div>
 </div>
+<h2 id="2-exercise-530-of-convex-optimization">2. Exercise 5.30 of <a href="../../#ee364a-convex-optimization-i-professor-stephen-boyd-stanford-university">Convex Optimization</a><a class="headerlink" href="#2-exercise-530-of-convex-optimization" title="Permanent link">&para;</a></h2>
+<p>Derive the KKT conditions for the problem</p>
+<div class="arithmatex">\[ \begin{align}
+    \text{minimize} \qquad &amp; tr(X) - \log \det X \\
+    \text{subject to} \qquad &amp; Xs = y
+\end{align} \]</div>
+<p>with <span class="arithmatex">\(X \in S^n\)</span> and domain <span class="arithmatex">\(S^n_{++}\)</span>. <span class="arithmatex">\(y, s\in R^n\)</span> are given, with <span class="arithmatex">\(s^T y=1\)</span>.
+Verify that the optimal solution is given by</p>
+<div class="arithmatex">\[ X^* = I + yy^T - \dfrac{1}{s^Ts}ss^T \]</div>
+<div class="admonition solution">
+<p class="admonition-title">Solution</p>
+</div>
+<p>The Lagrange dual function is</p>
+<div class="arithmatex">\[ tr(X)-\log \det X + \nu^T(Xs-y) \]</div>
+<p>And we have </p>
+<div class="arithmatex">\[ tr(X + tV) - tr(X) = t Tr(V) = t \langle I, V \rangle \Rightarrow \nabla tr(X) = I\]</div>
+<p>from <a href="../HW2/#3-exercise-26-of-最优化建模算法与理论">HW2.3.b</a></p>
+<div class="arithmatex">\[ \nabla \log \det X = X^{-T} = X^{-1} \]</div>
+<p>and</p>
+<div class="arithmatex">\[ \nu^TVs = tr(\nu V^T s) = tr(s\nu^TV) = \langle \nu s^T, V \rangle = \langle s \nu^T, V \rangle \Rightarrow \nabla \nu^T(Xs-y) = s \nu^T = \nu^T s \]</div>
+<p>KKT conditions:</p>
+<div class="arithmatex">\[ Xs=y \]</div>
+<div class="arithmatex">\[ I - X^{-1} + s\nu^T = 0 \]</div>
 
 <!-- Source file information -->
 
