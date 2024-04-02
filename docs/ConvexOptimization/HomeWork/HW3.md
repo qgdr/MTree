@@ -136,7 +136,7 @@ The Lagrange dual function is
 
 $$ tr(X)-\log \det X + \nu^T(Xs-y) $$
 
-And we have 
+For \(V \in S^n\) 
 
 $$ tr(X + tV) - tr(X) = t Tr(V) = t \langle I, V \rangle \Rightarrow \nabla tr(X) = I$$
 
@@ -146,13 +146,41 @@ $$ \nabla \log \det X = X^{-T} = X^{-1} $$
 
 and
 
-$$ \nu^TVs = tr(\nu V^T s) = tr(s\nu^TV) = \langle \nu s^T, V \rangle = \langle s \nu^T, V \rangle \Rightarrow \nabla \nu^T(Xs-y) = s \nu^T = \nu^T s $$
+$$ \nu^TVs = tr(\nu^T V s) = tr(s\nu^TV) = \langle \nu s^T, V \rangle \Rightarrow \nabla \nu^TXs = s\nu^T $$
 
-KKT conditions:
+For \(X \in S^n_{++}\), we have
+    
+$$\nabla \nu^TXs = \nabla s^TX\nu = \nu s^T$$
+
+So, \(\nabla \nu^TXs\) can be combination of \(\nu^T s\) and \(s\nu^T\). 
+But if we restrict it to \(S^n\), then there must be
+
+$$ \nabla \nu^TXs = \dfrac{\nu s^T + s\nu^T}{2} $$
+
+KKT conditions needs
+
+$$ I - X^{-1} + \nabla \nu^TXs = 0 $$
+
+but \(I-X^{-1}\) is in \(S^n\),
+so we get 
+
+KKT conditions are
+
+$$ I - X^{-1} + \dfrac{\nu s^T + s\nu^T}{2} = 0 $$
 
 $$ Xs=y $$
 
-$$ I - X^{-1} + s\nu^T = 0 $$
+---
+
+the optimal solution
+
+
+
+
+
+
+
+
 
 
 
