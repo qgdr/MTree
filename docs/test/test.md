@@ -2,7 +2,7 @@
 
 ## this is a test from fubin
 
-## this is another test from fubin
+## this is another test from test-fb
 
 $$ \{ 1, 2, 3  \} $$
 
