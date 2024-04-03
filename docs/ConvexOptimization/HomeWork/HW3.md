@@ -132,53 +132,97 @@ $$ X^* = I + yy^T - \dfrac{1}{s^Ts}ss^T $$
 
 !!! solution
 
-The Lagrange dual function is
+    The Lagrange dual function is
 
-$$ tr(X)-\log \det X + \nu^T(Xs-y) $$
+    $$ tr(X)-\log \det X + \nu^T(Xs-y) $$
 
-For \(V \in S^n\) 
+    For \(V \in S^n\) 
 
-$$ tr(X + tV) - tr(X) = t Tr(V) = t \langle I, V \rangle \Rightarrow \nabla tr(X) = I$$
+    $$ tr(X + tV) - tr(X) = t Tr(V) = t \langle I, V \rangle \Rightarrow \nabla tr(X) = I$$
 
-from [HW2.3.b](HW2.md#3-exercise-26-of-最优化建模算法与理论)
+    from [HW2.3.b](HW2.md#3-exercise-26-of-最优化建模算法与理论)
 
-$$ \nabla \log \det X = X^{-T} = X^{-1} $$
+    $$ \nabla \log \det X = X^{-T} = X^{-1} $$
 
-and
+    and
 
-$$ \nu^TVs = tr(\nu^T V s) = tr(s\nu^TV) = \langle \nu s^T, V \rangle \Rightarrow \nabla \nu^TXs = s\nu^T $$
+    $$ \nu^TVs = tr(\nu^T V s) = tr(s\nu^TV) = \langle \nu s^T, V \rangle \Rightarrow \nabla \nu^TXs = s\nu^T $$
 
-For \(X \in S^n_{++}\), we have
-    
-$$\nabla \nu^TXs = \nabla s^TX\nu = \nu s^T$$
+    For \(X \in S^n_{++}\), we have
+        
+    $$\nabla \nu^TXs = \nabla s^TX\nu = \nu s^T$$
 
-So, \(\nabla \nu^TXs\) can be combination of \(\nu^T s\) and \(s\nu^T\). 
-But if we restrict it to \(S^n\), then there must be
+    So, \(\nabla \nu^TXs\) can be combination of \(\nu^T s\) and \(s\nu^T\). 
+    But if we restrict it to \(S^n\), then there must be
 
-$$ \nabla \nu^TXs = \dfrac{\nu s^T + s\nu^T}{2} $$
+    $$ \nabla \nu^TXs = \dfrac{\nu s^T + s\nu^T}{2} $$
 
-KKT conditions needs
+    KKT conditions needs
 
-$$ I - X^{-1} + \nabla \nu^TXs = 0 $$
+    $$ I - X^{-1} + \nabla \nu^TXs = 0 $$
 
-but \(I-X^{-1}\) is in \(S^n\),
-so we get 
+    but \(I-X^{-1}\) is in \(S^n\),
+    so we get 
 
-KKT conditions are
+    KKT conditions are
 
-$$ I - X^{-1} + \dfrac{\nu s^T + s\nu^T}{2} = 0 $$
+    $$ I - X^{-1} + \dfrac{\nu s^T + s\nu^T}{2} = 0 $$
 
-$$ Xs=y $$
+    $$ Xs=y $$
 
----
+    ---
 
-the optimal solution
+    the optimal solution satisfy the KKT conditions.
+
+    Since \(s=X^{-1}y\) and \(s^Ty=y^Ts=1\), multiple \(y\) on the right, we have
+
+    $$ y-s+\frac{\nu}{2} + \frac{(\nu^Ty) s}{2} = 0 $$
+
+    Then multiply \(y^T\) on the left, we have
+
+    $$ 1 - y^Ty =  \frac{y^T\nu}{2} + \frac{(\nu^Ty) y^Ts}{2} = \nu^Ty $$
+
+    Substitute it to the upper equation, we get
+
+    $$ \nu = -2y + (1+y^Ty)s $$
+
+    Multiply \(X\) to the KKT condition on the left and subsitite \(\nu\) to it, we have
+
+    $$ \begin{align}
+        X^{-1} &= I + \frac{1}{2}( -2ys^T +(1+y^y)s s^T -2sy^T+ (1+y^y)ss^T ) \\
+            &= I + (1+y^Ty)s s^T - ys^T - sy^T \\
+            &= (I-sy^T)(I-ys^T) + ss^T
+    \end{align} $$
+
+    So, \(X^{-1}\) is semi-positive definite. 
+    But if there is some \(u\) s.t. \(u^TX^{-1}u = 0\), there mus be
+    \(s^u = 0\) and \(u-sy^Tu = 0\), that is \(u=0\).
+    So, \(X^{-1}\) is **positive definite**, then \(X\) is positive definite.
+
+    Verify the inverse
+
+    $$ \begin{align}
+        X^{-1}X^* =& ( I + (1+y^Ty)s s^T - ys^T - sy^T )( I + yy^T - \dfrac{1}{s^Ts}ss^T ) \\
+        =& I + yy^T - \dfrac{1}{s^Ts}ss^T + (1+y^Ty)ss^T + (1+y^Ty)sy^T - (1+y^Ty)ss^T      \\
+        & - ys^T - sy^T - yy^T - (y^Ty) sy^T + ys^T + \frac{ss^T}{s^Ts}   \\
+        &= I
+    \end{align} $$
 
 
+## 3. Dual problems of the following convex optimizations
 
+Given \(A ∈ R^{m×n}\) with \(m < n\) and \(b ∈ R^m\). Please give the dual problems of the following convex optimizations.      
 
+(i) \(\min_{x ∈ R^n} \|x\|_1, \; \text{s.t.} \; \|A^T(Ax − b)||_\infty ≤ ε\)    
 
+(ii) \(\min_{x ∈ R^n} λ‖x‖_1 + ‖A^T(Ax − b)‖_∞\)    
 
+(iii) \(\min_{x ∈ R^n} λ‖x‖_1 + \frac{1}{2} ‖A^T(Ax − b)‖_∞^2\)    
+ 
+
+!!! solution
+
+(i). 
 
 
 

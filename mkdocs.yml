@@ -47,6 +47,7 @@ nav:
 - LinearAlgebra:
   - LinearAlgebra/index.md
   - SVD: LinearAlgebra/svd.md
+  - "\u77E9\u9635\u8303\u6570": LinearAlgebra/MatrixNorm.md
 - Topology:
   - Topology/index.md
   - "\u62D3\u6251\u7A7A\u95F4":

@@ -1,3 +1,4 @@
 nav:
   - index.md
   - SVD: svd.md
+  - 矩阵范数: MatrixNorm.md

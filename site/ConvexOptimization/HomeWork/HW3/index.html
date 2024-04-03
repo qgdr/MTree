@@ -505,6 +505,8 @@
       
         
       
+        
+      
     
     
     
@@ -555,6 +557,27 @@
   
   <span class="md-ellipsis">
     SVD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LinearAlgebra/MatrixNorm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵范数
   </span>
   
 
@@ -1098,6 +1121,15 @@
   <a href="#2-exercise-530-of-convex-optimization" class="md-nav__link">
     <span class="md-ellipsis">
       2. Exercise 5.30 of Convex Optimization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dual-problems-of-the-following-convex-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Dual problems of the following convex optimizations
     </span>
   </a>
   
@@ -2007,6 +2039,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3-dual-problems-of-the-following-convex-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Dual problems of the following convex optimizations
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2124,7 +2165,6 @@ Verify that the optimal solution is given by</p>
 <div class="arithmatex">\[ X^* = I + yy^T - \dfrac{1}{s^Ts}ss^T \]</div>
 <div class="admonition solution">
 <p class="admonition-title">Solution</p>
-</div>
 <p>The Lagrange dual function is</p>
 <div class="arithmatex">\[ tr(X)-\log \det X + \nu^T(Xs-y) \]</div>
 <p>For <span class="arithmatex">\(V \in S^n\)</span> </p>
@@ -2146,7 +2186,40 @@ so we get </p>
 <div class="arithmatex">\[ I - X^{-1} + \dfrac{\nu s^T + s\nu^T}{2} = 0 \]</div>
 <div class="arithmatex">\[ Xs=y \]</div>
 <hr />
-<p>the optimal solution</p>
+<p>the optimal solution satisfy the KKT conditions.</p>
+<p>Since <span class="arithmatex">\(s=X^{-1}y\)</span> and <span class="arithmatex">\(s^Ty=y^Ts=1\)</span>, multiple <span class="arithmatex">\(y\)</span> on the right, we have</p>
+<div class="arithmatex">\[ y-s+\frac{\nu}{2} + \frac{(\nu^Ty) s}{2} = 0 \]</div>
+<p>Then multiply <span class="arithmatex">\(y^T\)</span> on the left, we have</p>
+<div class="arithmatex">\[ 1 - y^Ty =  \frac{y^T\nu}{2} + \frac{(\nu^Ty) y^Ts}{2} = \nu^Ty \]</div>
+<p>Substitute it to the upper equation, we get</p>
+<div class="arithmatex">\[ \nu = -2y + (1+y^Ty)s \]</div>
+<p>Multiply <span class="arithmatex">\(X\)</span> to the KKT condition on the left and subsitite <span class="arithmatex">\(\nu\)</span> to it, we have</p>
+<div class="arithmatex">\[ \begin{align}
+    X^{-1} &amp;= I + \frac{1}{2}( -2ys^T +(1+y^y)s s^T -2sy^T+ (1+y^y)ss^T ) \\
+        &amp;= I + (1+y^Ty)s s^T - ys^T - sy^T \\
+        &amp;= (I-sy^T)(I-ys^T) + ss^T
+\end{align} \]</div>
+<p>So, <span class="arithmatex">\(X^{-1}\)</span> is semi-positive definite. 
+But if there is some <span class="arithmatex">\(u\)</span> s.t. <span class="arithmatex">\(u^TX^{-1}u = 0\)</span>, there mus be
+<span class="arithmatex">\(s^u = 0\)</span> and <span class="arithmatex">\(u-sy^Tu = 0\)</span>, that is <span class="arithmatex">\(u=0\)</span>.
+So, <span class="arithmatex">\(X^{-1}\)</span> is <strong>positive definite</strong>, then <span class="arithmatex">\(X\)</span> is positive definite.</p>
+<p>Verify the inverse</p>
+<div class="arithmatex">\[ \begin{align}
+    X^{-1}X^* =&amp; ( I + (1+y^Ty)s s^T - ys^T - sy^T )( I + yy^T - \dfrac{1}{s^Ts}ss^T ) \\
+    =&amp; I + yy^T - \dfrac{1}{s^Ts}ss^T + (1+y^Ty)ss^T + (1+y^Ty)sy^T - (1+y^Ty)ss^T      \\
+    &amp; - ys^T - sy^T - yy^T - (y^Ty) sy^T + ys^T + \frac{ss^T}{s^Ts}   \\
+    &amp;= I
+\end{align} \]</div>
+</div>
+<h2 id="3-dual-problems-of-the-following-convex-optimizations">3. Dual problems of the following convex optimizations<a class="headerlink" href="#3-dual-problems-of-the-following-convex-optimizations" title="Permanent link">&para;</a></h2>
+<p>Given <span class="arithmatex">\(A ∈ R^{m×n}\)</span> with <span class="arithmatex">\(m &lt; n\)</span> and <span class="arithmatex">\(b ∈ R^m\)</span>. Please give the dual problems of the following convex optimizations.      </p>
+<p>(i) <span class="arithmatex">\(\min_{x ∈ R^n} \|x\|_1, \; \text{s.t.} \; \|A^T(Ax − b)||_\infty ≤ ε\)</span>    </p>
+<p>(ii) <span class="arithmatex">\(\min_{x ∈ R^n} λ‖x‖_1 + ‖A^T(Ax − b)‖_∞\)</span>    </p>
+<p>(iii) <span class="arithmatex">\(\min_{x ∈ R^n} λ‖x‖_1 + \frac{1}{2} ‖A^T(Ax − b)‖_∞^2\)</span>    </p>
+<div class="admonition solution">
+<p class="admonition-title">Solution</p>
+</div>
+<p>(i). </p>
 
 <!-- Source file information -->
 
