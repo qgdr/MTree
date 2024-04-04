@@ -958,6 +958,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    共轭函数
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -967,6 +978,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conjugate-of-norm" class="md-nav__link">
+    <span class="md-ellipsis">
+      范数的共轭函数 Conjugate of Norm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conjugate-of-norm-squared" class="md-nav__link">
+    <span class="md-ellipsis">
+      范数平方的共轭函数 Conjugate of Norm Squared
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1958,6 +2006,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conjugate-of-norm" class="md-nav__link">
+    <span class="md-ellipsis">
+      范数的共轭函数 Conjugate of Norm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conjugate-of-norm-squared" class="md-nav__link">
+    <span class="md-ellipsis">
+      范数平方的共轭函数 Conjugate of Norm Squared
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1976,7 +2050,7 @@
 
 
 <!-- Page content -->
-<h1 id="the-conjugate-function">共轭函数 (The conjugate function)<a class="headerlink" href="#the-conjugate-function" title="Permanent link">&para;</a></h1>
+<h1 id="the-conjugate-function">共轭函数 ( The conjugate function )<a class="headerlink" href="#the-conjugate-function" title="Permanent link">&para;</a></h1>
 <p>设函数 <span class="arithmatex">\(f: R^n \to R\)</span>，函数 <span class="arithmatex">\(f^*: R^n \to R\)</span>，</p>
 <div class="arithmatex">\[ f^*(y) = \sup_{x\in \text{dom}f} \{y^T x - f(x)\} \]</div>
 <p>称为 <span class="arithmatex">\(f\)</span> 的 <strong>共轭函数</strong>(conjugate function)。</p>
@@ -1991,6 +2065,58 @@
 <p>共轭函数是无条件凸的！</p>
 <p><a class="glightbox" href="../media/images/convexfunc/ConjugateConvex_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="conjugate" src="../media/images/convexfunc/ConjugateConvex_ManimCE_v0.18.0.png" /></a></p>
 </div>
+<h2 id="conjugate-of-norm">范数的共轭函数 Conjugate of Norm<a class="headerlink" href="#conjugate-of-norm" title="Permanent link">&para;</a></h2>
+<p>令 <span class="arithmatex">\(f(x) = \|x\|, x\in R^n\)</span>，那么 <span class="arithmatex">\(f^*(y)\)</span> 是什么呢？   <br />
+根据定义</p>
+<div class="arithmatex">\[ f^*(y) = \sup_{x\in R^n} \{ y^T x - \|x\| \} \]</div>
+<div class="admonition view">
+<p class="admonition-title">View</p>
+<p>对于 <span class="arithmatex">\(n=1\)</span>，<span class="arithmatex">\(f(x)= |x|\)</span> 我们有直观的看法：</p>
+<p><a class="glightbox" href="../media/images/convexfunc/NormConjugate_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="normconjugate" src="../media/images/convexfunc/NormConjugate_ManimCE_v0.18.0.png" /></a></p>
+<p>我们立即得到</p>
+<div class="arithmatex">\[ f^*(y) = \mathbb{I}_{ |y| \le 1} = \begin{cases}
+    0, &amp; |y| \le 1 \\ +\infty, &amp; |y| &gt; 1
+\end{cases} \]</div>
+</div>
+<p>但是对于一般的 <strong>向量范数</strong> ( Norm ) </p>
+<div class="arithmatex">\[ f(x)=\|x\|_p = \left(\sum_{j=1}^m |x_j|^p\right)^{1/p}, \qquad 1\le p\le \infty \]</div>
+<p>他的共轭函数是什么呢？   </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>我们这里利用一点泛函的知识 （或者仅使用 Hölder 不等式） ，</p>
+<div class="arithmatex">\[ \sum_{i=1}^n x_i y_i \le \left(\sum_{i=1}^n |x_i|^p\right)^{1/p} \left(\sum_{i=1}^n |y_i|^q\right)^{1/q} \]</div>
+<p>即</p>
+<div class="arithmatex">\[ y^T x \le \|y\|_q\|x\|_p \]</div>
+<p>其中 <span class="arithmatex">\(\frac{1}{p} + \frac{1}{q} = 1, p, q \ge 1\)</span>，等式成立条件是 <span class="arithmatex">\(x,y\)</span> 方向相同。</p>
+<p>把 <span class="arithmatex">\(y\)</span> 看成 <span class="arithmatex">\( (R^n， \|\cdot\|_p) \)</span> 上的线性泛函 <span class="arithmatex">\(T_y\)</span>，<span class="arithmatex">\(\langle T_y, x\rangle = y^T x\)</span> . 那么</p>
+<div class="arithmatex">\[ \|T_y\| = \sup_{x\in R^n} \frac{y^T x}{\|x\|_p} = \|y\|_q \]</div>
+<p>称 <span class="arithmatex">\(\|\cdot\|_q\)</span> 是 <span class="arithmatex">\(\|\cdot\|_p\)</span> 的 <strong>对偶范数</strong>。</p>
+</div>
+<div class="arithmatex">\[ f^*(y) = \sup_{x\in R^n} \{ y^T x - \|x\| \} \le \sup_{x\in R^n} \{ \|y\|_q \|x\|_p - \|x\|_p \} = \sup_{x\in R^n} (\|y\|_q-1) \|x\|_p \]</div>
+<p>因此，我们可以直接得到</p>
+<div class="arithmatex">\[ f^*(y) = \mathbb{I}_{ \|y\|_q \le 1} = \begin{cases}
+    0, &amp; \|y\|_q \le 1 \\ +\infty, &amp; \|y\|_q &gt; 1
+\end{cases} \]</div>
+<p>这符合我们在直观上所看到的。</p>
+<h2 id="conjugate-of-norm-squared">范数平方的共轭函数 Conjugate of Norm Squared<a class="headerlink" href="#conjugate-of-norm-squared" title="Permanent link">&para;</a></h2>
+<p>我们研究下面这样函数的共轭函数</p>
+<div class="arithmatex">\[ f(x) = \frac{1}{2} \|x\|_p^2 \]</div>
+<div class="admonition view">
+<p class="admonition-title">View</p>
+<p>同样的，对于 <span class="arithmatex">\(n=1\)</span>, <span class="arithmatex">\(f(x)= \frac{1}{2}x^2\)</span> 我们有：</p>
+<p><a class="glightbox" href="../media/images/convexfunc/NormSquareConjugate_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="normsquaredconjugate" src="../media/images/convexfunc/NormSquareConjugate_ManimCE_v0.18.0.png" /></a></p>
+<p>我们得到</p>
+<div class="arithmatex">\[ f^*(y) = \frac{1}{2}y^2 \]</div>
+</div>
+<p>同样的，对于一般的 <span class="arithmatex">\(f(x) = \frac{1}{2} \|x\|_p^2, x\in R^n\)</span>，他的共轭函数又是什么呢？       <br />
+根据上面的推导， 我们有所猜测</p>
+<div class="arithmatex">\[ f^*(y) = \frac{1}{2} \|y\|_q^2 \]</div>
+<p>事实上，</p>
+<div class="arithmatex">\[ \begin{align}
+    f^*(y) &amp;= \sup_{x\in R^n} \{ y^T x - \frac{1}{2} \|x\|_p^2 \} \le \sup_{x\in R^n} \{ \|y\|_q\|x\|_p - \frac{1}{2}\|x\|_p^2 \}    \\
+    &amp;= \sup_{x\in R^n} \{ \frac{1}{2}\|y\|_q^2 - \frac{1}{2}(\|y\|_q - \|x\|_p)^2 \} \\
+    &amp;= \frac{1}{2}\|y\|_q^2
+\end{align}\]</div>
 
 <!-- Source file information -->
 

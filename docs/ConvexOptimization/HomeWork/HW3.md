@@ -222,7 +222,77 @@ Given \(A ∈ R^{m×n}\) with \(m < n\) and \(b ∈ R^m\). Please give the dual 
 
 !!! solution
 
-(i). 
+    (i). 
+
+    $$ L(x, \lambda) = \|x\|_1 + \lambda (\|A^T(Ax-b)\|_∞ - \epsilon) $$
+
+    where \(\lambda \ge 0\). And then
+
+    $$ g(\lambda) = \min_{x \in R^n} L(x, \lambda) = \min_{x \in R^n} \|x\|_1 + \lambda \|A^T(Ax-b)\|_∞ - \lambda \epsilon $$
+
+    the dual problem is
+
+    $$ \max_{λ \ge 0} g(\lambda) = \max_{λ \ge 0} \min_{x \in R^n} \{ \|x\|_1 + \lambda \|A^T(Ax-b)\|_∞ - \lambda \epsilon \} $$
+
+    ---
+
+    (ii). 
+    Let \(y = -A^T(Ax-b)\), then the problem is equivalent to
+
+    $$ \min_{x \in R^n} \{ \lambda ‖x‖_1 + ‖y‖_∞ \}, \; \text{s.t.} \; y=-A^T(Ax-b) $$
+
+    The Lagrange dual function is
+
+    $$ L(x, y, \nu) = \lambda ‖x‖_1 + ‖y‖_∞ + \langle \nu, -A^T(Ax-b) - y \rangle $$
+
+    Then,
+
+    $$ \begin{align}
+        g(\nu) &= \min_{x,y \in R^n} L(x, \nu) = \min_{x,y \in R^n} \lambda ‖x‖_1 + ‖y‖_∞ + \langle \nu, -A^T(Ax-b) - y \rangle \\
+        &= \min_{x \in R^n} \{ \lambda ‖x‖_1 - \nu^TA^TAx \} + \min_{y \in R^n} \{ ‖y‖_∞ - \nu^Ty \} + \nu^TA^Tb \\
+        &= -\max_{x \in R^n} \{ \langle A^TA\nu, x \rangle - \lambda ‖x‖_1 \} - \max_{y \in R^n} \{ \langle \nu, y \rangle  - ‖y‖_∞\} + \nu^TA^Tb \\
+        &= - \mathbb{I}_{\|A^TA\nu\|_\infty \le \lambda} - \mathbb{I}_{\|\nu\|_1 \le 1} + \nu^TA^Tb
+    \end{align} $$
+
+    The last equation is the conjugate of the norm function, see [Conjugate of Norm](../ConvexFunction/ConjugateFunction.md#范数的共轭函数-conjugate-of-norm).        
+    So the dual problem is
+
+    $$ \begin{align}
+        \text{maximum} &\qquad b^TA\nu \\
+        \text{subject to} &\qquad \|A^TA\nu\|_\infty \le \lambda, \| \nu \|_1 \le 1
+    \end{align} $$
+
+    ---
+
+    (iii). 
+    Let \(y = -A^T(Ax-b)\), similarly, the problem is equivalent to
+
+    $$ \min_{x \in R^n} \{ \lambda ‖x‖_1 + \frac{1}{2} ‖y‖_∞^2 \}, \; \text{s.t.} \; y=-A^T(Ax-b) $$
+
+    The Lagrange dual function is
+
+    $$ L(x, y, \nu) = \lambda ‖x‖_1 + \frac{1}{2} ‖y‖_∞^2 + \langle \nu, -A^T(Ax-b) - y \rangle $$
+
+    Then,
+
+    $$ \begin{align}
+        g(\nu) &= \min_{x,y \in R^n} L(x, \nu) = \min_{x,y \in R^n} \lambda ‖x‖_1 + \frac{1}{2} ‖y‖_∞^2 + \langle \nu, -A^T(Ax-b) - y \rangle \\
+        &= \min_{x \in R^n} \{ \lambda ‖x‖_1 - \nu^TA^TAx \} + \min_{y \in R^n} \{ \frac{1}{2} ‖y‖_∞^2 - \langle \nu, y \rangle \} + \nu^TA^Tb \\
+        &= -\max_{x \in R^n} \{ \langle A^TA\nu, x \rangle - \lambda ‖x‖_1 \} - \max_{y \in R^n} \{ \langle \nu, y \rangle - \frac{1}{2} ‖y‖_∞^2 \} + \nu^TA^Tb \\
+        &= - \mathbb{I}_{\|A^TA\nu\|_\infty \le \lambda} - \frac{1}{2}\|\nu\|_1^2 + \langle A^Tb, \nu \rangle
+    \end{align} $$
+
+    The last equation is the conjugate of the norm-square function, see [Conjugate of Norm Squared](../ConvexFunction/ConjugateFunction.md#范数平方的共轭函数-conjugate-of-norm-squared).       
+    So the dual problem is
+
+    $$ \begin{align}
+        \text{maximum} &\qquad \langle A^Tb, \nu \rangle - \frac{1}{2}\|\nu\|_1^2 \\
+        \text{subject to} &\qquad \|A^TA\nu\|_\infty \le \lambda
+    \end{align} $$
+
+
+
+
 
 
 

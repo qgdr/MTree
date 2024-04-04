@@ -2218,8 +2218,51 @@ So, <span class="arithmatex">\(X^{-1}\)</span> is <strong>positive definite</str
 <p>(iii) <span class="arithmatex">\(\min_{x ∈ R^n} λ‖x‖_1 + \frac{1}{2} ‖A^T(Ax − b)‖_∞^2\)</span>    </p>
 <div class="admonition solution">
 <p class="admonition-title">Solution</p>
-</div>
 <p>(i). </p>
+<div class="arithmatex">\[ L(x, \lambda) = \|x\|_1 + \lambda (\|A^T(Ax-b)\|_∞ - \epsilon) \]</div>
+<p>where <span class="arithmatex">\(\lambda \ge 0\)</span>. And then</p>
+<div class="arithmatex">\[ g(\lambda) = \min_{x \in R^n} L(x, \lambda) = \min_{x \in R^n} \|x\|_1 + \lambda \|A^T(Ax-b)\|_∞ - \lambda \epsilon \]</div>
+<p>the dual problem is</p>
+<div class="arithmatex">\[ \max_{λ \ge 0} g(\lambda) = \max_{λ \ge 0} \min_{x \in R^n} \{ \|x\|_1 + \lambda \|A^T(Ax-b)\|_∞ - \lambda \epsilon \} \]</div>
+<hr />
+<p>(ii). 
+Let <span class="arithmatex">\(y = -A^T(Ax-b)\)</span>, then the problem is equivalent to</p>
+<div class="arithmatex">\[ \min_{x \in R^n} \{ \lambda ‖x‖_1 + ‖y‖_∞ \}, \; \text{s.t.} \; y=-A^T(Ax-b) \]</div>
+<p>The Lagrange dual function is</p>
+<div class="arithmatex">\[ L(x, y, \nu) = \lambda ‖x‖_1 + ‖y‖_∞ + \langle \nu, -A^T(Ax-b) - y \rangle \]</div>
+<p>Then,</p>
+<div class="arithmatex">\[ \begin{align}
+    g(\nu) &amp;= \min_{x,y \in R^n} L(x, \nu) = \min_{x,y \in R^n} \lambda ‖x‖_1 + ‖y‖_∞ + \langle \nu, -A^T(Ax-b) - y \rangle \\
+    &amp;= \min_{x \in R^n} \{ \lambda ‖x‖_1 - \nu^TA^TAx \} + \min_{y \in R^n} \{ ‖y‖_∞ - \nu^Ty \} + \nu^TA^Tb \\
+    &amp;= -\max_{x \in R^n} \{ \langle A^TA\nu, x \rangle - \lambda ‖x‖_1 \} - \max_{y \in R^n} \{ \langle \nu, y \rangle  - ‖y‖_∞\} + \nu^TA^Tb \\
+    &amp;= - \mathbb{I}_{\|A^TA\nu\|_\infty \le \lambda} - \mathbb{I}_{\|\nu\|_1 \le 1} + \nu^TA^Tb
+\end{align} \]</div>
+<p>The last equation is the conjugate of the norm function, see <a href="../../ConvexFunction/ConjugateFunction/#范数的共轭函数-conjugate-of-norm">Conjugate of Norm</a>.      <br />
+So the dual problem is</p>
+<div class="arithmatex">\[ \begin{align}
+    \text{maximum} &amp;\qquad b^TA\nu \\
+    \text{subject to} &amp;\qquad \|A^TA\nu\|_\infty \le \lambda, \| \nu \|_1 \le 1
+\end{align} \]</div>
+<hr />
+<p>(iii). 
+Let <span class="arithmatex">\(y = -A^T(Ax-b)\)</span>, similarly, the problem is equivalent to</p>
+<div class="arithmatex">\[ \min_{x \in R^n} \{ \lambda ‖x‖_1 + \frac{1}{2} ‖y‖_∞^2 \}, \; \text{s.t.} \; y=-A^T(Ax-b) \]</div>
+<p>The Lagrange dual function is</p>
+<div class="arithmatex">\[ L(x, y, \nu) = \lambda ‖x‖_1 + \frac{1}{2} ‖y‖_∞^2 + \langle \nu, -A^T(Ax-b) - y \rangle \]</div>
+<p>Then,</p>
+<div class="arithmatex">\[ \begin{align}
+    g(\nu) &amp;= \min_{x,y \in R^n} L(x, \nu) = \min_{x,y \in R^n} \lambda ‖x‖_1 + \frac{1}{2} ‖y‖_∞^2 + \langle \nu, -A^T(Ax-b) - y \rangle \\
+    &amp;= \min_{x \in R^n} \{ \lambda ‖x‖_1 - \nu^TA^TAx \} + \min_{y \in R^n} \{ \frac{1}{2} ‖y‖_∞^2 - \langle \nu, y \rangle \} + \nu^TA^Tb \\
+    &amp;= -\max_{x \in R^n} \{ \langle A^TA\nu, x \rangle - \lambda ‖x‖_1 \} - \max_{y \in R^n} \{ \langle \nu, y \rangle - \frac{1}{2} ‖y‖_∞^2 \} + \nu^TA^Tb \\
+    &amp;= - \mathbb{I}_{\|A^TA\nu\|_\infty \le \lambda} - \frac{1}{2}\|\nu\|_1^2 + \langle A^Tb, \nu \rangle
+\end{align} \]</div>
+<p>The last equation is the conjugate of the norm-square function, see <a href="../../ConvexFunction/ConjugateFunction/#范数平方的共轭函数-conjugate-of-norm-squared">Conjugate of Norm Squared</a>.     <br />
+So the dual problem is</p>
+<div class="arithmatex">\[ \begin{align}
+    \text{maximum} &amp;\qquad \langle A^Tb, \nu \rangle - \frac{1}{2}\|\nu\|_1^2 \\
+    \text{subject to} &amp;\qquad \|A^TA\nu\|_\infty \le \lambda
+\end{align} \]</div>
+</div>
 
 <!-- Source file information -->
 

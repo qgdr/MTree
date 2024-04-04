@@ -253,3 +253,67 @@ class ConjugateConvex(Scene):
             Dot(axes.c2p(0, fs_m(0)), color=RED),
             Tex(r"$-f^*(\dfrac{y_1 + y_2}{2})$", color=WHITE, font_size=20).shift(axes.c2p(0, fs_m(0))).shift(UP*.5),
         )
+
+
+class NormConjugate(Scene):
+    """
+    函数 |x|
+    """
+    def construct(self):
+        x_range = [-3, 3, 1]
+        y_range = [-3, 3, 1]
+        axes = Axes(
+            x_range=x_range,
+            y_range=y_range,
+            x_length=8,
+            y_length=8,
+            axis_config={"stroke_color": BLUE},
+            tips=False,
+        )
+        axes.add_coordinates()
+        self.add(axes)
+        def func(x):
+            return abs(x)
+        
+        curve = axes.plot(func, x_range=[-3, 3], color=RED, use_smoothing=False)
+        self.add(curve)
+        self.add(Tex(r"$f(x) = |x|$").shift(3*UP+1.5*RIGHT))
+        line = axes.plot(lambda x: 0.6*x, x_range=[-3, 3], color=YELLOW)
+
+        self.add(line)
+        self.add(Tex(r"$yx$").shift(1.5*UP + 3.2*RIGHT))
+
+
+class NormSquareConjugate(Scene):
+    """
+    函数 |x|
+    """
+    def construct(self):
+        x_range = [-3, 3, 1]
+        y_range = [-3, 3, 1]
+        axes = Axes(
+            x_range=x_range,
+            y_range=y_range,
+            x_length=8,
+            y_length=8,
+            axis_config={"stroke_color": BLUE},
+            tips=False,
+        )
+        axes.add_coordinates()
+        self.add(axes)
+        def func(x):
+            return 1/2*x**2
+        
+        curve = axes.plot(func, x_range=[-3, 3], color=RED)
+        self.add(curve)
+        self.add(Tex(r"$f(x) = \frac{1}{2}x^2$").shift(3*UP+1.5*RIGHT))
+
+        y = 1.5
+        line = axes.plot(lambda x: y*x-1/2*y**2, x_range=[-3, 3], color=YELLOW)
+
+        self.add(line)
+        self.add(
+            Dot(axes.c2p(0, -1/2*y**2), color=GREEN),
+            Dot(axes.c2p(y, 1/2*y**2), color=ORANGE),
+            Tex(r"$-\frac{1}{2}y^2$").shift(-1/2*y**2*UP + 0.5*RIGHT)
+        )
