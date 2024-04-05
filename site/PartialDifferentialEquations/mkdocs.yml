@@ -6,3 +6,7 @@ nav:
 - 四种重要的方程: 
   - FourPDEs/index.md
   - Laplace方程: FourPDEs/Laplace.md
+- Sobolev 空间:
+  - SobolevSpaces/index.md
+  - 逼近: SobolevSpaces/Approximation.md
+  - Sobolev 不等式: SobolevSpaces/SobolevInequalities.md
