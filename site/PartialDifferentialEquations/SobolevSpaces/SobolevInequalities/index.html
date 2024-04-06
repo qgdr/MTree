@@ -1706,6 +1706,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pn" class="md-nav__link">
+    <span class="md-ellipsis">
+      边界情况 p=n
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2119,6 +2128,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pn" class="md-nav__link">
+    <span class="md-ellipsis">
+      边界情况 p=n
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2154,7 +2172,8 @@
     &amp; n &lt; p \le \infty.
 \end{align} \]</div>
 <h2 id="gagliardo-nirenberg-sobolev">Gagliardo-Nirenberg-Sobolev 不等式<a class="headerlink" href="#gagliardo-nirenberg-sobolev" title="Permanent link">&para;</a></h2>
-<p>若 <span class="arithmatex">\(1\le p \le n\)</span>， 我们能否找到特定的 <span class="arithmatex">\( (C, q) \)</span> ，使得对于任意的 <span class="arithmatex">\(u\in C_c^\infty(R^n)\)</span> 可以建立这样的一个估计 ？</p>
+<p>对于第一种情况，我们先对 <span class="arithmatex">\(u\in C_c^\infty(R^n)\)</span> 进行研究。  <br />
+若 <span class="arithmatex">\(1\le p \le n\)</span>， 我们能否找到特定的 <span class="arithmatex">\( (C, q) \)</span> ，使得对于任意的 <span class="arithmatex">\(u\in C_c^\infty(R^n)\)</span> 可以建立这样的一个估计 ？</p>
 <div class="arithmatex">\[ \|u\|_{L^q(R^n)} \le C \|Du\|_{L^{p}(R^n)} \]</div>
 <p><strong>定义</strong>：  如果 <span class="arithmatex">\(1\le p &lt; n\)</span>，那么 <span class="arithmatex">\(p\)</span> 的 Sobolev 共轭为</p>
 <div class="arithmatex">\[ p^* = \frac{np}{n-p} \]</div>
@@ -2175,7 +2194,8 @@
 <div class="arithmatex">\[ \|u\|_{L^{p^*}(R^n)} \le C \|Du\|_{L^{p}(R^n)} \]</div>
 </div>
 <p><strong>证明</strong>:</p>
-<p>首先考虑 <span class="arithmatex">\(p=1\)</span> 的情况，因为 <span class="arithmatex">\(u\)</span> 具有紧支集， 对于每个 <span class="arithmatex">\(i=1, \cdots, n\)</span> 和 <span class="arithmatex">\(x\in R^n\)</span>，我们有</p>
+<p><strong>1</strong>.    <br />
+首先考虑 <span class="arithmatex">\(p=1\)</span> 的情况，因为 <span class="arithmatex">\(u\)</span> 具有紧支集， 对于每个 <span class="arithmatex">\(i=1, \cdots, n\)</span> 和 <span class="arithmatex">\(x\in R^n\)</span>，我们有</p>
 <div class="arithmatex">\[ u(x) = \int_{-\infty}^{x^i} D_i u(x_1, \cdots, x_{i-1}, \xi_i, x_{i+1}, \cdots, x_n) d\xi_i \]</div>
 <p>那么就有</p>
 <div class="arithmatex">\[ |u| \le \int_{-\infty}^{+\infty} |D_i u(x_1, \cdots, x_{i-1}, \xi_i, x_{i+1}, \cdots, x_n)| d\xi_i \]</div>
@@ -2222,8 +2242,66 @@
 &amp;\le \prod_{i=1}^n \left( \int_{R^n}|D_i u| \right)^{\frac{1}{n-1}} \\
 &amp;\le \left(\int_{R^n} |D u|\right)^{\frac{n}{n-1}}
 \end{align}  \]</div>
+<p>或者更精细一点 <a href="../../#sobolev空间与偏微分方程引论-王术">Sobolev空间与偏微分方程引论-王术 2.2.5</a></p>
+<div class="arithmatex">\[ \begin{align}
+\int_{R^n}|u|^{\frac{n}{n-1}} 
+&amp;\le \prod_{i=1}^n \left(\int_{R^n} |D_i u| \right)^{\frac{1}{n-1}}
+= \left( \prod_{i=1}^n \left(\int_{R^n} |D_i u| \right)^{\frac{1}{n}} \right)^{\frac{n}{n-1}} \\
+&amp;\le \left( \frac{1}{n}\sum_{i=1}^n \int_{R^n} |D_i u| \right)^{\frac{n}{n-1}} \\
+&amp;\le \left( \frac{1}{\sqrt{n}} \int_{R^n} |D u| \right)^{\frac{n}{n-1}}
+\end{align}  \]</div>
+<p>后两个不等式是 几何平均 <span class="arithmatex">\(\le\)</span> 算术平均 <span class="arithmatex">\(\le\)</span> 平方平均。</p>
 <p>至此我们得到了</p>
 <div class="arithmatex">\[ \|u\|_{L^{\frac{n}{n-1}}(R^n)} \le C \|Du\|_{L^{1}(R^n)} \]</div>
+<div class="admonition footnote">
+<p class="admonition-title">Footnote</p>
+<p>其他证明可以看 <a href="../Liu%20-%202023%20-%20Gagliardo-Nirenberg-Sobolev%20Inequality%20An%20Inducti.pdf">Liu-2023</a></p>
+</div>
+<p><strong>2</strong>.<br />
+对于 <span class="arithmatex">\(1&lt; p &lt; n\)</span>，将 <span class="arithmatex">\(|u|\)</span> 替换成 <span class="arithmatex">\(|u|^\gamma\)</span> 来进行分析，<span class="arithmatex">\(\gamma\)</span> 待定，但是希望 <span class="arithmatex">\(\gamma&gt;1\)</span>，这样可以将 <span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(Du\)</span> 用 Hölder 不等式分离。</p>
+<div class="arithmatex">\[ \begin{align}
+    \left( \int_{R^n} |u|^{\frac{\gamma n}{n-1}} \right)^{\frac{n-1}{n}}
+    &amp; \le \int_{R^n} \Big| D|u|^\gamma \Big|  =  \gamma \int_{R^n} |u|^{\gamma-1} |Du| \\
+    &amp; \le \gamma \left( \int_{R^n} |u|^{(\gamma-1)\frac{p}{p-1}} \right)^{\frac{p-1}{p}} \left( \int_{R^n} |Du|^p \right)^{\frac{1}{p}}
+\end{align} \]</div>
+<p>这里为了让右面关于 <span class="arithmatex">\(u\)</span> 的积分抵消掉，我们令 <span class="arithmatex">\(\frac{\gamma n}{n-1}=(\gamma-1)\frac{p}{p-1}\)</span>，即</p>
+<div class="arithmatex">\[ \gamma = \frac{p(n-1)}{n-p} &gt; 1 \]</div>
+<p>这时，<span class="arithmatex">\(\frac{\gamma n}{n-1}=(\gamma-1)\frac{p}{p-1}=\frac{np}{n-p} = p^*\)</span>，<span class="arithmatex">\(\frac{n-1}{n} - \frac{p-1}{p} = \frac{1}{p} - \frac{1}{n} = \frac{1}{p^*}\)</span> 故</p>
+<div class="arithmatex">\[ \left(\int_{R^n} |u|^{p^*}\right)^{\frac{1}{p^*}} \le \gamma \left(\int_{R^n} |Du|^p\right)^{\frac{1}{p}} \]</div>
+<p>即</p>
+<div class="arithmatex">\[ \|u\|_{L^{p^*}(R^n)} \le C \|Du\|_{L^p(R^n)} \]</div>
+<p>其中 <span class="arithmatex">\(C\)</span> 是只和 <span class="arithmatex">\(p, n\)</span> 有关的常数，证毕。</p>
+<div class="admonition problem">
+<p class="admonition-title">Problem</p>
+<p>对于 <span class="arithmatex">\(1\le p&lt; n\)</span>， 我们已经建立了对 <span class="arithmatex">\(u\in C_c^\infty(R^n)\)</span> 的估计， 那么对于以下情况又怎样呢？</p>
+<ul>
+<li><span class="arithmatex">\(W^{1, p}(U)\)</span> ，<span class="arithmatex">\(q=p^*\)</span>, <span class="arithmatex">\(U\)</span> 是有界开集， <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 的     </li>
+<li><span class="arithmatex">\(W_c^{1, p}(U)\)</span>，<span class="arithmatex">\(1 \le q \le p^*\)</span>， <span class="arithmatex">\(U\)</span> 是有界开集     </li>
+<li><span class="arithmatex">\(W^{1, p}(R^n)\)</span>，<span class="arithmatex">\(q=p^*\)</span>     </li>
+</ul>
+<p>前两个空间的估计 <a href="../../#教材">教材 5.6.1 Theorem 2 3</a> 做出了回答。只不过 <span class="arithmatex">\(C\)</span> 要依赖于 <span class="arithmatex">\(p, n, U, (q)\)</span>      </p>
+<p>而对于最后的情况，貌似是成立的。
+只需要说明 <span class="arithmatex">\(C_c^\infty(R^n)\)</span> 在 <span class="arithmatex">\(W^{1, p}(R^n)\)</span> 中稠密（参考 <a href="../Approximation/">逼近</a> ），那么就可以用上一节证明的结论。且 <span class="arithmatex">\(C\)</span> 只依赖于 <span class="arithmatex">\(p, n\)</span>。</p>
+</div>
+<h2 id="pn">边界情况 p=n<a class="headerlink" href="#pn" title="Permanent link">&para;</a></h2>
+<p>我们已经知道上一节的不等式，而且当 <span class="arithmatex">\(p\to n\)</span> 时，有 <span class="arithmatex">\(p^* = \frac{np}{n-p} \to +\infty \)</span>。      <br />
+那么当 <span class="arithmatex">\(p=n\)</span>, <span class="arithmatex">\(u \in W^{1,p}(R^n)\)</span> 时，<span class="arithmatex">\(u\)</span> 是否自动属于 <span class="arithmatex">\(L^\infty\)</span> 呢？</p>
+<p>这个命题只有当 <span class="arithmatex">\(n=1\)</span> 时才成立。</p>
+<div class="arithmatex">\[ |u(x)| = \int_{-\infty}^x Du(t) dt \le \int_{-\infty}^{+\infty} |Du(t)| dt \]</div>
+<p>但是 当 <span class="arithmatex">\(n\ge 2\)</span> 时，猜测 <strong>不成立</strong>。   <br />
+教材中考虑的是 <span class="arithmatex">\(u = \log\log(1+\frac{1}{|x|}), x\in B(0, 1)\)</span>。     <br />
+类似的，我们也可以考虑 <span class="arithmatex">\(u = \log \frac{1}{|x|}, x\in B(0, 1)\)</span>。</p>
+<p>显然，<span class="arithmatex">\(u\)</span> 是无界的，但是 <span class="arithmatex">\(\int_{B(0, 1)} |u|^n\)</span> 和 <span class="arithmatex">\(\int_{B(0, 1)} |Du|^n\)</span> 都是有限的。     <br />
+这是因为 </p>
+<div class="arithmatex">\[ \begin{align}
+    \int_{B(0, 1)} |u|^n &amp;= \int_0^1 dr \int_{\partial B(0, r)} |u(x)|^n dx \\
+    &amp;= n\alpha(n) \int_0^1 |\log \frac{1}{r}|^n r^{n-1} dr \\
+\end{align}\]</div>
+<p>其中， <span class="arithmatex">\(\alpha(n)\)</span> 代表 <span class="arithmatex">\(n\)</span> 维单位球的体积，而 <span class="arithmatex">\(n\alpha(n)\)</span> 等于 <span class="arithmatex">\(n\)</span> 维单位球的表面积。     <br />
+而函数 <span class="arithmatex">\(|\log \frac{1}{r}|^n r^{n-1}\)</span> 在 <span class="arithmatex">\([0, 1]\)</span> 上是有界的，所以积分有限。</p>
+<p><a class="glightbox" href="../media/images/Sobolev/log1dr_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="log" src="../media/images/Sobolev/log1dr_ManimCE_v0.18.0.png" /></a></p>
+<p><span class="arithmatex">\(Du\)</span> 同理。 <br />
+所以 <span class="arithmatex">\(u\)</span> 属于 <span class="arithmatex">\(W^{1,n}(B(0, 1))\)</span>，但不属于 <span class="arithmatex">\(L^\infty(B(0, 1))\)</span>。</p>
 
 <!-- Source file information -->
 

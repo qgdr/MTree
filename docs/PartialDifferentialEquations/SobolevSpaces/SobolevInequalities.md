@@ -20,6 +20,7 @@ $$ \begin{align}
 
 ## Gagliardo-Nirenberg-Sobolev 不等式
 
+对于第一种情况，我们先对 \(u\in C_c^\infty(R^n)\) 进行研究。    
 若 \(1\le p \le n\)， 我们能否找到特定的 \( (C, q) \) ，使得对于任意的 \(u\in C_c^\infty(R^n)\) 可以建立这样的一个估计 ？
 
 $$ \|u\|_{L^q(R^n)} \le C \|Du\|_{L^{p}(R^n)} $$
@@ -55,6 +56,7 @@ $$ p^* = \frac{np}{n-p} $$
 
 **证明**:
 
+**1**.      
 首先考虑 \(p=1\) 的情况，因为 \(u\) 具有紧支集， 对于每个 \(i=1, \cdots, n\) 和 \(x\in R^n\)，我们有
 
 $$ u(x) = \int_{-\infty}^{x^i} D_i u(x_1, \cdots, x_{i-1}, \xi_i, x_{i+1}, \cdots, x_n) d\xi_i $$
@@ -133,6 +135,94 @@ $$ \begin{align}
 &\le \left(\int_{R^n} |D u|\right)^{\frac{n}{n-1}}
 \end{align}  $$
 
+或者更精细一点 [Sobolev空间与偏微分方程引论-王术 2.2.5](../index.md#sobolev空间与偏微分方程引论-王术)
+
+$$ \begin{align}
+\int_{R^n}|u|^{\frac{n}{n-1}} 
+&\le \prod_{i=1}^n \left(\int_{R^n} |D_i u| \right)^{\frac{1}{n-1}}
+= \left( \prod_{i=1}^n \left(\int_{R^n} |D_i u| \right)^{\frac{1}{n}} \right)^{\frac{n}{n-1}} \\
+&\le \left( \frac{1}{n}\sum_{i=1}^n \int_{R^n} |D_i u| \right)^{\frac{n}{n-1}} \\
+&\le \left( \frac{1}{\sqrt{n}} \int_{R^n} |D u| \right)^{\frac{n}{n-1}}
+\end{align}  $$
+   
+后两个不等式是 几何平均 \(\le\) 算术平均 \(\le\) 平方平均。
+
 至此我们得到了
 
 $$ \|u\|_{L^{\frac{n}{n-1}}(R^n)} \le C \|Du\|_{L^{1}(R^n)} $$
+
+!!! footnote
+    其他证明可以看 [Liu-2023](./Liu%20-%202023%20-%20Gagliardo-Nirenberg-Sobolev%20Inequality%20An%20Inducti.pdf)
+
+
+**2**.  
+对于 \(1< p < n\)，将 \(|u|\) 替换成 \(|u|^\gamma\) 来进行分析，\(\gamma\) 待定，但是希望 \(\gamma>1\)，这样可以将 \(u\) 和 \(Du\) 用 Hölder 不等式分离。
+
+$$ \begin{align}
+    \left( \int_{R^n} |u|^{\frac{\gamma n}{n-1}} \right)^{\frac{n-1}{n}}
+    & \le \int_{R^n} \Big| D|u|^\gamma \Big|  =  \gamma \int_{R^n} |u|^{\gamma-1} |Du| \\
+    & \le \gamma \left( \int_{R^n} |u|^{(\gamma-1)\frac{p}{p-1}} \right)^{\frac{p-1}{p}} \left( \int_{R^n} |Du|^p \right)^{\frac{1}{p}}
+\end{align} $$
+
+这里为了让右面关于 \(u\) 的积分抵消掉，我们令 \(\frac{\gamma n}{n-1}=(\gamma-1)\frac{p}{p-1}\)，即
+
+$$ \gamma = \frac{p(n-1)}{n-p} > 1 $$
+
+这时，\(\frac{\gamma n}{n-1}=(\gamma-1)\frac{p}{p-1}=\frac{np}{n-p} = p^*\)，\(\frac{n-1}{n} - \frac{p-1}{p} = \frac{1}{p} - \frac{1}{n} = \frac{1}{p^*}\) 故
+
+$$ \left(\int_{R^n} |u|^{p^*}\right)^{\frac{1}{p^*}} \le \gamma \left(\int_{R^n} |Du|^p\right)^{\frac{1}{p}} $$
+
+即
+
+$$ \|u\|_{L^{p^*}(R^n)} \le C \|Du\|_{L^p(R^n)} $$
+
+其中 \(C\) 是只和 \(p, n\) 有关的常数，证毕。
+
+
+!!! problem
+
+    对于 \(1\le p< n\)， 我们已经建立了对 \(u\in C_c^\infty(R^n)\) 的估计， 那么对于以下情况又怎样呢？
+
+    - \(W^{1, p}(U)\) ，\(q=p^*\), \(U\) 是有界开集， \(\partial U\) 是 \(C^1\) 的     
+    - \(W_c^{1, p}(U)\)，\(1 \le q \le p^*\)， \(U\) 是有界开集     
+    - \(W^{1, p}(R^n)\)，\(q=p^*\)     
+
+    前两个空间的估计 [教材 5.6.1 Theorem 2 3](../index.md#教材) 做出了回答。只不过 \(C\) 要依赖于 \(p, n, U, (q)\)      
+
+    而对于最后的情况，貌似是成立的。
+    只需要说明 \(C_c^\infty(R^n)\) 在 \(W^{1, p}(R^n)\) 中稠密（参考 [逼近](./Approximation.md) ），那么就可以用上一节证明的结论。且 \(C\) 只依赖于 \(p, n\)。
+
+
+
+
+## 边界情况 p=n
+
+我们已经知道上一节的不等式，而且当 \(p\to n\) 时，有 \(p^* = \frac{np}{n-p} \to +\infty \)。        
+那么当 \(p=n\), \(u \in W^{1,p}(R^n)\) 时，\(u\) 是否自动属于 \(L^\infty\) 呢？
+
+
+这个命题只有当 \(n=1\) 时才成立。
+
+$$ |u(x)| = \int_{-\infty}^x Du(t) dt \le \int_{-\infty}^{+\infty} |Du(t)| dt $$
+
+但是 当 \(n\ge 2\) 时，猜测 **不成立**。     
+教材中考虑的是 \(u = \log\log(1+\frac{1}{|x|}), x\in B(0, 1)\)。       
+类似的，我们也可以考虑 \(u = \log \frac{1}{|x|}, x\in B(0, 1)\)。
+
+显然，\(u\) 是无界的，但是 \(\int_{B(0, 1)} |u|^n\) 和 \(\int_{B(0, 1)} |Du|^n\) 都是有限的。       
+这是因为 
+
+$$ \begin{align}
+    \int_{B(0, 1)} |u|^n &= \int_0^1 dr \int_{\partial B(0, r)} |u(x)|^n dx \\
+    &= n\alpha(n) \int_0^1 |\log \frac{1}{r}|^n r^{n-1} dr \\
+\end{align}$$
+
+其中， \(\alpha(n)\) 代表 \(n\) 维单位球的体积，而 \(n\alpha(n)\) 等于 \(n\) 维单位球的表面积。       
+而函数 \(|\log \frac{1}{r}|^n r^{n-1}\) 在 \([0, 1]\) 上是有界的，所以积分有限。
+
+![log](media/images/Sobolev/log1dr_ManimCE_v0.18.0.png)
+
+\(Du\) 同理。   
+所以 \(u\) 属于 \(W^{1,n}(B(0, 1))\)，但不属于 \(L^\infty(B(0, 1))\)。
+
+
