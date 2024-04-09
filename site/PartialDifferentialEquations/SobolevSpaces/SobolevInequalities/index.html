@@ -1698,6 +1698,48 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#motivcation" class="md-nav__link">
+    <span class="md-ellipsis">
+      动机 Motivcation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="动机 Motivcation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case1" class="md-nav__link">
+    <span class="md-ellipsis">
+      case1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case2" class="md-nav__link">
+    <span class="md-ellipsis">
+      case2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case3" class="md-nav__link">
+    <span class="md-ellipsis">
+      case3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#gagliardo-nirenberg-sobolev" class="md-nav__link">
     <span class="md-ellipsis">
       Gagliardo-Nirenberg-Sobolev 不等式
@@ -1710,6 +1752,15 @@
   <a href="#pn" class="md-nav__link">
     <span class="md-ellipsis">
       边界情况 p=n
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#morrey" class="md-nav__link">
+    <span class="md-ellipsis">
+      Morrey 不等式
     </span>
   </a>
   
@@ -2120,6 +2171,48 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#motivcation" class="md-nav__link">
+    <span class="md-ellipsis">
+      动机 Motivcation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="动机 Motivcation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case1" class="md-nav__link">
+    <span class="md-ellipsis">
+      case1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case2" class="md-nav__link">
+    <span class="md-ellipsis">
+      case2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case3" class="md-nav__link">
+    <span class="md-ellipsis">
+      case3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#gagliardo-nirenberg-sobolev" class="md-nav__link">
     <span class="md-ellipsis">
       Gagliardo-Nirenberg-Sobolev 不等式
@@ -2132,6 +2225,15 @@
   <a href="#pn" class="md-nav__link">
     <span class="md-ellipsis">
       边界情况 p=n
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#morrey" class="md-nav__link">
+    <span class="md-ellipsis">
+      Morrey 不等式
     </span>
   </a>
   
@@ -2158,14 +2260,79 @@
 
 <!-- Page content -->
 <h1 id="sobolev">Sobolev 不等式<a class="headerlink" href="#sobolev" title="Permanent link">&para;</a></h1>
+<p>查看 <a href="../../#lawrence-cevans-partial-differential-equations">Lawrence C.Evans Partial differential equations 5.6</a>,  <br />
+以及 <a href="../../../Library/Brezis%20-%202011%20-%20Functional%20Analysis%2C%20Sobolev%20Spaces%20and%20Partial%20Di.pdf">Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3</a>，   <br />
+Brezis 书中的内容比较丰富，全面。</p>
 <p>我们在这一部分的目标是发现各种Sobolev空间到其他空间的嵌入。       <br />
-这里的关键分析工具将是某些所谓的 <strong>Sobolev 型不等式</strong>，我们将在下面对光滑函数进行证明。   <br />
+这里的关键分析工具将是某些所谓的 <strong>Sobolev 型不等式</strong>，我们将在下面对  <strong>光滑函数</strong> 进行证明。   <br />
 这将建立任意函数在各种相关 Sobolev 空间中的估计。 <br />
 因为正如我们在 <a href="../Approximation/">逼近</a> 中所看到的，光滑函数 是稠密的。</p>
-<p>为了清楚的表达，我们首先只考虑 Sobolev 空间 <span class="arithmatex">\(W^{1, P} ( U )\)</span>，
+<h2 id="motivcation">动机 Motivcation<a class="headerlink" href="#motivcation" title="Permanent link">&para;</a></h2>
+<p>为了清楚的表达，我们首先只考虑 Sobolev 空间 <span class="arithmatex">\(W^{1, P} ( \Omega )\)</span>，
 并提出如下基本问题：  <br />
-如果一个函数 <span class="arithmatex">\(u\)</span> 属于 <span class="arithmatex">\(W^{1, P} ( U )\)</span>，那么 <span class="arithmatex">\(u\)</span> 是否自动属于某个其他空间?（我们称之为 <strong>嵌入</strong> embedded ） <br />
-答案为'是'，但他自动嵌入的是哪个空间则取决于</p>
+如果一个函数 <span class="arithmatex">\(u\)</span> 属于 <span class="arithmatex">\(W^{1, P} ( \Omega )\)</span>，那么 <span class="arithmatex">\(\Omega\)</span> 是否自动属于某个其他空间?（我们称之为 <strong>嵌入</strong> embedded ）   </p>
+<p>我们在这里应当做出提醒，这些对 <span class="arithmatex">\(W^{1,p}(\Omega)\)</span> 建立的不等式，根据 <span class="arithmatex">\(\Omega = R^n\)</span> 还是有界开集的不同而有很大差别。</p>
+<p>对于建立不等式的动机，两本书中都提到了用伸缩变换发现的参数，但这里我们给出另一种直观上的理解。</p>
+<div class="admonition view">
+<p class="admonition-title">View</p>
+<p>对于某个函数的可积性，我们常常通过将其与函数</p>
+<div class="arithmatex">\[ u(x) = \frac{1}{|x|} \]</div>
+<p>进行比较来获得，</p>
+<p><a class="glightbox" href="../media/images/Sobolev/LowerThanxinv_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="LowerThanxinv" src="../media/images/Sobolev/LowerThanxinv_ManimCE_v0.18.0.png" /></a></p>
+<p>如果对于某个这样的 <span class="arithmatex">\(g\)</span> 和常数 <span class="arithmatex">\(C\)</span>，有 <span class="arithmatex">\(h=Cg\)</span>，我们记他满足 <span class="arithmatex">\(h \prec  \dfrac{1}{|x|}\)</span>      <br />
+我们用类似 <span class="arithmatex">\(h\)</span> 这样的“测试函数”，来对 <span class="arithmatex">\(u \in W^{1, p} (R^n)\)</span> 如何被 <span class="arithmatex">\(Du\)</span> 控制进行粗略的把握。         </p>
+<p>如果 <span class="arithmatex">\(h \in W^{1,p}(R^n)\)</span>，那么</p>
+<div class="arithmatex">\[ \begin{gather}
+    \int |Dh|^p = n\alpha(n)\int_0^\infty |Dh(r)|^p r^{n-1} dr  \\
+    \int |h|^p = n\alpha(n)\int_0^\infty |h(r)|^p r^{n-1} dr
+\end{gather}  \]</div>
+<p>其中， <span class="arithmatex">\(\alpha(n)\)</span> 代表 <span class="arithmatex">\(n\)</span> 维单位球的体积，而 <span class="arithmatex">\(n\alpha(n)\)</span> 等于 <span class="arithmatex">\(n\)</span> 维单位球的表面积。</p>
+<p>为了满足可积性，可以有 </p>
+<div class="arithmatex">\[ \begin{gather}
+    |Dh(r)|^pr^{n-1} \prec \dfrac{1}{|r|}   \\
+    |h(r)|^pr^{n-1} \prec \dfrac{1}{|r|}
+\end{gather} \]</div>
+<p>那么有 </p>
+<div class="arithmatex">\[ \begin{gather}
+    Dh(r) \prec \dfrac{1}{|r|^{n/p}}    \\
+    h(r) \prec \dfrac{1}{|r|^{n/p}}
+\end{gather} \]</div>
+<p>那么积分回去有</p>
+<h3 id="case1">case1<a class="headerlink" href="#case1" title="Permanent link">&para;</a></h3>
+<p>对于 <span class="arithmatex">\(1 \le p &lt; n\)</span></p>
+<div class="arithmatex">\[ h(r) \prec \begin{cases}
+    \dfrac{1}{|r|^{n/p-1}}, &amp; \text{if } r \in (0, 1), \\
+    \dfrac{1}{|r|^{n/p}}, &amp; \text{if } r \ge 1.
+\end{cases} \]</div>
+<p>现在我们观察 <span class="arithmatex">\(\int |u|^q\)</span>，有</p>
+<div class="arithmatex">\[ \int |u|^q = n\alpha(n)\int_0^\infty |u|^q r^{n-1} dr \]</div>
+<p>如果 <span class="arithmatex">\(q(\frac{n}{p}-1)=n\)</span>，即</p>
+<div class="arithmatex">\[ \frac{1}{p} - \frac{1}{n} = \frac{1}{q}, \quad q &gt; p \]</div>
+<p>那么 <span class="arithmatex">\(|u|^q r^{n-1} \prec \dfrac{1}{|r|} \)</span>，<span class="arithmatex">\(\int |u|^q\)</span> 就可积了。</p>
+<h3 id="case2">case2<a class="headerlink" href="#case2" title="Permanent link">&para;</a></h3>
+<p>对于 <span class="arithmatex">\(p = n\)</span>，</p>
+<div class="arithmatex">\[ h(r) \prec \begin{cases}
+    -\log |r| + C, &amp; \text{if } r \in (0, 1), \\
+    \dfrac{1}{|r|}, &amp; \text{if } r \ge 1.
+\end{cases} \]</div>
+<p>继续观察 <span class="arithmatex">\(\int |u|^q= n\alpha(n)\int_0^\infty |u|^q r^{n-1} dr\)</span>，   <br />
+如果 <span class="arithmatex">\(q \ge n\)</span>，<span class="arithmatex">\(|u|^q r^{n-1} \prec \dfrac{1}{|r|} \)</span>，<span class="arithmatex">\( \int |u|^q\)</span> 可积，     <br />
+（ 若 <span class="arithmatex">\(q&lt; n\)</span> 则大于 1 的部分无法被控制 ）
+（找一个函数在 <span class="arithmatex">\(r \le 1\)</span> 满足条件？）</p>
+<h3 id="case3">case3<a class="headerlink" href="#case3" title="Permanent link">&para;</a></h3>
+<p>对于 <span class="arithmatex">\(p &gt; n\)</span>，</p>
+<div class="arithmatex">\[ h(r) \prec \begin{cases}
+    |r|^{1-n/p} &amp; \text{if } r \in (0, 1), \\
+    \dfrac{1}{|r|^{n/p}}, &amp; \text{if } r \ge 1.
+\end{cases} \]</div>
+<p>我们发现，<span class="arithmatex">\(h(r)\)</span> 不仅 <strong>有界</strong>，而且有 Holder 连续性</p>
+<div class="arithmatex">\[ |h(x) - h(y)| \prec |x-y|^{1-n/p} \]</div>
+<p>因为最极端的情况也只是在 <span class="arithmatex">\(r\to 0\)</span> 处。</p>
+</div>
+<p>至此，我们对 <span class="arithmatex">\(h\)</span> 的可积性有了直观的把握，而对于任意的 <span class="arithmatex">\(u \in W^{1, p} (R^n)\)</span>
+他几乎处处和 <span class="arithmatex">\(h\)</span> 差不多。   <br />
+（甚至沿着 <a href="#case3">case3</a> 的思想我们可以获得 Morrey 不等式证明的直观理解。）</p>
+<p>我们必然将问题分成三种情况来讨论：</p>
 <div class="arithmatex">\[ \begin{align}
     &amp; 1 \le p &lt; n,    \\
     &amp; p = n,    \\
@@ -2173,14 +2340,14 @@
 \end{align} \]</div>
 <h2 id="gagliardo-nirenberg-sobolev">Gagliardo-Nirenberg-Sobolev 不等式<a class="headerlink" href="#gagliardo-nirenberg-sobolev" title="Permanent link">&para;</a></h2>
 <p>对于第一种情况，我们先对 <span class="arithmatex">\(u\in C_c^\infty(R^n)\)</span> 进行研究。  <br />
-若 <span class="arithmatex">\(1\le p \le n\)</span>， 我们能否找到特定的 <span class="arithmatex">\( (C, q) \)</span> ，使得对于任意的 <span class="arithmatex">\(u\in C_c^\infty(R^n)\)</span> 可以建立这样的一个估计 ？</p>
+若 <span class="arithmatex">\(1\le p \le n\)</span>， 我们能否找到特定的 <span class="arithmatex">\( (C, q) \)</span> ，使得对于任意的 <span class="arithmatex">\(u\in C_c^\infty(R^n)\)</span> 可以建立这样的一个估计？</p>
 <div class="arithmatex">\[ \|u\|_{L^q(R^n)} \le C \|Du\|_{L^{p}(R^n)} \]</div>
 <p><strong>定义</strong>：  如果 <span class="arithmatex">\(1\le p &lt; n\)</span>，那么 <span class="arithmatex">\(p\)</span> 的 Sobolev 共轭为</p>
 <div class="arithmatex">\[ p^* = \frac{np}{n-p} \]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>1 . </p>
-<div class="arithmatex">\[ \frac{1}{p^*} = \frac{1}{p} - \frac{1}{p}, \quad p^* &gt; p \]</div>
+<div class="arithmatex">\[ \frac{1}{p^*} = \frac{1}{p} - \frac{1}{n}, \quad p^* &gt; p \]</div>
 <p>若不等式成立，那么对 <span class="arithmatex">\(u\)</span> 进行伸缩变换，再对不等号两边进行齐次性分析，能得出只有当 <span class="arithmatex">\(q = p^*\)</span> ，不等式才有意义。
 查看教材。</p>
 <hr />
@@ -2194,6 +2361,7 @@
 <div class="arithmatex">\[ \|u\|_{L^{p^*}(R^n)} \le C \|Du\|_{L^{p}(R^n)} \]</div>
 </div>
 <p><strong>证明</strong>:</p>
+<p><a href="../../../Library/Brezis%20-%202011%20-%20Functional%20Analysis%2C%20Sobolev%20Spaces%20and%20Partial%20Di.pdf">Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Theorem 9.9</a></p>
 <p><strong>1</strong>.    <br />
 首先考虑 <span class="arithmatex">\(p=1\)</span> 的情况，因为 <span class="arithmatex">\(u\)</span> 具有紧支集， 对于每个 <span class="arithmatex">\(i=1, \cdots, n\)</span> 和 <span class="arithmatex">\(x\in R^n\)</span>，我们有</p>
 <div class="arithmatex">\[ u(x) = \int_{-\infty}^{x^i} D_i u(x_1, \cdots, x_{i-1}, \xi_i, x_{i+1}, \cdots, x_n) d\xi_i \]</div>
@@ -2210,13 +2378,12 @@
 <p>令</p>
 <div class="arithmatex">\[ f(x) := \prod_{i=1}^n f_i( \widetilde{x_i}) \]</div>
 <p>那么有</p>
-<div class="arithmatex">\[ \|f\|_{L^1(R^n)} \le \prod_{i=1}^n \|f_i\|_{L^{n-1}(R^{n-1})} \]</div>
-<p><strong>证明</strong>:</p>
+<p>$$ |f|_{L<sup>1(R</sup>n)} \le \prod_Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Theorem 9.9</p>
 <div class="arithmatex">\[ \int_{R^n} |f(x)| dx = \int_{R^n} \prod_{i=1}^n |f_i(\widetilde{x_i})| dx = \int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} |f_1(\widetilde{x_1})| \cdots |f_n(\widetilde{x_n})| dx_1 \cdots dx_n \]</div>
 <p>注意到 <span class="arithmatex">\(f_1(\widetilde{x_1})\)</span> 与 <span class="arithmatex">\(x_1\)</span> 无关，所以</p>
 <div class="arithmatex">\[ \int_{R^n} |f(x)| dx = \int_{R^{n-1}} dx_2 \cdots dx_n |f_1(\widetilde{x_1})| \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1\]</div>
 <p>这时候使用广义 Hölder 不等式</p>
-<div class="arithmatex">\[ \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1 \le \left(\int |f_2(\widetilde{x_2})|^{n-1} dx_1 \right)^{\frac{1}{n-1}}  \cdots 
+<div class="arithmatex">\[ \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1 \le \left(\int |f_2(\widetilde{x_2Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Theorem 9.9})|^{n-1} dx_1 \right)^{\frac{1}{n-1}}  \cdots 
 \left(\int |f_n(\widetilde{x_n})|^{n-1}dx_1 \right)^{\frac{1}{n-1}} \]</div>
 <p>我们有</p>
 <div class="arithmatex">\[ \int_{R^n} |f(x)| dx 
@@ -2252,7 +2419,7 @@
 \end{align}  \]</div>
 <p>后两个不等式是 几何平均 <span class="arithmatex">\(\le\)</span> 算术平均 <span class="arithmatex">\(\le\)</span> 平方平均。</p>
 <p>至此我们得到了</p>
-<div class="arithmatex">\[ \|u\|_{L^{\frac{n}{n-1}}(R^n)} \le C \|Du\|_{L^{1}(R^n)} \]</div>
+<div class="arithmatex">\[ \|u\|_{L^{\frac{n}{n-1}}(R^n)} \le C(n) \|Du\|_{L^{1}(R^n)} \]</div>
 <div class="admonition footnote">
 <p class="admonition-title">Footnote</p>
 <p>其他证明可以看 <a href="../Liu%20-%202023%20-%20Gagliardo-Nirenberg-Sobolev%20Inequality%20An%20Inducti.pdf">Liu-2023</a></p>
@@ -2269,39 +2436,114 @@
 <p>这时，<span class="arithmatex">\(\frac{\gamma n}{n-1}=(\gamma-1)\frac{p}{p-1}=\frac{np}{n-p} = p^*\)</span>，<span class="arithmatex">\(\frac{n-1}{n} - \frac{p-1}{p} = \frac{1}{p} - \frac{1}{n} = \frac{1}{p^*}\)</span> 故</p>
 <div class="arithmatex">\[ \left(\int_{R^n} |u|^{p^*}\right)^{\frac{1}{p^*}} \le \gamma \left(\int_{R^n} |Du|^p\right)^{\frac{1}{p}} \]</div>
 <p>即</p>
-<div class="arithmatex">\[ \|u\|_{L^{p^*}(R^n)} \le C \|Du\|_{L^p(R^n)} \]</div>
-<p>其中 <span class="arithmatex">\(C\)</span> 是只和 <span class="arithmatex">\(p, n\)</span> 有关的常数，证毕。</p>
-<div class="admonition problem">
-<p class="admonition-title">Problem</p>
+<div class="arithmatex">\[ \|u\|_{L^{p^*}(R^n)} \le C(n,p) \|Du\|_{L^p(R^n)} \]</div>
+<p>即</p>
+<div class="arithmatex">\[ W^{1,p}(R^n) \subset  L^{p^*}(R^n)  \]</div>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary</p>
+<p><a href="../../../Library/Brezis%20-%202011%20-%20Functional%20Analysis%2C%20Sobolev%20Spaces%20and%20Partial%20Di.pdf">Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Corollary 9.10</a></p>
+<div class="arithmatex">\[ \begin{cases} W^{1,p}(R^n) \subset  L^{p^*}(R^n) \\ W^{1,p}(R^n) \subset  L^{p}(R^n) \end{cases} \Rightarrow W^{1,p}(R^n) \subset  L^{q}(R^n), \; q\in [p, p^*] \]</div>
+<p>使用 <strong>插值不等式</strong></p>
+<div class="arithmatex">\[ \|u\|_{L^q(R^n)} \le \|u\|_{L^p(R^n)}^{\theta}\|u\|_{L^r(R^n)}^{1-\theta}, \; 
+1\le p \le q \le r \le \infty, \; 
+\frac{1}{q} = \frac{\theta}{p} + \frac{1-\theta}{r} \]</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>对于 <span class="arithmatex">\(1\le p&lt; n\)</span>， 我们已经建立了对 <span class="arithmatex">\(u\in C_c^\infty(R^n)\)</span> 的估计， 那么对于以下情况又怎样呢？</p>
 <ul>
 <li><span class="arithmatex">\(W^{1, p}(U)\)</span> ，<span class="arithmatex">\(q=p^*\)</span>, <span class="arithmatex">\(U\)</span> 是有界开集， <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 的     </li>
-<li><span class="arithmatex">\(W_c^{1, p}(U)\)</span>，<span class="arithmatex">\(1 \le q \le p^*\)</span>， <span class="arithmatex">\(U\)</span> 是有界开集     </li>
-<li><span class="arithmatex">\(W^{1, p}(R^n)\)</span>，<span class="arithmatex">\(q=p^*\)</span>     </li>
+<li><span class="arithmatex">\(W_c^{1, p}(U)\)</span>，<span class="arithmatex">\(1 \le q \le p^*\)</span>， <span class="arithmatex">\(U\)</span> 是有界开集         </li>
 </ul>
-<p>前两个空间的估计 <a href="../../#教材">教材 5.6.1 Theorem 2 3</a> 做出了回答。只不过 <span class="arithmatex">\(C\)</span> 要依赖于 <span class="arithmatex">\(p, n, U, (q)\)</span>      </p>
-<p>而对于最后的情况，貌似是成立的。
-只需要说明 <span class="arithmatex">\(C_c^\infty(R^n)\)</span> 在 <span class="arithmatex">\(W^{1, p}(R^n)\)</span> 中稠密（参考 <a href="../Approximation/">逼近</a> ），那么就可以用上一节证明的结论。且 <span class="arithmatex">\(C\)</span> 只依赖于 <span class="arithmatex">\(p, n\)</span>。</p>
+<p>这两个空间的估计 <a href="../../#教材">教材 5.6.1 Theorem 2 3</a> 做出了回答。只不过 <span class="arithmatex">\(C\)</span> 要依赖于 <span class="arithmatex">\(p, n, U, (q)\)</span>      </p>
 </div>
 <h2 id="pn">边界情况 p=n<a class="headerlink" href="#pn" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>我们已经知道上一节的不等式，而且当 <span class="arithmatex">\(p\to n\)</span> 时，有 <span class="arithmatex">\(p^* = \frac{np}{n-p} \to +\infty \)</span>。      <br />
 那么当 <span class="arithmatex">\(p=n\)</span>, <span class="arithmatex">\(u \in W^{1,p}(R^n)\)</span> 时，<span class="arithmatex">\(u\)</span> 是否自动属于 <span class="arithmatex">\(L^\infty\)</span> 呢？</p>
 <p>这个命题只有当 <span class="arithmatex">\(n=1\)</span> 时才成立。</p>
 <div class="arithmatex">\[ |u(x)| = \int_{-\infty}^x Du(t) dt \le \int_{-\infty}^{+\infty} |Du(t)| dt \]</div>
-<p>但是 当 <span class="arithmatex">\(n\ge 2\)</span> 时，猜测 <strong>不成立</strong>。   <br />
-教材中考虑的是 <span class="arithmatex">\(u = \log\log(1+\frac{1}{|x|}), x\in B(0, 1)\)</span>。     <br />
-类似的，我们也可以考虑 <span class="arithmatex">\(u = \log \frac{1}{|x|}, x\in B(0, 1)\)</span>。</p>
+<p>但是 当 <span class="arithmatex">\(n\ge 2\)</span> 时，猜测 <strong>不成立</strong>。
+还记得我们在 <a href="#case2">case2</a> 中提过的问题吗？   <br />
+教材中考虑的 <span class="arithmatex">\(u = \log\log(1+\frac{1}{|x|}), x\in B(0, 1)\)</span>， 正是满足 <span class="arithmatex">\(u \prec \log|x|+C\)</span> 的一个函数。     <br />
+<!-- 类似的，我们也可以考虑 <span class="arithmatex">\(u = \log \frac{1}{|x|}, x\in B(0, 1)\)</span>。 --></p>
 <p>显然，<span class="arithmatex">\(u\)</span> 是无界的，但是 <span class="arithmatex">\(\int_{B(0, 1)} |u|^n\)</span> 和 <span class="arithmatex">\(\int_{B(0, 1)} |Du|^n\)</span> 都是有限的。     <br />
 这是因为 </p>
 <div class="arithmatex">\[ \begin{align}
     \int_{B(0, 1)} |u|^n &amp;= \int_0^1 dr \int_{\partial B(0, r)} |u(x)|^n dx \\
-    &amp;= n\alpha(n) \int_0^1 |\log \frac{1}{r}|^n r^{n-1} dr \\
+    &amp;= n\alpha(n) \int_0^1 |u(r)|^n r^{n-1} dr \\
 \end{align}\]</div>
-<p>其中， <span class="arithmatex">\(\alpha(n)\)</span> 代表 <span class="arithmatex">\(n\)</span> 维单位球的体积，而 <span class="arithmatex">\(n\alpha(n)\)</span> 等于 <span class="arithmatex">\(n\)</span> 维单位球的表面积。     <br />
-而函数 <span class="arithmatex">\(|\log \frac{1}{r}|^n r^{n-1}\)</span> 在 <span class="arithmatex">\([0, 1]\)</span> 上是有界的，所以积分有限。</p>
-<p><a class="glightbox" href="../media/images/Sobolev/log1dr_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="log" src="../media/images/Sobolev/log1dr_ManimCE_v0.18.0.png" /></a></p>
-<p><span class="arithmatex">\(Du\)</span> 同理。 <br />
+<p>而函数 <span class="arithmatex">\(|\log \log (1+\frac{1}{|r|})|^n r^{n-1}\)</span> 在 <span class="arithmatex">\([0, 1]\)</span> 上是有界的，所以积分有限。   <br />
+<span class="arithmatex">\(Du\)</span> 同理。 <br />
 所以 <span class="arithmatex">\(u\)</span> 属于 <span class="arithmatex">\(W^{1,n}(B(0, 1))\)</span>，但不属于 <span class="arithmatex">\(L^\infty(B(0, 1))\)</span>。</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem</p>
+<p>事实上我们有满足我们最开始猜测的估计  <br />
+<a href="../../../Library/Brezis%20-%202011%20-%20Functional%20Analysis%2C%20Sobolev%20Spaces%20and%20Partial%20Di.pdf">Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Corollary 9.11</a></p>
+<div class="arithmatex">\[ \|u\|_{L^q(R^n)} \le C(n, q) \|u\|_{W^{1, n}(R^n)} \quad \text{ i.e. } \quad W^{1,n}(R^n) \subset  L^q(R^n), \quad n \le q &lt; \infty \]</div>
+</div>
+<p><strong>证明</strong>:</p>
+<p>回到 <a href="#gagliardo-nirenberg-sobolev-不等式">Gagliardo-Nirenberg-Sobolev 不等式</a> 证明的最后一步</p>
+<p>对 <span class="arithmatex">\(\gamma &gt; 1\)</span>，</p>
+<div class="arithmatex">\[ \begin{gather*}
+    \left( \int_{R^n} |u|^{\frac{\gamma n}{n-1}} \right)^{\frac{n-1}{n}}
+    \le \gamma \left( \int_{R^n} |u|^{(\gamma-1)\frac{p}{p-1}} \right)^{\frac{p-1}{p}} \left( \int_{R^n} |Du|^p \right)^{\frac{1}{p}}   \\
+    \text{i.e. }    \\
+    \|u\|_{L^{\frac{\gamma n}{n-1}}(R^n)}^{\gamma} \le C(n, p, \gamma) \|u\|_{L^{(\gamma-1)\frac{p}{p-1}}(R^n)}^{\gamma-1} \|Du\|_{L^{p}(R^n)}
+\end{gather*} \]</div>
+<p>利用 Young 不等式 <span class="arithmatex">\(ab \le \frac{a^p}{p} + \frac{b^q}{q}, p, q &gt; 1, 1/p+1/q=1 \)</span> ，可以得到</p>
+<div class="arithmatex">\[ \begin{align}
+    \|u\|_{L^{\frac{\gamma n}{n-1}}(R^n)} &amp; \le C(n, p, \gamma) \|u\|_{L^{(\gamma-1)\frac{p}{p-1}}(R^n)}^{\frac{\gamma-1}{\gamma}} \|Du\|_{L^{p}(R^n)}^{\frac{1}{\gamma}}     \\
+    &amp; \le C(n, p, \gamma) \left( \frac{\gamma-1}{\gamma}\|u\|_{L^{(\gamma-1)\frac{p}{p-1}}(R^n)} + \frac{1}{\gamma}\|Du\|_{L^{p}(R^n)}\right)     \\
+    &amp; \le C(n, p, \gamma) \left(\|u\|_{L^{(\gamma-1)\frac{p}{p-1}}(R^n)} + \|Du\|_{L^{p}(R^n)}\right)     \\
+\end{align}\]</div>
+<p>当 <span class="arithmatex">\(p=n\)</span>，上式就成了</p>
+<div class="arithmatex">\[ \begin{align}
+    \|u\|_{L^{\frac{\gamma n}{n-1}}(R^n)}
+    \le C(n, p, \gamma) \left(\|u\|_{L^{(\gamma-1)\frac{n}{n-1}}(R^n)} + \|Du\|_{L^{n}(R^n)}\right)
+\end{align}\]</div>
+<p>令 <span class="arithmatex">\(\gamma = n\)</span>， 则</p>
+<div class="arithmatex">\[ \|u\|_{L^{\frac{n^2}{n-1}}(R^n)} \le C(n, p) \left(\|u\|_{L^{n}(R^n)} + \|Du\|_{L^{n}(R^n)}\right) \le C(n, p) \|u\|_{W^{1,n}(R^n)} \]</div>
+<p>得到 <span class="arithmatex">\(W^{1,n}(R^n) \subset  L^{\frac{n^2}{n-1}}(R^n)\)</span>。</p>
+<p>令 <span class="arithmatex">\(\gamma = n+1, n+2, \cdots\)</span>，则有</p>
+<div class="arithmatex">\[ \begin{align}
+    \|u\|_{L^{(n+k+1)\frac{n}{n-1}}(R^n)}
+    &amp; \le C(n, p, k) \left(\|u\|_{L^{(n+k)\frac{n}{n-1}}(R^n)} + \|Du\|_{L^{n}(R^n)}\right) \\
+    &amp; \le \cdots    \\
+    &amp; \le C(n, p, k) \left(\|u\|_{L^{n\frac{n}{n-1}}(R^n)} + \|Du\|_{L^{n}(R^n)}\right)   \\
+    &amp; \le C(n, p, k) \|u\|_{W^{1,n}(R^n)}
+\end{align}\]</div>
+<p>因此，对 <span class="arithmatex">\(q=n, n\frac{n}{n-1}, (n+1)\frac{n}{n-1}, \cdots, (n+k)\frac{n}{n-1}, \cdots\)</span>，有</p>
+<div class="arithmatex">\[ W^{1,n}(R^n) \subset  L^{q}(R^n) \]</div>
+<p>再利用 <strong>插值不等式</strong> ，我们得到</p>
+<div class="arithmatex">\[ W^{1,n}(R^n) \subset  L^{q}(R^n) \quad n \le q &lt; \infty \]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>这种迭代方法用于 <span class="arithmatex">\(1\le p &lt; n\)</span> 的情况会怎么样呢？</p>
+<p>事实上，令 <span class="arithmatex">\(q_0=p\)</span>，取 <span class="arithmatex">\(\gamma_i = 1+\frac{p-1}{p}q_i\)</span>，<span class="arithmatex">\(\gamma_0 = p\)</span>，  <br />
+则 <span class="arithmatex">\((\gamma_i-1)\frac{p}{p-1} = q_i\)</span>，<span class="arithmatex">\(q_{i+1} \triangleq \gamma_i \frac{n}{n-1}\)</span>，
+有</p>
+<div class="arithmatex">\[ \|u\|_{L^{q_i}(R^n)} \le C(n, p, i) \|u\|_{W^{1,p}(R^n)} \quad i=0, 1, 2, \cdots \]</div>
+<p>但是</p>
+<div class="arithmatex">\[ \begin{align}
+q_{k} &amp;= (1+\frac{p-1}{p}q_{k-1})\frac{n}{n-1}   \\
+&amp;= \left(\frac{p-1}{p}\frac{n}{n-1}\right)^2 q_{k-2} + \frac{n}{n-1} + \frac{p-1}{p}\left(\frac{n}{n-1}\right)^2   \\
+&amp;= \cdots   \\
+&amp;= \left(\frac{p-1}{p}\frac{n}{n-1}\right)^k q_0 + \frac{n}{n-1}\left(1 + \cdots + \left(\frac{p-1}{p}\frac{n}{n-1}\right)^{k-1} \right)   \\
+&amp;= \left(\frac{p-1}{p}\frac{n}{n-1}\right)^k p + \frac{n}{n-1}\frac{1- \left(\frac{p-1}{p}\frac{n}{n-1}\right)^{k}}{1-\frac{p-1}{p}\frac{n}{n-1}}   \\
+&amp;= \left(\frac{p-1}{p}\frac{n}{n-1}\right)^k p + p^* \left(1- \left(\frac{p-1}{p}\frac{n}{n-1}\right)^{k}\right)     \\
+&amp;= p^* + (p-p*)\left(\frac{p-1}{p}\frac{n}{n-1}\right)^{k}
+\end{align} \]</div>
+<p>因此，这种结果被 <span class="arithmatex">\([p, p^*]\)</span> 覆盖了！因此也就没有写出来的必要了。</p>
+</div>
+<h2 id="morrey">Morrey 不等式<a class="headerlink" href="#morrey" title="Permanent link">&para;</a></h2>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem</p>
+<p>对于 <span class="arithmatex">\(n &lt;p \le \infty \)</span>，有</p>
+<div class="arithmatex">\[ W^{1,p}(R^n) \subset  C^{0, 1-\frac{n}{p}}(R^n) \]</div>
+</div>
 
 <!-- Source file information -->
 

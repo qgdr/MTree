@@ -57,27 +57,58 @@ class Func2(Scene):
         self.add(diff, Tex(r"$f'(x) ?$").shift(RIGHT+0.8*DOWN))
 
 
-class log1dr(Scene):
+# class log1dr(Scene):
+#     def construct(self):
+#         axes = Axes(
+#             x_range=[-0.2, 1.2, 1],
+#             y_range=[-0.5, 1.2, 1],
+#             x_length=10,
+#             y_length=10,
+#             axis_config={"color": BLUE},
+#             tips=False,
+#         )
+#         def func(r, n):
+#             return np.abs(np.log(r))**n * r**(n-1)
+        
+#         func2 = axes.plot(lambda r: func(r, 2), color=YELLOW, x_range=[1e-6, 1], discontinuities=[0])
+#         func3 = axes.plot(lambda r: func(r, 3), color=RED, x_range=[1e-6, 1], discontinuities=[0])
+
+#         self.add(axes, func2, func3)
+#         self.add(
+#             Tex(r"$f(r) = |\log \frac{1}{r}|^n r^{n-1}$", color=WHITE), 
+#             Tex(r"$n=2$", color=YELLOW).shift(3.5 * UP),
+#             Tex(r"$n=3$", color=RED).shift(3.5 * UP+2*RIGHT)
+#         )
+
+
+class LowerThanxinv(Scene):
     def construct(self):
         axes = Axes(
-            x_range=[-0.2, 1.2, 1],
-            y_range=[-0.5, 1.2, 1],
+            x_range=[-1, 3, 1],
+            y_range=[-1, 3, 1],
             x_length=10,
             y_length=10,
             axis_config={"color": BLUE},
             tips=False,
         )
-        def func(r, n):
-            return np.abs(np.log(r))**n * r**(n-1)
+        axes.add_coordinates()
+        self.add(axes)
         
-        func2 = axes.plot(lambda r: func(r, 2), color=YELLOW, x_range=[1e-6, 1], discontinuities=[0])
-        func3 = axes.plot(lambda r: func(r, 3), color=RED, x_range=[1e-6, 1], discontinuities=[0])
-
-        self.add(axes, func2, func3)
+        xinv = axes.plot(lambda r: 1/r, x_range=[0.1, 3], color=WHITE)
         self.add(
-            Tex(r"$f(r) = |\log \frac{1}{r}|^n r^{n-1}$", color=WHITE), 
-            Tex(r"$n=2$", color=YELLOW).shift(3.5 * UP),
-            Tex(r"$n=3$", color=RED).shift(3.5 * UP+2*RIGHT)
+            xinv,
+            Dot(axes.c2p(1, 1), color=YELLOW), 
+            axes.get_vertical_line(axes.c2p(1, 1), color=YELLOW)
         )
 
+        self.add(Tex(r"$f(x) = \dfrac{1}{|x|}$ is not integrable", color=WHITE, font_size=24).shift(np.array([3, 3, 0])))
+
+        olt1, ogt1 = 0.6, 1.5
+        xlt1 = axes.plot(lambda r: 1/r**(olt1), x_range=[0.1, 1], color=ORANGE)
+        xgt1 = axes.plot(lambda r: 1/r**(ogt1), x_range=[1, 3], color=ORANGE)
+        self.add( xlt1, xgt1 )
+
+        self.add(
+            Tex(r"but $g(x)=\begin{cases} \dfrac{1}{|x|^\alpha} , & 0< \alpha <1 \\  \dfrac{1}{|x|^\beta} , & \beta > 1 \end{cases}$ is integrable", color=ORANGE, font_size=24).shift(np.array([3, 2, 0])) 
+        )
 
