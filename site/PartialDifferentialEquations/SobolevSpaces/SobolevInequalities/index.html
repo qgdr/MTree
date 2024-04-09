@@ -2378,12 +2378,11 @@ Brezis 书中的内容比较丰富，全面。</p>
 <p>令</p>
 <div class="arithmatex">\[ f(x) := \prod_{i=1}^n f_i( \widetilde{x_i}) \]</div>
 <p>那么有</p>
-<p>$$ |f|_{L<sup>1(R</sup>n)} \le \prod_Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Theorem 9.9</p>
 <div class="arithmatex">\[ \int_{R^n} |f(x)| dx = \int_{R^n} \prod_{i=1}^n |f_i(\widetilde{x_i})| dx = \int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} |f_1(\widetilde{x_1})| \cdots |f_n(\widetilde{x_n})| dx_1 \cdots dx_n \]</div>
 <p>注意到 <span class="arithmatex">\(f_1(\widetilde{x_1})\)</span> 与 <span class="arithmatex">\(x_1\)</span> 无关，所以</p>
 <div class="arithmatex">\[ \int_{R^n} |f(x)| dx = \int_{R^{n-1}} dx_2 \cdots dx_n |f_1(\widetilde{x_1})| \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1\]</div>
 <p>这时候使用广义 Hölder 不等式</p>
-<div class="arithmatex">\[ \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1 \le \left(\int |f_2(\widetilde{x_2Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Theorem 9.9})|^{n-1} dx_1 \right)^{\frac{1}{n-1}}  \cdots 
+<div class="arithmatex">\[ \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1 \le \left(\int |f_2(\widetilde{x_2})|^{n-1} dx_1 \right)^{\frac{1}{n-1}}  \cdots 
 \left(\int |f_n(\widetilde{x_n})|^{n-1}dx_1 \right)^{\frac{1}{n-1}} \]</div>
 <p>我们有</p>
 <div class="arithmatex">\[ \int_{R^n} |f(x)| dx 

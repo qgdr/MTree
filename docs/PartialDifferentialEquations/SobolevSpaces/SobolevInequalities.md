@@ -195,8 +195,6 @@ $$ |u|^{\frac{n}{n-1}} \le \prod_{i=1}^n \left(\int_{-\infty}^{+\infty} |D_i u(x
 
     那么有
 
-    $$ \|f\|_{L^1(R^n)} \le \prod_Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Theorem 9.9
-
     $$ \int_{R^n} |f(x)| dx = \int_{R^n} \prod_{i=1}^n |f_i(\widetilde{x_i})| dx = \int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} |f_1(\widetilde{x_1})| \cdots |f_n(\widetilde{x_n})| dx_1 \cdots dx_n $$ 
 
     注意到 \(f_1(\widetilde{x_1})\) 与 \(x_1\) 无关，所以
@@ -205,7 +203,7 @@ $$ |u|^{\frac{n}{n-1}} \le \prod_{i=1}^n \left(\int_{-\infty}^{+\infty} |D_i u(x
 
     这时候使用广义 Hölder 不等式
 
-    $$ \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1 \le \left(\int |f_2(\widetilde{x_2Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Theorem 9.9})|^{n-1} dx_1 \right)^{\frac{1}{n-1}}  \cdots 
+    $$ \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1 \le \left(\int |f_2(\widetilde{x_2})|^{n-1} dx_1 \right)^{\frac{1}{n-1}}  \cdots 
     \left(\int |f_n(\widetilde{x_n})|^{n-1}dx_1 \right)^{\frac{1}{n-1}} $$
 
     我们有
