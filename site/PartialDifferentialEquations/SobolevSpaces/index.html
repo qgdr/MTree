@@ -2055,6 +2055,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      动机 Motivation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weak-derivatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      弱导数 Weak derivatives
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2075,11 +2101,54 @@
 <!-- Page content -->
 <h1 id="sobolev">Sobolev 空间<a class="headerlink" href="#sobolev" title="Permanent link">&para;</a></h1>
 <p><a href="../#教材">Partial Differential Equations Chapter 5</a></p>
-<p>对于一个并不光滑的函数，我们如何定义他的导数？</p>
+<h2 id="motivation">动机 Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>对于一个几乎处处可导的函数，我们如何定义他的导数？</p>
 <p><a class="glightbox" href="media/images/Sobolev/Func1_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="func1" src="media/images/Sobolev/Func1_ManimCE_v0.18.0.png" /></a></p>
 <p>这个函数这样定义的导数是合理的嘛？</p>
-<p>下面这个函数呢？</p>
+<p>下面这个 <strong>阶跃函数</strong> 呢？</p>
 <p><a class="glightbox" href="media/images/Sobolev/Func2_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="func2" src="media/images/Sobolev/Func2_ManimCE_v0.18.0.png" /></a></p>
+<hr />
+<p>我们不妨把导数积分回去，看看是不是原来的函数？    <br />
+哦！第一个函数满足我们的需求，但是第二个函数却不行。      <br />
+可是，为什么？</p>
+</div>
+<p>我们能发现，分段导数无法还原正是由于 <em>间断点</em> 的存在。    <br />
+（参考 <a href="../../SignalAndSystem/index.md">信号与系统 阶跃函数</a>）    <br />
+想要导数的积分能够还原，我们认为阶跃函数的导数应当是 <span class="arithmatex">\(\delta(x)\)</span>，但是它本身并不真的是一个函数。    <br />
+我们可以这样形容他，</p>
+<div class="arithmatex">\[ \delta(x)=0, x\neq 0, \quad \int_{0^-}^{0^+}\delta(x)dx = 1 \]</div>
+<p>在这里他的积分自然而然的出现了，<br />
+显然的，我们发现对于 <span class="arithmatex">\(\phi \in C_c^\infty(R)\)</span> 有</p>
+<div class="arithmatex">\[ \int_{\Omega} \phi(x)\delta(x)dx = f(0) \]</div>
+<p>所以我们又可以通过泛函来定义 <span class="arithmatex">\( \delta(x) \)</span>,</p>
+<div class="arithmatex">\[ \varphi_\delta: \phi \mapsto \phi(0) \]</div>
+<p>那么现在我们观察 <span class="arithmatex">\(\phi(x) u(x)\)</span></p>
+<p><a class="glightbox" href="media/images/Sobolev/FmultU_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="FmultU" src="media/images/Sobolev/FmultU_ManimCE_v0.18.0.png" /></a></p>
+<p>我们希望分部积分公式仍然成立，进行计算得到</p>
+<div class="arithmatex">\[ \begin{align}
+    0 &amp;= \phi(x)u(x)\Big|_{-\infty}^{+\infty} = \int_{-\infty}^{+\infty} \phi'(x)u(x)dx + \int_{-\infty}^{+\infty} \phi(x)u'(x)dx    \\
+    &amp;= \int_{0}^{+\infty} \phi'(x)dx + \int_{-\infty}^{+\infty} \phi(x)\delta(x)dx    \\
+    &amp;= -\phi(0) + \int_{R} \phi(x)\delta(x)dx
+\end{align} \]</div>
+<p>这同样要求 <span class="arithmatex">\(\delta(x)\)</span> 满足我们上面描述过的的性质。     <br />
+而我们再次意识到，如果 <span class="arithmatex">\(u(x)\)</span> 是间断的，那么 <span class="arithmatex">\(u'(x)\)</span> 就必然 <strong>不能</strong> 用正常的函数来表示，必然引入 <span class="arithmatex">\(\delta(x)\)</span>。</p>
+<hr />
+<p>好了，现在我们说回正题，我们通常希望研究积分和微分具有某种交换性的函数，自然不希望函数在 <span class="arithmatex">\(\Omega\)</span> 内随意间断。      <br />
+那么我们就去研究这些更有 <strong>正则性</strong> 的函数 <span class="arithmatex">\(u\)</span>。  <br />
+他要有真正的导函数 <span class="arithmatex">\(u'(x)=v(x)\)</span> ，那么应满足分部积分公式，</p>
+<div class="arithmatex">\[ \begin{gather*}
+    0 = \phi(x)u(x)\Big|_{-\infty}^{+\infty} = \int_{-\infty}^{+\infty} \phi'(x)u(x)dx + \int_{-\infty}^{+\infty} \phi(x)u'(x)dx    \\
+    \text{i.e.}     \\
+    \int_R \phi(x)v(x)dx = -\int_R \phi'(x)u(x)dx    \\
+\end{gather*} \]</div>
+<p>若是 <span class="arithmatex">\(u\)</span> 有任何间断，那么 <span class="arithmatex">\(v\)</span> 也必然引入 <span class="arithmatex">\(\delta(x)\)</span> ，那么 <span class="arithmatex">\(v\)</span> 就不存在了。</p>
+<h2 id="weak-derivatives">弱导数 Weak derivatives<a class="headerlink" href="#weak-derivatives" title="Permanent link">&para;</a></h2>
+<p>设函数 <span class="arithmatex">\(u, v\in L_{\text{loc}}^1(\Omega)\)</span> 和多重指标 <span class="arithmatex">\(\alpha\)</span>，如果对于任意 <span class="arithmatex">\(\phi \in C_c^\infty(\Omega)\)</span> ， 满足</p>
+<div class="arithmatex">\[ \int_{\Omega} u(x)D^\alpha\phi(x)dx = (-1)^{|\alpha|} \int_{\Omega} v(x)\phi(x)dx \]</div>
+<p>则称为 <span class="arithmatex">\(v\)</span> 为 <span class="arithmatex">\(u\)</span> 的 <span class="arithmatex">\(\alpha\)</span> 弱偏导数，记为</p>
+<div class="arithmatex">\[ D^\alpha u = v \]</div>
 
 <!-- Source file information -->
 

@@ -77,7 +77,7 @@ $$ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J
     如果你熟悉 **叠加原理** 那么直观上你会觉得这是显然的。  
     因为\(f\) 有界，支撑集也有界 \(supp(f)\subset B(0,r_0)\)，
 
-    $$ u(x_0) = \Phi*f(x_0) = \int_{B(x_0, r)}\Phi(x)f(x_0-x)dx \le C|\int_{B(x_0, r)}\Phi(x)| $$
+    $$ u(x_0) = \Phi*f(x_0) = \int_{B(x_0, r)}\Phi(x)f(x_0-x)dx \le \|f\|_{\infty} |\int_{B(x_0, r)}\Phi(x)| $$
 
     而我们已经证明了 \(\int_{B(0, r)}\Phi(x)\) 是有界的（且随 \(r\to 0\)趋于0），而且\(\Phi\) 随着 \(r\) **单调减** !
     ![phi](./PhiInt.jpg)
@@ -87,9 +87,15 @@ $$ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J
     ![2c](two_circles.png){: align=right width=200}
 
     那么只要对积分区间如图分割即可。    
-    \(B(x_0, r)\) 要么在橙色球内部，要么在紫色球外面，这使得积分都是有界的。
+    \(B(x_0, r)\) 要么在橙色球内部，要么在紫色球外面，这使得积分都是一致有界的。
 
-    但这样证明有点丑陋，事实上，在我们的直观中，由于单调性，以原点为中心的积分本身就应该是最大的，因为在中心处更大的函数值是‘更多’的。
+    $$ |\int_{B(x_0, r)}\Phi(x)| \le \min\{ |\int_{B(0, r_0+2r)}\Phi(x)|, |\Phi(r_0+2r)|\alpha(n) r^n \} $$
+
+    故 \(u(x_0)\) 是一致有界的。
+
+    ---
+
+    但这样证明有点丑陋，事实上，在我们的直观中，由于单调性，以原点为中心的积分本身就应该是最大的，因为在中心处更大的函数值是‘更多’的。  
     我们只是暂时缺乏一套说明他的语言。但我们很快就可以将几何直观翻译成数学语言。
     
     $$
@@ -140,7 +146,7 @@ $$ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J
     u_{11} & \cdots & u_{1n} \\ \vdots &  & \vdots \\ u_{n1} & \cdots & u_{nn} 
     \end{bmatrix} O $$
 
-    而 \( \Delta v = v_{11}+...+v_{nn} = trace(V) = trace(O^T U O) = trace(U) = \Delta u = 0\)。
+    而 \( \Delta v = v_{11}+...+v_{nn} = Tr(V) = Tr(O^T U O) = Tr(U) = \Delta u = 0\)。
 
 !!! question
     4 . 令 \(U\) 是有界开集，\(u\in C^2(U)\cap C(\bar{U})\) 是调和函数，证明
@@ -148,15 +154,25 @@ $$ -\Delta u=\int_{B(0,\epsilon)} + \int_{R^n - B(0,-\epsilon)} = I_\epsilon + J
     $$ \max_{\bar{U}}u = \max_{\partial U}u $$  
 
 !!! Proof
-    对于 \(\epsilon>0\) 定义， \(u_\epsilon := u+\epsilon|x|^2 \)。则 \(\Delta u_\epsilon > 0\)
-    由于 \(U\) 有界，且 \(u\) 在 \(\bar{U}\) 上连续，所以 \(u, |x|\) 有界。
-    \(u_\epsilon\) 的最小值不能在内部取得。
-    否则，若 \(u(x_0) = \max_{\bar{U}}u \)，且 \(B(x_0, \delta) \subseteq \bar{U} \)，
-    那么 
+    对于 \(\epsilon>0\) ，定义 \(u_\epsilon := u+\epsilon|x|^2 \)，
+    则 
+    
+    $$ \Delta u_\epsilon  = \Delta u + \epsilon \Delta (x_1^2+\cdots+x_n^2) = 2n\epsilon > 0 $$
 
-    $$ u(x_0) < {-\mkern -19mu\int}_{B(x_0, \delta)} u(x) \le {-\mkern -19mu\int}_{B(x_0, \delta)} u(x_0) = u(x_0) $$
+    由于 \(U\) 有界，且 \(u\) 在 \(\bar{U}\) 上连续，所以 \(u(x)\) 有界。   
 
-    矛盾。所以，
+    \(u_\epsilon\) 的最小值不能在内部取得，     
+    否则，若 \(u(x_0) = \max_{\bar{U}}u \)，且存在一个 \(\delta>0\) 使得 \(B(x_0, \delta) \subset U \)，    
+    那么 \(\partial_i u_\epsilon = 0, \; i=1, \cdots, n \)。
+
+    <!-- $$ u(x_0) < {-\mkern -19mu\int}_{B(x_0, \delta)} u(x) \le {-\mkern -19mu\int}_{B(x_0, \delta)} u(x_0) = u(x_0) $$ -->
+
+    但是 \(0 < \Delta u_\epsilon  = \sum_{i=1}^n \partial_{ii} u_\epsilon \)，则必然存在某个 \(j\) 使得 \(\partial_{j} u_\epsilon > 0\)。
+
+    这导致 \(\partial_{j} u_\epsilon = 0, \quad \partial_{jj} u_\epsilon > 0 \)，
+    那么 \(u_\epsilon(x_0)\) 在\(x_0\) 的某个邻域内的 \(x_j\) 方向上比 \(u_\epsilon(x_0)\) 大！
+    矛盾。      
+    所以，
 
     $$ \max_{\bar{U}}u_\epsilon = \max_{\partial U}u_\epsilon $$
 

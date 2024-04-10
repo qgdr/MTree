@@ -2102,14 +2102,18 @@
 <h1 id="_1">偏微分方程简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>本章介绍各个偏微分方程的定义以及一些常用的结论。</p>
 <h2 id="_2">准备符号<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>查看 <a href="../#lawrence-cevans-partial-differential-equations">Lawrence C.Evans Partial differential equations Appendix A</a></p>
 <p>令多重指标(multiindex) <span class="arithmatex">\( \alpha=(\alpha_1, ... , \alpha_n), \quad \alpha_n \ge 0 \)</span>，</p>
 <div class="arithmatex">\[ |\alpha| := \alpha_1 + ... + \alpha_n \]</div>
 <div class="arithmatex">\[ \alpha ! := \alpha_1!\cdots\alpha_n! \]</div>
 <div class="arithmatex">\[ \begin{pmatrix} |\alpha| \\ \alpha \end{pmatrix} := \frac{ |\alpha|!}{\alpha!} \]</div>
 <p>对于多元变量 <span class="arithmatex">\( x=(x_1, ... , x_n) \)</span>，</p>
 <div class="arithmatex">\[ x^\alpha := x_1^{\alpha_1}\cdots x_n^{\alpha_n} \]</div>
-<div class="arithmatex">\[ D^\alpha u(x) := \frac{\partial^{|\alpha|} u(x)}{\partial x^{\alpha_1}\cdots\partial x^{\alpha_n}} \]</div>
-<div class="arithmatex">\[ D^k u(x) = \\{ D^\alpha u(x) \mid |\alpha|=k \\} \]</div>
+<div class="arithmatex">\[ D^\alpha u(x) := \frac{\partial^{|\alpha|} u(x)}{\partial x_1^{\alpha_1}\cdots\partial x_n^{\alpha_n}} 
+= \frac{\partial^{\alpha_1} }{\partial x_1^{\alpha_1}} \cdots \frac{\partial^{\alpha_n}}{\partial x_n^{\alpha_n}}u(x) \]</div>
+<p>事实上，对于 <span class="arithmatex">\(u(x)\in C^k\)</span>，<span class="arithmatex">\(\frac{\partial^2 u(x)}{\partial x_1x_2} = \frac{\partial^2 u(x)}{\partial x_2 x_1} \)</span>，微分顺序可交换。 
+因此在定义 <span class="arithmatex">\(D^k u(x)\)</span> 的时候，将不同微分次序的前导数看成是同一个。</p>
+<div class="arithmatex">\[ D^k u(x) = \{ D^\alpha u(x) \mid |\alpha|=k \} \]</div>
 <p>nabla算子</p>
 <div class="arithmatex">\[ \nabla u = (\frac{\partial u}{\partial x_i}, ..., \frac{\partial u}{\partial x_n}) \]</div>
 <p>Laplace算子</p>
@@ -2119,19 +2123,21 @@
 <p class="admonition-title">Question</p>
 <p>2 . <span class="arithmatex">\( D^k u(x) \)</span> 有几项？</p>
 </div>
-<div class="admonition solve">
-<p class="admonition-title">Solve</p>
-<p>事实上，就是将 <span class="arithmatex">\(n\)</span> 个苹果，放进 <span class="arithmatex">\(k\)</span> 个盒子，那么显然有 <span class="arithmatex">\( \begin{pmatrix}n+k-1\\ k \end{pmatrix} \)</span> 种放法。 </p>
+<div class="admonition solution">
+<p class="admonition-title">Solution</p>
+<p>观察上面 <span class="arithmatex">\(D^\alpha u(x)\)</span> 的定义， 
+就是将 <span class="arithmatex">\(k\)</span> 个苹果（偏导数<span class="arithmatex">\(\partial^k\)</span>），放进 <span class="arithmatex">\(n\)</span> 个盒子（<span class="arithmatex">\(\partial x_i, i=1, ..., n\)</span>），允许空盒子。 <br />
+那么显然有 <span class="arithmatex">\( \begin{pmatrix}n+k-1\\ k \end{pmatrix} \)</span> 种放法。 </p>
 </div>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>3 . 证明 <strong>多项式定理</strong> (Multinomial Theorem)：</p>
 <div class="arithmatex">\[ (x_1 + ... + x_n)^k = \sum_{|\alpha|=k} \begin{pmatrix} |\alpha| \\ \alpha \end{pmatrix} x^\alpha \]</div>
 </div>
-<div class="admonition solve">
-<p class="admonition-title">Solve</p>
-<p>对于 <span class="arithmatex">\( x^\alpha = x_1^{\alpha_1}\cdots x_n^{\alpha_n} \)</span> 的项，有多少种选法？
-先从 <span class="arithmatex">\(k\)</span> 个中选 <span class="arithmatex">\(\alpha_1\)</span> 个 <span class="arithmatex">\(x_1\)</span>， 再从 <span class="arithmatex">\(k-\alpha_1\)</span> 个中选 <span class="arithmatex">\(\alpha_2\)</span> 个 <span class="arithmatex">\(x_2\)</span>，...，最后从 <span class="arithmatex">\(k-\sum_{i=1}^{n-1} \alpha_i\)</span> 个中选 <span class="arithmatex">\(\alpha_n\)</span> 个 <span class="arithmatex">\(x_n\)</span>。
+<div class="admonition proof">
+<p class="admonition-title">Proof</p>
+<p>对于 <span class="arithmatex">\( x^\alpha = x_1^{\alpha_1}\cdots x_n^{\alpha_n} \)</span> 的项，有多少种选法？    <br />
+先从 <span class="arithmatex">\(k\)</span> 个中选 <span class="arithmatex">\(\alpha_1\)</span> 个 <span class="arithmatex">\(x_1\)</span>， 再从 <span class="arithmatex">\(k-\alpha_1\)</span> 个中选 <span class="arithmatex">\(\alpha_2\)</span> 个 <span class="arithmatex">\(x_2\)</span>，...，最后从 <span class="arithmatex">\(k-\sum_{i=1}^{n-1} \alpha_i\)</span> 个中选 <span class="arithmatex">\(\alpha_n\)</span> 个 <span class="arithmatex">\(x_n\)</span>。  <br />
 总共有 </p>
 <div class="arithmatex">\[ \frac{k!}{\alpha_1! (k-\alpha_1)!} \frac{(k-\alpha_1)!}{\alpha_2! (k-\alpha_1-\alpha_2)!} \cdots \frac{(k-\alpha_1-\cdots-\alpha_{n-1})!}{\alpha_n! (k-\alpha_1-\cdots-\alpha_{n})!} = \frac{k!}{\alpha!} \]</div>
 <p>种选法。 </p>
@@ -2141,11 +2147,56 @@
 <p>4 . 证明 <strong>莱布尼兹公式</strong> (Leibniz's Formula)：</p>
 <div class="arithmatex">\[ D^\alpha(uv) = \sum_{\beta\le\alpha}\begin{pmatrix} \alpha \\ \beta \end{pmatrix} D^\beta u D^{\alpha-\beta}v \]</div>
 </div>
-<div class="admonition solve">
-<p class="admonition-title">Solve</p>
-<p>我们有 <span class="arithmatex">\( D^\alpha (uv) = \partial^{\alpha_1}_{x_1} \cdots \partial^{\alpha_n}_{x_n} (uv) \)</span>， 那么 <span class="arithmatex">\(D^\beta u D^{\alpha-\beta}v = \partial^{\beta_1}_{x_1} \cdots \partial^{\beta_n}_{x_n} u \cdot \partial^{\alpha_1-\beta_1}_{x_1} \cdots \partial^{\alpha_n-\beta_n}_{x_n} v \)</span> 有多少种选法？ <br />
-它有 <span class="arithmatex">\( \begin{pmatrix} \alpha_n \\ \beta_n \end{pmatrix}\cdots \begin{pmatrix} \alpha_1 \\ \beta_1 \end{pmatrix}  = \frac{\alpha_1!\cdots\alpha_n!}{\beta_1!\cdots\beta_n! (\alpha_1-\beta_1)!\cdots (\alpha_n-\beta_n)!} \)</span>
+<div class="admonition prove">
+<p class="admonition-title">Prove</p>
+<p>我们有 <span class="arithmatex">\( D^\alpha (uv) = \partial^{\alpha_1}_{x_1} \cdots \partial^{\alpha_n}_{x_n} (uv) \)</span>，    <br />
+而我们知道 <span class="arithmatex">\(\partial_i(uv) = (\partial_i u) v + u (\partial_i v) \)</span>。
+归纳得 </p>
+<div class="arithmatex">\[ \partial_i^{\alpha_i}(uv) = \sum_{\beta_i=0}^{\alpha_i} \begin{pmatrix} \alpha_i \\ \beta_i \end{pmatrix} (\partial_i^{\alpha_i-\beta_i} u)(\partial_i^{\beta_i} v)  \]</div>
+<p>这也被称为问分法则的 莱布尼兹公式。</p>
+<p>那么 <span class="arithmatex">\(D^\beta u D^{\alpha-\beta}v = \partial^{\beta_1}_{x_1} \cdots \partial^{\beta_n}_{x_n} u \cdot \partial^{\alpha_1-\beta_1}_{x_1} \cdots \partial^{\alpha_n-\beta_n}_{x_n} v \)</span> 有多少种选法？ <br />
+它有 <span class="arithmatex">\( \begin{pmatrix} \alpha_n \\ \beta_n \end{pmatrix}\cdots \begin{pmatrix} \alpha_1 \\ \beta_1 \end{pmatrix}  = \frac{\alpha_1!\cdots\alpha_n!}{\beta_1!\cdots\beta_n! (\alpha_1-\beta_1)!\cdots (\alpha_n-\beta_n)!} = \begin{pmatrix} \alpha \\ \beta \end{pmatrix} \)</span>
 种选法。 </p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>5 . 设 <span class="arithmatex">\(f: R^n \to R\)</span> 是光滑函数，证明</p>
+<div class="arithmatex">\[ f(x) = \sum_{|\alpha|\le k} \frac{1}{\alpha !} D^{\alpha} f(0) x^{\alpha} + O(\|x\|^{k+1}) \]</div>
+<p>这称为多元函数的 <strong>Taylor 公式</strong></p>
+</div>
+<div class="admonition prove">
+<p class="admonition-title">Prove</p>
+<p>固定 <span class="arithmatex">\(x\)</span>，令 <span class="arithmatex">\(g(t) = f(tx)\)</span>，那么由单变量的 Taylor 公式 （看 <a href="../../FractionalDifferentialEquations/RLFIDF/#分数阶微积分引入">Cauchy</a>），有</p>
+<div class="arithmatex">\[ \begin{align}
+    g(t) &amp;= \sum_{i=0}^k \frac{1}{i!} g^{(i)}(0) t^i + \int_0^t g^{(k+1)}(s)\frac{(t-s)^k}{k!} ds \\
+    &amp;= \sum_{i=0}^k \frac{1}{i!} g^{(i)}(0) t^i + g^{(k+1)}(\xi) \frac{t^{k+1}}{(k+1)!}, \quad \xi \in [0, t] \\
+\end{align} \]</div>
+<p>则</p>
+<div class="arithmatex">\[ f(x) = g(1) = \sum_{i=0}^k \frac{1}{i!} g^{(i)}(0) + g^{(k+1)}(\xi) \frac{1}{(k+1)!}, \quad \xi \in [0, 1] \]</div>
+<p>但</p>
+<div class="arithmatex">\[ \begin{gather}
+    g'(t) =\frac{d f(tx)}{dt} =  \nabla(f(tx)) \cdot x = \sum_{i=0}^n \partial_i f(tx) x_i  \\
+    g''(t) =\frac{d}{dt}(\partial_i f(tx) x_i) 
+    = \sum_{i,j} \partial_{ij} f(tx) x_i x_j 
+    = \sum_{|\alpha|=2} \begin{pmatrix} 2 \\ \alpha \end{pmatrix} D^{\alpha} f(tx) x^{\alpha}  \\
+    \cdots \\
+    g^{(k+1)}(t) = \frac{d^k}{dt^k} f(tx) 
+    = \sum_{i_1, \cdots, i_{k+1}} \partial_{i_1} \cdots \partial_{i_{k+1}} f(tx) x_{i_1} \cdots x_{i_{k+1}} 
+    = \sum_{|\alpha|=k+1} \begin{pmatrix} k+1 \\ \alpha \end{pmatrix} D^{\alpha} f(tx) x^{\alpha}
+\end{gather} \]</div>
+<p>所以有</p>
+<div class="arithmatex">\[ \begin{align} 
+    f(x) &amp;= \sum_{i=0}^k \frac{1}{i!} g^{(i)}(0) x^i + g^{(k+1)}(\xi) \frac{1}{(k+1)!} \\
+    &amp;= \sum_{i=0}^k \frac{1}{i!} \sum_{|\alpha|=i} \begin{pmatrix} i \\ \alpha \end{pmatrix} D^{\alpha} f(0) x^{\alpha} 
+    + \frac{1}{(k+1)!}\sum_{|\alpha|=k+1} \begin{pmatrix} k+1 \\ \alpha \end{pmatrix} D^{\alpha} f(\xi x) x^{\alpha} \\
+    &amp;= \sum_{|\alpha|\le k} \frac{1}{\alpha !} D^{\alpha} f(0) x^{\alpha}
+    + \frac{1}{(k+1)!} \sum_{i_1, \cdots, i_{k+1}} \partial_{i_1} \cdots \partial_{i_{k+1}} f(\xi x) x_{i_1} \cdots x_{i_{k+1}} \\
+\end{align} \]</div>
+<p>由于 <span class="arithmatex">\(f\)</span> 光滑，所以当 <span class="arithmatex">\(x\)</span> 足够小时， 有 <span class="arithmatex">\(|\partial_{i_1} \cdots \partial_{i_{k+1}} f(\xi x)| &lt; C(x, n), \quad  \xi \in [0, 1]\)</span> </p>
+<p>而 </p>
+<div class="arithmatex">\[ \frac{1}{(k+1)!} \sum_{i_1, \cdots, i_{k+1}} \partial_{i_1} \cdots \partial_{i_{k+1}} f(\xi x) x_{i_1} \cdots x_{i_{k+1}} &lt; C(x, k+1)(|x_1|+\cdots+|x_n|)^{k+1} = O(\|x\|^{k+1}) \]</div>
+<p>故当 <span class="arithmatex">\(x \to 0\)</span>，有</p>
+<div class="arithmatex">\[ f(x) = \sum_{|\alpha|\le k} \frac{1}{\alpha !} D^{\alpha} f(0) x^{\alpha} + O(\|x\|^{k+1}) \]</div>
 </div>
 
 <!-- Source file information -->

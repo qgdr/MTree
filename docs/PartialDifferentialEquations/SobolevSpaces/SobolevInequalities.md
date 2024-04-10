@@ -9,7 +9,7 @@ Brezis 书中的内容比较丰富，全面。
 这将建立任意函数在各种相关 Sobolev 空间中的估计。   
 因为正如我们在 [逼近](Approximation.md) 中所看到的，光滑函数 是稠密的。
 
-## 动机 Motivcation
+## 动机 Motivation
 
 为了清楚的表达，我们首先只考虑 Sobolev 空间 \(W^{1, P} ( \Omega )\)，
 并提出如下基本问题：    
@@ -67,15 +67,15 @@ Brezis 书中的内容比较丰富，全面。
         \dfrac{1}{|r|^{n/p}}, & \text{if } r \ge 1.
     \end{cases} $$
 
-    现在我们观察 \(\int |u|^q\)，有
+    现在我们观察 \(\int |h|^q\)，有
 
-    $$ \int |u|^q = n\alpha(n)\int_0^\infty |u|^q r^{n-1} dr $$
+    $$ \int |h|^q = n\alpha(n)\int_0^\infty |h|^q r^{n-1} dr $$
 
     如果 \(q(\frac{n}{p}-1)=n\)，即
 
     $$ \frac{1}{p} - \frac{1}{n} = \frac{1}{q}, \quad q > p $$
 
-    那么 \(|u|^q r^{n-1} \prec \dfrac{1}{|r|} \)，\(\int |u|^q\) 就可积了。
+    那么 \(|h(r)|^q r^{n-1} \prec \dfrac{1}{|r|} \)，\(\int |u|^q\) 就可积了。
 
     ### case2
 
@@ -86,9 +86,9 @@ Brezis 书中的内容比较丰富，全面。
         \dfrac{1}{|r|}, & \text{if } r \ge 1.
     \end{cases} $$
 
-    继续观察 \(\int |u|^q= n\alpha(n)\int_0^\infty |u|^q r^{n-1} dr\)，     
-    如果 \(q \ge n\)，\(|u|^q r^{n-1} \prec \dfrac{1}{|r|} \)，\( \int |u|^q\) 可积，       
-    （ 若 \(q< n\) 则大于 1 的部分无法被控制 ）
+    继续观察 \(\int |h|^q= n\alpha(n)\int_0^\infty |h|^q r^{n-1} dr\)，     
+    如果 \(q \ge n\)，\(|h|^q r^{n-1} \prec \dfrac{1}{|r|} \)，\( \int |h|^q\) 可积，       
+    （ 若 \(q< n\) 则大于 1 的部分无法被控制 ） 
     （找一个函数在 \(r \le 1\) 满足条件？）
 
     ### case3
@@ -96,7 +96,7 @@ Brezis 书中的内容比较丰富，全面。
     对于 \(p > n\)，
 
     $$ h(r) \prec \begin{cases}
-        |r|^{1-n/p} & \text{if } r \in (0, 1), \\
+        -|r|^{1-n/p}+C & \text{if } r \in (0, 1), \\
         \dfrac{1}{|r|^{n/p}}, & \text{if } r \ge 1.
     \end{cases} $$
 
@@ -281,11 +281,13 @@ $$ \left(\int_{R^n} |u|^{p^*}\right)^{\frac{1}{p^*}} \le \gamma \left(\int_{R^n}
 
 即
 
-$$ \|u\|_{L^{p^*}(R^n)} \le C(n,p) \|Du\|_{L^p(R^n)} $$
+$$ \begin{gather}
+    \|u\|_{L^{p^*}(R^n)} \le C(n,p,p^*) \|Du\|_{L^p(R^n)}   \\
+    \text{i.e.} \\
+     W^{1,p}(R^n) \subset  L^{p^*}(R^n)
+\end{gather} $$
 
-即
 
-$$ W^{1,p}(R^n) \subset  L^{p^*}(R^n)  $$
 
 !!! Corollary
 
@@ -293,15 +295,47 @@ $$ W^{1,p}(R^n) \subset  L^{p^*}(R^n)  $$
 
     $$ \begin{cases} W^{1,p}(R^n) \subset  L^{p^*}(R^n) \\ W^{1,p}(R^n) \subset  L^{p}(R^n) \end{cases} \Rightarrow W^{1,p}(R^n) \subset  L^{q}(R^n), \; q\in [p, p^*] $$
 
-    使用 **插值不等式**
+    ----
+
+    ### **插值不等式**
 
     $$ \|u\|_{L^q(R^n)} \le \|u\|_{L^p(R^n)}^{\theta}\|u\|_{L^r(R^n)}^{1-\theta}, \; 
     1\le p \le q \le r \le \infty, \; 
     \frac{1}{q} = \frac{\theta}{p} + \frac{1-\theta}{r} $$
 
+    事实上， 由于 \(1 = \frac{\theta q}{p} + \frac{(1-\theta)q}{r} \)
+
+    $$ \begin{align}
+        \int |u|^q & = \int |u|^{\theta q} |u|^{(1-\theta)q} \\
+        & \le \left(\int |u|^{\theta q \frac{p}{\theta q}} \right)^{\frac{\theta q}{p}} 
+            \left(\int |u|^{(1-\theta)q \frac{r}{(1-\theta) q}}\right)^{\frac{(1-\theta)q}{r}} \\
+        &= \left(\int |u|^{p} \right)^{\frac{\theta q}{p}} 
+            \left(\int |u|^{r}\right)^{\frac{(1-\theta)q}{r}}   \\
+        &= \|u\|_{L^p}^{\theta q} \|u\|_{L^r}^{(1-\theta) q}
+    \end{align} $$
+
+    故
+
+    $$ \|u\|_{L^q(R^n)} \le \|u\|_{L^p(R^n)}^{\theta}\|u\|_{L^r(R^n)}^{1-\theta} $$
+
+    ----
+
+    由于 
+
+    $$ \|u\|_{L^p} \le \|u\|_{W^{1,p}}  \quad \text{ and } \quad \|u\|_{L^{p^*}} \le C(n,p,p^*) \|u\|_{W^{1,p}} $$
+
+    则
+
+    $$ \|u\|_{L^q} \le \|u\|_{L^{p}}^{\theta} \|u\|_{L^{1,p^*}}^{(1-\theta)} \le C(n,p,p^*, q) \|u\|_{W^{1,p}} $$
+
+    因此
+
+    $$ W^{1,p}(R^n) \subset  L^{q}(R^n), \; q\in [p, p^*] $$
+
+
 !!! tip
 
-    对于 \(1\le p< n\)， 我们已经建立了对 \(u\in C_c^\infty(R^n)\) 的估计， 那么对于以下情况又怎样呢？
+    对于 \(1\le p< n\)， 我们已经建立了对 \(u\in C_c^\infty(R^n)\) 的估计， 但是我们之前提到过，对于 \(\Omega\) 是 \(R^n\) 和 \(U\) 的情况是不一样的。
 
     - \(W^{1, p}(U)\) ，\(q=p^*\), \(U\) 是有界开集， \(\partial U\) 是 \(C^1\) 的     
     - \(W_c^{1, p}(U)\)，\(1 \le q \le p^*\)， \(U\) 是有界开集         
