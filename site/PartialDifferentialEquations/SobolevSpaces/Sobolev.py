@@ -155,4 +155,30 @@ class LowerThanxinv(Scene):
 
 
 
+class Holder(Scene):
+    def construct(self):
+        axes = Axes(
+            x_range=[-1, 3, 1],
+            y_range=[-1, 5, 1],
+            x_length=10,
+            y_length=10,
+            axis_config={"color": BLUE},
+            tips=False,
+        )
+        axes.add_coordinates()
+        self.add(axes)
+
+        alpha = 0.3
+        def func(x):
+            return x**(alpha)
+        
+        def fdiff(x):
+            return x**(alpha-1)/alpha
+        
+        f = axes.plot(func, color=YELLOW, x_range=[0, 3, 0.001])
+        fd = axes.plot(fdiff, color=RED, x_range=[0.1, 3])
+
+        self.add(f, fd)
+        self.add(Tex(r"$f(x) = x^\alpha$", color=YELLOW).shift(1*DOWN))
+        self.add(Tex(r"$f'(x) = \alpha x^{\alpha-1}$", color=RED).shift(2 * UP))
 
