@@ -71,9 +71,9 @@ Brezis 书中的内容比较丰富，全面。
 
     $$ \int |h|^q = n\alpha(n)\int_0^\infty |h|^q r^{n-1} dr $$
 
-    如果 \(q(\frac{n}{p}-1)=n\)，即
+    如果 \(q(\frac{n}{p}-1)\le n, \quad \text{and} \quad q\frac{n}{p} \ge n\)，即
 
-    $$ \frac{1}{p} - \frac{1}{n} = \frac{1}{q}, \quad q > p $$
+    $$ \frac{1}{p} - \frac{1}{n} \le \frac{1}{q} \le \frac{1}{p}$$
 
     那么 \(|h(r)|^q r^{n-1} \prec \dfrac{1}{|r|} \)，\(\int |u|^q\) 就可积了。
 
@@ -341,6 +341,82 @@ $$ \begin{gather}
     - \(W_c^{1, p}(U)\)，\(1 \le q \le p^*\)， \(U\) 是有界开集         
 
     这两个空间的估计 [教材 5.6.1 Theorem 2 3](../index.md#教材) 做出了回答。只不过 \(C\) 要依赖于 \(p, n, U, (q)\)      
+
+
+
+
+
+## n=1
+
+在对一般的 \(R^n\) 分析前，我们不妨先研究一下 \(n=1\) 的情况。
+
+\(u\) 貌似跟 \(\int_0^x Du\) 差不多。其实我们有如下定理
+
+
+!!! Theorem
+
+    对于某个 \(1\le p \le \infty\)，若 \(u\in W^{1, p}(\Omega)\)， \(\Omega \subseteq R\) 是某个开区间，      
+    则存在 点 \(x_0 \in \Omega\) 和常数 \(c\)  满足，使得
+
+    $$ u(x) = c + \int_{x_0}^x Du, \text{ a.e.} \quad x\in \Omega $$
+
+由于 \(v \in L^p(\Omega)\)，那么 \(v \in L_{\text{loc}}^1(\Omega)\)。       
+我们记 \(v(x) = \int_{x_0}^x Du\)，\(v(x) \le \int_\Omega |Du|\)，一致有界，故 \(v\in L_{\text{loc}}^1(\Omega)\)。
+
+**1**.
+
+下面我们证明，对于一个有界区间 \(W \subset \Omega\)， \(v\) 在 \(W\) 上是 **绝对连续函数** 的。
+
+这是因为可积函数可被光滑函数逼近，即 \(C_c^\infty(\Omega)\) 在 \(C^p(\Omega), 1\le p < \infty\) 中稠密。            
+（参考 [Folland Real Analysis Proposition 8.17](../../Library/[Gerald_B._Folland]_Real_Analysis__Modern_Techniq.pdf)     
+[Lawrence C.Evans Partial differential equations][ref1]）     
+
+对于 \(\forall \epsilon > 0\)，存在连续函数 \(g \in C_c^\infty(W)\)，使得 \(\int_W |u(x) - g(x)| dx < \epsilon/2\)。     
+而对于 \(Dg\) 他在紧集上连续，那么他有界，\(g\) 是 Lipschitz 连续的，\( |g(x)-g(y)| \leq L(|x-y|)\)。        
+因此， 若 \(0<\delta < \dfrac{\epsilon}{2L}, \)，         
+那么对于任意有限个互不相交的开区间 \((x_i, y_i) \subset W, i=1,2,\cdots,n\) 满足 \(\sum_{i=1}^n (y_i-x_i)<\delta\) 时，有
+
+$$ \begin{align}
+    \sum_{i=1}^n |v(y_i)-v(x_i)| 
+    & \leq \sum_{i=1}^n |v(y_i)-v(x_i) - g(y_i)+g(x_i)| + \sum_{i=1}^n |g(y_i)-g(x_i)| \\
+    & \leq \int_W |v-g| + \sum_{i=1}^n L|y_i-x_i| \\
+    & \leq \frac{\epsilon}{2} + L \delta        \\
+    & \leq \frac{\epsilon}{2} + L \frac{\epsilon}{2L} = \epsilon  \\
+\end{align}. $$
+
+故 \(v\) 在 \(\Omega\) 的任意有界子集上绝对连续，且 **几乎处处可导** 。         
+那么 \(v' = Du \text{ a.e.}\) 
+
+**2**.
+
+我们证明 \(D(u-v) = 0 \text{ a.e.}\)。
+
+考虑 \(u - v\) ，对任意的 \(\phi \in C_c^\infty(\Omega)\)，
+
+$$ \begin{align}
+    \int_\Omega (u - v) D\phi &= \int_\Omega u D\phi - \int_\Omega v D\phi \\
+    &= -\int_\Omega Du \phi - \int_\Omega \phi \int_{x_0}^x Du \\
+    &= -\int_\Omega Du \phi - \phi\int_\Omega \phi \int_{x_0}^x Du \\
+\end{align}  $$
+
+<!-- 
+我们只需要证明 \(u - v = c \text{ a.e.}\)
+
+
+那么 \(u, v \in L_{\text{loc}}^p(\Omega)\)，
+以及对于任意的 \(\phi(x) \in C_c^\infty(R)\)，都有
+
+$$ \int_R D\phi(x) u(x) dx = -\int_R \phi(x) v(x) dx $$ -->
+
+
+**3**.
+
+对于一个函数 \(u \in W^{1,p}(\Omega)\)，如果 \(Du = 0 \text{ a.e. }\)，那么存在常数 \(c\) 使得 \(u = c \text{ a.e. }\)
+
+参考 [Hunter Hunter Notes on PDE ](../refs/Hunter%20-%20Notes%20on%20Partial%20Diﬀerential%20Equations.pdf)
+
+
+
 
 
 

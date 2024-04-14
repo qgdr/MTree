@@ -149,8 +149,9 @@ nav:
   - LinearAlgebra: LinearAlgebra/
   - Topology: Topology/
   - ConvexOptimization: ConvexOptimization/
-  - FunctionalAnalysis: FunctionalAnalysis/
   - FiniteDifferenceMethods: FiniteDifferenceMethods/
+  - RealAnalysis: RealAnalysis/
+  - FunctionalAnalysis: FunctionalAnalysis/
   - PartialDifferentialEquations: PartialDifferentialEquations/
   - FractionalDifferentialEquations: FractionalDifferentialEquations/
   - Research: Research/

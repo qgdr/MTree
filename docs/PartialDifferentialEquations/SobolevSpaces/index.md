@@ -23,10 +23,10 @@
     可是，为什么？
 
 
-
+参考 [Hunter Notes on PDE Example 3.4 3.5](../refs/Hunter%20-%20Notes%20on%20Partial%20Diﬀerential%20Equations.pdf)
 
 我们能发现，分段导数无法还原正是由于 *间断点* 的存在。      
-（参考 [信号与系统 阶跃函数](../../SignalAndSystem/index.md)）      
+<!-- （参考 [信号与系统 阶跃函数](../../SignalAndSystem/index.md)）       -->
 想要导数的积分能够还原，我们认为阶跃函数的导数应当是 \(\delta(x)\)，但是它本身并不真的是一个函数。      
 我们可以这样形容他，
 
@@ -84,3 +84,23 @@ $$ \int_{\Omega} u(x)D^\alpha\phi(x)dx = (-1)^{|\alpha|} \int_{\Omega} v(x)\phi(
 
 $$ D^\alpha u = v $$
 
+### 唯一性
+
+若有两个函数 \(v, w \in L_{\text{loc}}^1(\Omega)\) 都是 \(u\) 的弱偏导数，那么对于任意 \(\phi \in C_c^\infty(\Omega)\) 都有      
+
+$$ \int_{\Omega} u D^{\alpha} \phi = (-1)^{|\alpha|} \int_{\Omega} v \phi = (-1)^{|\alpha|} \int_{\Omega} w \phi $$
+
+则
+
+$$ \int_{\Omega} (v-w) \phi = 0 $$
+
+
+!!! Lemma
+
+    证明见 [Approximation](../../RealAnalysis/Approximation/index.md)
+
+    若 \(u\in L_{\text{loc}}^1(\Omega)\) 对任何 \(\phi \in C_c^\infty(\Omega)\) 满足
+
+    $$ \int_{\Omega} u \phi = 0 $$
+
+    则 \(u = 0 \text{ a.e.}\) 

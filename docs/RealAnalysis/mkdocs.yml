@@ -2,3 +2,6 @@ nav:
 - index.md
 - 卷积: 
   - Convolution/index.md
+- 逼近: 
+  - Approximation/index.md
+
