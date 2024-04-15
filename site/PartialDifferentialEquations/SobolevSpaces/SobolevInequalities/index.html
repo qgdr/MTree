@@ -2720,20 +2720,27 @@ Brezis 书中的内容比较丰富，全面。</p>
 </div>
 <h2 id="n1">n=1<a class="headerlink" href="#n1" title="Permanent link">&para;</a></h2>
 <p>在对一般的 <span class="arithmatex">\(R^n\)</span> 分析前，我们不妨先研究一下 <span class="arithmatex">\(n=1\)</span> 的情况。</p>
+<p>参考 <a href="../../../Library/Brezis%20-%202011%20-%20Functional%20Analysis%2C%20Sobolev%20Spaces%20and%20Partial%20Di.pdf">Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space <span class="arithmatex">\(W^{1, p}(I)\)</span> Theorem 8.2</a></p>
 <p><span class="arithmatex">\(u\)</span> 貌似跟 <span class="arithmatex">\(\int_0^x Du\)</span> 差不多。其实我们有如下定理</p>
 <div class="admonition theorem">
 <p class="admonition-title">Theorem</p>
 <p>对于某个 <span class="arithmatex">\(1\le p \le \infty\)</span>，若 <span class="arithmatex">\(u\in W^{1, p}(\Omega)\)</span>， <span class="arithmatex">\(\Omega \subseteq R\)</span> 是某个开区间，    <br />
 则存在 点 <span class="arithmatex">\(x_0 \in \Omega\)</span> 和常数 <span class="arithmatex">\(c\)</span>  满足，使得</p>
 <div class="arithmatex">\[ u(x) = c + \int_{x_0}^x Du, \text{ a.e.} \quad x\in \Omega \]</div>
+<hr />
+<p>1 . 这也意味着， <span class="arithmatex">\(u\)</span> 和一个连续函数几乎处处相等，而 <span class="arithmatex">\(u\in W^{1, p}(\Omega)\)</span>，那么个连续函数也属于 <span class="arithmatex">\(W^{1, p}(\Omega)\)</span>。我们称这是 <span class="arithmatex">\(u\)</span> 的一个连续版本，并且以后我们将不再区分这两个函数。</p>
+<p>2 . <span class="arithmatex">\(u(x)\)</span> 几乎处处可导，且 <span class="arithmatex">\(u' = Du \text{ a.e.}\)</span>。</p>
 </div>
 <p>由于 <span class="arithmatex">\(v \in L^p(\Omega)\)</span>，那么 <span class="arithmatex">\(v \in L_{\text{loc}}^1(\Omega)\)</span>。     <br />
-我们记 <span class="arithmatex">\(v(x) = \int_{x_0}^x Du\)</span>，<span class="arithmatex">\(v(x) \le \int_\Omega |Du|\)</span>，一致有界，故 <span class="arithmatex">\(v\in L_{\text{loc}}^1(\Omega)\)</span>。</p>
+我们令</p>
+<div class="arithmatex">\[ v(x) = \int_{x_0}^x Du \]</div>
+<p>则 <span class="arithmatex">\(v(x) \le \int_\Omega |Du|\)</span>，一致有界，故 <span class="arithmatex">\(v\in L_{\text{loc}}^1(\Omega)\)</span>。</p>
 <p><strong>1</strong>.</p>
-<p>下面我们证明，对于一个有界区间 <span class="arithmatex">\(W \subset \Omega\)</span>， <span class="arithmatex">\(v\)</span> 在 <span class="arithmatex">\(W\)</span> 上是 <strong>绝对连续函数</strong> 的。</p>
+<p>下面我们证明，对于一个有界区间 <span class="arithmatex">\(W \subset \Omega\)</span>， <span class="arithmatex">\(v\)</span> 在 <span class="arithmatex">\(W\)</span> 上是 <strong>绝对连续函数</strong> 。</p>
+<p><a href="../../../Library/%E3%80%8A%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E8%AE%BA%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8B%E5%91%A8%E6%B0%91%E5%BC%BA%2B%E5%8C%97%E4%BA%AC%E5%A4%A7%E5%AD%A62008%E5%B9%B45%E6%9C%88%E7%AC%AC2%E7%89%88.pdf">周民强 实变函数论 5.4 绝对函数与微积分基本定理 定理 5.10</a> ）</p>
 <p>这是因为可积函数可被光滑函数逼近，即 <span class="arithmatex">\(C_c^\infty(\Omega)\)</span> 在 <span class="arithmatex">\(C^p(\Omega), 1\le p &lt; \infty\)</span> 中稠密。          <br />
 （参考 <a href="../../../Library/%5BGerald_B._Folland%5D_Real_Analysis__Modern_Techniq.pdf">Folland Real Analysis Proposition 8.17</a>   <br />
-<a href="../../#lawrence-cevans-partial-differential-equations">Lawrence C.Evans Partial differential equations</a>）     </p>
+<a href="../../#lawrence-cevans-partial-differential-equations">Lawrence C.Evans Partial differential equations Appendix C.5</a>）     </p>
 <p>对于 <span class="arithmatex">\(\forall \epsilon &gt; 0\)</span>，存在连续函数 <span class="arithmatex">\(g \in C_c^\infty(W)\)</span>，使得 <span class="arithmatex">\(\int_W |u(x) - g(x)| dx &lt; \epsilon/2\)</span>。   <br />
 而对于 <span class="arithmatex">\(Dg\)</span> 他在紧集上连续，那么他有界，<span class="arithmatex">\(g\)</span> 是 Lipschitz 连续的，<span class="arithmatex">\( |g(x)-g(y)| \leq L(|x-y|)\)</span>。      <br />
 因此， 若 <span class="arithmatex">\(0&lt;\delta &lt; \dfrac{\epsilon}{2L}, \)</span>，       <br />
@@ -2745,28 +2752,79 @@ Brezis 书中的内容比较丰富，全面。</p>
     &amp; \leq \frac{\epsilon}{2} + L \delta        \\
     &amp; \leq \frac{\epsilon}{2} + L \frac{\epsilon}{2L} = \epsilon  \\
 \end{align}. \]</div>
-<p>故 <span class="arithmatex">\(v\)</span> 在 <span class="arithmatex">\(\Omega\)</span> 的任意有界子集上绝对连续，且 <strong>几乎处处可导</strong> 。       <br />
-那么 <span class="arithmatex">\(v' = Du \text{ a.e.}\)</span> </p>
+<p>故 <span class="arithmatex">\(v\)</span> 在 <span class="arithmatex">\(\Omega\)</span> 的任意有界子集上绝对连续。</p>
+<p>那么他 <strong>几乎处处可导</strong> 。（ <a href="../../../Library/%E3%80%8A%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E8%AE%BA%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8B%E5%91%A8%E6%B0%91%E5%BC%BA%2B%E5%8C%97%E4%BA%AC%E5%A4%A7%E5%AD%A62008%E5%B9%B45%E6%9C%88%E7%AC%AC2%E7%89%88.pdf">周民强 实变函数论 5.4 绝对函数与微积分基本定理 推论 5.12</a> ）       <br />
+那么 <span class="arithmatex">\(v' = Du \text{ a.e.}\)</span>  （ <a href="../../../Library/%E3%80%8A%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E8%AE%BA%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8B%E5%91%A8%E6%B0%91%E5%BC%BA%2B%E5%8C%97%E4%BA%AC%E5%A4%A7%E5%AD%A62008%E5%B9%B45%E6%9C%88%E7%AC%AC2%E7%89%88.pdf">周民强 实变函数论 5.3 不定积分的微分 定理 5.7</a> ）</p>
 <p><strong>2</strong>.</p>
+<p><a href="../../../Library/Brezis%20-%202011%20-%20Functional%20Analysis%2C%20Sobolev%20Spaces%20and%20Partial%20Di.pdf">Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space <span class="arithmatex">\(W^{1, p}(I)\)</span> Lemma 8.2</a></p>
 <p>我们证明 <span class="arithmatex">\(D(u-v) = 0 \text{ a.e.}\)</span>。</p>
-<p>考虑 <span class="arithmatex">\(u - v\)</span> ，对任意的 <span class="arithmatex">\(\phi \in C_c^\infty(\Omega)\)</span>，</p>
+<p>我们这里扩大了 <span class="arithmatex">\(\phi\)</span> 的选择空间。      <br />
+对任意的 <span class="arithmatex">\(\phi \in C_c^1(\Omega)\)</span>，</p>
 <div class="arithmatex">\[ \begin{align}
-    \int_\Omega (u - v) D\phi &amp;= \int_\Omega u D\phi - \int_\Omega v D\phi \\
-    &amp;= -\int_\Omega Du \phi - \int_\Omega \phi \int_{x_0}^x Du \\
-    &amp;= -\int_\Omega Du \phi - \phi\int_\Omega \phi \int_{x_0}^x Du \\
+    \int_\Omega v \phi'
+    &amp;= \int_\Omega \phi' \int_{x_0}^x Du \\
 \end{align}  \]</div>
-<!-- 
-我们只需要证明 \(u - v = c \text{ a.e.}\)
-
-
-那么 \(u, v \in L_{\text{loc}}^p(\Omega)\)，
-以及对于任意的 \(\phi(x) \in C_c^\infty(R)\)，都有
-
-$$ \int_R D\phi(x) u(x) dx = -\int_R \phi(x) v(x) dx $$ -->
-
+<p>那么由 可积函数的 <strong>分部积分定理</strong></p>
+<div class="admonition lemma">
+<p class="admonition-title">Lemma</p>
+<p>证明参考 <a href="../../../Library/%E3%80%8A%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E8%AE%BA%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8B%E5%91%A8%E6%B0%91%E5%BC%BA%2B%E5%8C%97%E4%BA%AC%E5%A4%A7%E5%AD%A62008%E5%B9%B45%E6%9C%88%E7%AC%AC2%E7%89%88.pdf">周民强 实变函数论 5.5 分部积分与积分中值定理 定理 5。15</a></p>
+<p>若 <span class="arithmatex">\(f(x), g(x)\)</span> 皆为 <span class="arithmatex">\([a,b]\)</span> 上的可积函数，<span class="arithmatex">\(\alpha, \beta \in R\)</span>，令</p>
+<div class="arithmatex">\[ F(x) = \alpha + \int_a^x f(t)dt, \quad G(x) = \beta + \int_a^x g(t)dt \]</div>
+<p>则</p>
+<div class="arithmatex">\[ \int_a^b G(x)f(x)dx + \int_a^b g(x)F(x)dx = F(b)G(b) - F(a)G(a) \]</div>
+</div>
+<p><span class="arithmatex">\(\phi', Du\)</span> 可积，则</p>
+<div class="arithmatex">\[ \begin{align}
+    \int_\Omega v \phi'
+    = \int_\Omega \phi' \int_{x_0}^x Du 
+    = v \phi \Big|_{\partial \Omega} - \int_\Omega \phi Du 
+    = - \int_\Omega \phi Du 
+\end{align}  \]</div>
+<p>因此 <span class="arithmatex">\(Du\)</span> 是 <span class="arithmatex">\(v\)</span> 的弱导数，那么由于弱导数线性原理 <span class="arithmatex">\(D(u-v) = 0 \text{ a.e. }\)</span>        <br />
+所以 <span class="arithmatex">\(v, u-v \in W_{\text{loc}}^{1,p}(\Omega)\)</span></p>
 <p><strong>3</strong>.</p>
-<p>对于一个函数 <span class="arithmatex">\(u \in W^{1,p}(\Omega)\)</span>，如果 <span class="arithmatex">\(Du = 0 \text{ a.e. }\)</span>，那么存在常数 <span class="arithmatex">\(c\)</span> 使得 <span class="arithmatex">\(u = c \text{ a.e. }\)</span></p>
-<p>参考 <a href="../../refs/Hunter%20-%20Notes%20on%20Partial%20Di%EF%AC%80erential%20Equations.pdf">Hunter Hunter Notes on PDE </a></p>
+<p>由于 <span class="arithmatex">\(u-v \in W_{\text{loc}}^{1,p}(\Omega)\)</span>，
+而 <span class="arithmatex">\(D(u-v) = 0 \text{ a.e. }\)</span>，我们希望 <span class="arithmatex">\(u = c \text{ a.e. }\)</span></p>
+<p>参考 <a href="../../refs/Hunter%20-%20Notes%20on%20Partial%20Di%EF%AC%80erential%20Equations.pdf">Hunter Hunter Notes on PDE Proposition 3.6</a>    <br />
+<a href="../../../Library/Brezis%20-%202011%20-%20Functional%20Analysis%2C%20Sobolev%20Spaces%20and%20Partial%20Di.pdf">Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space <span class="arithmatex">\(W^{1, p}(I)\)</span> Lemma 8.1</a></p>
+<div class="admonition lemma">
+<p class="admonition-title">Lemma</p>
+<p>设 <span class="arithmatex">\(f \in L_{\text{loc}}^1(\Omega)\)</span> 满足</p>
+<div class="arithmatex">\[ \int_\Omega f  \phi' dx = 0 \; \forall \phi \in C_c^1(\Omega) \]</div>
+<p>那么存在常数 <span class="arithmatex">\(c\)</span> 使得 <span class="arithmatex">\(f = c \text{ a.e. }, x \in \Omega \)</span></p>
+<hr />
+<p>固定 <span class="arithmatex">\(\eta \in C_c(\Omega), \int_{\Omega} \eta = 1\)</span>。    <br />
+对于任何函数 <span class="arithmatex">\(\phi \in C_c(\Omega)\)</span>，令</p>
+<div class="arithmatex">\[ h(x) = \phi(x) - (\int_\Omega \phi )\eta(x) \]</div>
+<p>那么 </p>
+<div class="arithmatex">\[ \int_\Omega h = \int_\Omega \phi - (\int_\Omega \phi )\int \eta(x) = 0 \]</div>
+<p>因此对 <span class="arithmatex">\(h\)</span> 进行积分</p>
+<div class="arithmatex">\[ H(x) = \int_{-\infty}^x h(t) \]</div>
+<p>那么 <span class="arithmatex">\(H(x)\in C_c^1(\Omega) \)</span></p>
+<p>根据题目条件，我们有</p>
+<div class="arithmatex">\[ \begin{align}
+    0 &amp;= \int_\Omega f H' = \int_\Omega f(x) \left[ \phi(x) - (\int_\Omega \phi )\eta(x) \right] \\
+    &amp;= \int_\Omega f \phi - (\int_\Omega f \eta) (\int_\Omega \phi)      \\
+    &amp;= \int_\Omega \left[f  - (\int_\Omega f \eta)\right] \phi      \\
+\end{align} \]</div>
+<p>那么由 <a href="../../../RealAnalysis/Approximation/">内积任何测试函数 0，则几乎处处为零</a> 可知</p>
+<div class="arithmatex">\[ f - (\int_\Omega f \eta) = 0 \text{ a.e. } \]</div>
+</div>
+<p>那么，由 2 以及 [光滑函数一致逼近连续函数] ，对于任何 <span class="arithmatex">\(\phi\in C_c^1(\Omega)\)</span>，</p>
+<div class="arithmatex">\[ \int_\Omega (u-v) \phi' = - \int \phi Du + \int \phi Dv = \int \phi (Du - Dv) = 0 \]</div>
+<p>那么存在 <span class="arithmatex">\(c\)</span> 使得 <span class="arithmatex">\(u-v = c \text{ a.e. }\)</span> ， 即</p>
+<div class="arithmatex">\[ u(x) = c + \int_{x_0}^x Du \text{ a.e. } \]</div>
+<p>其中 <span class="arithmatex">\( v(x)=c+\int_{x_0}^x Du = c+\int_{x_0}^x v' \text{ a.e. } \)</span>，
+<span class="arithmatex">\(v' = Du \text{ a.e. }, v = u \text{ a.e. } \)</span>，     <br />
+故 <span class="arithmatex">\(v \in W^{1,p}(\Omega)\)</span>。</p>
+<p>此后不再区分 <span class="arithmatex">\(u, v\)</span>，默认 <span class="arithmatex">\(u\)</span> 是连续版本。</p>
+<div class="admonition proposition">
+<p class="admonition-title">Proposition</p>
+<p>对于 <span class="arithmatex">\( 1 &lt; p &lt;\infty\)</span>，</p>
+<div class="arithmatex">\[ \begin{align}
+    |u(x)-u(y)| \le \int_x^y 1 \cdot | Du | \le (\int_x^y 1^{\frac{p}{p-1}})^{\frac{p-1}{p}} (\int_x^y |Du|^p)^{\frac{1}{p}} = |x-y|^{1-\frac{1}{p}} \|Du\|_{L^p(\Omega)}
+\end{align} \]</div>
+</div>
 <h2 id="pn">边界情况 p=n<a class="headerlink" href="#pn" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

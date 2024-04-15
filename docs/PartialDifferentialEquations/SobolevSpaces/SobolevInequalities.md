@@ -1,7 +1,7 @@
 # Sobolev 不等式
 
-查看 [Lawrence C.Evans Partial differential equations 5.6][ref1],    
-以及 [Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3][ref2]，     
+查看 [Lawrence C.Evans Partial differential equations 5.6][Evans],    
+以及 [Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3][Brezis]，     
 Brezis 书中的内容比较丰富，全面。
 
 我们在这一部分的目标是发现各种Sobolev空间到其他空间的嵌入。         
@@ -164,7 +164,7 @@ $$ p^* = \frac{np}{n-p} $$
 
 **证明**:
 
-[Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Theorem 9.9][ref2]
+[Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Theorem 9.9][Brezis]
 
 
 **1**.      
@@ -291,7 +291,7 @@ $$ \begin{gather}
 
 !!! Corollary
 
-    [Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Corollary 9.10][ref2]
+    [Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Corollary 9.10][Brezis]
 
     $$ \begin{cases} W^{1,p}(R^n) \subset  L^{p^*}(R^n) \\ W^{1,p}(R^n) \subset  L^{p}(R^n) \end{cases} \Rightarrow W^{1,p}(R^n) \subset  L^{q}(R^n), \; q\in [p, p^*] $$
 
@@ -350,6 +350,8 @@ $$ \begin{gather}
 
 在对一般的 \(R^n\) 分析前，我们不妨先研究一下 \(n=1\) 的情况。
 
+参考 [Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space \(W^{1, p}(I)\) Theorem 8.2](../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf)
+
 \(u\) 貌似跟 \(\int_0^x Du\) 差不多。其实我们有如下定理
 
 
@@ -360,16 +362,28 @@ $$ \begin{gather}
 
     $$ u(x) = c + \int_{x_0}^x Du, \text{ a.e.} \quad x\in \Omega $$
 
+    ----
+
+    1 . 这也意味着， \(u\) 和一个连续函数几乎处处相等，而 \(u\in W^{1, p}(\Omega)\)，那么个连续函数也属于 \(W^{1, p}(\Omega)\)。我们称这是 \(u\) 的一个连续版本，并且以后我们将不再区分这两个函数。
+
+    2 . \(u(x)\) 几乎处处可导，且 \(u' = Du \text{ a.e.}\)。
+
 由于 \(v \in L^p(\Omega)\)，那么 \(v \in L_{\text{loc}}^1(\Omega)\)。       
-我们记 \(v(x) = \int_{x_0}^x Du\)，\(v(x) \le \int_\Omega |Du|\)，一致有界，故 \(v\in L_{\text{loc}}^1(\Omega)\)。
+我们令
+
+$$ v(x) = \int_{x_0}^x Du $$
+
+则 \(v(x) \le \int_\Omega |Du|\)，一致有界，故 \(v\in L_{\text{loc}}^1(\Omega)\)。
 
 **1**.
 
-下面我们证明，对于一个有界区间 \(W \subset \Omega\)， \(v\) 在 \(W\) 上是 **绝对连续函数** 的。
+下面我们证明，对于一个有界区间 \(W \subset \Omega\)， \(v\) 在 \(W\) 上是 **绝对连续函数** 。
+
+ [周民强 实变函数论 5.4 绝对函数与微积分基本定理 定理 5.10][Zhou] ）
 
 这是因为可积函数可被光滑函数逼近，即 \(C_c^\infty(\Omega)\) 在 \(C^p(\Omega), 1\le p < \infty\) 中稠密。            
 （参考 [Folland Real Analysis Proposition 8.17](../../Library/[Gerald_B._Folland]_Real_Analysis__Modern_Techniq.pdf)     
-[Lawrence C.Evans Partial differential equations][ref1]）     
+[Lawrence C.Evans Partial differential equations Appendix C.5][Evans]）     
 
 对于 \(\forall \epsilon > 0\)，存在连续函数 \(g \in C_c^\infty(W)\)，使得 \(\int_W |u(x) - g(x)| dx < \epsilon/2\)。     
 而对于 \(Dg\) 他在紧集上连续，那么他有界，\(g\) 是 Lipschitz 连续的，\( |g(x)-g(y)| \leq L(|x-y|)\)。        
@@ -384,36 +398,121 @@ $$ \begin{align}
     & \leq \frac{\epsilon}{2} + L \frac{\epsilon}{2L} = \epsilon  \\
 \end{align}. $$
 
-故 \(v\) 在 \(\Omega\) 的任意有界子集上绝对连续，且 **几乎处处可导** 。         
-那么 \(v' = Du \text{ a.e.}\) 
+故 \(v\) 在 \(\Omega\) 的任意有界子集上绝对连续。
+
+那么他 **几乎处处可导** 。（ [周民强 实变函数论 5.4 绝对函数与微积分基本定理 推论 5.12][Zhou] ）         
+那么 \(v' = Du \text{ a.e.}\)  （ [周民强 实变函数论 5.3 不定积分的微分 定理 5.7][Zhou] ）
 
 **2**.
 
+[Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space \(W^{1, p}(I)\) Lemma 8.2][Brezis]
+
 我们证明 \(D(u-v) = 0 \text{ a.e.}\)。
 
-考虑 \(u - v\) ，对任意的 \(\phi \in C_c^\infty(\Omega)\)，
+我们这里扩大了 \(\phi\) 的选择空间。        
+对任意的 \(\phi \in C_c^1(\Omega)\)，
 
 $$ \begin{align}
-    \int_\Omega (u - v) D\phi &= \int_\Omega u D\phi - \int_\Omega v D\phi \\
-    &= -\int_\Omega Du \phi - \int_\Omega \phi \int_{x_0}^x Du \\
-    &= -\int_\Omega Du \phi - \phi\int_\Omega \phi \int_{x_0}^x Du \\
+    \int_\Omega v \phi'
+    &= \int_\Omega \phi' \int_{x_0}^x Du \\
 \end{align}  $$
 
-<!-- 
-我们只需要证明 \(u - v = c \text{ a.e.}\)
+那么由 可积函数的 **分部积分定理**
+
+!!! Lemma
+
+    证明参考 [周民强 实变函数论 5.5 分部积分与积分中值定理 定理 5。15][Zhou]
+
+    若 \(f(x), g(x)\) 皆为 \([a,b]\) 上的可积函数，\(\alpha, \beta \in R\)，令
+
+    $$ F(x) = \alpha + \int_a^x f(t)dt, \quad G(x) = \beta + \int_a^x g(t)dt $$
+
+    则
+
+    $$ \int_a^b G(x)f(x)dx + \int_a^b g(x)F(x)dx = F(b)G(b) - F(a)G(a) $$
+
+\(\phi', Du\) 可积，则
+
+$$ \begin{align}
+    \int_\Omega v \phi'
+    = \int_\Omega \phi' \int_{x_0}^x Du 
+    = v \phi \Big|_{\partial \Omega} - \int_\Omega \phi Du 
+    = - \int_\Omega \phi Du 
+\end{align}  $$
 
 
-那么 \(u, v \in L_{\text{loc}}^p(\Omega)\)，
-以及对于任意的 \(\phi(x) \in C_c^\infty(R)\)，都有
-
-$$ \int_R D\phi(x) u(x) dx = -\int_R \phi(x) v(x) dx $$ -->
+因此 \(Du\) 是 \(v\) 的弱导数，那么由于弱导数线性原理 \(D(u-v) = 0 \text{ a.e. }\)          
+所以 \(v, u-v \in W_{\text{loc}}^{1,p}(\Omega)\)
 
 
 **3**.
 
-对于一个函数 \(u \in W^{1,p}(\Omega)\)，如果 \(Du = 0 \text{ a.e. }\)，那么存在常数 \(c\) 使得 \(u = c \text{ a.e. }\)
+由于 \(u-v \in W_{\text{loc}}^{1,p}(\Omega)\)，
+而 \(D(u-v) = 0 \text{ a.e. }\)，我们希望 \(u = c \text{ a.e. }\)
 
-参考 [Hunter Hunter Notes on PDE ](../refs/Hunter%20-%20Notes%20on%20Partial%20Diﬀerential%20Equations.pdf)
+参考 [Hunter Hunter Notes on PDE Proposition 3.6][Hunter]      
+[Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space \(W^{1, p}(I)\) Lemma 8.1][Brezis]
+
+!!! Lemma
+
+    设 \(f \in L_{\text{loc}}^1(\Omega)\) 满足
+
+    $$ \int_\Omega f  \phi' dx = 0 \; \forall \phi \in C_c^1(\Omega) $$
+
+    那么存在常数 \(c\) 使得 \(f = c \text{ a.e. }, x \in \Omega \)
+
+    ----
+
+    固定 \(\eta \in C_c(\Omega), \int_{\Omega} \eta = 1\)。      
+    对于任何函数 \(\phi \in C_c(\Omega)\)，令
+
+    $$ h(x) = \phi(x) - (\int_\Omega \phi )\eta(x) $$
+
+    那么 
+    
+    $$ \int_\Omega h = \int_\Omega \phi - (\int_\Omega \phi )\int \eta(x) = 0 $$
+
+    因此对 \(h\) 进行积分
+
+    $$ H(x) = \int_{-\infty}^x h(t) $$
+
+    那么 \(H(x)\in C_c^1(\Omega) \)
+
+    根据题目条件，我们有
+
+    $$ \begin{align}
+        0 &= \int_\Omega f H' = \int_\Omega f(x) \left[ \phi(x) - (\int_\Omega \phi )\eta(x) \right] \\
+        &= \int_\Omega f \phi - (\int_\Omega f \eta) (\int_\Omega \phi)      \\
+        &= \int_\Omega \left[f  - (\int_\Omega f \eta)\right] \phi      \\
+    \end{align} $$
+
+    那么由 [内积任何测试函数 0，则几乎处处为零](../../RealAnalysis/Approximation/index.md) 可知
+
+    $$ f - (\int_\Omega f \eta) = 0 \text{ a.e. } $$
+
+
+那么，由 2 以及 [光滑函数一致逼近连续函数] ，对于任何 \(\phi\in C_c^1(\Omega)\)，
+
+$$ \int_\Omega (u-v) \phi' = - \int \phi Du + \int \phi Dv = \int \phi (Du - Dv) = 0 $$
+
+那么存在 \(c\) 使得 \(u-v = c \text{ a.e. }\) ， 即
+
+$$ u(x) = c + \int_{x_0}^x Du \text{ a.e. } $$
+
+其中 \( v(x)=c+\int_{x_0}^x Du = c+\int_{x_0}^x v' \text{ a.e. } \)，
+\(v' = Du \text{ a.e. }, v = u \text{ a.e. } \)，       
+故 \(v \in W^{1,p}(\Omega)\)。
+
+此后不再区分 \(u, v\)，默认 \(u\) 是连续版本。
+
+
+!!! Proposition
+
+    对于 \( 1 < p <\infty\)，
+
+    $$ \begin{align}
+        |u(x)-u(y)| \le \int_x^y 1 \cdot | Du | \le (\int_x^y 1^{\frac{p}{p-1}})^{\frac{p-1}{p}} (\int_x^y |Du|^p)^{\frac{1}{p}} = |x-y|^{1-\frac{1}{p}} \|Du\|_{L^p(\Omega)}
+    \end{align} $$
 
 
 
@@ -455,7 +554,7 @@ $$ \int_R D\phi(x) u(x) dx = -\int_R \phi(x) v(x) dx $$ -->
 !!! Theorem
 
     事实上我们有满足我们最开始猜测的估计    
-    [Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Corollary 9.11][ref2]
+    [Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Corollary 9.11][Brezis]
 
     $$ \|u\|_{L^q(R^n)} \le C(n, q) \|u\|_{W^{1, n}(R^n)} \quad \text{ i.e. } \quad W^{1,n}(R^n) \subset  L^q(R^n), \quad n \le q < \infty $$
 
@@ -556,5 +655,7 @@ $$ W^{1,n}(R^n) \subset  L^{q}(R^n) \quad n \le q < \infty $$
 
 
 
-[ref1]:../index.md#lawrence-cevans-partial-differential-equations       
-[ref2]:../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf
+[Evans]: ../index.md#lawrence-cevans-partial-differential-equations                
+[Brezis]: ../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf
+[Hunter]: ../refs/Hunter%20-%20Notes%20on%20Partial%20Diﬀerential%20Equations.pdf
+[Zhou]: ../../Library/《实变函数论第二版》周民强+北京大学2008年5月第2版.pdf

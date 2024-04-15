@@ -1833,6 +1833,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    逼近
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1842,6 +1853,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#urysohn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Urysohn 定理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partition-of-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      单位分解定理 Partition of Unity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="单位分解定理 Partition of Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      有限版本
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2258,6 +2321,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#urysohn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Urysohn 定理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partition-of-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      单位分解定理 Partition of Unity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="单位分解定理 Partition of Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      有限版本
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2277,6 +2381,19 @@
 
 <!-- Page content -->
 <h1 id="approximation">光滑逼近 Approximation<a class="headerlink" href="#approximation" title="Permanent link">&para;</a></h1>
+<h2 id="urysohn">Urysohn 定理<a class="headerlink" href="#urysohn" title="Permanent link">&para;</a></h2>
+<p>令 <span class="arithmatex">\(U, V\)</span> 是 <span class="arithmatex">\(R^n\)</span> 中的开集，<span class="arithmatex">\(V \subset\subset U\)</span>。
+则存在一个光滑函数 <span class="arithmatex">\(\zeta\)</span> 使得 <span class="arithmatex">\(\zeta(x) \equiv 1, x\in V\)</span>，<span class="arithmatex">\(\zeta(x) = 0, x \text{  near  } U\)</span></p>
+<p><strong>证明</strong></p>
+<p>因为 <span class="arithmatex">\(\overline{V} \subset \Omega\)</span>，故存在 <span class="arithmatex">\(\epsilon_0 &gt; 0\)</span> ，使得 <span class="arithmatex">\(\text{dist}(\overline{V}, \partial\Omega) &gt; 2\epsilon_0\)</span>。    <br />
+那么令 <span class="arithmatex">\(W = \{x: \text{dist}(x, \overline{V}) &lt; \epsilon_0 \}\)</span>，则 <span class="arithmatex">\(W\)</span> 是一个开集，且 <span class="arithmatex">\(V \subset\subset W \subset\subset \Omega\)</span>。</p>
+<p>令 <span class="arithmatex">\(\eta(x)\)</span> 是 <strong>磨光函数</strong>，<span class="arithmatex">\(\eta_\epsilon(x) = \frac{1}{\epsilon^n} \eta(\frac{x}{\epsilon})\)</span> ，  <span class="arithmatex">\(\int_\Omega \eta_\epsilon = 1\)</span>   <br />
+那么令 <span class="arithmatex">\(0 &lt; \epsilon &lt; \epsilon_0\)</span>，  <span class="arithmatex">\(\zeta=\eta_\epsilon * \chi_W \)</span>， <span class="arithmatex">\(\zeta\)</span> 是一个光滑函数，且 <span class="arithmatex">\(0 \le \zeta(x) \le 1, x\in \Omega\)</span></p>
+<p>当 <span class="arithmatex">\(x\in V\)</span> 时，<span class="arithmatex">\(B(x, \epsilon) \subset W\)</span></p>
+<div class="arithmatex">\[ \zeta(x) = \int_{B(0, \epsilon)} \chi_W (x-y) \eta_\epsilon(y) dy =  \int_{B(x, \epsilon)} \chi_W (y) \eta_\epsilon(x-y) dy =  \int_{B(0, \epsilon)} 1 \eta_\epsilon(y) dy = 1 \]</div>
+<p>当 <span class="arithmatex">\(x\to \partial \Omega\)</span> 时，<span class="arithmatex">\(\text{dist}(x, \overline{V}) &gt; 2\epsilon\)</span>， <span class="arithmatex">\(B(x, \epsilon) \subset W^c\)</span>，同理得 <span class="arithmatex">\(\zeta(x) = 0\)</span></p>
+<h2 id="partition-of-unity">单位分解定理 Partition of Unity<a class="headerlink" href="#partition-of-unity" title="Permanent link">&para;</a></h2>
+<h3 id="_1">有限版本<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 
 <!-- Source file information -->
 

@@ -1,8 +1,10 @@
 # 逼近 Approximation
 
-最近我在用一个广为人知的定理，但突然发现不知道怎么证了，翻了好多书都没有证明，于是为了证明这个结果，顺便补充这一章。
+最近我在用一个广为人知的定理： 内积任何 **测试函数** 0，则 **几乎处处为零** ，但突然发现不知道怎么证了，翻了好多书都没有证明，于是为了证明这个结果，顺便补充这一章。
 
 !!! question
+    参考 [Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations - Mollifiers Corollary 4.24](../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf)
+
     \(\Omega\) 是 \(R^n\) 中的开集。        
     若 \(u\in L_{\text{loc}}^1(\Omega)\) 对任何 \(\phi \in C_c^\infty(\Omega)\) 满足
 
