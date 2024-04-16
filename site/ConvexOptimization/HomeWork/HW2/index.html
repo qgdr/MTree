@@ -2437,11 +2437,12 @@ And then we have <span class="arithmatex">\(f(\mathbf{X}) = (\det(\mathbf{X}))^{
 <p class="admonition-title">Solve</p>
 <div class="arithmatex">\[ f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} \]</div>
 <p><strong>a</strong>. </p>
+<div class="arithmatex">\[ f(\mathbf{x})=\max_{i=1,..,n} x_i \]</div>
 <ol>
 <li>If <span class="arithmatex">\(y_i &lt; 0\)</span> for some <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{x_i &lt; 0}\{y^T (0, ..., x_i, ..., 0) - 0\} = +\infty \)</span>.   </li>
 <li>If <span class="arithmatex">\(\sum_{i=1}^n y_i \neq 1\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{t}\{y^T ( t, ..., t) - t\} = +\infty \)</span>.     </li>
 <li>If <span class="arithmatex">\(\sum_{i=1}^n y_i = 1\)</span> and <span class="arithmatex">\(y_i \ge 0\)</span> for all <span class="arithmatex">\(i\)</span>, then  <br />
-<span class="arithmatex">\(f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} = \sum_{i=1}^n y_i\max_{i=1}^n x_i - f(x) = 0\)</span>.   </li>
+<span class="arithmatex">\(f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} \le \sum_{i=1}^n y_i\max_{i=1}^n x_i - \max_{i=1}^n x_i = 0\)</span>.   </li>
 </ol>
 <p>So we have</p>
 <div class="arithmatex">\[ f^*(y) = \begin{cases}
@@ -2450,6 +2451,7 @@ And then we have <span class="arithmatex">\(f(\mathbf{X}) = (\det(\mathbf{X}))^{
 \end{cases} \]</div>
 <hr />
 <p><strong>b</strong>.</p>
+<div class="arithmatex">\[ f(\mathbf{x}) = \sum_{i=1}^r x_{[i]} \]</div>
 <p>Similarly,      </p>
 <ol>
 <li>If <span class="arithmatex">\(y_i &lt; 0\)</span> for some <span class="arithmatex">\(i\)</span>, then <span class="arithmatex">\(f^*(y) \ge \sup_{x_i &lt; 0}\{y^T (0, ..., x_i, ..., 0) - 0 \} = +\infty \)</span>.      </li>

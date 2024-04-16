@@ -66,10 +66,12 @@ c. Log function of the Matrix: \(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \).
 
     **a**. 
 
+    $$ f(\mathbf{x})=\max_{i=1,..,n} x_i $$
+
     1. If \(y_i < 0\) for some \(i\), then \(f^*(y) \ge \sup_{x_i < 0}\{y^T (0, ..., x_i, ..., 0) - 0\} = +\infty \).   
     2. If \(\sum_{i=1}^n y_i \neq 1\), then \(f^*(y) \ge \sup_{t}\{y^T ( t, ..., t) - t\} = +\infty \).     
     3. If \(\sum_{i=1}^n y_i = 1\) and \(y_i \ge 0\) for all \(i\), then    
-    \(f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} = \sum_{i=1}^n y_i\max_{i=1}^n x_i - f(x) = 0\).   
+    \(f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} \le \sum_{i=1}^n y_i\max_{i=1}^n x_i - \max_{i=1}^n x_i = 0\).   
 
     So we have
 
@@ -81,6 +83,8 @@ c. Log function of the Matrix: \(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \).
     ---
 
     **b**.
+
+    $$ f(\mathbf{x}) = \sum_{i=1}^r x_{[i]} $$
 
     Similarly,      
 
