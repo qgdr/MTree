@@ -146,16 +146,26 @@ $$ \|u_n-u_m\|_{C^0(\Omega)} + \sum_{|\alpha| = 1} \|D^\alpha u_n\|_{C^0(\Omega)
 
 $$ \lim_{n\to \infty} u_n = u，\quad \lim_{n\to \infty} D^\alpha u_n = v_\alpha $$
 
-且 \(u, v_\alpha \in C^0(\Omega)\) 。
+且 \(u, v_\alpha \in C^0(\Omega)\) ，
+\(\{u_n\}, \{D^\alpha u_n\}\) 是一致有界的。
 
-由于 \(\{u_n\}, \{D^\alpha u_n\}\) 是一致有界的，所以由控制收敛定理，有
+若 \(y \in B(x, \epsilon) \cap \Omega, y\neq x\)，   
+则由控制收敛定理，有
 
 $$ \begin{align}
-    \int_{x}^{x+he_\alpha} v_\alpha(t)dt  
-    &= \lim_{n\to \infty} \int_{x}^{x+he_\alpha} D^\alpha u_n(t)dt  \\
-    &= \lim_{n\to \infty} u_n(x+he_\alpha) - u_n(x) \\
-    &= u(x+he_\alpha)-u(x)
+    u(y)-u(x) &= \lim_{n\to \infty} u_n(y)-u_n(x) \\
+    &= \lim_{n\to \infty} u_n(x+y-x) - u_n(x) \\
+    &= \lim_{n\to \infty} \int_{0}^{1} \frac{d}{dt}u_n(x + t(y-x)) dt  \\
+    &= \lim_{n\to \infty} \int_{0}^{1} D u_n(x + t(y-x)) \cdot (y-x) dt  \\
+    % &= \int_{0}^{1}  \sum_{|\alpha| = 1} D^\alpha u_n(x + t(y-x)) \nu_\alpha dt  \\
+    &= \int_{0}^{1} v(x + t(y-x)) \cdot (y-x) dt  \\
 \end{align} $$
+
+当 \(\epsilon \to 0\) 时， 由  \(v\) 的连续性，\(v(x + t(y-x))\) 一致趋向于 \(v(x)\)，      
+因此 \(u(x)\) 可微，
+
+$$ u(y)-u(x) = v(x) \cdot (y-x)  + o(|y-x|) $$
+
 
 所以 \(D^\alpha u(x) = v_\alpha(x)\)，
 即
@@ -197,7 +207,7 @@ $$ [u]_{C^{0, \gamma}(\Omega)} = \sup_{x,y\in \Omega \; x\neq y} \frac{|u(x)- u(
 对 \(\forall \epsilon>0\)，存在 \(N\) 使得，
 对 \(n, m \ge N\) 满足
 
-$$ \|u_n-u_m\|_{C^0(\Omega)} + \sum_{|\alpha| = k} \|D^\alpha u_n\|_{C^0(\Omega)} + \sum_{|\alpha| = k}[D^\alpha u_n]_{C^{0,\gamma}(\Omega)} \le \epsilon $$
+$$ \|u_n-u_m\|_{C^0(\Omega)} + \sum_{|\alpha| \le k} \|D^\alpha u_n\|_{C^0(\Omega)} + \sum_{|\alpha| = k}[D^\alpha u_n]_{C^{0,\gamma}(\Omega)} \le \epsilon $$
 
 那么，\(\{u_n\}\) 也是 \(C^1(\Omega)\) 中的 Cauchy 列。 利用（2），    
 设 \(\lim_{n\to \infty} u_n = u\)，

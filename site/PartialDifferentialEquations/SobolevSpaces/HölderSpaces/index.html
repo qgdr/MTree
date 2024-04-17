@@ -2478,14 +2478,21 @@
 <p>那么，<span class="arithmatex">\(\{u_n\}, \{D^\alpha u_n\}\)</span> 也是 <span class="arithmatex">\(C^0(\Omega)\)</span> 中的 Cauchy 列，所以是收敛序列。     <br />
 设 </p>
 <div class="arithmatex">\[ \lim_{n\to \infty} u_n = u，\quad \lim_{n\to \infty} D^\alpha u_n = v_\alpha \]</div>
-<p>且 <span class="arithmatex">\(u, v_\alpha \in C^0(\Omega)\)</span> 。</p>
-<p>由于 <span class="arithmatex">\(\{u_n\}, \{D^\alpha u_n\}\)</span> 是一致有界的，所以由控制收敛定理，有</p>
+<p>且 <span class="arithmatex">\(u, v_\alpha \in C^0(\Omega)\)</span> ，
+<span class="arithmatex">\(\{u_n\}, \{D^\alpha u_n\}\)</span> 是一致有界的。</p>
+<p>若 <span class="arithmatex">\(y \in B(x, \epsilon) \cap \Omega, y\neq x\)</span>， <br />
+则由控制收敛定理，有</p>
 <div class="arithmatex">\[ \begin{align}
-    \int_{x}^{x+he_\alpha} v_\alpha(t)dt  
-    &amp;= \lim_{n\to \infty} \int_{x}^{x+he_\alpha} D^\alpha u_n(t)dt  \\
-    &amp;= \lim_{n\to \infty} u_n(x+he_\alpha) - u_n(x) \\
-    &amp;= u(x+he_\alpha)-u(x)
+    u(y)-u(x) &amp;= \lim_{n\to \infty} u_n(y)-u_n(x) \\
+    &amp;= \lim_{n\to \infty} u_n(x+y-x) - u_n(x) \\
+    &amp;= \lim_{n\to \infty} \int_{0}^{1} \frac{d}{dt}u_n(x + t(y-x)) dt  \\
+    &amp;= \lim_{n\to \infty} \int_{0}^{1} D u_n(x + t(y-x)) \cdot (y-x) dt  \\
+    % &amp;= \int_{0}^{1}  \sum_{|\alpha| = 1} D^\alpha u_n(x + t(y-x)) \nu_\alpha dt  \\
+    &amp;= \int_{0}^{1} v(x + t(y-x)) \cdot (y-x) dt  \\
 \end{align} \]</div>
+<p>当 <span class="arithmatex">\(\epsilon \to 0\)</span> 时， 由  <span class="arithmatex">\(v\)</span> 的连续性，<span class="arithmatex">\(v(x + t(y-x))\)</span> 一致趋向于 <span class="arithmatex">\(v(x)\)</span>，    <br />
+因此 <span class="arithmatex">\(u(x)\)</span> 可微，</p>
+<div class="arithmatex">\[ u(y)-u(x) = v(x) \cdot (y-x)  + o(|y-x|) \]</div>
 <p>所以 <span class="arithmatex">\(D^\alpha u(x) = v_\alpha(x)\)</span>，
 即</p>
 <div class="arithmatex">\[ u \in C^1(\Omega) \]</div>
@@ -2508,7 +2515,7 @@
 <p>若函数列 <span class="arithmatex">\(\{u_n\}\)</span> 是 <span class="arithmatex">\(C^{k, \gamma}(\Omega)\)</span> 中的 Cauchy 列，即</p>
 <p>对 <span class="arithmatex">\(\forall \epsilon&gt;0\)</span>，存在 <span class="arithmatex">\(N\)</span> 使得，
 对 <span class="arithmatex">\(n, m \ge N\)</span> 满足</p>
-<div class="arithmatex">\[ \|u_n-u_m\|_{C^0(\Omega)} + \sum_{|\alpha| = k} \|D^\alpha u_n\|_{C^0(\Omega)} + \sum_{|\alpha| = k}[D^\alpha u_n]_{C^{0,\gamma}(\Omega)} \le \epsilon \]</div>
+<div class="arithmatex">\[ \|u_n-u_m\|_{C^0(\Omega)} + \sum_{|\alpha| \le k} \|D^\alpha u_n\|_{C^0(\Omega)} + \sum_{|\alpha| = k}[D^\alpha u_n]_{C^{0,\gamma}(\Omega)} \le \epsilon \]</div>
 <p>那么，<span class="arithmatex">\(\{u_n\}\)</span> 也是 <span class="arithmatex">\(C^1(\Omega)\)</span> 中的 Cauchy 列。 利用（2），  <br />
 设 <span class="arithmatex">\(\lim_{n\to \infty} u_n = u\)</span>，
 <span class="arithmatex">\(u \in C^1(\Omega)\)</span>。</p>
