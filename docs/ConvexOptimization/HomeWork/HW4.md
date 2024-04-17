@@ -2,15 +2,32 @@
 
 [HW4pdf](../HWpdf/Li%20-%20Homework%205%20of%20Optimization-2024”.pdf)
 
+
 ## 1.solve the following low-rank matrix recovery problem via Project Gradient descent
 
 $$ \min_{\text{rank}(X) \le r} \frac{1}{2} \| \mathcal{A}(X) - b\|_2^2 $$
 
-where \(b = A(X_0) = (〈A_j , X_0〉)_{j=1}^m\) with \(A_j ∈ R^{n_1×n_2}\) with \(m = \mathcal{O}((n_1 + n_2)r)\). Please refer to the following paper.
+where \(b = \mathcal{A}(X_0) = (〈A_j , X_0〉)_{j=1}^m\) with \(A_j ∈ R^{n_1×n_2}\) with \(m = \mathcal{O}((n_1 + n_2)r)\). Please refer to the following paper.
 
 [Jain P, Meka R, Dhillon I. Guaranteed rank minimization via singular value projection[J]. Advances in Neural Information Processing Systems, 2010, 23.](https://arxiv.org/abs/0909.5457)
 
 
+<font color=Blue> **solution** </font>
+
+$$ \begin{align} 
+\min_X \psi(X) = \frac{1}{2} \| \mathcal{A}(X) - b\|_2^2 = \frac{1}{2}\sum_{i=1}^m \langle A_j, X-X_0\rangle^2 \\
+s.t. \;  X \in \mathcal{C}(k) = \{ X: rank(X) \le k \}
+\end{align} $$
+
+So, 
+
+$$ \nabla \psi(X) = \sum_{j=1}^m \langle A_j, X-X_0\rangle A_j  $$
+
+
+$$ X^{t+1} ← \mathcal{P}_k ( X^t − η_t ∇ ψ (X^t) ) = \mathcal{P}_k ( X^t − η_t\sum_{j=1}^m \langle A_j, X^t-X_0\rangle A_j ) $$
+
+
+----
 
 
 ## 2. exercises 2.13 of [最优化：建模、算法与理论][Wen]
@@ -22,11 +39,12 @@ Give the statement of the subgradient of the following functions:
 
 (b) \(f(x) = \inf_y \|Ay-x\|_\infty\)
 
----
 
-**solution**
+<font color=Blue> **solution** </font>
 
-(a) Let \(f_1(x) = \|x\|_2,  f_2(x) = \|Ax-b\|_2 , f(x) = f_1(x) + f_2(x) \)        
+<font color=Orange> **(a)** </font>
+
+Let \(f_1(x) = \|x\|_2,  f_2(x) = \|Ax-b\|_2 , f(x) = f_1(x) + f_2(x) \)        
 So, we have
 
 $$ \partial f(x) = \partial f_1(x) + \partial f_2(x) $$
@@ -109,9 +127,8 @@ $$ \partial f(x) = \partial f_1(x) + \partial f_2(x) = \begin{cases}
 
 
 
-----
 
-(b) 
+<font color=Orange> **(b)** </font>
 
 $$ f(x) = \inf_y \|Ay-x\|_\infty $$ 
 
@@ -121,24 +138,24 @@ $$ \|A\hat{y}-\hat{x}\|_\infty = \inf_y \|Ay-\hat{x}\|_\infty = f(\hat{x}) $$
 
 To solve his problem, we need strong geometric instincts.
 
-Let \(\hat{z} = A\hat{y}\), and take \([i], i=1, \cdots , r\) are the indices which
+Let \(\hat{z} = \hat{x} -  A\hat{y}\), and take \([i], i=1, \cdots , r\) are the indices which
 
-$$ |\hat{x}_{[i]} - \hat{z}_{[i]}| = \max_{i} |\hat{x}_{[i]} - \hat{z}_{[i]}| = \|\hat{x}-A\hat{y}\|_\infty $$
+$$ |\hat{z}_{[i]}| = \max_{i} |\hat{z}_i| = \|\hat{x}-A\hat{y}\|_\infty $$
 
 Now we give the result directly.
 
 $$ \partial f(\hat{x}) = \begin{cases}
     \{g \in \text{span}\{ e_{[1]} , ..., e_{[r]} \} : \\
     \qquad \qquad g^T A = 0, \\
-    \qquad \qquad(\hat{x}_{[i]} - \hat{z_{[i]}}) g_{[i]} \ge 0 ,  \quad   1 \le i \le r    \\
-    \qquad \qquad \sum_{i=1}^r \text{sign}(\hat{x}_{[i]} - \hat{z_{[i]}}) g_{[i]} = 1 \},  
+    \qquad \qquad \hat{z}_{[i]} g_{[i]} \ge 0 ,  \quad   1 \le i \le r    \\
+    \qquad \qquad \sum_{i=1}^r \text{sign}(\hat{z}_{[i]}) g_{[i]} = 1 \},  
     & \hat{x} \neq A\hat{y} \\
     \{g: g^TA = 0, \sum_{i=1}^n |g_i| \le 1\}      & \hat{x} = A\hat{y}  
 \end{cases} $$
 
 !!! tip
 
-    we suggest a lemma here. Let 
+    we suggest a **Lemma** here. Let 
 
     $$ f(x) = \|x\|_\infty $$
 
@@ -155,6 +172,10 @@ $$ \partial f(\hat{x}) = \begin{cases}
         \{g: \sum_{i=1}^n |g_i| \le 1\} & x = 0
         \end{cases} $$
 
+    which means that
+
+    $$ \|x\|_\infty - \|\hat{x}\|_\infty \ge g(\hat{x})^T(x-\hat{x}) , \text{  where  } g(\hat{x}) \in \partial f(\hat{x}) $$
+
     That is obvious.  
 
     <iframe height=600 width=200% src="../maxx_1.html" frameborder="0" allowfullscreen></iframe>  
@@ -162,22 +183,56 @@ $$ \partial f(\hat{x}) = \begin{cases}
     And from this , we can kown that the  feasible set of the conjugate function of \(\|x\|_\infty\) is where \(g\) can get, which is \(\|g\|_1 \le 1\).
 
 
-Now, we can see the subgradient of the original problem has just one more condition which is \(g^T A = 0\), meaning that \(g\) is orthogonal to the column space of \(A\).
+Now, we can see the subgradient of the original problem has just one more condition than the Lemma which is \(g^T A = 0\), meaning that \(g\) is orthogonal to the column space of \(A\).
+
+If \(g \in \partial f(\hat{x})\), we have for \(\forall y\),
+
+$$ \begin{align}
+    g^T (x-\hat{x}) &= g^T(x-\hat{x}-A(y-\hat{y}))      \\
+    &\le \|x-\hat{x}-A(y-\hat{y}) + \hat{z}\|_\infty  -  \|\hat{z}\|_\infty  \qquad \text{(by the Lemma)}  \\
+    &= \|x-Ay\|_\infty - \|A\hat{y}-\hat{x}\|_\infty    \\
+\end{align} $$
+
+So, we varify that
+
+$$ g^T (x-\hat{x}) \le \inf_y \|x-Ay\|_\infty - \|A\hat{y}-\hat{x}\|_\infty \le f(x) - f(\hat{x}) $$
+
+QED.
 
 
 
 
+----
 
 
 
+## 3. solve the real phase retrieval problem via Newton Method
+
+Please solve the real phase retrieval problem via Newton Method.            
+Consider the problem
 
 
+$$ \min_{x∈R^n} f (x) := \frac{1}{2m} \sum_{j=1}^m ( 〈a_j, x〉^2 − b_j )^2 $$
+
+where \(b_j = 〈a_j, x_0〉^2\) and \(a_j ∈ R^n, j = 1, ... , m\) are Gaussian random measurements with \(m ≥ \mathcal{O}(n \log n)\). 
+Please refer to the following paper.           
+[Gao Bing, Xu Zhiqiang. Phaseless recovery using the Gauss-Newton method. IEEE Transactions on Signal Processing, 2017, 65(22): 5885-5896.](https://arxiv.org/abs/1606.08135)
 
 
+<font color=Blue> **solution** </font>
 
+$$ \min_{x\in R^n} f(x) = \frac{1}{2m} \sum_{j=1}^m ( 〈a_j, x〉^2 − 〈a_j, x_0〉^2 )^2 $$
 
+$$ \begin{gather*}
+    \nabla f(x) = \frac{2}{m} \sum_{j=1}^m ( 〈a_j, x〉^2 − 〈a_j, x_0〉^2 ) a_j    \\
+    \nabla^2 f(x) = \frac{4}{m} \sum_{j=1}^m ( 〈a_j, x〉^2 − 〈a_j, x_0〉^2 ) a_j a_j^T    \\
+\end{gather*} $$
 
-
+$$ \begin{align}
+    x_{k+1} & = x_k - (\nabla^2 f(x_k))^{-1} \nabla f(x_k)          \\
+    &= x_k - \frac{1}{2} \left(\sum_{j=1}^m ( 〈a_j, x_k〉^2 − 〈a_j, x_0〉^2 ) a_j a_j^{T} \right)^{-1} 
+        \sum_{j=1}^m ( 〈a_j, x_k〉^2 − 〈a_j, x_0〉^2 ) a_j   \\
+\end{align}  $$
 
 
 
