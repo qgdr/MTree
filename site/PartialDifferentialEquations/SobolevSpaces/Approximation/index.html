@@ -1895,7 +1895,7 @@
         <li class="md-nav__item">
   <a href="#urysohn" class="md-nav__link">
     <span class="md-ellipsis">
-      Urysohn 定理
+      Urysohn 引理
     </span>
   </a>
   
@@ -2353,7 +2353,7 @@
         <li class="md-nav__item">
   <a href="#urysohn" class="md-nav__link">
     <span class="md-ellipsis">
-      Urysohn 定理
+      Urysohn 引理
     </span>
   </a>
   
@@ -2404,10 +2404,12 @@
 
 <!-- Page content -->
 <h1 id="approximation">光滑逼近 Approximation<a class="headerlink" href="#approximation" title="Permanent link">&para;</a></h1>
-<h2 id="urysohn">Urysohn 定理<a class="headerlink" href="#urysohn" title="Permanent link">&para;</a></h2>
+<h2 id="urysohn">Urysohn 引理<a class="headerlink" href="#urysohn" title="Permanent link">&para;</a></h2>
 <p>令 <span class="arithmatex">\(U, V\)</span> 是 <span class="arithmatex">\(R^n\)</span> 中的开集，<span class="arithmatex">\(V \subset\subset U\)</span>。
 则存在一个光滑函数 <span class="arithmatex">\(\zeta\)</span> 使得 <span class="arithmatex">\(\zeta(x) \equiv 1, x\in V\)</span>，<span class="arithmatex">\(\zeta(x) = 0, x \text{  near  } U\)</span></p>
 <p><strong>证明</strong></p>
+<video src="../media/videos/Sobolev/720p30/Urysohn.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video>
+
 <p>因为 <span class="arithmatex">\(\overline{V} \subset \Omega\)</span>，故存在 <span class="arithmatex">\(\epsilon_0 &gt; 0\)</span> ，使得 <span class="arithmatex">\(\text{dist}(\overline{V}, \partial\Omega) &gt; 2\epsilon_0\)</span>。    <br />
 那么令 <span class="arithmatex">\(W = \{x: \text{dist}(x, \overline{V}) &lt; \epsilon_0 \}\)</span>，则 <span class="arithmatex">\(W\)</span> 是一个开集，且 <span class="arithmatex">\(V \subset\subset W \subset\subset \Omega\)</span>。</p>
 <p>令 <span class="arithmatex">\(\eta(x)\)</span> 是 <strong>磨光函数</strong>，<span class="arithmatex">\(\eta_\epsilon(x) = \frac{1}{\epsilon^n} \eta(\frac{x}{\epsilon})\)</span> ，  <span class="arithmatex">\(\int_\Omega \eta_\epsilon = 1\)</span>   <br />
@@ -2417,6 +2419,29 @@
 <p>当 <span class="arithmatex">\(x\to \partial \Omega\)</span> 时，<span class="arithmatex">\(\text{dist}(x, \overline{V}) &gt; 2\epsilon\)</span>， <span class="arithmatex">\(B(x, \epsilon) \subset W^c\)</span>，同理得 <span class="arithmatex">\(\zeta(x) = 0\)</span></p>
 <h2 id="partition-of-unity">单位分解定理 Partition of Unity<a class="headerlink" href="#partition-of-unity" title="Permanent link">&para;</a></h2>
 <h3 id="_1">有限版本<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>设 <span class="arithmatex">\(U\)</span> 有界且 <span class="arithmatex">\(U \subset\subset \bigcup_{i=1}^N V_i\)</span>， 其中 <span class="arithmatex">\(V_i\)</span> 是开集， 那么存在 <span class="arithmatex">\(\zeta_i \in C^\infty, i=1, \dots, N\)</span> 使得</p>
+<div class="arithmatex">\[ \begin{cases}
+    0 \le \zeta_i \le 1, \quad \text{supp} \zeta_i \subset V_i \quad (i=1, \dots, N) \\
+    \sum_{i=1}^N \zeta_i(x) = 1,  \quad x \in U
+\end{cases} \]</div>
+<p><strong>证明</strong></p>
+<p>因为 <span class="arithmatex">\(U \subset\subset \bigcup_{i=1}^N V_i\)</span>，其中 <span class="arithmatex">\(V_i\)</span> 是开集，      <br />
+我们可以找到 <span class="arithmatex">\(W_i \subset\subset V_i\)</span>，
+使得 <span class="arithmatex">\(U \subset\subset \bigcup_{i=1}^N W_i \subset\subset \bigcup_{i=1}^N V_i\)</span>。          <br />
+（由于 <span class="arithmatex">\(U \in R^n\)</span> 有界，所以 <span class="arithmatex">\(\bar{U}\)</span> 是紧的，每个点都有开集 <span class="arithmatex">\(U_x \subset\subset V_i\)</span> 对于某个 <span class="arithmatex">\(i\)</span>，<span class="arithmatex">\(U_x\)</span> 是一个开覆盖，所以有有限开覆盖 <span class="arithmatex">\(U \subset\subset \bigcup_{i=1}^M U_{x_i}\)</span>，将他们分组到各自属于的 <span class="arithmatex">\(V_i\)</span>，令每一组的并为 <span class="arithmatex">\(W_i\)</span>，则 <span class="arithmatex">\(U \subset\subset \bigcup_{i=1}^N W_i\)</span>，且 <span class="arithmatex">\(W_i \subset\subset V_i\)</span> ）</p>
+<p>对于每个 <span class="arithmatex">\(W_i, V_i, i=1, \dots, N\)</span>，存在 <span class="arithmatex">\(\phi_i \in C^\infty\)</span> 使得</p>
+<div class="arithmatex">\[ \phi_i(x) = \begin{cases} 1, \quad x \in W_i \\ 0, \quad x \in V_i^c \end{cases} \]</div>
+<p>即 <span class="arithmatex">\(\text{supp}(\phi_i) \subset V_i\)</span>，
+令</p>
+<div class="arithmatex">\[ \phi_0(x) = \begin{cases} 1, \quad x \in U \\ 0, \quad x \in \left(\bigcup_{i=1}^N W_i\right)^c \end{cases} \]</div>
+<p>那么，令</p>
+<div class="arithmatex">\[ \zeta_i = \frac{\phi_i}{\sum_{i=1}^N \phi_i + 1-\phi_0}, \quad i=1, \dots, N \]</div>
+<p>那么，<span class="arithmatex">\(\text{supp}(\sum_{i=1}^N \phi_i + 1-\phi_0) \supset \bigcup_{i=1}^N W_i + \left(\bigcup_{i=1}^N W_i\right)^c \supset \bigcup_{i=1}^N V_i\)</span>，因此 <span class="arithmatex">\(\zeta_i\)</span> 在 <span class="arithmatex">\(V_i\)</span> 上有定义。    <br />
+又有 <span class="arithmatex">\(\text{supp}\zeta_i = \text{supp}\phi_i \subset V_i\)</span>，     <br />
+而</p>
+<div class="arithmatex">\[ \sum_{i=1}^N \zeta_i = \sum_{i=1}^N \frac{\phi_i}{\sum_{i=1}^N \phi_i + 1-\phi_0} = \frac{\sum_{i=1}^N \phi_i}{\sum_{i=1}^N \phi_i + 1-\phi_0} = 1 \quad \text{on } U  \]</div>
+<p>满足我们需要的条件</p>
+<video src="../media/videos/Sobolev/720p30/POU.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video>
 
 <!-- Source file information -->
 
