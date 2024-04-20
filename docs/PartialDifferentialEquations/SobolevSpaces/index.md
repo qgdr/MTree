@@ -84,6 +84,14 @@ $$ \int_{\Omega} u(x)D^\alpha\phi(x)dx = (-1)^{|\alpha|} \int_{\Omega} v(x)\phi(
 
 $$ D^\alpha u = v $$
 
+!!! warning
+
+    注意和 [准备符号](../PDEIntro/index.md#准备符号) 区分开
+    
+规定 \(D^0 u = u\).
+
+
+
 ### 唯一性
 
 若有两个函数 \(v, w \in L_{\text{loc}}^1(\Omega)\) 都是 \(u\) 的弱偏导数，那么对于任意 \(\phi \in C_c^\infty(\Omega)\) 都有      
@@ -104,3 +112,26 @@ $$ \int_{\Omega} (v-w) \phi = 0 $$
     $$ \int_{\Omega} u \phi = 0 $$
 
     则 \(u = 0 \text{ a.e.}\) 
+
+因此，由引理
+
+$$ v - w = 0 \text{ a.e. in } \Omega $$
+
+这就证明了弱导数的唯一性。
+
+
+!!! tip
+
+    我们证明了 弱导数唯一性，那么有没有原函数的唯一性呢？
+
+    事实上，对于一个函数 \(u \in W^{1, p}(\Omega), 1 \le p \le \infty\)，其中 \(\Omega\) 是连通的。     
+    如果 \(Du= 0 \text{ a.e. in } \Omega\)，那么存在常数 \(c\)，使得 \(u = c \text{ a.e. in } \Omega\)
+
+    我们会在后面证明，参考 [局部逼近定理 Corollary](./Approximation.md#局部逼近定理)
+
+
+----
+
+<font color="red">
+本章会研究函数与其弱导数之间的关系。
+</font>

@@ -193,6 +193,26 @@ def mollifier_epsilon(epsilon, n):
             return lambda x: mollifier(x/epsilon, n)/epsilon**n
 
 
+
+class Mollifier(Scene):
+    def construct(self):
+        axes = Axes(
+            x_range=[-2, 2, 1],
+            y_range=[-1, 3, 1],
+            x_length=10,
+            y_length=10,
+            axis_config={"color": BLUE},
+            tips=False,
+        )
+        eta = axes.plot(mollifier_epsilon(1, 1), color=YELLOW, x_range=[-1, 1])
+        eta_2 = axes.plot(mollifier_epsilon(2, 1), color=RED, x_range=[-2, 2])
+        eta_1o2 = axes.plot(mollifier_epsilon(0.5, 1), color=ORANGE, x_range=[-0.5, 0.5])
+
+        self.add(axes, eta, eta_2, eta_1o2)
+
+         
+
+
 class Urysohn(Scene):
     def construct(self):
         axes = Axes(
@@ -237,7 +257,7 @@ class Urysohn(Scene):
 
 
         texchiW = Tex(r"$\chi_W$", color=RED).shift(2*UP+RIGHT)
-        textconv = Tex(r"$f(x) = \chi_W * \eta_\epsilon(x)$", color=ORANGE).shift(2*UP+RIGHT)
+        textconv = Tex(r"$\zeta(x) = \chi_W * \eta_\epsilon(x)$", color=ORANGE).shift(2*UP+RIGHT)
         self.play(Create(chiW_graph), Create(texchiW))
         self.wait()
         molli = axes.plot(lambda x : mollifier_epsilon(eps/2, 1)(x - W[0]), color=GRAY, x_range=[U[0], V[0]])

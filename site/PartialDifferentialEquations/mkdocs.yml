@@ -8,6 +8,8 @@ nav:
   - Laplace方程: FourPDEs/Laplace.md
 - Sobolev 空间:
   - SobolevSpaces/index.md
-  - Hölder 空间: SobolevSpaces/HölderSpaces.md
+  - 定义: SobolevSpaces/Definition.md
   - 逼近: SobolevSpaces/Approximation.md
+  - 延拓: SobolevSpaces/Extensions.md
+  - Hölder 空间: SobolevSpaces/HölderSpaces.md
   - Sobolev 不等式: SobolevSpaces/SobolevInequalities.md

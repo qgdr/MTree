@@ -88,8 +88,8 @@ Brezis 书中的内容比较丰富，全面。
 
     继续观察 \(\int |h|^q= n\alpha(n)\int_0^\infty |h|^q r^{n-1} dr\)，     
     如果 \(q \ge n\)，\(|h|^q r^{n-1} \prec \dfrac{1}{|r|} \)，\( \int |h|^q\) 可积，       
-    （ 若 \(q< n\) 则大于 1 的部分无法被控制 ） 
-    （找一个函数在 \(r \le 1\) 满足条件？）
+    （ 若 \(q< n\) 则大于 1 的部分无法被控制 ）         
+    能否找一个函数 \(u\) 在 \(r \le 1\) 时， \(Du\) 可积，但\(u \to \infty\) ？
 
     ### case3
 
@@ -517,7 +517,7 @@ $$ u(x) = c + \int_{x_0}^x Du \text{ a.e. } $$
 
 
 
-
+----
 
 
 
@@ -543,12 +543,24 @@ $$ u(x) = c + \int_{x_0}^x Du \text{ a.e. } $$
 
     $$ \begin{align}
         \int_{B(0, 1)} |u|^n &= \int_0^1 dr \int_{\partial B(0, r)} |u(x)|^n dx \\
-        &= n\alpha(n) \int_0^1 |u(r)|^n r^{n-1} dr \\
+        &= n\alpha(n) \int_0^1 |\log\log(1+\frac{1}{r})|^n r^{n-1} dr \\
     \end{align}$$
 
         
-    而函数 \(|\log \log (1+\frac{1}{|r|})|^n r^{n-1}\) 在 \([0, 1]\) 上是有界的，所以积分有限。     
-    \(Du\) 同理。   
+    而函数 \(|\log \log (1+\frac{1}{r})|^n r^{n-1}\) 在 \([0, 1]\) 上是有界的，所以积分有限。     
+    \(Du\) 同理，
+
+    $$ Du(x) = \frac{1}{(1+\frac{1}{|x|}) \log(1+\frac{1}{|x|})}(-\frac{1}{|x|^2}\frac{x}{|x|}) $$
+
+    $$ \begin{align}
+        \int_{B(0, 1)} |Du|^n &= \int_0^1 dr \int_{\partial B(0, r)} |Du(x)|^n dx \\
+        &\le \int_0^1 dr \int_{\partial B(0, r)}  |\frac{1}{(1+\frac{1}{|x|}) \log(1+\frac{1}{|x|})}(-\frac{1}{|x|^2})|^n dx \\
+        &\le n\alpha(n) \int_0^1 \left(\frac{1}{(r^2+r) \log(1+\frac{1}{r})} \right)^n r^{n-1} dr \\
+        &\le C \int_0^1 \left(\frac{1}{r \log(\frac{1}{r})} \right)^n r^{n-1} dr        \\
+        &= C \int_0^1 \frac{1}{\log^n r} \frac{1}{r} dr         \\
+        &= C \int_1^\infty \frac{1}{t^n} dt    <  \infty
+    \end{align} $$
+
     所以 \(u\) 属于 \(W^{1,n}(B(0, 1))\)，但不属于 \(L^\infty(B(0, 1))\)。
 
 !!! Theorem
