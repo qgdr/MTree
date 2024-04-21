@@ -1,4 +1,4 @@
-# Sobolev 不等式
+# Sobolev 不等式 \(\mathbf{I}\)
 
 查看 [Lawrence C.Evans Partial differential equations 5.6][Evans],    
 以及 [Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3][Brezis]，     
@@ -9,7 +9,8 @@ Brezis 书中的内容比较丰富，全面。
 这将建立任意函数在各种相关 Sobolev 空间中的估计。   
 因为正如我们在 [逼近](Approximation.md) 中所看到的，光滑函数 是稠密的。
 
-## 动机 Motivation
+
+## 问题
 
 为了清楚的表达，我们首先只考虑 Sobolev 空间 \(W^{1, P} ( \Omega )\)，
 并提出如下基本问题：    
@@ -17,6 +18,194 @@ Brezis 书中的内容比较丰富，全面。
 
 我们在这里应当做出提醒，这些对 \(W^{1,p}(\Omega)\) 建立的不等式，根据 \(\Omega = R^n\) 还是有界开集的不同而有很大差别。
 
+
+## n=1
+
+在对一般的 \(R^n\) 分析前，我们不妨先研究一下 \(n=1\) 的情况。
+
+参考 [Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space \(W^{1, p}(I)\) Theorem 8.2](../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf)
+
+\(u\) 貌似跟 \(\int_0^x Du\) 差不多。其实我们有如下定理
+
+
+
+
+!!! Theorem
+
+    <font color="Black_Green" size="3">
+
+    对于某个 \(1\le p \le \infty\)，若 \(u\in W^{1, p}(\Omega)\)， \(\Omega \subseteq R\) 是某个开区间，      
+    则存在 点 \(x_0 \in \Omega\) 和常数 \(c\)  满足，使得
+
+    $$ u(x) = c + \int_{x_0}^x Du, \text{ a.e.} \quad x\in \Omega $$
+
+
+    1 . 这也意味着， \(u\) 和一个连续函数几乎处处相等，而 \(u\in W^{1, p}(\Omega)\)，那么个连续函数也属于 \(W^{1, p}(\Omega)\)。我们称这是 \(u\) 的一个连续版本，并且以后我们将不再区分这两个函数。
+
+    2 . \(u(x)\) 几乎处处可导，且 \(u' = Du \text{ a.e.}\)。
+
+    </font>
+
+**证明**
+
+
+由于 \(v \in L^p(\Omega)\)，那么 \(v \in L_{\text{loc}}^1(\Omega)\)。       
+我们令
+
+$$ v(x) = \int_{x_0}^x Du $$
+
+则 \(v(x) \le \int_\Omega |Du|\)，一致有界，故 \(v\in L_{\text{loc}}^1(\Omega)\)。
+
+**1**.
+
+下面我们证明，对于一个有界区间 \(W \subset \Omega\)， \(v\) 在 \(W\) 上是 **绝对连续函数** 。
+
+ [周民强 实变函数论 5.4 绝对函数与微积分基本定理 定理 5.10][Zhou] ）
+
+这是因为可积函数可被光滑函数逼近，即 \(C_c^\infty(\Omega)\) 在 \(C^p(\Omega), 1\le p < \infty\) 中稠密。            
+（参考 [Folland Real Analysis Proposition 8.17](../../Library/[Gerald_B._Folland]_Real_Analysis__Modern_Techniq.pdf)     
+[Lawrence C.Evans Partial differential equations Appendix C.5][Evans]）     
+
+对于 \(\forall \epsilon > 0\)，存在连续函数 \(g \in C_c^\infty(W)\)，使得 \(\int_W |u(x) - g(x)| dx < \epsilon/2\)。     
+而对于 \(Dg\) 他在紧集上连续，那么他有界，\(g\) 是 Lipschitz 连续的，\( |g(x)-g(y)| \leq L(|x-y|)\)。        
+因此， 若 \(0<\delta < \dfrac{\epsilon}{2L}, \)，         
+那么对于任意有限个互不相交的开区间 \((x_i, y_i) \subset W, i=1,2,\cdots,n\) 满足 \(\sum_{i=1}^n (y_i-x_i)<\delta\) 时，有
+
+$$ \begin{align}
+    \sum_{i=1}^n |v(y_i)-v(x_i)| 
+    & \leq \sum_{i=1}^n |v(y_i)-v(x_i) - g(y_i)+g(x_i)| + \sum_{i=1}^n |g(y_i)-g(x_i)| \\
+    & \leq \int_W |v-g| + \sum_{i=1}^n L|y_i-x_i| \\
+    & \leq \frac{\epsilon}{2} + L \delta        \\
+    & \leq \frac{\epsilon}{2} + L \frac{\epsilon}{2L} = \epsilon  \\
+\end{align}. $$
+
+故 \(v\) 在 \(\Omega\) 的任意有界子集上绝对连续。
+
+那么他 **几乎处处可导** 。（ [周民强 实变函数论 5.4 绝对函数与微积分基本定理 推论 5.12][Zhou] ）         
+那么 \(v' = Du \text{ a.e.}\)  （ [周民强 实变函数论 5.3 不定积分的微分 定理 5.7][Zhou] ）
+
+**2**.
+
+[Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space \(W^{1, p}(I)\) Lemma 8.2][Brezis]
+
+我们证明 \(D(u-v) = 0 \text{ a.e.}\)。
+
+我们这里扩大了 \(\phi\) 的选择空间。        
+对任意的 \(\phi \in C_c^1(\Omega)\)，
+
+$$ \begin{align}
+    \int_\Omega v \phi'
+    &= \int_\Omega \phi' \int_{x_0}^x Du \\
+\end{align}  $$
+
+那么由 可积函数的 **分部积分定理**
+
+!!! Lemma
+
+    证明参考 [周民强 实变函数论 5.5 分部积分与积分中值定理 定理 5.15][Zhou]
+
+    若 \(f(x), g(x)\) 皆为 \([a,b]\) 上的可积函数，\(\alpha, \beta \in R\)，令
+
+    $$ F(x) = \alpha + \int_a^x f(t)dt, \quad G(x) = \beta + \int_a^x g(t)dt $$
+
+    则
+
+    $$ \int_a^b G(x)f(x)dx + \int_a^b g(x)F(x)dx = F(b)G(b) - F(a)G(a) $$
+
+\(\phi', Du\) 可积，则
+
+$$ \begin{align}
+    \int_\Omega v \phi'
+    = \int_\Omega \phi' \int_{x_0}^x Du 
+    = v \phi \Big|_{\partial \Omega} - \int_\Omega \phi Du 
+    = - \int_\Omega \phi Du 
+\end{align}  $$
+
+
+因此 \(Du\) 是 \(v\) 的弱导数，那么由于弱导数线性原理 \(D(u-v) = 0 \text{ a.e. }\)          
+所以 \(v, u-v \in W_{\text{loc}}^{1,p}(\Omega)\)
+
+
+**3**.
+
+由于 \(u-v \in W_{\text{loc}}^{1,p}(\Omega)\)，
+而 \(D(u-v) = 0 \text{ a.e. }\)，我们希望 \(u = c \text{ a.e. }\)
+
+这里可以使用 [局部逼近定理](./Approximation.md#local-approximation) 的 Corollary，但这里给出一个一维的证明。
+
+参考 [Hunter Hunter Notes on PDE Proposition 3.6][Hunter]      
+[Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space \(W^{1, p}(I)\) Lemma 8.1][Brezis]
+
+!!! Lemma
+
+    设 \(f \in L_{\text{loc}}^1(\Omega)\) ， \(\Omega \subset R\) 是一个区间 ，满足
+
+    $$ \int_\Omega f  \phi' dx = 0 \; \forall \phi \in C_c^1(\Omega) $$
+
+    那么存在常数 \(c\) 使得 \(f = c \text{ a.e. }, x \in \Omega \)
+
+    ----
+
+    固定 \(\eta \in C_c(\Omega), \int_{\Omega} \eta = 1\)。      
+    对于任何函数 \(\phi \in C_c(\Omega)\)，令
+
+    $$ h(x) = \phi(x) - (\int_\Omega \phi )\eta(x) $$
+
+    那么 
+    
+    $$ \int_\Omega h = \int_\Omega \phi - (\int_\Omega \phi )\int \eta(x) = 0 $$
+
+    因此对 \(h\) 进行积分
+
+    $$ H(x) = \int_{-\infty}^x h(t) $$
+
+    那么 \(H(x)\in C_c^1(\Omega) \)
+
+    根据题目条件，我们有
+
+    $$ \begin{align}
+        0 &= \int_\Omega f H' = \int_\Omega f(x) \left[ \phi(x) - (\int_\Omega \phi )\eta(x) \right] \\
+        &= \int_\Omega f \phi - (\int_\Omega f \eta) (\int_\Omega \phi)      \\
+        &= \int_\Omega \left[f  - (\int_\Omega f \eta)\right] \phi      \\
+    \end{align} $$
+
+    那么由 [内积任何测试函数 0，则几乎处处为零](../../RealAnalysis/Approximation/index.md) 可知
+
+    $$ f - (\int_\Omega f \eta) = 0 \text{ a.e. } $$
+
+
+那么，由 2 以及 [光滑函数一致逼近连续函数] ，对于任何 \(\phi\in C_c^1(\Omega)\)，
+
+$$ \int_\Omega (u-v) \phi' = - \int \phi Du + \int \phi Dv = \int \phi (Du - Dv) = 0 $$
+
+那么存在 \(c\) 使得 \(u-v = c \text{ a.e. }\) ， 即
+
+$$ u(x) = c + \int_{x_0}^x Du \text{ a.e. } $$
+
+其中 \( v(x)=c+\int_{x_0}^x Du = c+\int_{x_0}^x v' \text{ a.e. } \)，
+\(v' = Du \text{ a.e. }, v = u \text{ a.e. } \)，       
+故 \(v \in W^{1,p}(\Omega)\)。
+
+此后不再区分 \(u, v\)，默认 \(u\) 是连续版本。
+
+
+!!! Proposition
+
+    对于 \( 1 < p <\infty\)，
+
+    $$ \begin{align}
+        |u(x)-u(y)| \le \int_x^y 1 \cdot | Du | \le (\int_x^y 1^{\frac{p}{p-1}})^{\frac{p-1}{p}} (\int_x^y |Du|^p)^{\frac{1}{p}} = |x-y|^{1-\frac{1}{p}} \|Du\|_{L^p(\Omega)}
+    \end{align} $$
+
+
+
+
+----
+
+
+## 直观理解
+
+对于一般的 \(R^n, n\ge 1\)，
 对于建立不等式的动机，两本书中都提到了用伸缩变换发现的参数，但这里我们给出另一种直观上的理解。
 
 !!! view
@@ -153,6 +342,7 @@ $$ p^* = \frac{np}{n-p} $$
 
 
 !!! Theorem
+    <font color="Black_Violet" size="4">
 
     **Gagliardcr-Nirenberg-Sobolev inequality**
 
@@ -160,6 +350,7 @@ $$ p^* = \frac{np}{n-p} $$
 
     $$ \|u\|_{L^{p^*}(R^n)} \le C \|Du\|_{L^{p}(R^n)} $$
 
+    </font>
 
 
 **证明**:
@@ -283,7 +474,7 @@ $$ \left(\int_{R^n} |u|^{p^*}\right)^{\frac{1}{p^*}} \le \gamma \left(\int_{R^n}
 
 $$ \begin{gather}
     \|u\|_{L^{p^*}(R^n)} \le C(n,p,p^*) \|Du\|_{L^p(R^n)}   \\
-    \text{i.e.} \\
+    \Rightarrow \\
      W^{1,p}(R^n) \subset  L^{p^*}(R^n)
 \end{gather} $$
 
@@ -333,191 +524,8 @@ $$ \begin{gather}
     $$ W^{1,p}(R^n) \subset  L^{q}(R^n), \; q\in [p, p^*] $$
 
 
-!!! tip
 
-    对于 \(1\le p< n\)， 我们已经建立了对 \(u\in C_c^\infty(R^n)\) 的估计， 但是我们之前提到过，对于 \(\Omega\) 是 \(R^n\) 和 \(U\) 的情况是不一样的。
 
-    - \(W^{1, p}(U)\) ，\(q=p^*\), \(U\) 是有界开集， \(\partial U\) 是 \(C^1\) 的     
-    - \(W_c^{1, p}(U)\)，\(1 \le q \le p^*\)， \(U\) 是有界开集         
-
-    这两个空间的估计 [教材 5.6.1 Theorem 2 3](../index.md#教材) 做出了回答。只不过 \(C\) 要依赖于 \(p, n, U, (q)\)      
-
-
-
-
-
-## n=1
-
-在对一般的 \(R^n\) 分析前，我们不妨先研究一下 \(n=1\) 的情况。
-
-参考 [Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space \(W^{1, p}(I)\) Theorem 8.2](../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf)
-
-\(u\) 貌似跟 \(\int_0^x Du\) 差不多。其实我们有如下定理
-
-
-!!! Theorem
-
-    对于某个 \(1\le p \le \infty\)，若 \(u\in W^{1, p}(\Omega)\)， \(\Omega \subseteq R\) 是某个开区间，      
-    则存在 点 \(x_0 \in \Omega\) 和常数 \(c\)  满足，使得
-
-    $$ u(x) = c + \int_{x_0}^x Du, \text{ a.e.} \quad x\in \Omega $$
-
-    ----
-
-    1 . 这也意味着， \(u\) 和一个连续函数几乎处处相等，而 \(u\in W^{1, p}(\Omega)\)，那么个连续函数也属于 \(W^{1, p}(\Omega)\)。我们称这是 \(u\) 的一个连续版本，并且以后我们将不再区分这两个函数。
-
-    2 . \(u(x)\) 几乎处处可导，且 \(u' = Du \text{ a.e.}\)。
-
-由于 \(v \in L^p(\Omega)\)，那么 \(v \in L_{\text{loc}}^1(\Omega)\)。       
-我们令
-
-$$ v(x) = \int_{x_0}^x Du $$
-
-则 \(v(x) \le \int_\Omega |Du|\)，一致有界，故 \(v\in L_{\text{loc}}^1(\Omega)\)。
-
-**1**.
-
-下面我们证明，对于一个有界区间 \(W \subset \Omega\)， \(v\) 在 \(W\) 上是 **绝对连续函数** 。
-
- [周民强 实变函数论 5.4 绝对函数与微积分基本定理 定理 5.10][Zhou] ）
-
-这是因为可积函数可被光滑函数逼近，即 \(C_c^\infty(\Omega)\) 在 \(C^p(\Omega), 1\le p < \infty\) 中稠密。            
-（参考 [Folland Real Analysis Proposition 8.17](../../Library/[Gerald_B._Folland]_Real_Analysis__Modern_Techniq.pdf)     
-[Lawrence C.Evans Partial differential equations Appendix C.5][Evans]）     
-
-对于 \(\forall \epsilon > 0\)，存在连续函数 \(g \in C_c^\infty(W)\)，使得 \(\int_W |u(x) - g(x)| dx < \epsilon/2\)。     
-而对于 \(Dg\) 他在紧集上连续，那么他有界，\(g\) 是 Lipschitz 连续的，\( |g(x)-g(y)| \leq L(|x-y|)\)。        
-因此， 若 \(0<\delta < \dfrac{\epsilon}{2L}, \)，         
-那么对于任意有限个互不相交的开区间 \((x_i, y_i) \subset W, i=1,2,\cdots,n\) 满足 \(\sum_{i=1}^n (y_i-x_i)<\delta\) 时，有
-
-$$ \begin{align}
-    \sum_{i=1}^n |v(y_i)-v(x_i)| 
-    & \leq \sum_{i=1}^n |v(y_i)-v(x_i) - g(y_i)+g(x_i)| + \sum_{i=1}^n |g(y_i)-g(x_i)| \\
-    & \leq \int_W |v-g| + \sum_{i=1}^n L|y_i-x_i| \\
-    & \leq \frac{\epsilon}{2} + L \delta        \\
-    & \leq \frac{\epsilon}{2} + L \frac{\epsilon}{2L} = \epsilon  \\
-\end{align}. $$
-
-故 \(v\) 在 \(\Omega\) 的任意有界子集上绝对连续。
-
-那么他 **几乎处处可导** 。（ [周民强 实变函数论 5.4 绝对函数与微积分基本定理 推论 5.12][Zhou] ）         
-那么 \(v' = Du \text{ a.e.}\)  （ [周民强 实变函数论 5.3 不定积分的微分 定理 5.7][Zhou] ）
-
-**2**.
-
-[Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space \(W^{1, p}(I)\) Lemma 8.2][Brezis]
-
-我们证明 \(D(u-v) = 0 \text{ a.e.}\)。
-
-我们这里扩大了 \(\phi\) 的选择空间。        
-对任意的 \(\phi \in C_c^1(\Omega)\)，
-
-$$ \begin{align}
-    \int_\Omega v \phi'
-    &= \int_\Omega \phi' \int_{x_0}^x Du \\
-\end{align}  $$
-
-那么由 可积函数的 **分部积分定理**
-
-!!! Lemma
-
-    证明参考 [周民强 实变函数论 5.5 分部积分与积分中值定理 定理 5。15][Zhou]
-
-    若 \(f(x), g(x)\) 皆为 \([a,b]\) 上的可积函数，\(\alpha, \beta \in R\)，令
-
-    $$ F(x) = \alpha + \int_a^x f(t)dt, \quad G(x) = \beta + \int_a^x g(t)dt $$
-
-    则
-
-    $$ \int_a^b G(x)f(x)dx + \int_a^b g(x)F(x)dx = F(b)G(b) - F(a)G(a) $$
-
-\(\phi', Du\) 可积，则
-
-$$ \begin{align}
-    \int_\Omega v \phi'
-    = \int_\Omega \phi' \int_{x_0}^x Du 
-    = v \phi \Big|_{\partial \Omega} - \int_\Omega \phi Du 
-    = - \int_\Omega \phi Du 
-\end{align}  $$
-
-
-因此 \(Du\) 是 \(v\) 的弱导数，那么由于弱导数线性原理 \(D(u-v) = 0 \text{ a.e. }\)          
-所以 \(v, u-v \in W_{\text{loc}}^{1,p}(\Omega)\)
-
-
-**3**.
-
-由于 \(u-v \in W_{\text{loc}}^{1,p}(\Omega)\)，
-而 \(D(u-v) = 0 \text{ a.e. }\)，我们希望 \(u = c \text{ a.e. }\)
-
-参考 [Hunter Hunter Notes on PDE Proposition 3.6][Hunter]      
-[Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space \(W^{1, p}(I)\) Lemma 8.1][Brezis]
-
-!!! Lemma
-
-    设 \(f \in L_{\text{loc}}^1(\Omega)\) 满足
-
-    $$ \int_\Omega f  \phi' dx = 0 \; \forall \phi \in C_c^1(\Omega) $$
-
-    那么存在常数 \(c\) 使得 \(f = c \text{ a.e. }, x \in \Omega \)
-
-    ----
-
-    固定 \(\eta \in C_c(\Omega), \int_{\Omega} \eta = 1\)。      
-    对于任何函数 \(\phi \in C_c(\Omega)\)，令
-
-    $$ h(x) = \phi(x) - (\int_\Omega \phi )\eta(x) $$
-
-    那么 
-    
-    $$ \int_\Omega h = \int_\Omega \phi - (\int_\Omega \phi )\int \eta(x) = 0 $$
-
-    因此对 \(h\) 进行积分
-
-    $$ H(x) = \int_{-\infty}^x h(t) $$
-
-    那么 \(H(x)\in C_c^1(\Omega) \)
-
-    根据题目条件，我们有
-
-    $$ \begin{align}
-        0 &= \int_\Omega f H' = \int_\Omega f(x) \left[ \phi(x) - (\int_\Omega \phi )\eta(x) \right] \\
-        &= \int_\Omega f \phi - (\int_\Omega f \eta) (\int_\Omega \phi)      \\
-        &= \int_\Omega \left[f  - (\int_\Omega f \eta)\right] \phi      \\
-    \end{align} $$
-
-    那么由 [内积任何测试函数 0，则几乎处处为零](../../RealAnalysis/Approximation/index.md) 可知
-
-    $$ f - (\int_\Omega f \eta) = 0 \text{ a.e. } $$
-
-
-那么，由 2 以及 [光滑函数一致逼近连续函数] ，对于任何 \(\phi\in C_c^1(\Omega)\)，
-
-$$ \int_\Omega (u-v) \phi' = - \int \phi Du + \int \phi Dv = \int \phi (Du - Dv) = 0 $$
-
-那么存在 \(c\) 使得 \(u-v = c \text{ a.e. }\) ， 即
-
-$$ u(x) = c + \int_{x_0}^x Du \text{ a.e. } $$
-
-其中 \( v(x)=c+\int_{x_0}^x Du = c+\int_{x_0}^x v' \text{ a.e. } \)，
-\(v' = Du \text{ a.e. }, v = u \text{ a.e. } \)，       
-故 \(v \in W^{1,p}(\Omega)\)。
-
-此后不再区分 \(u, v\)，默认 \(u\) 是连续版本。
-
-
-!!! Proposition
-
-    对于 \( 1 < p <\infty\)，
-
-    $$ \begin{align}
-        |u(x)-u(y)| \le \int_x^y 1 \cdot | Du | \le (\int_x^y 1^{\frac{p}{p-1}})^{\frac{p-1}{p}} (\int_x^y |Du|^p)^{\frac{1}{p}} = |x-y|^{1-\frac{1}{p}} \|Du\|_{L^p(\Omega)}
-    \end{align} $$
-
-
-
-
-----
 
 
 
@@ -563,16 +571,24 @@ $$ u(x) = c + \int_{x_0}^x Du \text{ a.e. } $$
 
     所以 \(u\) 属于 \(W^{1,n}(B(0, 1))\)，但不属于 \(L^\infty(B(0, 1))\)。
 
+
 !!! Theorem
+
+    <font color="Black_Violet" size="4">
 
     事实上我们有满足我们最开始猜测的估计    
     [Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Corollary 9.11][Brezis]
 
-    $$ \|u\|_{L^q(R^n)} \le C(n, q) \|u\|_{W^{1, n}(R^n)} \quad \text{ i.e. } \quad W^{1,n}(R^n) \subset  L^q(R^n), \quad n \le q < \infty $$
+    $$ \begin{gather*}
+        \|u\|_{L^q(R^n)} \le C(n, q) \|u\|_{W^{1, n}(R^n)} \\
+        \text{ i.e. } \quad W^{1,n}(R^n) \subset  L^q(R^n), \quad n \le q < \infty
+    \end{gather*} $$
+
+    </font>
 
 **证明**:
 
-回到 [Gagliardo-Nirenberg-Sobolev 不等式](#gagliardo-nirenberg-sobolev-不等式) 证明的最后一步
+回到 [Gagliardo-Nirenberg-Sobolev 不等式](#gagliardo-nirenberg-sobolev) 证明的最后一步
 
 对 \(\gamma > 1\)，
 
@@ -650,18 +666,154 @@ $$ W^{1,n}(R^n) \subset  L^{q}(R^n) \quad n \le q < \infty $$
 
 
 
-## Morrey 不等式
 
-!!! Theorem
+## Bounded 有界情况
 
-    对于 \(n <p \le \infty \)，有
+对于 \(1\le p\le n\)， 我们已经建立了对 \(u\in C_c^\infty(R^n)\) 的估计， 但是我们之前提到过，对于 \(\Omega\) 是 \(R^n\) 和 \(U\) 的情况是不一样的。        
+对于有界集，\(u\) 在靠近 \(\partial\Omega\) 的地方不一定是 0，这就意味着 \(|u|\) 不能直接被 \(Du\) 控制。
 
-    $$ W^{1,p}(R^n) \subset  C^{0, 1-\frac{n}{p}}(R^n) $$
-
-
+对于这种情况， [教材 5.6.1 Theorem 2 3](../index.md#教材) 做出了回答。只不过 \(C\) 要依赖于 \(U\)      
 
 
+我们先思考一个简单的情况：
 
+### \(W_0^{1, p}(U)\)
+
+设 \(U \subset R^n\) 是有界开集，           
+对于某个 \(1 \le p < n\)，若 \(u \in W_0^{1, p}(U)\)，
+那么我们应当意识到，\(D^\alpha u, |\alpha| \le 1\) 在靠近 \(\partial\Omega\) 的地方为 0，那么 \(u\) 可以直接延拓到 \(R^n\) 上。
+
+事实上，因为 \(W_0^{1, p}(U)\) 是 \(C_c^\infty(U)\) 的 **闭包**，所以存在
+
+$$ u_m \in C_c^\infty(U) \; m=1,2,\cdots \quad \text{s.t. }\quad u_m \to u \text{ in } W^{1, p}(U) $$
+
+那么 \(u_m\) 可以延拓到 \(R^n\) 上，        
+那么他们在 \(W^{1,p}(R^n)\) 中的极限显然在 \(U\) 上等于 \(u\)，在 \(U\) 外为 0。        
+也就是说，\(u\) 可以延拓到 \(R^n\) 上。
+
+那么根据 [GNS 不等式](#gagliardo-nirenberg-sobolev)，有
+
+$$ \|u\|_{L^{p^*}(U)} = \|u\|_{L^{p^*}(R^n)} \le C(n, p) \|Du\|_{L^{p}(R^n)} = C(n, p) \|Du\|_{L^{p}(U)} $$
+
+但是，因为 \(U\) 有界 \(|U| < \infty\)，对于 \(q\le p\)，我们有 [Hölder 不等式]
+
+$$ \|f\|_{L^{q}(U)} \le |U|^{1-\frac{q}{p}} \|f\|_{L^{p}(U)} = C(q,p,U)\|f\|_{L^{p}(U)} $$
+
+因此，对于 \(1 \le q\le p^*\)，有
+
+$$ \begin{align}
+    \|u\|_{L^{q}(U)} &
+    \le C(q,p^*,U)\|u\|_{L^{p^*}(U)} \\
+    &\le C(q,p^*,p, U)\|Du\|_{L^{p}(R^n)} \\
+\end{align} $$
+
+因此对于每个 \(q \in [1, p^*]\)，有
+
+$$ \|u\|_{L^{q}(U)} \le C(U, p, q)\|Du\|_{L^{p}(R^n)} $$
+
+得到
+
+$$ W_0^{1, p}(U) \subset L^{q}(U), \quad q \in [1, p^*]  $$
+
+
+!!! Corollary
+
+    当 \(p \ge n\) 时，虽然我们有 [p=n](#pn) 和 [Morrey 不等式](./SobolevInequalities2.md#morrey) 这样的估计。      
+    但是这里由于 \(U\) 的有界性，对于 \(1\le p'< n\)，可以得到
+
+    $$ \|Du\|_{L^{p'}(U)} \le C(U, p, p')\|Du\|_{L^{p}(U)} $$
+
+    这样 \(q < p'^*\) 可以取到 \([1, \infty)\)
+
+    因此，对于 \(1\le p < \infty\)，有
+
+    $$ \|u\|_{L^{p}(U)} \le C(U, p)\|Du\|_{L^{p}(U)} $$
+
+    对于 \(p=\infty\)，我们也能建立相同的不等式，但是需要用到 [Morrey 不等式](./SobolevInequalities2.md#morrey)
+
+
+### \(W^{1, p}(U)\)
+
+现在我们研究更一般的情况，这时 \(u\) 的值可以随意上下移动，因此不能被 \(Du\) 控制。         
+但如果是 \(Du\) 和 \(u\) 的组合呢？答案是有的
+
+
+令 \(U\subset R^n\) 是有界开集，且 \(\partial U\) 是 \(C^1\) 的，则        
+
+$$ \|u\|_{L^{p^*}(U)} \le C(n, U, p) \|u\|_{W^{1,p(U)}} $$
+
+即
+
+$$ W^{1,p}(U) \subset L^{p^*}(U) $$
+
+!!! Corollary
+
+    和上一节类似，这样的不等式对 \(q \in [1, p^*]\) 都成立，即
+
+    $$ \|u\|_{L^{q}(U)} \le |U|^{1-\frac{q}{p^*}}\|u\|_{L^{p^*}(U)} \le C(n, U, p, q)\|u\|_{W^{1,p(U)}} ,\quad q \in [1, p^*] $$
+
+    也就是
+
+    $$ W^{1,p}(U) \subset L^{p^*}(U) \subset L^{q}(U) , \quad q \in [1, p^*] $$
+
+
+    ---
+
+    更进一步，对于 \(1 \le p' \le p\)
+
+    $$ \|D^\alpha u\|_{L^{p'}(U)} \le |U|^{1-\frac{p'}{p}}\|D^\alpha u\|_{L^{p}(U)}  = C(U, p, p')\|D^\alpha u\|_{L^{p}(U)} $$
+
+    即
+
+    $$ W^{1,p}(U) \subset W^{1,p'}(U) \in [1, p'] $$
+
+    因此，和上一节类似，对于 \(p' \in [1, p]\) 和 \(q \in [1, p'^*]\)，有
+
+    $$ W^{1,p}(U) \subset W^{1,p'}(U) \subset L^{p'^*}(U) \subset L^{q}(U) $$
+
+    特别的
+
+    $$ W^{1,p}(U) \subset L^{p}(U), \quad 1 \le p <\infty $$
+
+
+
+!!! Question
+
+    通过上面两种情况，我们能把握到 \(u\) 是否存在等于 0 的部分是有很大区别的。          
+    如果 \(u\) 在某个区域上等于 0 ，那么 \(u\) 就可能被 \(Du\) 控制。           
+    我们将在 [Poincaré inequality](./Poincaré.md) 中介绍
+
+
+
+### Rellich-Kondrachov Compactness Theorem
+
+[Lawrence C.Evans Partial differential equations 5.7 COMPACTNESS](../index.md#lawrence-cevans-partial-differential-equations)
+
+对于上面最后一种情况，嵌入不仅是连续的，还是紧的，即
+
+$$ W^{1,p}(U) \subset\subset L^{q}(U), \quad q \in [1, p^*) $$
+
+实际上，只要复合嵌入中有一个是紧的，那么复合嵌入也是紧的，那么我们只需证明
+
+$$ W^{1,p}(U) \subset\subset L^{p^*}(U) $$
+
+我们需要使用 Arzela-Ascoli 紧性定理。
+
+
+
+!!! corollary
+
+    只要复合嵌入中有一个是紧的，那么复合嵌入也是紧的,
+
+    那么观察上一节的 Corollary，我们有
+
+    $$ W^{1,p}(U) \subset W^{1,p'}(U) \subset\subset L^{p'^*}(U) \subset L^{q}(U) $$
+
+    得到
+
+    $$ W^{1,p}(U) \subset\subset L^{p}(U), \quad 1 \le p <\infty $$
+
+    \(p=\infty\) 是特殊的，我们将在 [Morrey 不等式](./SobolevInequalities2.md) 中介绍。
 
 
 

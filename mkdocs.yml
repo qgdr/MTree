@@ -95,9 +95,11 @@ nav:
     - "\u5B9A\u4E49": PartialDifferentialEquations/SobolevSpaces/Definition.md
     - "\u903C\u8FD1": PartialDifferentialEquations/SobolevSpaces/Approximation.md
     - "\u5EF6\u62D3": PartialDifferentialEquations/SobolevSpaces/Extensions.md
+    - "Sobolev \u4E0D\u7B49\u5F0F I": PartialDifferentialEquations/SobolevSpaces/SobolevInequalities.md
     - "H\xF6lder \u7A7A\u95F4": "PartialDifferentialEquations/SobolevSpaces/H\xF6\
         lderSpaces.md"
-    - "Sobolev \u4E0D\u7B49\u5F0F": PartialDifferentialEquations/SobolevSpaces/SobolevInequalities.md
+    - "Sobolev \u4E0D\u7B49\u5F0F II": PartialDifferentialEquations/SobolevSpaces/SobolevInequalities2.md
+    - "\u5DEE\u5546": PartialDifferentialEquations/SobolevSpaces/Difference.md
 - FractionalDifferentialEquations:
   - FractionalDifferentialEquations/index.md
   - "\u5206\u6570\u9636\u5FAE\u79EF\u5206": FractionalDifferentialEquations/RLFIDF.md

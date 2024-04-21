@@ -99,17 +99,16 @@ $$ \sum_{i=1}^N \zeta_i = \sum_{i=1}^N \frac{\phi_i}{\sum_{i=1}^N \phi_i + 1-\ph
 </font>
 
 
-## 逼近定理
+## APPROXIMATION 逼近定理
 
 定义 \(U_\epsilon = \{x\in U | \text{dist}(x, \partial U) > \epsilon\}\).
 
-### 局部逼近定理 
+### Local approximation 局部逼近定理 
 
-**Local approximation by smooth functions**
 
 设对于某个 \(1 \le p < \infty\)， 函数 \(u \in W^{k, p}(\Omega)\)，令
 
-$$ u^\epsilon = \eta_\epsilon * u \quad \text{  in  } U_\epsilon $$
+$$ u^\epsilon = \eta_\epsilon * u \quad \text{  in  } \Omega_\epsilon $$
 
 我们有以下性质：
 
@@ -152,3 +151,33 @@ $$ u^\epsilon \to u \quad \text{  in  } W_{\text{loc}}^{k, p}(\Omega)
     
     又因为 \(u^\epsilon  \to u \in W^{1, p}(V)\)，故 \(u = c \; \text{a.e. in } V\)。           
     因为 \(V\) 在连通域上是任意的，所以 \(u = c \; \text{a.e. in } \Omega\) 
+
+
+
+
+-----
+
+## Problems
+
+
+!!! Question
+
+假设 \(1 < p \le \infty\) 并且 U 有界
+
+(a) 如果 \(u \in W^{1,p}(U)\)，那么 \(|u| \in W^{1,p}\)
+(b) 如果 \(u \in W^{1,p}(U)\)，那么 \(u^+， u^- \in W^{1,p}\)，且
+
+$$ \begin{gather*}
+    Du^+(x) = \begin{cases}
+        Du(x), &\text{a.e. when } u(x) > 0 \\
+        0, &\text{a.e. when } u(x) \le 0
+    \end{cases}     \\
+    Du^-(x) = \begin{cases}
+        0, &\text{a.e. when } u(x) \ge 0 \\
+        -Du(x), &\text{a.e. when } u(x) < 0
+    \end{cases}
+\end{gather*} $$
+
+(c) 如果 \(u \in W^{1,p}(U)\)，那么
+
+$$ Du(x) = 0  \text{a.e. when} u(x) = 0 $$

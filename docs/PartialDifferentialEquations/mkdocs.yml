@@ -11,5 +11,7 @@ nav:
   - 定义: SobolevSpaces/Definition.md
   - 逼近: SobolevSpaces/Approximation.md
   - 延拓: SobolevSpaces/Extensions.md
+  - Sobolev 不等式 I: SobolevSpaces/SobolevInequalities.md
   - Hölder 空间: SobolevSpaces/HölderSpaces.md
-  - Sobolev 不等式: SobolevSpaces/SobolevInequalities.md
+  - Sobolev 不等式 II: SobolevSpaces/SobolevInequalities2.md
+  - 差商: SobolevSpaces/Difference.md

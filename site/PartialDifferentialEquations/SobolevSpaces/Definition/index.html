@@ -1785,6 +1785,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1885,6 +1889,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      弱导数的性质
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#norm" class="md-nav__link">
     <span class="md-ellipsis">
       范数 Norm
@@ -1894,11 +1907,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       完备性
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="完备性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      积分极限
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1960,6 +1988,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../SobolevInequalities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobolev 不等式 I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../H%C3%B6lderSpaces/" class="md-nav__link">
         
   
@@ -1981,11 +2030,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../SobolevInequalities/" class="md-nav__link">
+      <a href="../SobolevInequalities2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Sobolev 不等式
+    Sobolev 不等式 II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Difference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    差商
   </span>
   
 
@@ -2400,6 +2470,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      弱导数的性质
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#norm" class="md-nav__link">
     <span class="md-ellipsis">
       范数 Norm
@@ -2409,11 +2488,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       完备性
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="完备性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      积分极限
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2444,19 +2538,51 @@
 <p>对于所有多重指标 <span class="arithmatex">\(\alpha, |\alpha| \le k\)</span>，存在弱偏导数 <span class="arithmatex">\(D^\alpha u\)</span>，且 <span class="arithmatex">\(D^\alpha u \in L^p(\Omega)\)</span></p>
 <p>的所有局部可积函数构成的集合。即</p>
 <div class="arithmatex">\[ W^{k, p}(\Omega) = \{ u \in L_{\text{loc}}^1(\Omega) : D^\alpha u \in L^p(\Omega) \text{ for all } |\alpha| \le k \} \]</div>
+<h2 id="_1">弱导数的性质<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>我们需要先说明一些弱导数的性质，对于 <span class="arithmatex">\(u, v \in W^{k,p}(\Omega)\)</span></p>
+<p>(i)</p>
+<div class="arithmatex">\[ D^\alpha D^\beta u = D^{\alpha+\beta} u, \quad |\alpha|+|\beta| \le k \]</div>
+<p>(ii)</p>
+<div class="arithmatex">\[ D^\alpha (\lambda u + \mu v) = \lambda D^\alpha u + \mu D^\alpha v , |\alpha| \le k \]</div>
+<p>(iii)     <br />
+<strong>Leibniz's 公式</strong>              <br />
+若 <span class="arithmatex">\(\zeta \in C_c^\infty(\Omega)\)</span>，则 <span class="arithmatex">\(\zeta u \in W^{k, p}(\Omega)\)</span> 且</p>
+<div class="arithmatex">\[ D^\alpha (\zeta u) = \sum_{\beta \le \alpha} \binom{\alpha}{\beta} D^\beta \zeta D^{\alpha-\beta} u \]</div>
 <h2 id="norm">范数 Norm<a class="headerlink" href="#norm" title="Permanent link">&para;</a></h2>
 <p>如果 <span class="arithmatex">\(u \in W^{k, p}(\Omega)\)</span>，我们定义他的 <strong>范数</strong> 为</p>
 <div class="arithmatex">\[ \|u\|_{W^{k, p}(\Omega)} = \begin{cases}
     \left( \sum_{|\alpha|\le k}\int_\Omega |D^\alpha u|^p dx \right)^{\frac{1}{p}} &amp;  1 \le p &lt; \infty \\
     \sum_{|\alpha| \le k} \text{ess sup}_{\Omega} |D^\alpha u|           &amp; p = \infty
 \end{cases}  \]</div>
+<p>我们说明 <span class="arithmatex">\(\|\cdot\|_{W^{k, p}(\Omega)}\)</span> 是一个范数，即满足</p>
+<p>1 . 正定性：      <br />
+<span class="arithmatex">\(\|u\|_{W^{k, p}(\Omega)} \ge 0\)</span>，且 <span class="arithmatex">\(\|u\|_{W^{k, p}(\Omega)} = 0 \Leftrightarrow u = 0 \text{ a.e.}\)</span>，这是显然的，因为 <span class="arithmatex">\(0 = \|u\|_{W^{k, p}(\Omega)} \ge \|u\|_{L^p(\Omega)} \Rightarrow u = 0 \text{ a.e.}\)</span></p>
+<p>2 . 齐次性：      <br />
+<span class="arithmatex">\(\|\lambda u\|_{W^{k, p}(\Omega)} = |\lambda| \|u\|_{W^{k, p}(\Omega)} \quad \forall \lambda \in R\)</span></p>
+<p>3 . 三角不等式：      <br />
+对于 <span class="arithmatex">\(1 \le p&lt;\infty\)</span>，以及 <span class="arithmatex">\(u, v \in W^{k, p}(\Omega)\)</span>，可以得到</p>
+<div class="arithmatex">\[ \begin{align}
+    \|u + v\|_{W^{k, p}(\Omega)} 
+    &amp;= \left( \sum_{|\alpha|\le k}\int_\Omega |D^\alpha (u + v)|^p dx \right)^{\frac{1}{p}} \\
+    &amp;\le \left( \sum_{|\alpha|\le k} \left(\|D^\alpha u\|_{L^p(\Omega)} + \|D^\alpha v\|_{L^p(\Omega)}\right)^p \right)^{\frac{1}{p}} \\
+    &amp;\le \left( \sum_{|\alpha|\le k}\int_\Omega |D^\alpha u|^p dx \right)^{\frac{1}{p}} + \left( \sum_{|\alpha|\le k}\int_\Omega |D^\alpha v|^p dx \right)^{\frac{1}{p}} \\
+    &amp;= \|u\|_{W^{k, p}(\Omega)} + \|v\|_{W^{k, p}(\Omega)}
+\end{align} \]</div>
+<p>第一个不等号使用了 Minkowski 不等式</p>
+<div class="arithmatex">\[ \|D^\alpha u + D^\alpha v\|_{L^p(\Omega)} \le \|D^\alpha u\|_{L^p(\Omega)} + \|D^\alpha v\|_{L^p(\Omega)} \]</div>
+<p>第二个不等号使用了离散形式的 Minkowski 不等式</p>
+<div class="arithmatex">\[ \left(\sum_{i=1}^{n} |a_k + b_k|^p\right)^{\frac{1}{p}} \le \left(\sum_{i=1}^{n} |a_k|^p\right)^{\frac{1}{p}} + \left(\sum_{i=1}^{n} |b_k|^p\right)^{\frac{1}{p}} \]</div>
 <div class="admonition lemma">
 <p class="admonition-title">Lemma</p>
 <p>事实上，当 <span class="arithmatex">\(1 \le p &lt; \infty\)</span> 时，</p>
 <div class="arithmatex">\[  \left( \sum_{|\alpha|\le k}\int_\Omega |D^\alpha u|^p dx \right)^{\frac{1}{p}} 
-\Leftrightarrow \sum_{|\alpha| \le k} \|u\|_{L^p(\Omega)} \]</div>
-<p>我更喜欢后一种直接相加这种暴力方式，实际上我们也会在 <a href="../H%C3%B6lderSpaces/#hölder-范数">Hölder 空间</a> 中见识这样的操作。</p>
-<p>证明显然。</p>
+\Leftrightarrow \sum_{|\alpha| \le k} \|D^\alpha u\|_{L^p(\Omega)} \]</div>
+<p>我更喜欢后一种直接相加这种暴力方式，实际上我们也会在 <a href="../H%C3%B6lderSpaces/#holder_1">Hölder 空间</a> 中见识这样的操作。</p>
+<p>事实上 <span class="arithmatex">\(\sum_{|\alpha| \le k} \|D^\alpha u\|_{L^p(\Omega)}\)</span> 明显满足范数的定义。
+而且</p>
+<div class="arithmatex">\[ \left( \sum_{|\alpha|\le k}\|D^\alpha u\|_{L^p(\Omega)}^p dx \right)^{\frac{1}{p}} 
+\le \sum_{|\alpha| \le k} \|D^\alpha u\|_{L^p(\Omega)} 
+\le \left(\sum_{|\alpha| \le k} 1 \right)^{\frac{p-1}{p}}\left(\sum_{|\alpha| \le k} \|D^\alpha u\|_{L^p(\Omega)}^p \right)^\frac{1}{p} \]</div>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -2496,9 +2622,10 @@
 <p>这意味着 </p>
 <div class="arithmatex">\[ \int_U |u(x)|^p dx = \lim_{m\to \infty} \int_U |u_m(x)|^p dx \le \lim_{m\to \infty} n\alpha(n) 2^{n-\alpha p} = n\alpha(n) 2^{n-\alpha p} &lt; \infty \]</div>
 <p>因此 <span class="arithmatex">\(u \in L^p(U)\)</span>.</p>
-<p>在上面的证明过程中，我们实际上证明了 <span class="arithmatex">\(u_m \in L^p(U)\)</span>，而且一致有界</p>
-<div class="arithmatex">\[ \|u_m - u\|_{L^p(U)} \le 2\|u\|_{L^p(U)} \]</div>
-<p>那么由控制收敛定理 </p>
+<p>在上面的证明过程中，我们实际上证明了 <span class="arithmatex">\(u_m \in L^p(U)\)</span>，</p>
+<div class="arithmatex">\[ |u_m(x)| &lt; |u(x)| \Rightarrow |u_m(x)-u(x)| \le 2|u(x)| \]</div>
+<p>但是 <span class="arithmatex">\(u \in L^p(U)\)</span> </p>
+<p>那么由 [控制收敛定理] </p>
 <div class="arithmatex">\[ \lim_{m\to \infty} \|u_m - u\|_{L^p(U)} \to 0 \]</div>
 <p><strong>2</strong>.</p>
 <p>（在这里我们使用 <span class="arithmatex">\(\nabla f\)</span>，表示函数的梯度， <span class="arithmatex">\(Df\)</span> 则表示弱导数。）</p>
@@ -2561,7 +2688,7 @@
 <p>故</p>
 <div class="arithmatex">\[ \int_U |D^\alpha u_m(x) - D^\alpha u_n(x)|^p dx &lt; \frac{1}{2^{m-1}} C(n, \alpha, p)  \to 0 \quad \text{as } m,n \to \infty \]</div>
 <p>因此 <span class="arithmatex">\(D^\alpha u_m\)</span> 是 <span class="arithmatex">\(L^p(U)\)</span> 中的 Cauchy 列，存在极限 <span class="arithmatex">\(v \in L^p(U)\)</span>。</p>
-<p>那么对于任意的 <span class="arithmatex">\(\forall \phi \in C_c^\infty(U)\)</span>，由控制收敛定理</p>
+<p>那么对于任意的 <span class="arithmatex">\(\forall \phi \in C_c^\infty(U)\)</span>，由于 <a href="#_3">引理</a></p>
 <div class="arithmatex">\[ \begin{align}
     \int_U u(x) D^\alpha \phi(x) dx &amp;= \lim_{m\to \infty} \int_U  u_m(x) D^\alpha \phi(x) dx \\
     &amp;= \lim_{m\to \infty} -\int_U D^\alpha u_m(x) \phi(x) dx \\
@@ -2575,7 +2702,44 @@
 那么 <span class="arithmatex">\(|x-r_j|^{-\alpha}\)</span> 在 <span class="arithmatex">\(V\)</span> 无界，则 <span class="arithmatex">\(u(x) &gt; \frac{1}{2^j}|x-r_j|^{-\alpha}\)</span> 也是无界的。</p>
 </div>
 <p>从上面这个例子我们把握到了如何证明 <span class="arithmatex">\(W^{1,p}(U)\)</span> 的完备性，自然的我们试图证明 <span class="arithmatex">\(W^{k,p}(\Omega)\)</span> 的完备性。</p>
-<h2 id="_1">完备性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="_2">完备性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><font color="Black_Pink">
+对于 <span class="arithmatex">\(1\le p \le \infty\)</span>，Sobolev 空间 <span class="arithmatex">\(W^{k,p}(\Omega)\)</span> 是 Banach 空间
+</font></p>
+<p><strong>证明</strong></p>
+<p>设 <span class="arithmatex">\(\{u_m\}_{m=1}^\infty\)</span> 是 <span class="arithmatex">\(W^{k,p}(\Omega), 1\le p &lt; \infty\)</span> 中的Cauchy列，         <br />
+那么根据范数定义</p>
+<div class="arithmatex">\[ \|u\|_{W^{k,p}(\Omega)} = \left( \sum_{|\alpha| \le k} \|D^\alpha u\|_{L^p(\Omega)}^p \right)^{\frac{1}{p}} \ge \|D^\beta u\|_{L^p(\Omega)} \quad \forall |\beta| \le k \]</div>
+<p>函数列 <span class="arithmatex">\(\{D^\alpha u_m\}_{m=1}^\infty, |\alpha| \le k\)</span> 显然也是 <span class="arithmatex">\(L^p(\Omega)\)</span> 中的 Cauchy 列。    <br />
+那么设</p>
+<div class="arithmatex">\[ D^\alpha u_m \to u_\alpha \text{ in } L^p(\Omega), \quad |\alpha| \le k \]</div>
+<p>特别的 <span class="arithmatex">\(u_m \to u \text{ in } L^p(\Omega)\)</span>。</p>
+<p>对于任意的 <span class="arithmatex">\(\phi \in C_c^\infty(\Omega)\)</span>，</p>
+<div class="arithmatex">\[ \begin{align}
+    \int_\Omega u D^\alpha \phi dx &amp;= \lim_{m\to \infty} \int_\Omega  u_m D^\alpha\phi dx \\
+    &amp;= \lim_{m\to \infty} (-1)^{|\alpha|} \int_\Omega D^\alpha u_m \phi dx \\
+    &amp;= (-1)^{|\alpha|} \int_\Omega u_\alpha \phi dx
+\end{align} \]</div>
+<p>因此 <span class="arithmatex">\(u_\alpha = D^\alpha u \text{ a.e.}\)</span>，
+<span class="arithmatex">\(u \in W^{k,p}(\Omega)\)</span>， </p>
+<div class="arithmatex">\[ u_m \to u \text{ in } W^{k,p}(\Omega) \]</div>
+<p><span class="arithmatex">\(W^{k,p}(\Omega)\)</span> 完备，是 Banach 空间。</p>
+<div class="admonition lemma">
+<p class="admonition-title">Lemma</p>
+<h3 id="_3">积分极限<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>事实上，我们那这里极限和积分交换了次序</p>
+<div class="arithmatex">\[ \int_\Omega u \psi dx
+= \int_\Omega \lim_{m\to \infty} u_m \psi dx = \lim_{m\to \infty} \int_\Omega  u_m \psi dx \]</div>
+<p>这是因为</p>
+<div class="arithmatex">\[ \int_\Omega |u - u_m| \psi dx 
+\le \|u-u_m\|_{L^p}\|\psi\|_{L^{p^*}} , \text{ where } \frac{1}{p^*} + \frac{1}{p} = 1 \]</div>
+<p>当然用 泛函分析 的语言可以描述为，强收敛 <span class="arithmatex">\(\Rightarrow\)</span> 弱收敛</p>
+</div>
+<p>特别的，对于 <span class="arithmatex">\(p=\infty\)</span>，</p>
+<div class="arithmatex">\[ \|u\|_{W^{k,\infty}(\Omega)} = \sum_{|\alpha| \le k} \|D^\alpha u\|_{L^\infty(\Omega)} \]</div>
+<p>证明过程类似，只不过在 引理 中不等式变成</p>
+<div class="arithmatex">\[ \int_\Omega |u - u_m| \psi dx \le \|u-u_m\|_{L^\infty}\|\psi\|_{L^{1}} \]</div>
 
 <!-- Source file information -->
 

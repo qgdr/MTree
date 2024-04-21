@@ -14,6 +14,29 @@ $$ W^{k, p}(\Omega) = \{ u \in L_{\text{loc}}^1(\Omega) : D^\alpha u \in L^p(\Om
 
 
 
+
+
+
+
+## 弱导数的性质
+
+我们需要先说明一些弱导数的性质，对于 \(u, v \in W^{k,p}(\Omega)\)
+
+(i)
+
+$$ D^\alpha D^\beta u = D^{\alpha+\beta} u, \quad |\alpha|+|\beta| \le k $$
+
+(ii)
+
+$$ D^\alpha (\lambda u + \mu v) = \lambda D^\alpha u + \mu D^\alpha v , |\alpha| \le k $$
+
+(iii)       
+**Leibniz's 公式**                
+若 \(\zeta \in C_c^\infty(\Omega)\)，则 \(\zeta u \in W^{k, p}(\Omega)\) 且
+
+$$ D^\alpha (\zeta u) = \sum_{\beta \le \alpha} \binom{\alpha}{\beta} D^\beta \zeta D^{\alpha-\beta} u $$
+
+
 ## 范数 Norm
 
 
@@ -24,16 +47,54 @@ $$ \|u\|_{W^{k, p}(\Omega)} = \begin{cases}
     \sum_{|\alpha| \le k} \text{ess sup}_{\Omega} |D^\alpha u|           & p = \infty
 \end{cases}  $$
 
+
+
+我们说明 \(\|\cdot\|_{W^{k, p}(\Omega)}\) 是一个范数，即满足
+
+1 . 正定性：        
+\(\|u\|_{W^{k, p}(\Omega)} \ge 0\)，且 \(\|u\|_{W^{k, p}(\Omega)} = 0 \Leftrightarrow u = 0 \text{ a.e.}\)，这是显然的，因为 \(0 = \|u\|_{W^{k, p}(\Omega)} \ge \|u\|_{L^p(\Omega)} \Rightarrow u = 0 \text{ a.e.}\)
+
+2 . 齐次性：        
+\(\|\lambda u\|_{W^{k, p}(\Omega)} = |\lambda| \|u\|_{W^{k, p}(\Omega)} \quad \forall \lambda \in R\)
+
+3 . 三角不等式：        
+对于 \(1 \le p<\infty\)，以及 \(u, v \in W^{k, p}(\Omega)\)，可以得到
+
+$$ \begin{align}
+    \|u + v\|_{W^{k, p}(\Omega)} 
+    &= \left( \sum_{|\alpha|\le k}\int_\Omega |D^\alpha (u + v)|^p dx \right)^{\frac{1}{p}} \\
+    &\le \left( \sum_{|\alpha|\le k} \left(\|D^\alpha u\|_{L^p(\Omega)} + \|D^\alpha v\|_{L^p(\Omega)}\right)^p \right)^{\frac{1}{p}} \\
+    &\le \left( \sum_{|\alpha|\le k}\int_\Omega |D^\alpha u|^p dx \right)^{\frac{1}{p}} + \left( \sum_{|\alpha|\le k}\int_\Omega |D^\alpha v|^p dx \right)^{\frac{1}{p}} \\
+    &= \|u\|_{W^{k, p}(\Omega)} + \|v\|_{W^{k, p}(\Omega)}
+\end{align} $$
+
+第一个不等号使用了 Minkowski 不等式
+
+$$ \|D^\alpha u + D^\alpha v\|_{L^p(\Omega)} \le \|D^\alpha u\|_{L^p(\Omega)} + \|D^\alpha v\|_{L^p(\Omega)} $$
+
+第二个不等号使用了离散形式的 Minkowski 不等式
+
+$$ \left(\sum_{i=1}^{n} |a_k + b_k|^p\right)^{\frac{1}{p}} \le \left(\sum_{i=1}^{n} |a_k|^p\right)^{\frac{1}{p}} + \left(\sum_{i=1}^{n} |b_k|^p\right)^{\frac{1}{p}} $$
+
 !!! Lemma
 
     事实上，当 \(1 \le p < \infty\) 时，
 
     $$  \left( \sum_{|\alpha|\le k}\int_\Omega |D^\alpha u|^p dx \right)^{\frac{1}{p}} 
-    \Leftrightarrow \sum_{|\alpha| \le k} \|u\|_{L^p(\Omega)} $$
+    \Leftrightarrow \sum_{|\alpha| \le k} \|D^\alpha u\|_{L^p(\Omega)} $$
 
-    我更喜欢后一种直接相加这种暴力方式，实际上我们也会在 [Hölder 空间](./HölderSpaces.md#hölder-范数) 中见识这样的操作。
+    我更喜欢后一种直接相加这种暴力方式，实际上我们也会在 [Hölder 空间](./HölderSpaces.md#holder_1) 中见识这样的操作。
 
-    证明显然。
+    事实上 \(\sum_{|\alpha| \le k} \|D^\alpha u\|_{L^p(\Omega)}\) 明显满足范数的定义。
+    而且
+
+    $$ \left( \sum_{|\alpha|\le k}\|D^\alpha u\|_{L^p(\Omega)}^p dx \right)^{\frac{1}{p}} 
+    \le \sum_{|\alpha| \le k} \|D^\alpha u\|_{L^p(\Omega)} 
+    \le \left(\sum_{|\alpha| \le k} 1 \right)^{\frac{p-1}{p}}\left(\sum_{|\alpha| \le k} \|D^\alpha u\|_{L^p(\Omega)}^p \right)^\frac{1}{p} $$
+
+     
+
+
 
 
 !!! Example
@@ -97,11 +158,13 @@ $$ \|u\|_{W^{k, p}(\Omega)} = \begin{cases}
 
     因此 \(u \in L^p(U)\).
 
-    在上面的证明过程中，我们实际上证明了 \(u_m \in L^p(U)\)，而且一致有界
+    在上面的证明过程中，我们实际上证明了 \(u_m \in L^p(U)\)，
 
-    $$ \|u_m - u\|_{L^p(U)} \le 2\|u\|_{L^p(U)} $$
+    $$ |u_m(x)| < |u(x)| \Rightarrow |u_m(x)-u(x)| \le 2|u(x)| $$
 
-    那么由控制收敛定理 
+    但是 \(u \in L^p(U)\) 
+
+    那么由 [控制收敛定理] 
 
     $$ \lim_{m\to \infty} \|u_m - u\|_{L^p(U)} \to 0 $$
 
@@ -198,7 +261,7 @@ $$ \|u\|_{W^{k, p}(\Omega)} = \begin{cases}
 
     因此 \(D^\alpha u_m\) 是 \(L^p(U)\) 中的 Cauchy 列，存在极限 \(v \in L^p(U)\)。
 
-    那么对于任意的 \(\forall \phi \in C_c^\infty(U)\)，由控制收敛定理
+    那么对于任意的 \(\forall \phi \in C_c^\infty(U)\)，由于 [引理](#_3)
 
     $$ \begin{align}
         \int_U u(x) D^\alpha \phi(x) dx &= \lim_{m\to \infty} \int_U  u_m(x) D^\alpha \phi(x) dx \\
@@ -219,8 +282,70 @@ $$ \|u\|_{W^{k, p}(\Omega)} = \begin{cases}
 
 从上面这个例子我们把握到了如何证明 \(W^{1,p}(U)\) 的完备性，自然的我们试图证明 \(W^{k,p}(\Omega)\) 的完备性。
 
+----
+
+
+
 
 ## 完备性
 
+
+<font color="Black_Pink">
+对于 \(1\le p \le \infty\)，Sobolev 空间 \(W^{k,p}(\Omega)\) 是 Banach 空间
+</font>
+
+**证明**
+
+设 \(\{u_m\}_{m=1}^\infty\) 是 \(W^{k,p}(\Omega), 1\le p < \infty\) 中的Cauchy列，           
+那么根据范数定义
+
+$$ \|u\|_{W^{k,p}(\Omega)} = \left( \sum_{|\alpha| \le k} \|D^\alpha u\|_{L^p(\Omega)}^p \right)^{\frac{1}{p}} \ge \|D^\beta u\|_{L^p(\Omega)} \quad \forall |\beta| \le k $$
+
+函数列 \(\{D^\alpha u_m\}_{m=1}^\infty, |\alpha| \le k\) 显然也是 \(L^p(\Omega)\) 中的 Cauchy 列。      
+那么设
+
+$$ D^\alpha u_m \to u_\alpha \text{ in } L^p(\Omega), \quad |\alpha| \le k $$
+
+特别的 \(u_m \to u \text{ in } L^p(\Omega)\)。
+
+对于任意的 \(\phi \in C_c^\infty(\Omega)\)，
+
+$$ \begin{align}
+    \int_\Omega u D^\alpha \phi dx &= \lim_{m\to \infty} \int_\Omega  u_m D^\alpha\phi dx \\
+    &= \lim_{m\to \infty} (-1)^{|\alpha|} \int_\Omega D^\alpha u_m \phi dx \\
+    &= (-1)^{|\alpha|} \int_\Omega u_\alpha \phi dx
+\end{align} $$
+
+因此 \(u_\alpha = D^\alpha u \text{ a.e.}\)，
+\(u \in W^{k,p}(\Omega)\)， 
+
+$$ u_m \to u \text{ in } W^{k,p}(\Omega) $$
+
+\(W^{k,p}(\Omega)\) 完备，是 Banach 空间。
+
+!!! Lemma
+
+    ### 积分极限
+
+    事实上，我们那这里极限和积分交换了次序
+
+    $$ \int_\Omega u \psi dx
+    = \int_\Omega \lim_{m\to \infty} u_m \psi dx = \lim_{m\to \infty} \int_\Omega  u_m \psi dx $$
+
+    这是因为
+
+    $$ \int_\Omega |u - u_m| \psi dx 
+    \le \|u-u_m\|_{L^p}\|\psi\|_{L^{p^*}} , \text{ where } \frac{1}{p^*} + \frac{1}{p} = 1 $$
+
+    当然用 泛函分析 的语言可以描述为，强收敛 \(\Rightarrow\) 弱收敛
+
+
+特别的，对于 \(p=\infty\)，
+
+$$ \|u\|_{W^{k,\infty}(\Omega)} = \sum_{|\alpha| \le k} \|D^\alpha u\|_{L^\infty(\Omega)} $$
+
+证明过程类似，只不过在 引理 中不等式变成
+
+$$ \int_\Omega |u - u_m| \psi dx \le \|u-u_m\|_{L^\infty}\|\psi\|_{L^{1}} $$
 
 
