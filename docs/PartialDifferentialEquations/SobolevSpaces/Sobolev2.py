@@ -19,13 +19,15 @@ class Counterexample(Scene):
         surface_mesh = OpenGLSurfaceMesh(surface)
 
         self.camera.set_euler_angles(
-                theta=-10*DEGREES,
-                phi=50*DEGREES
+                theta=0*DEGREES,
+                phi=0*DEGREES
             )
 
         self.add(surface, surface_mesh)
         self.wait(2)
-        self.play(self.camera.animate.set_euler_angles(theta=60*DEGREES))
+        self.play(self.camera.animate.set_euler_angles(theta=90*DEGREES, phi=90*DEGREES), run_time=2)
+        self.wait(2)
+        self.play(self.camera.animate.set_euler_angles(theta=0*DEGREES, phi=0*DEGREES), run_time=2)
         self.wait(2)
 
 # manim -pqm Sobolev2.py --format=gif --renderer=opengl Counterexample
