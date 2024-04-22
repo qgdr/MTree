@@ -162,22 +162,22 @@ $$ u^\epsilon \to u \quad \text{  in  } W_{\text{loc}}^{k, p}(\Omega)
 
 !!! Question
 
-假设 \(1 < p \le \infty\) 并且 U 有界
+    假设 \(1 < p \le \infty\) 并且 U 有界
 
-(a) 如果 \(u \in W^{1,p}(U)\)，那么 \(|u| \in W^{1,p}\)
-(b) 如果 \(u \in W^{1,p}(U)\)，那么 \(u^+， u^- \in W^{1,p}\)，且
+    (a) 如果 \(u \in W^{1,p}(U)\)，那么 \(|u| \in W^{1,p}\)
+    (b) 如果 \(u \in W^{1,p}(U)\)，那么 \(u^+， u^- \in W^{1,p}\)，且
 
-$$ \begin{gather*}
-    Du^+(x) = \begin{cases}
-        Du(x), &\text{a.e. when } u(x) > 0 \\
-        0, &\text{a.e. when } u(x) \le 0
-    \end{cases}     \\
-    Du^-(x) = \begin{cases}
-        0, &\text{a.e. when } u(x) \ge 0 \\
-        -Du(x), &\text{a.e. when } u(x) < 0
-    \end{cases}
-\end{gather*} $$
+    $$ \begin{gather*}
+        Du^+(x) = \begin{cases}
+            Du(x), &\text{a.e. when } u(x) > 0 \\
+            0, &\text{a.e. when } u(x) \le 0
+        \end{cases}     \\
+        Du^-(x) = \begin{cases}
+            0, &\text{a.e. when } u(x) \ge 0 \\
+            -Du(x), &\text{a.e. when } u(x) < 0
+        \end{cases}
+    \end{gather*} $$
 
-(c) 如果 \(u \in W^{1,p}(U)\)，那么
+    (c) 如果 \(u \in W^{1,p}(U)\)，那么
 
-$$ Du(x) = 0  \text{a.e. when} u(x) = 0 $$
+    $$ Du(x) = 0  \text{a.e. when} u(x) = 0 $$

@@ -1789,6 +1789,8 @@
       
         
       
+        
+      
     
     
     
@@ -2119,6 +2121,27 @@
   
   <span class="md-ellipsis">
     Sobolev 不等式 II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Poincar%C3%A9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poincaré 不等式
   </span>
   
 
@@ -2909,7 +2932,7 @@ Brezis 书中的内容比较丰富，全面。</p>
 </div>
 <div class="admonition theorem">
 <p class="admonition-title">Theorem</p>
-<p><font color="Black_Violet" size="4"></p>
+<p><font color="Black_Violet" size="3"></p>
 <p><strong>Gagliardcr-Nirenberg-Sobolev inequality</strong></p>
 <p>设 <span class="arithmatex">\(1\le p &lt; n\)</span>，则存在只跟 <span class="arithmatex">\(p, n\)</span> 有关的常数 <span class="arithmatex">\(C\)</span>，使得对于任意的 <span class="arithmatex">\(u\in C_c^1(R^n)\)</span>，有</p>
 <div class="arithmatex">\[ \|u\|_{L^{p^*}(R^n)} \le C \|Du\|_{L^{p}(R^n)} \]</div>
@@ -3055,7 +3078,7 @@ Brezis 书中的内容比较丰富，全面。</p>
 </div>
 <div class="admonition theorem">
 <p class="admonition-title">Theorem</p>
-<p><font color="Black_Violet" size="4"></p>
+<p><font color="Black_Violet" size="3"></p>
 <p>事实上我们有满足我们最开始猜测的估计  <br />
 <a href="../../../Library/Brezis%20-%202011%20-%20Functional%20Analysis%2C%20Sobolev%20Spaces%20and%20Partial%20Di.pdf">Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Corollary 9.11</a></p>
 <div class="arithmatex">\[ \begin{gather*}
@@ -3149,17 +3172,18 @@ q_{k} &amp;= (1+\frac{p-1}{p}q_{k-1})\frac{n}{n-1}   \\
 <div class="admonition corollary">
 <p class="admonition-title">Corollary</p>
 <p>当 <span class="arithmatex">\(p \ge n\)</span> 时，虽然我们有 <a href="#pn">p=n</a> 和 <a href="../SobolevInequalities2/#morrey">Morrey 不等式</a> 这样的估计。    <br />
-但是这里由于 <span class="arithmatex">\(U\)</span> 的有界性，对于 <span class="arithmatex">\(1\le p'&lt; n\)</span>，可以得到</p>
+但是这里由于 <span class="arithmatex">\(U\)</span> 的有界性，对于 <span class="arithmatex">\(1\le p'&lt; n\)</span>， <span class="arithmatex">\(u\in W_0^{1, p}(U)\)</span> 可以得到</p>
 <div class="arithmatex">\[ \|Du\|_{L^{p'}(U)} \le C(U, p, p')\|Du\|_{L^{p}(U)} \]</div>
-<p>这样 <span class="arithmatex">\(q &lt; p'^*\)</span> 可以取到 <span class="arithmatex">\([1, \infty)\)</span></p>
-<p>因此，对于 <span class="arithmatex">\(1\le p &lt; \infty\)</span>，有</p>
+<p>这样 <span class="arithmatex">\(q \le p'^*\)</span> 可以取到 <span class="arithmatex">\([1, \infty)\)</span></p>
+<p>特别的，对于 <span class="arithmatex">\(1\le p &lt; \infty\)</span>，有</p>
 <div class="arithmatex">\[ \|u\|_{L^{p}(U)} \le C(U, p)\|Du\|_{L^{p}(U)} \]</div>
-<p>对于 <span class="arithmatex">\(p=\infty\)</span>，我们也能建立相同的不等式，但是需要用到 <a href="../SobolevInequalities2/#morrey">Morrey 不等式</a></p>
+<p>对于 <span class="arithmatex">\(p=\infty\)</span>，我们也能建立相同的不等式，但是需要用到 <a href="../SobolevInequalities2/#morrey">Morrey 不等式</a>       <br />
+这个不等式也是 <a href="../Poincar%C3%A9/#poincaré">Poincaré 不等式</a> 的一种。</p>
 </div>
 <h3 id="w1-pu"><span class="arithmatex">\(W^{1, p}(U)\)</span><a class="headerlink" href="#w1-pu" title="Permanent link">&para;</a></h3>
 <p>现在我们研究更一般的情况，这时 <span class="arithmatex">\(u\)</span> 的值可以随意上下移动，因此不能被 <span class="arithmatex">\(Du\)</span> 控制。       <br />
 但如果是 <span class="arithmatex">\(Du\)</span> 和 <span class="arithmatex">\(u\)</span> 的组合呢？答案是有的</p>
-<p>令 <span class="arithmatex">\(U\subset R^n\)</span> 是有界开集，且 <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 的，则        </p>
+<p>令 <span class="arithmatex">\(U\subset R^n\)</span> 是有界开集，且 <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 的，<span class="arithmatex">\(1\le p &lt; n\)</span>，<span class="arithmatex">\(u\in W^{1,p}(U)\)</span>，则        </p>
 <div class="arithmatex">\[ \|u\|_{L^{p^*}(U)} \le C(n, U, p) \|u\|_{W^{1,p(U)}} \]</div>
 <p>即</p>
 <div class="arithmatex">\[ W^{1,p}(U) \subset L^{p^*}(U) \]</div>
@@ -3174,7 +3198,7 @@ q_{k} &amp;= (1+\frac{p-1}{p}q_{k-1})\frac{n}{n-1}   \\
 <div class="arithmatex">\[ \|D^\alpha u\|_{L^{p'}(U)} \le |U|^{1-\frac{p'}{p}}\|D^\alpha u\|_{L^{p}(U)}  = C(U, p, p')\|D^\alpha u\|_{L^{p}(U)} \]</div>
 <p>即</p>
 <div class="arithmatex">\[ W^{1,p}(U) \subset W^{1,p'}(U) \in [1, p'] \]</div>
-<p>因此，和上一节类似，对于 <span class="arithmatex">\(p' \in [1, p]\)</span> 和 <span class="arithmatex">\(q \in [1, p'^*]\)</span>，有</p>
+<p>因此，和上一节类似，对于 <span class="arithmatex">\(p'\le p, p' \in [1, n)\)</span> 和 <span class="arithmatex">\(q \in [1, p'^*]\)</span>，有</p>
 <div class="arithmatex">\[ W^{1,p}(U) \subset W^{1,p'}(U) \subset L^{p'^*}(U) \subset L^{q}(U) \]</div>
 <p>特别的</p>
 <div class="arithmatex">\[ W^{1,p}(U) \subset L^{p}(U), \quad 1 \le p &lt;\infty \]</div>
@@ -3187,17 +3211,16 @@ q_{k} &amp;= (1+\frac{p-1}{p}q_{k-1})\frac{n}{n-1}   \\
 </div>
 <h3 id="rellich-kondrachov-compactness-theorem">Rellich-Kondrachov Compactness Theorem<a class="headerlink" href="#rellich-kondrachov-compactness-theorem" title="Permanent link">&para;</a></h3>
 <p><a href="../../#lawrence-cevans-partial-differential-equations">Lawrence C.Evans Partial differential equations 5.7 COMPACTNESS</a></p>
-<p>对于上面最后一种情况，嵌入不仅是连续的，还是紧的，即</p>
+<p>对于上面最后一种的某些情况，嵌入不仅是连续的，还是紧的，即      <br />
+令 <span class="arithmatex">\(U\subset R^n\)</span> 是有界开集，且 <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 的，<span class="arithmatex">\(1\le p &lt; n\)</span>，<span class="arithmatex">\(u\in W^{1,p}(U)\)</span>，则</p>
 <div class="arithmatex">\[ W^{1,p}(U) \subset\subset L^{q}(U), \quad q \in [1, p^*) \]</div>
-<p>实际上，只要复合嵌入中有一个是紧的，那么复合嵌入也是紧的，那么我们只需证明</p>
-<div class="arithmatex">\[ W^{1,p}(U) \subset\subset L^{p^*}(U) \]</div>
-<p>我们需要使用 Arzela-Ascoli 紧性定理。</p>
+<p>我们需要使用 [Arzela-Ascoli 紧性定理]。</p>
 <div class="admonition corollary">
 <p class="admonition-title">Corollary</p>
 <p>只要复合嵌入中有一个是紧的，那么复合嵌入也是紧的,</p>
-<p>那么观察上一节的 Corollary，我们有</p>
-<div class="arithmatex">\[ W^{1,p}(U) \subset W^{1,p'}(U) \subset\subset L^{p'^*}(U) \subset L^{q}(U) \]</div>
-<p>得到</p>
+<p>那么观察上一节的 Corollary，对于 <span class="arithmatex">\(p'\le p,p' \in [1, n)\)</span>，我们有</p>
+<div class="arithmatex">\[ W^{1,p}(U) \subset W^{1,p'}(U) \subset\subset L^{q}(U) \quad q \in [1, p'^*) \]</div>
+<p>特别的</p>
 <div class="arithmatex">\[ W^{1,p}(U) \subset\subset L^{p}(U), \quad 1 \le p &lt;\infty \]</div>
 <p><span class="arithmatex">\(p=\infty\)</span> 是特殊的，我们将在 <a href="../SobolevInequalities2/">Morrey 不等式</a> 中介绍。</p>
 </div>

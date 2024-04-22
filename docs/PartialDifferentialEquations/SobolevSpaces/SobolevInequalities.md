@@ -342,7 +342,7 @@ $$ p^* = \frac{np}{n-p} $$
 
 
 !!! Theorem
-    <font color="Black_Violet" size="4">
+    <font color="Black_Violet" size="3">
 
     **Gagliardcr-Nirenberg-Sobolev inequality**
 
@@ -574,7 +574,7 @@ $$ \begin{gather}
 
 !!! Theorem
 
-    <font color="Black_Violet" size="4">
+    <font color="Black_Violet" size="3">
 
     事实上我们有满足我们最开始猜测的估计    
     [Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Corollary 9.11][Brezis]
@@ -719,17 +719,18 @@ $$ W_0^{1, p}(U) \subset L^{q}(U), \quad q \in [1, p^*]  $$
 !!! Corollary
 
     当 \(p \ge n\) 时，虽然我们有 [p=n](#pn) 和 [Morrey 不等式](./SobolevInequalities2.md#morrey) 这样的估计。      
-    但是这里由于 \(U\) 的有界性，对于 \(1\le p'< n\)，可以得到
+    但是这里由于 \(U\) 的有界性，对于 \(1\le p'< n\)， \(u\in W_0^{1, p}(U)\) 可以得到
 
     $$ \|Du\|_{L^{p'}(U)} \le C(U, p, p')\|Du\|_{L^{p}(U)} $$
 
-    这样 \(q < p'^*\) 可以取到 \([1, \infty)\)
+    这样 \(q \le p'^*\) 可以取到 \([1, \infty)\)
 
-    因此，对于 \(1\le p < \infty\)，有
+    特别的，对于 \(1\le p < \infty\)，有
 
     $$ \|u\|_{L^{p}(U)} \le C(U, p)\|Du\|_{L^{p}(U)} $$
 
-    对于 \(p=\infty\)，我们也能建立相同的不等式，但是需要用到 [Morrey 不等式](./SobolevInequalities2.md#morrey)
+    对于 \(p=\infty\)，我们也能建立相同的不等式，但是需要用到 [Morrey 不等式](./SobolevInequalities2.md#morrey)         
+    这个不等式也是 [Poincaré 不等式](./Poincaré.md#poincaré) 的一种。
 
 
 ### \(W^{1, p}(U)\)
@@ -738,7 +739,7 @@ $$ W_0^{1, p}(U) \subset L^{q}(U), \quad q \in [1, p^*]  $$
 但如果是 \(Du\) 和 \(u\) 的组合呢？答案是有的
 
 
-令 \(U\subset R^n\) 是有界开集，且 \(\partial U\) 是 \(C^1\) 的，则        
+令 \(U\subset R^n\) 是有界开集，且 \(\partial U\) 是 \(C^1\) 的，\(1\le p < n\)，\(u\in W^{1,p}(U)\)，则        
 
 $$ \|u\|_{L^{p^*}(U)} \le C(n, U, p) \|u\|_{W^{1,p(U)}} $$
 
@@ -767,7 +768,7 @@ $$ W^{1,p}(U) \subset L^{p^*}(U) $$
 
     $$ W^{1,p}(U) \subset W^{1,p'}(U) \in [1, p'] $$
 
-    因此，和上一节类似，对于 \(p' \in [1, p]\) 和 \(q \in [1, p'^*]\)，有
+    因此，和上一节类似，对于 \(p'\le p, p' \in [1, n)\) 和 \(q \in [1, p'^*]\)，有
 
     $$ W^{1,p}(U) \subset W^{1,p'}(U) \subset L^{p'^*}(U) \subset L^{q}(U) $$
 
@@ -789,15 +790,13 @@ $$ W^{1,p}(U) \subset L^{p^*}(U) $$
 
 [Lawrence C.Evans Partial differential equations 5.7 COMPACTNESS](../index.md#lawrence-cevans-partial-differential-equations)
 
-对于上面最后一种情况，嵌入不仅是连续的，还是紧的，即
+对于上面最后一种的某些情况，嵌入不仅是连续的，还是紧的，即        
+令 \(U\subset R^n\) 是有界开集，且 \(\partial U\) 是 \(C^1\) 的，\(1\le p < n\)，\(u\in W^{1,p}(U)\)，则
 
 $$ W^{1,p}(U) \subset\subset L^{q}(U), \quad q \in [1, p^*) $$
 
-实际上，只要复合嵌入中有一个是紧的，那么复合嵌入也是紧的，那么我们只需证明
 
-$$ W^{1,p}(U) \subset\subset L^{p^*}(U) $$
-
-我们需要使用 Arzela-Ascoli 紧性定理。
+我们需要使用 [Arzela-Ascoli 紧性定理]。
 
 
 
@@ -805,11 +804,11 @@ $$ W^{1,p}(U) \subset\subset L^{p^*}(U) $$
 
     只要复合嵌入中有一个是紧的，那么复合嵌入也是紧的,
 
-    那么观察上一节的 Corollary，我们有
+    那么观察上一节的 Corollary，对于 \(p'\le p,p' \in [1, n)\)，我们有
 
-    $$ W^{1,p}(U) \subset W^{1,p'}(U) \subset\subset L^{p'^*}(U) \subset L^{q}(U) $$
+    $$ W^{1,p}(U) \subset W^{1,p'}(U) \subset\subset L^{q}(U) \quad q \in [1, p'^*) $$
 
-    得到
+    特别的
 
     $$ W^{1,p}(U) \subset\subset L^{p}(U), \quad 1 \le p <\infty $$
 

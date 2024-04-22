@@ -97,7 +97,7 @@ $$ C^{k, \gamma}(\Omega) \triangleq \{ u : \|u\|_{C^{k, \gamma}(\Omega)} < \inft
 
 
 
-## 完备性
+## Completeness 完备性
 
 **证明 \(C^{k, \gamma}(\Omega)\) 是 Banach 空间。**         
 
@@ -191,7 +191,8 @@ $$ \|u_n-u_m\|_{C^0(\Omega)} + [u_n-u_m]_{C^{0,\gamma}(\Omega)} \le \epsilon $$
 对于固定的 \(x,y \in \Omega \; x\neq y\)，
 
 $$ \frac{|u(x)- u(y)|}{|x-y|^\gamma} 
-= \lim_{n\to \infty} \frac{|u_n(x)- u_n(y)|}{|x-y|^\gamma} \le [u_n]_{C^{0,\gamma}(\Omega)} \le M  $$
+= \lim_{n\to \infty} \frac{|u_n(x)- u_n(y)|}{|x-y|^\gamma} 
+\le \lim_{n\to \infty}[u_n]_{C^{0,\gamma}(\Omega)} \le M  $$
 
 因此
 

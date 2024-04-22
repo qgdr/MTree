@@ -16,7 +16,7 @@
         <link rel="prev" href="../H%C3%B6lderSpaces/">
       
       
-        <link rel="next" href="../Difference/">
+        <link rel="next" href="../Poincar%C3%A9/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -1789,6 +1789,8 @@
       
         
       
+        
+      
     
     
     
@@ -2003,6 +2005,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rellich-kondrachov-compactness-theorem-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rellich-Kondrachov Compactness Theorem 2
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2015,12 +2026,66 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="General Sobolev inequalities 广义 Sobolev 不等式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case1" class="md-nav__link">
+    <span class="md-ellipsis">
+      case1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case2" class="md-nav__link">
+    <span class="md-ellipsis">
+      case2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case3" class="md-nav__link">
+    <span class="md-ellipsis">
+      case3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Poincar%C3%A9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poincaré 不等式
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2461,6 +2526,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rellich-kondrachov-compactness-theorem-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rellich-Kondrachov Compactness Theorem 2
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2472,6 +2546,39 @@
       General Sobolev inequalities 广义 Sobolev 不等式
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="General Sobolev inequalities 广义 Sobolev 不等式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case1" class="md-nav__link">
+    <span class="md-ellipsis">
+      case1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case2" class="md-nav__link">
+    <span class="md-ellipsis">
+      case2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case3" class="md-nav__link">
+    <span class="md-ellipsis">
+      case3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2499,7 +2606,7 @@
 <h2 id="morrey">Morrey 不等式<a class="headerlink" href="#morrey" title="Permanent link">&para;</a></h2>
 <div class="admonition theorem">
 <p class="admonition-title">Theorem</p>
-<p><font size="4"></p>
+<p><font size="2"></p>
 <p>对于 <span class="arithmatex">\(n&lt;p\le\infty\)</span>，有</p>
 <div class="arithmatex">\[ \begin{gather*}
     \|u\|_{C^{0, 1-\frac{n}{p}}(R^n)} \le C(n,p)\|u\|_{W^{1,p}(R^n)}    \\
@@ -2511,11 +2618,11 @@
 <h3 id="_1">有界开集的情形<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <div class="admonition theorem">
 <p class="admonition-title">Theorem</p>
-<p><font size="3"></p>
+<p><font size="2"></p>
 <p>设 <span class="arithmatex">\(U\subset R^n\)</span> 是有界开集，且 <font color="Red"> <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 的 </font>
 那么对于 <span class="arithmatex">\(n&lt;p\le\infty\)</span>，有</p>
 <div class="arithmatex">\[ \begin{gather*}
-    \|u\|_{C^{0, 1-\frac{n}{p}}(R^n)} \le C(n,p, U)\|u\|_{W^{1,p}(R^n)}    \\
+    \|u\|_{C^{0, 1-\frac{n}{p}}(U)} \le C(n,p, U)\|u\|_{W^{1,p}(U)}    \\
     \text{i.e.} \quad 
     W^{1,p}(U) \subset  C^{0, \gamma}(U), \quad \gamma = 1-\frac{n}{p}
 \end{gather*} \]</div>
@@ -2531,7 +2638,91 @@
 <p>他在 <span class="arithmatex">\(U\)</span> 上可微且 <span class="arithmatex">\(Du\)</span> 有界，即 <span class="arithmatex">\(u\in W^{1,\infty}(U)\)</span>，但是显然不属于 <span class="arithmatex">\(C^{0, \gamma}(U)\)</span>，      <br />
 因为在 <span class="arithmatex">\(y=0\)</span> 的上下两侧 <span class="arithmatex">\(|u(1/2, \epsilon) - u(1/2, -\epsilon)| &gt; C &gt; 0\)</span>，但是 <span class="arithmatex">\(|(1/2, \epsilon) - (1/2, -\epsilon)|^\gamma \to 0 \text{  as  } \epsilon \to 0\)</span></p>
 </div>
+<h3 id="rellich-kondrachov-compactness-theorem-2">Rellich-Kondrachov Compactness Theorem 2<a class="headerlink" href="#rellich-kondrachov-compactness-theorem-2" title="Permanent link">&para;</a></h3>
+<p><a href="../../#lawrence-cevans-partial-differential-equations">Lawrence C.Evans Partial differential equations 5.7 COMPACTNESS</a></p>
+<p>我们在 <a href="../SobolevInequalities/#rellich-kondrachov-compactness-theorem">Rellich-Kondrachov Compactness Theorem</a> 的 Corollary 中提出了一般情况的紧嵌入定理。      <br />
+现在我们说明 <span class="arithmatex">\(p=\infty\)</span>，或者利用 Morrey 不等式重复说明 <span class="arithmatex">\(n &lt; p \le \infty\)</span> 的情况</p>
+<p>令 <span class="arithmatex">\(U\subset R^n\)</span> 是有界开集，且 <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 的，<span class="arithmatex">\(n&lt; p \le \infty\)</span>，<span class="arithmatex">\(u\in W^{1,p}(U)\)</span>，则 由 Morrey 不等式可以得到</p>
+<div class="arithmatex">\[ \|u\|_{C^{0, \gamma}(U)} \le C(n,U,p) \|u\|_{W^{1,p}(U)} \]</div>
+<div class="arithmatex">\[ W^{1,p}(U) \subset C^{0, \gamma}(U), \quad \gamma = 1-\frac{n}{p} \]</div>
+<p>但是对于 <span class="arithmatex">\(W^{1,p}(U)\)</span> 中的有界序列 <span class="arithmatex">\(\{u_m\}_{m=1}^\infty\)</span>，</p>
+<div class="arithmatex">\[ \|u_m\|_{C^{0}(U)} + \sup_{x,y \in U \; x\neq y} \frac{|u_m(x)-u_m(y)|}{|x-y|^\gamma} \le C(n,U,p) \|u_m\|_{W^{1,p}(U)} \le M \]</div>
+<p>所以 <span class="arithmatex">\(\{u_m\}\)</span>          <br />
+一致有界：<span class="arithmatex">\(\|u_m\|_{C^{0}(U)} \le M \)</span>;          <br />
+等度连续：对 <span class="arithmatex">\(\forall \epsilon &gt; 0\)</span> 存在 <span class="arithmatex">\(\delta = \left( \frac{\epsilon}{M} \right)^{\frac{1}{\gamma}} \)</span>，使得对 <span class="arithmatex">\(\forall x,y \in U \; |x-y| &lt; \delta \)</span>，有 <span class="arithmatex">\(|u_m(x)-u_m(y)| &lt; \epsilon \)</span>.</p>
+<p>则根据 [Arzela-Ascoli 紧性定理] ，<span class="arithmatex">\(u_m\)</span> 存在收敛子列 <span class="arithmatex">\(\{u_{m_j}\}\)</span> 一致收敛到连续函数 <span class="arithmatex">\(u\)</span>，          <br />
+即 <span class="arithmatex">\(\|u-u_m\|_{C^0(U)} \to 0\)</span>，所以也是逐点收敛的，仿照 <a href="../H%C3%B6lderSpaces/#completeness">Hölder 空间完备性</a> 的证明第 3 步，</p>
+<p>对于固定的 <span class="arithmatex">\(x,y \in U \; x\neq y\)</span>，</p>
+<div class="arithmatex">\[ \frac{|u(x)- u(y)|}{|x-y|^\gamma} 
+= \lim_{j\to \infty} \frac{|u_{m_j}(x)- u_{m_j}(y)|}{|x-y|^\gamma} 
+\le \lim_{n\to \infty} [u_{m_j}]_{C^{0,\gamma}(U)} \le M  \]</div>
+<p>因此</p>
+<div class="arithmatex">\[ [u]_{C^{0, \gamma}(U)} = \sup_{x,y\in U \; x\neq y} \frac{|u(x)- u(y)|}{|x-y|^U} \le M \]</div>
+<p>我们有 <span class="arithmatex">\(u\in C^{0, \gamma}(U)\)</span>.     </p>
+<p>这说明嵌入不仅是连续的，还是紧的，即</p>
+<div class="arithmatex">\[ W^{1,p}(U) \subset\subset C^{0, \gamma}(U), \quad \gamma = 1-\frac{n}{p}\]</div>
+<p>又因为</p>
+<div class="arithmatex">\[ \|u\|_{L^q(U)} \le |U|^{\frac{1}{q}}\|u\|_{C^0(U)} \quad \Rightarrow \quad C^{0}(U) \subset L^q(U) \]</div>
+<p>因此</p>
+<div class="arithmatex">\[  W^{1,p}(U) \subset\subset C^{0, \gamma}(U) \subset C^{0}(U) \subset L^q(U) \]</div>
+<p>特别的</p>
+<div class="arithmatex">\[ W^{1,p}(U) \subset\subset L^p(U) \quad n &lt;p \le \infty \]</div>
 <h2 id="general-sobolev-inequalities-sobolev">General Sobolev inequalities 广义 Sobolev 不等式<a class="headerlink" href="#general-sobolev-inequalities-sobolev" title="Permanent link">&para;</a></h2>
+<p>我们有了 <a href="../SobolevInequalities/#gagliardo-nirenberg-sobolev">GNS 不等式</a> 、<a href="../SobolevInequalities/#pn">p=n</a>和 <a href="#morrey">Morrey 不等式</a>，         <br />
+那么对于一般的 Sobolev 空间，对于 <span class="arithmatex">\(u\in W^{1,p}(\Omega)\)</span>， 由于</p>
+<div class="arithmatex">\[ D^\alpha u \in W^{1,p}(\Omega), \quad  |\alpha| \le k-1 \]</div>
+<p>当 <span class="arithmatex">\(p&lt;n\)</span> 时，我们有</p>
+<div class="arithmatex">\[ D^\alpha u \in L^{p^*}(R^n), \quad  |\alpha| \le k-1 \]</div>
+<p>我们能够得到</p>
+<div class="arithmatex">\[ W^{k, p}(R^n) \subset W^{k-1, p^*}(R^n)\]</div>
+<p>我们貌似能够使用 <a href="../SobolevInequalities/#gagliardo-nirenberg-sobolev">GNS 不等式</a> 把这个嵌入链条继续下去</p>
+<div class="arithmatex">\[ W^{k, p}(R^n) \subset W^{k-1, p^*}(R^n) \subset \cdots \]</div>
+<p>直到什么时候停止呢？
+我们知道</p>
+<div class="arithmatex">\[ \frac{1}{p^*} = \frac{1}{p} - \frac{1}{n}, p^{*} &gt; p \]</div>
+<p>那么 </p>
+<div class="arithmatex">\[ \frac{1}{p^{**}} = \frac{1}{p^*} - \frac{1}{n} = \frac{1}{p} - \frac{2}{n}, \quad p^{**} &gt; p^* &gt; p \]</div>
+<p>继续下去我们有</p>
+<div class="arithmatex">\[ \frac{1}{p^{(i)}} = \frac{1}{p} - \frac{i}{n} \]</div>
+<p>也就是</p>
+<div class="arithmatex">\[ W^{k, p}(R^n) \subset W^{k-1, p^*}(R^n) \subset \cdots \subset W^{k-i, p^{(i)}}(R^n), \quad p^{(i)} = \frac{np}{n-ip} \]</div>
+<p>直到 <span class="arithmatex">\(p^{(i)} \ge n\)</span> 或者 <span class="arithmatex">\(i=k\)</span>，我们需要更换不等式。 
+那么</p>
+<h3 id="case1">case1<a class="headerlink" href="#case1" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(k\)</span> 被耗尽前的最后一此，仍有 <span class="arithmatex">\(p^{(k-1)} &lt; n\)</span> ，即 <span class="arithmatex">\(\frac{1}{p} - \frac{k-1}{n} &gt; \frac{1}{n}\)</span>，
+也就是 <span class="arithmatex">\(k&lt;\frac{n}{p}\)</span>，那么</p>
+<div class="arithmatex">\[ W^{k, p}(R^n) \subset W^{k-1, p^*}(R^n) \subset \cdots \subset W^{1, p^{(k-1)}}(R^n) \subset L^{p^{(k)}}(R^n), \quad p^{(k)} = \frac{np}{n-kp} \]</div>
+<video src="../media/videos/Sobolev2/720p30/GSI1.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video>
+
+<h3 id="case2">case2<a class="headerlink" href="#case2" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(k\)</span> 被耗尽前的某一次，有 <span class="arithmatex">\(p^{(l)} = n, l \le k-1 \)</span> ，即 <span class="arithmatex">\(n = (l+1)p\)</span></p>
+<video src="../media/videos/Sobolev2/720p30/GSI2.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video>
+
+<p>则根据 <a href="../SobolevInequalities/#pn">p=n</a> 和 <a href="#morrey">Morrey 不等式</a></p>
+<div class="arithmatex">\[ \begin{align}
+    W^{k, \frac{n}{l+1}}(R^n) &amp;\subset W^{k-1, \frac{n}{l}}(R^n)  \subset \cdots         \\
+    &amp;\subset W^{k-l, n}(R^n) \subset W^{k-l-1, q}(R^n) \quad (n\le q &lt;\infty)  \\
+    &amp;\subset C^{k-l-2, \gamma}(R^n) \quad (\forall\gamma \in (0, 1)) \quad \text{ if } k-l-2 \ge 0      \\
+\end{align} \]</div>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary</p>
+<p>特别的，若 <span class="arithmatex">\(l+1 = k\)</span>，即 <span class="arithmatex">\(n = kp\)</span> ，那么</p>
+<div class="arithmatex">\[ W^{k, \frac{n}{k}}(R^n) \subset W^{k-1, \frac{n}{k-1}}(R^n)  \subset \cdots \subset W^{1, n}(R^n)  \subset L^q(R^n) \quad (n\le q &lt;\infty) \]</div>
+<p>又因为 </p>
+<div class="arithmatex">\[ W^{k, \frac{n}{k}}(R^n) \subset L^{\frac{n}{k}}(R^n) (\cap L^q(R^n) \quad n\le q &lt;\infty) \]</div>
+<p>利用插值不等式，有 </p>
+<div class="arithmatex">\[ W^{k, \frac{n}{k}}(R^n) \subset L^q(R^n) \quad (\frac{n}{k} \le q &lt;\infty) \]</div>
+</div>
+<h3 id="case3">case3<a class="headerlink" href="#case3" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(k\)</span> 被耗尽前的某一次，有 <span class="arithmatex">\(p^{(l)}&lt; n, p^{(l+1)} &gt; n, l+1 \le k-1 \)</span> ，即 <span class="arithmatex">\(l &lt; \frac{n}{p} &lt; l+1\)</span></p>
+<video src="../media/videos/Sobolev2/720p30/GSI3.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video>
+
+<p>那么</p>
+<div class="arithmatex">\[ \begin{align}
+    W^{k, p}(R^n) &amp;\subset W^{k-1, p^*}(R^n)  \subset \cdots         \\
+    &amp;\subset W^{k-l, p^{(l)}}(R^n) \subset W^{k-l-1, p^{(l+1)}}(R^n)  \\
+    &amp;\subset C^{k-l-2, \gamma}(R^n) \quad (\gamma = 1- \frac{n}{p^{(l+1)}})     \\
+\end{align} \]</div>
 
 <!-- Source file information -->
 
@@ -2576,9 +2767,9 @@ aria-label="页脚"
 
   
   <a
-    href="../Difference/"
+    href="../Poincar%C3%A9/"
     class="md-footer__link md-footer__link--next"
-    aria-label="下一页: 差商"
+    aria-label="下一页: Poincaré 不等式"
     rel="next"
   >
     <div class="md-footer__title">
@@ -2586,7 +2777,7 @@ aria-label="页脚"
         下一页
       </span>
       <div class="md-ellipsis">
-        差商
+        Poincaré 不等式
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -2641,13 +2832,13 @@ aria-label="页脚"
         
         
           
-          <a href="../Difference/" class="md-footer__link md-footer__link--next" aria-label="下一页: 差商">
+          <a href="../Poincar%C3%A9/" class="md-footer__link md-footer__link--next" aria-label="下一页: Poincaré 不等式">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                差商
+                Poincaré 不等式
               </div>
             </div>
             <div class="md-footer__button md-icon">

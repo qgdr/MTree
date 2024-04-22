@@ -14,4 +14,5 @@ nav:
   - Sobolev 不等式 I: SobolevSpaces/SobolevInequalities.md
   - Hölder 空间: SobolevSpaces/HölderSpaces.md
   - Sobolev 不等式 II: SobolevSpaces/SobolevInequalities2.md
+  - Poincaré 不等式: SobolevSpaces/Poincaré.md
   - 差商: SobolevSpaces/Difference.md

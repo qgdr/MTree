@@ -99,6 +99,8 @@ nav:
     - "H\xF6lder \u7A7A\u95F4": "PartialDifferentialEquations/SobolevSpaces/H\xF6\
         lderSpaces.md"
     - "Sobolev \u4E0D\u7B49\u5F0F II": PartialDifferentialEquations/SobolevSpaces/SobolevInequalities2.md
+    - "Poincar\xE9 \u4E0D\u7B49\u5F0F": "PartialDifferentialEquations/SobolevSpaces/Poincar\xE9\
+        .md"
     - "\u5DEE\u5546": PartialDifferentialEquations/SobolevSpaces/Difference.md
 - FractionalDifferentialEquations:
   - FractionalDifferentialEquations/index.md

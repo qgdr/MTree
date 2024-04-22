@@ -1789,6 +1789,8 @@
       
         
       
+        
+      
     
     
     
@@ -1973,9 +1975,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#completeness" class="md-nav__link">
     <span class="md-ellipsis">
-      完备性
+      Completeness 完备性
     </span>
   </a>
   
@@ -2011,6 +2013,27 @@
   
   <span class="md-ellipsis">
     Sobolev 不等式 II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Poincar%C3%A9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poincaré 不等式
   </span>
   
 
@@ -2446,9 +2469,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#completeness" class="md-nav__link">
     <span class="md-ellipsis">
-      完备性
+      Completeness 完备性
     </span>
   </a>
   
@@ -2541,7 +2564,7 @@
 <div class="arithmatex">\[ \|u\|_{C^{k, \gamma}(\Omega)} \triangleq  \sum_{|\alpha| \le k} \|D^\alpha u\|_{C^{0}(\Omega)} + \sum_{|\alpha| = k}[D^\alpha u]_{C^{0, \gamma}(\Omega)} \]</div>
 <p>以及</p>
 <div class="arithmatex">\[ C^{k, \gamma}(\Omega) \triangleq \{ u : \|u\|_{C^{k, \gamma}(\Omega)} &lt; \infty \} \]</div>
-<h2 id="_1">完备性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="completeness">Completeness 完备性<a class="headerlink" href="#completeness" title="Permanent link">&para;</a></h2>
 <p><strong>证明 <span class="arithmatex">\(C^{k, \gamma}(\Omega)\)</span> 是 Banach 空间。</strong>         </p>
 <p>我们分三步来证明：</p>
 <ul>
@@ -2599,7 +2622,8 @@
 所以存在 <span class="arithmatex">\(M\)</span>， 使得 <span class="arithmatex">\([u_n]_{C^{0,\gamma}(\Omega)} \le M, \forall n\)</span>。</p>
 <p>对于固定的 <span class="arithmatex">\(x,y \in \Omega \; x\neq y\)</span>，</p>
 <div class="arithmatex">\[ \frac{|u(x)- u(y)|}{|x-y|^\gamma} 
-= \lim_{n\to \infty} \frac{|u_n(x)- u_n(y)|}{|x-y|^\gamma} \le [u_n]_{C^{0,\gamma}(\Omega)} \le M  \]</div>
+= \lim_{n\to \infty} \frac{|u_n(x)- u_n(y)|}{|x-y|^\gamma} 
+\le \lim_{n\to \infty}[u_n]_{C^{0,\gamma}(\Omega)} \le M  \]</div>
 <p>因此</p>
 <div class="arithmatex">\[ [u]_{C^{0, \gamma}(\Omega)} = \sup_{x,y\in \Omega \; x\neq y} \frac{|u(x)- u(y)|}{|x-y|^\gamma} \le M \]</div>
 <p>故 <span class="arithmatex">\(u \in C^{0, \gamma}(\Omega)\)</span> ，<span class="arithmatex">\(C^{0, \gamma}(\Omega)\)</span> 完备。</p>

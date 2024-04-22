@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="../SobolevInequalities2/">
+        <link rel="prev" href="../Poincar%C3%A9/">
       
       
         <link rel="next" href="../../../FractionalDifferentialEquations/">
@@ -1789,6 +1789,8 @@
       
         
       
+        
+      
     
     
     
@@ -1957,6 +1959,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../Poincar%C3%A9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poincaré 不等式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -2004,6 +2027,39 @@
       目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#difference-quotients-and-weak-derivatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Difference quotients and weak derivatives 差商与弱导数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Difference quotients and weak derivatives 差商与弱导数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dhu-du" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(D^hu\) 被 \(Du\) 控制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhu" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(D^hu\) 有界则弱导存在
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#chain-rule" class="md-nav__link">
@@ -2419,6 +2475,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#difference-quotients-and-weak-derivatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Difference quotients and weak derivatives 差商与弱导数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Difference quotients and weak derivatives 差商与弱导数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dhu-du" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(D^hu\) 被 \(Du\) 控制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhu" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(D^hu\) 有界则弱导存在
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#chain-rule" class="md-nav__link">
     <span class="md-ellipsis">
       Chain Rule
@@ -2448,7 +2537,28 @@
 
 <!-- Page content -->
 <h1 id="difference-quotients">Difference quotients 差商<a class="headerlink" href="#difference-quotients" title="Permanent link">&para;</a></h1>
-<p>本节研究 <span class="arithmatex">\(W^{k, p}(\Omega)\)</span> 的可微性，核心方法是用 <strong>差商</strong> 去逼近。</p>
+<p>本节研究 <span class="arithmatex">\(W^{k, p}(\Omega)\)</span> 的可微性，核心方法是用 <strong>差商</strong>  <span class="arithmatex">\(D^h u\)</span> 去逼近。       </p>
+<p>我们会有这样的疑问：弱导数存在，函数可微吗？</p>
+<p>我们将使用差商逼近导数，那么我们提出两个基本问题问题：</p>
+<p>对于 <span class="arithmatex">\(u\in W^{1, p}(\Omega)\)</span>，<span class="arithmatex">\(D^h u\)</span> 是否逼近 <span class="arithmatex">\(Du\)</span>?         </p>
+<p>对于 <span class="arithmatex">\(u\in L^p(\Omega)\)</span> ， <span class="arithmatex">\(D^h u\)</span> 有界是否能推出可微或弱导数存在 ？</p>
+<p>我们将回答这些问题。</p>
+<h2 id="difference-quotients-and-weak-derivatives">Difference quotients and weak derivatives 差商与弱导数<a class="headerlink" href="#difference-quotients-and-weak-derivatives" title="Permanent link">&para;</a></h2>
+<h3 id="dhu-du"><span class="arithmatex">\(D^hu\)</span> 被 <span class="arithmatex">\(Du\)</span> 控制<a class="headerlink" href="#dhu-du" title="Permanent link">&para;</a></h3>
+<h3 id="dhu"><span class="arithmatex">\(D^hu\)</span> 有界则弱导存在<a class="headerlink" href="#dhu" title="Permanent link">&para;</a></h3>
+<p>我们先给出 <strong>反例</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>考虑有界区间 <span class="arithmatex">\(\Omega\)</span> 上的阶跃函数</p>
+<div class="arithmatex">\[ u(x) = \begin{cases} 0 &amp; x &lt; 0 \\ 1 &amp; x \geq 0 \end{cases} \]</div>
+<p>那么</p>
+<div class="arithmatex">\[ D^hu(x) = \frac{u(x+h)-u(x)}{h} = \begin{cases} \frac{1}{h} &amp; x \in [-h, 0) \\ 0 &amp; \text{otherwise} \end{cases} \]</div>
+<p>对于 <span class="arithmatex">\(V\subset\subset \Omega\)</span>，</p>
+<div class="arithmatex">\[ \int_V  |D^hu(x)| \le \frac{1}{h} \cdot h = 1 \]</div>
+<p>但是我们知道 <span class="arithmatex">\(u(x)\)</span> 没有弱导数，或者说他的导数是 <span class="arithmatex">\(\delta(x)\)</span> 函数。</p>
+<p>所以当 <span class="arithmatex">\(p=1\)</span> 是 <span class="arithmatex">\(\|D^hu\|_{L^p(V)} \le C\)</span> 还不能推出弱导数的存在性。</p>
+<p>但是当 <span class="arithmatex">\(p&gt;1\)</span> 时，上面的情况不会出现，即 <span class="arithmatex">\(\|D^hu\|_{L^p(V)} \to \infty \text{ as } h\to 0\)</span>. </p>
+</div>
 <h2 id="chain-rule">Chain Rule<a class="headerlink" href="#chain-rule" title="Permanent link">&para;</a></h2>
 
 <!-- Source file information -->
@@ -2470,9 +2580,9 @@ aria-label="页脚"
 
   
   <a
-    href="../SobolevInequalities2/"
+    href="../Poincar%C3%A9/"
     class="md-footer__link md-footer__link--prev"
-    aria-label="上一页: Sobolev 不等式 II"
+    aria-label="上一页: Poincaré 不等式"
     rel="prev"
   >
     <div class="md-footer__button md-icon">
@@ -2484,7 +2594,7 @@ aria-label="页脚"
         上一页
       </span>
       <div class="md-ellipsis">
-        Sobolev 不等式 II
+        Poincaré 不等式
       </div>
     </div>
   </a>
@@ -2542,7 +2652,7 @@ aria-label="页脚"
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../SobolevInequalities2/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Sobolev 不等式 II">
+          <a href="../Poincar%C3%A9/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Poincaré 不等式">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2552,7 +2662,7 @@ aria-label="页脚"
                 上一页
               </span>
               <div class="md-ellipsis">
-                Sobolev 不等式 II
+                Poincaré 不等式
               </div>
             </div>
           </a>
