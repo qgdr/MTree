@@ -2500,16 +2500,47 @@
 <p>令 <span class="arithmatex">\(U \subset R^n\)</span> 是 <em>有界连通开集</em> ，<span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 的。     <br />
 设 <span class="arithmatex">\(1 \le p \le \infty\)</span>，那么存在常数 <span class="arithmatex">\(C=C(n,p,U)\)</span> 使得对于任何 <span class="arithmatex">\(u \in W^{1,p}(U)\)</span></p>
 <div class="arithmatex">\[ \|u-(u)_U\|_{L^p(U)} \le C \|Du\|_{L^p(U)} \]</div>
+<p><a href="../SobolevInequalities2/#rellich-kondrachov-compactness-theorem-2">Rellich-Kondrachov Compactness Theorem</a>          <br />
+<a href="../Approximation/#local-approximation">Du=0, u=c a.e.</a> Corollary</p>
 <h2 id="problems">Problems<a class="headerlink" href="#problems" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-</div>
-<p>固定 <span class="arithmatex">\(\alpha&gt;0\)</span>，<span class="arithmatex">\(U \subset R^n\)</span> 是有界 <strong>连通</strong> 开集，且</p>
+<p>固定 <span class="arithmatex">\(\alpha&gt;0\)</span>，<span class="arithmatex">\(U \subset R^n\)</span> 是有界 <strong>连通</strong> 开集，   <br />
+设 <span class="arithmatex">\(1 \le p \le \infty\)</span>，那么存在常数 <span class="arithmatex">\(C=C(n,p,U)\)</span> 使得对于任何 <span class="arithmatex">\(u \in W^{1,p}(U)\)</span> 且</p>
 <div class="arithmatex">\[ E_u = \{x\in U | u(x)=0\}, \quad \mu(E_u) \ge \alpha \]</div>
-<p>那么</p>
-<div class="arithmatex">\[ \|u\|_{L^{p^*}(U)} \le C(n, U, p, \alpha) \|Du\|_{L^{p}(U)} \]</div>
+<p>都有</p>
+<div class="arithmatex">\[ \|u\|_{L^{p}(U)} \le C(n, U, p, \alpha) \|Du\|_{L^{p}(U)} \]</div>
 <hr />
 <p>我们证明的技巧与证明 Poincaré 一样，使用反证法。</p>
+<p>否则存在 <span class="arithmatex">\(k=1, \cdots \)</span></p>
+<div class="arithmatex">\[ \|u_k\|_{L^{p}(U)} &gt; k \|Du_k\|_{L^{p}(U)}, \quad \mu(\{x\in U | u(x)=0\}) \ge \alpha \]</div>
+<p>令 <span class="arithmatex">\(v_k = \frac{u_k}{\|u_k\|_{L^{p}(U)}}\)</span>，则 </p>
+<div class="arithmatex">\[ \|v_k\|_{L^{p}(U)} = 1, \quad \mu(E_{v_k}=\{x\in U | v_k(x)=0\}) \ge \alpha, \quad \|Dv_k\|_{L^{p}(U)} &lt; \frac{1}{k} \]</div>
+<p>因此 <span class="arithmatex">\(\|v_k\|_{W^{1,p}(U)}\)</span> 有界，          <br />
+那么由 <a href="../SobolevInequalities2/#rellich-kondrachov-compactness-theorem-2">Rellich-Kondrachov 紧性定理</a>
+（这里用到了 <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 的条件）</p>
+<div class="arithmatex">\[ W^{1,p}(U) \subset\subset L^p(U) \]</div>
+<p>嵌入将有界序列映成相对紧序列，则 <span class="arithmatex">\(v_k\)</span> 存在收敛子列</p>
+<div class="arithmatex">\[ v_{k_j} \to v \in L^p(U), \quad \|v\|_{L^{p}(U)} = 1 \]</div>
+<p>但是对于 <span class="arithmatex">\(\forall \phi \in C_c^\infty(U)\)</span>，</p>
+<div class="arithmatex">\[ \int_U v D^\alpha\phi = \lim_{j\to \infty} \int_U v_{k_j} D^\alpha\phi = -\lim_{k_j\to \infty} \int_U D^\alpha v_{k_j}\phi \]</div>
+<p>但是由 [Holder 不等式]</p>
+<div class="arithmatex">\[ \Big|\int_U D^\alpha v_{k_j}\phi \Big| \le \|D^\alpha v_{k_j}\|_{L^p(U)} \|\phi\|_{L^{\frac{p}{p-1}}(U)} &lt; \frac{1}{k_j} \|\phi\|_{L^p(U)} \to 0 \]</div>
+<p>所以</p>
+<div class="arithmatex">\[ Dv = 0 \text{ a.e. in } U \]</div>
+<p>那么由 <a href="../Approximation/#local-approximation">Du=0, u=c a.e.</a> Corollary</p>
+<div class="arithmatex">\[ v = c \text{ a.e. in } U \]</div>
+<p>但是由于 </p>
+<div class="arithmatex">\[ \begin{align}
+    0 &amp; = \lim_{j\to \infty} \int_U |v_{k_j}-v|^p   
+    = \lim_{j\to \infty} \int_U |v_{k_j}-c|^p                 \\
+    &amp;\ge \lim_{j\to \infty} \int_{E_{v_{k_j}}} |v_{k_j}-c|^p  \\
+    &amp;\ge \alpha |c|^p   
+\end{align} \]</div>
+<p>因此只能 <span class="arithmatex">\(c=0\)</span>，那么 <span class="arithmatex">\(v=0 \text{ a.e. in } U\)</span>，但是这与 <span class="arithmatex">\(\|v\|_{L^p(U)} = 1\)</span> 矛盾!          <br />
+因此存在这样一个常数 <span class="arithmatex">\(C=C(n,U,p,\alpha)\)</span> 使得</p>
+<div class="arithmatex">\[ \|u\|_{L^{p}(U)} \le C(n, U, p, \alpha) \|Du\|_{L^{p}(U)} \]</div>
+</div>
 
 <!-- Source file information -->
 

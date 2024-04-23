@@ -3174,11 +3174,31 @@ q_{k} &amp;= (1+\frac{p-1}{p}q_{k-1})\frac{n}{n-1}   \\
 <p>当 <span class="arithmatex">\(p \ge n\)</span> 时，虽然我们有 <a href="#pn">p=n</a> 和 <a href="../SobolevInequalities2/#morrey">Morrey 不等式</a> 这样的估计。    <br />
 但是这里由于 <span class="arithmatex">\(U\)</span> 的有界性，对于 <span class="arithmatex">\(1\le p'&lt; n\)</span>， <span class="arithmatex">\(u\in W_0^{1, p}(U)\)</span> 可以得到</p>
 <div class="arithmatex">\[ \|Du\|_{L^{p'}(U)} \le C(U, p, p')\|Du\|_{L^{p}(U)} \]</div>
-<p>这样 <span class="arithmatex">\(q \le p'^*\)</span> 可以取到 <span class="arithmatex">\([1, \infty)\)</span></p>
+<p>这样 <span class="arithmatex">\(q \le p'^*\)</span> 可以取到 <span class="arithmatex">\([1, \infty)\)</span>，即</p>
+<div class="arithmatex">\[ \|u\|_{L^{q}(U)} \le C(U, p, q)\|Du\|_{L^{p}(U)} \]</div>
 <p>特别的，对于 <span class="arithmatex">\(1\le p &lt; \infty\)</span>，有</p>
 <div class="arithmatex">\[ \|u\|_{L^{p}(U)} \le C(U, p)\|Du\|_{L^{p}(U)} \]</div>
-<p>对于 <span class="arithmatex">\(p=\infty\)</span>，我们也能建立相同的不等式，但是需要用到 <a href="../SobolevInequalities2/#morrey">Morrey 不等式</a>       <br />
-这个不等式也是 <a href="../Poincar%C3%A9/#poincaré">Poincaré 不等式</a> 的一种。</p>
+<p>对于 <span class="arithmatex">\(p=\infty\)</span>，我们也能建立相同的不等式，</p>
+<div class="arithmatex">\[ u_m \in C_c^\infty(U) \to u \text{ in } W^{1, \infty}(U) \]</div>
+<p>因此</p>
+<div class="arithmatex">\[ Du_m \to Du \text{ in } L^{\infty}(U) \]</div>
+<p>所以 <span class="arithmatex">\(Du_m\)</span> 一致有界，<span class="arithmatex">\(\sup_{x\in U} |Du_m| \le M\)</span>，故</p>
+<div class="arithmatex">\[ \begin{align}
+    u_m(x) &amp;\le \int_{-\infty}^{x_1} D_1 u_m(t, x_2, \cdots, x_n) dt    \\
+    &amp;\le \int_a^b |D_1 u_m(t, x_2, \cdots, x_n)| dt             \\
+    &amp;\le \text{diam}(U) \|Du_m\|_{L^{\infty}(U)}          \\
+    &amp;= C(U,\infty) \|Du_m\|_{L^{\infty}(U)}
+\end{align} \]</div>
+<p>其中 <span class="arithmatex">\(a=\min_{x\in U} x_1, b=\max_{x\in U} x_1\)</span>。   <br />
+由于 <span class="arithmatex">\(u_m \to u \text{ a.e.}\)</span>，所以</p>
+<div class="arithmatex">\[ \begin{align}
+    |u(x)| &amp;= (\text{a.e.}) \lim_{m\to\infty} |u_m(x)|  \\
+    &amp;\le C(U,\infty)\lim_{m\to\infty} \|Du_m\|_{L^{\infty}(U)} \\
+    &amp;= C(U,\infty)\|Du\|_{L^{\infty}(U)}
+\end{align} \]</div>
+<p>得到</p>
+<div class="arithmatex">\[ \|u\|_{L^{\infty}(U)} \le C(U,\infty)\|Du\|_{L^{\infty}(U)} \]</div>
+<p>这个不等式也是 <a href="../Poincar%C3%A9/#poincaré">Poincaré 不等式</a> 的一种。</p>
 </div>
 <h3 id="w1-pu"><span class="arithmatex">\(W^{1, p}(U)\)</span><a class="headerlink" href="#w1-pu" title="Permanent link">&para;</a></h3>
 <p>现在我们研究更一般的情况，这时 <span class="arithmatex">\(u\)</span> 的值可以随意上下移动，因此不能被 <span class="arithmatex">\(Du\)</span> 控制。       <br />
@@ -3198,10 +3218,10 @@ q_{k} &amp;= (1+\frac{p-1}{p}q_{k-1})\frac{n}{n-1}   \\
 <div class="arithmatex">\[ \|D^\alpha u\|_{L^{p'}(U)} \le |U|^{1-\frac{p'}{p}}\|D^\alpha u\|_{L^{p}(U)}  = C(U, p, p')\|D^\alpha u\|_{L^{p}(U)} \]</div>
 <p>即</p>
 <div class="arithmatex">\[ W^{1,p}(U) \subset W^{1,p'}(U) \in [1, p'] \]</div>
-<p>因此，和上一节类似，对于 <span class="arithmatex">\(p'\le p, p' \in [1, n)\)</span> 和 <span class="arithmatex">\(q \in [1, p'^*]\)</span>，有</p>
+<p>因此，和上一节类似，当 <span class="arithmatex">\(n \le p \le \infty\)</span> 时，对于 <span class="arithmatex">\(p'\le p, p' \in [1, n)\)</span> 和 <span class="arithmatex">\(q \in [1, p'^*]\)</span>，有</p>
 <div class="arithmatex">\[ W^{1,p}(U) \subset W^{1,p'}(U) \subset L^{p'^*}(U) \subset L^{q}(U) \]</div>
-<p>特别的</p>
-<div class="arithmatex">\[ W^{1,p}(U) \subset L^{p}(U), \quad 1 \le p &lt;\infty \]</div>
+<p>即</p>
+<div class="arithmatex">\[ W^{1,p}(U) \subset L^{q}(U), \quad 1 \le q &lt;\infty \]</div>
 </div>
 <div class="admonition question">
 <p class="admonition-title">Question</p>

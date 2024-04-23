@@ -723,13 +723,44 @@ $$ W_0^{1, p}(U) \subset L^{q}(U), \quad q \in [1, p^*]  $$
 
     $$ \|Du\|_{L^{p'}(U)} \le C(U, p, p')\|Du\|_{L^{p}(U)} $$
 
-    这样 \(q \le p'^*\) 可以取到 \([1, \infty)\)
+    这样 \(q \le p'^*\) 可以取到 \([1, \infty)\)，即
+
+    $$ \|u\|_{L^{q}(U)} \le C(U, p, q)\|Du\|_{L^{p}(U)} $$
 
     特别的，对于 \(1\le p < \infty\)，有
 
     $$ \|u\|_{L^{p}(U)} \le C(U, p)\|Du\|_{L^{p}(U)} $$
 
-    对于 \(p=\infty\)，我们也能建立相同的不等式，但是需要用到 [Morrey 不等式](./SobolevInequalities2.md#morrey)         
+    对于 \(p=\infty\)，我们也能建立相同的不等式，
+
+    $$ u_m \in C_c^\infty(U) \to u \text{ in } W^{1, \infty}(U) $$
+
+    因此
+
+    $$ Du_m \to Du \text{ in } L^{\infty}(U) $$
+
+    所以 \(Du_m\) 一致有界，\(\sup_{x\in U} |Du_m| \le M\)，故
+
+    $$ \begin{align}
+        u_m(x) &\le \int_{-\infty}^{x_1} D_1 u_m(t, x_2, \cdots, x_n) dt    \\
+        &\le \int_a^b |D_1 u_m(t, x_2, \cdots, x_n)| dt             \\
+        &\le \text{diam}(U) \|Du_m\|_{L^{\infty}(U)}          \\
+        &= C(U,\infty) \|Du_m\|_{L^{\infty}(U)}
+    \end{align} $$
+
+    其中 \(a=\min_{x\in U} x_1, b=\max_{x\in U} x_1\)。     
+    由于 \(u_m \to u \text{ a.e.}\)，所以
+
+    $$ \begin{align}
+        |u(x)| &= (\text{a.e.}) \lim_{m\to\infty} |u_m(x)|  \\
+        &\le C(U,\infty)\lim_{m\to\infty} \|Du_m\|_{L^{\infty}(U)} \\
+        &= C(U,\infty)\|Du\|_{L^{\infty}(U)}
+    \end{align} $$
+
+    得到
+
+    $$ \|u\|_{L^{\infty}(U)} \le C(U,\infty)\|Du\|_{L^{\infty}(U)} $$
+
     这个不等式也是 [Poincaré 不等式](./Poincaré.md#poincaré) 的一种。
 
 
@@ -768,13 +799,13 @@ $$ W^{1,p}(U) \subset L^{p^*}(U) $$
 
     $$ W^{1,p}(U) \subset W^{1,p'}(U) \in [1, p'] $$
 
-    因此，和上一节类似，对于 \(p'\le p, p' \in [1, n)\) 和 \(q \in [1, p'^*]\)，有
+    因此，和上一节类似，当 \(n \le p \le \infty\) 时，对于 \(p'\le p, p' \in [1, n)\) 和 \(q \in [1, p'^*]\)，有
 
     $$ W^{1,p}(U) \subset W^{1,p'}(U) \subset L^{p'^*}(U) \subset L^{q}(U) $$
 
-    特别的
+    即
 
-    $$ W^{1,p}(U) \subset L^{p}(U), \quad 1 \le p <\infty $$
+    $$ W^{1,p}(U) \subset L^{q}(U), \quad 1 \le q <\infty $$
 
 
 
