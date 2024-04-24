@@ -93,3 +93,41 @@ class GSI3(Scene):
             self.play(Create(pointers[i]), Write(texs[i]), Write(texk[i]))
 
         self.wait(2)
+
+
+
+class Fepsx(Scene):
+    def construct(self):
+        axes = Axes(
+            x_range=[-1, 1],
+            y_range=[-0.2, 1.2],
+            x_length=6,
+            y_length=6,
+            axis_config={"color": BLUE},
+            tips=False,
+        )
+
+        def F(eps):
+            return lambda x : 0 if x < 0 else np.sqrt(x**2+eps**2) - eps
+        
+        def dF(eps):
+            return lambda x : 0 if x < 0 else x/np.sqrt(x**2+eps**2)
+        
+        F1 = axes.plot(F(0.3), x_range=[-2, 2, 0.001], color=RED_A)
+        F2 = axes.plot(F(0.2), x_range=[-2, 2, 0.001], color=GREEN_A)
+        F3 = axes.plot(F(0.1), x_range=[-2, 2, 0.001], color=YELLOW_A)
+
+        dF1 = axes.plot(dF(0.3), x_range=[-2, 2, 0.001], color=RED_B)
+        dF2 = axes.plot(dF(0.2), x_range=[-2, 2, 0.001], color=GREEN_B)
+        dF3 = axes.plot(dF(0.1), x_range=[-2, 2, 0.001], color=YELLOW_B)
+
+        texF1 = Tex(r"$F_{0.3}(x)$", color=RED_A).shift(2.5*UP+3*LEFT)
+        texF2 = Tex(r"$F_{0.2}(x)$", color=GREEN_A).next_to(texF1, DOWN)
+        texF3 = Tex(r"$F_{0.1}(x)$", color=YELLOW_A).next_to(texF2, DOWN)
+        texdF1 = Tex(r"$F'_{0.3}(x)$", color=RED_B).next_to(texF3, DOWN)
+        texdF2 = Tex(r"$F'_{0.2}(x)$", color=GREEN_B).next_to(texdF1, DOWN)
+        texdF3 = Tex(r"$F'_{0.1}(x)$", color=YELLOW_B).next_to(texdF2, DOWN)
+
+        self.add(axes, F1, F2, F3, dF1, dF2, dF3)
+        self.add(texF1, texF2, texF3, texdF1, texdF2, texdF3)
+

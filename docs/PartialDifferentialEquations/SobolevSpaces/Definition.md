@@ -261,7 +261,7 @@ $$ \left(\sum_{i=1}^{n} |a_k + b_k|^p\right)^{\frac{1}{p}} \le \left(\sum_{i=1}^
 
     因此 \(D^\alpha u_m\) 是 \(L^p(U)\) 中的 Cauchy 列，存在极限 \(v \in L^p(U)\)。
 
-    那么对于任意的 \(\forall \phi \in C_c^\infty(U)\)，由于 [引理](#_3)
+    那么对于任意的 \(\forall \phi \in C_c^\infty(U)\)，由于 [引理](#strong2weak-convergence)
 
     $$ \begin{align}
         \int_U u(x) D^\alpha \phi(x) dx &= \lim_{m\to \infty} \int_U  u_m(x) D^\alpha \phi(x) dx \\
@@ -287,7 +287,7 @@ $$ \left(\sum_{i=1}^{n} |a_k + b_k|^p\right)^{\frac{1}{p}} \le \left(\sum_{i=1}^
 
 
 
-## 完备性
+## Completeness 完备性
 
 
 <font color="Black_Pink">
@@ -325,7 +325,7 @@ $$ u_m \to u \text{ in } W^{k,p}(\Omega) $$
 
 !!! Lemma
 
-    ### 积分极限
+    ### Strong2Weak Convergence
 
     事实上，我们那这里极限和积分交换了次序
 

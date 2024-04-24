@@ -127,7 +127,11 @@ $$ v - w = 0 \text{ a.e. in } \Omega $$
     事实上，对于一个函数 \(u \in W^{1, p}(\Omega), 1 \le p \le \infty\)，其中 \(\Omega\) 是连通的。     
     如果 \(Du= 0 \text{ a.e. in } \Omega\)，那么存在常数 \(c\)，使得 \(u = c \text{ a.e. in } \Omega\)
 
-    我们会在后面证明，参考 [局部逼近定理 Corollary](./Approximation.md#局部逼近定理)
+    我们会在后面证明，参考 [局部逼近定理 Corollary](./Approximation.md#local-approximation)
+
+
+
+
 
 
 ----

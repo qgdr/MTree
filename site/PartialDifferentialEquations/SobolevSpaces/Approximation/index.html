@@ -1791,6 +1791,8 @@
       
         
       
+        
+      
     
     
     
@@ -1945,16 +1947,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#approximation_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      APPROXIMATION 逼近定理
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="APPROXIMATION 逼近定理">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#local-approximation" class="md-nav__link">
     <span class="md-ellipsis">
       Local approximation 局部逼近定理
@@ -1962,9 +1954,22 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#global-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global approximation 全局逼近定理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chain-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chain Rule
+    </span>
+  </a>
   
 </li>
       
@@ -2103,6 +2108,27 @@
   
   <span class="md-ellipsis">
     差商
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HW1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HW1
   </span>
   
 
@@ -2550,16 +2576,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#approximation_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      APPROXIMATION 逼近定理
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="APPROXIMATION 逼近定理">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#local-approximation" class="md-nav__link">
     <span class="md-ellipsis">
       Local approximation 局部逼近定理
@@ -2567,9 +2583,22 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#global-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global approximation 全局逼近定理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chain-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chain Rule
+    </span>
+  </a>
   
 </li>
       
@@ -2661,10 +2690,10 @@
 他还可以理解成 <span class="arithmatex">\(\eta_\epsilon\)</span> 个 <span class="arithmatex">\(u\)</span> 的线性组合，那么他的各阶偏导数正是 <span class="arithmatex">\(u\)</span> 的各阶偏导数的线性组合。   <br />
 而当<span class="arithmatex">\(\epsilon \to 0\)</span> 时，<span class="arithmatex">\(\eta_\epsilon * u\)</span> 的组合越是集中，约趋向于 <span class="arithmatex">\(u\)</span> 本身。
 </font></p>
-<h2 id="approximation_1">APPROXIMATION 逼近定理<a class="headerlink" href="#approximation_1" title="Permanent link">&para;</a></h2>
-<p>定义 <span class="arithmatex">\(U_\epsilon = \{x\in U | \text{dist}(x, \partial U) &gt; \epsilon\}\)</span>.</p>
-<h3 id="local-approximation">Local approximation 局部逼近定理<a class="headerlink" href="#local-approximation" title="Permanent link">&para;</a></h3>
-<p>设对于某个 <span class="arithmatex">\(1 \le p &lt; \infty\)</span>， 函数 <span class="arithmatex">\(u \in W^{k, p}(\Omega)\)</span>，令</p>
+<p>定义 <span class="arithmatex">\(\Omega_\epsilon = \{x\in \Omega | \text{dist}(x, \partial \Omega) &gt; \epsilon\}\)</span>.</p>
+<h2 id="local-approximation">Local approximation 局部逼近定理<a class="headerlink" href="#local-approximation" title="Permanent link">&para;</a></h2>
+<p><span class="arithmatex">\(\Omega \subseteq R^n\)</span>，可以无界，      <br />
+设对于某个 <span class="arithmatex">\(1 \le p &lt; \infty\)</span>， 函数 <span class="arithmatex">\(u \in W^{k, p}(\Omega)\)</span>，令</p>
 <div class="arithmatex">\[ u^\epsilon = \eta_\epsilon * u \quad \text{  in  } \Omega_\epsilon \]</div>
 <p>我们有以下性质：</p>
 <p>(i)  <span class="arithmatex">\(u^\epsilon \in C^\infty(\Omega_\epsilon)\)</span>，且</p>
@@ -2693,26 +2722,138 @@
 <p>又因为 <span class="arithmatex">\(u^\epsilon  \to u \in W^{1, p}(V)\)</span>，故 <span class="arithmatex">\(u = c \; \text{a.e. in } V\)</span>。         <br />
 因为 <span class="arithmatex">\(V\)</span> 在连通域上是任意的，所以 <span class="arithmatex">\(u = c \; \text{a.e. in } \Omega\)</span> </p>
 </div>
+<h2 id="global-approximation">Global approximation 全局逼近定理<a class="headerlink" href="#global-approximation" title="Permanent link">&para;</a></h2>
+<p>设 <span class="arithmatex">\(U\)</span> <strong>有界</strong> ，对于某个 <span class="arithmatex">\(1 \le p &lt; \infty\)</span>，函数 <span class="arithmatex">\(u \in W^{k, p}(U)\)</span>，        <br />
+那么存在函数列 <span class="arithmatex">\(u_m \in C^\infty(U)\cap W^{k, p}(U)\)</span> 使得</p>
+<div class="arithmatex">\[ u_m \to u \quad \text{in } W^{k, p}(U) \]</div>
+<h2 id="chain-rule">Chain Rule<a class="headerlink" href="#chain-rule" title="Permanent link">&para;</a></h2>
+<p>设 <span class="arithmatex">\(F:R\to R\)</span> 是 <span class="arithmatex">\(C^1\)</span> 的，且 <span class="arithmatex">\(F'\)</span> 有界。       <br />
+设 <span class="arithmatex">\(U\)</span> 有界，且对于某个 <span class="arithmatex">\(1\le p \le \infty\)</span>， <span class="arithmatex">\(u\in W^{1, p}(U)\)</span>，则</p>
+<div class="arithmatex">\[ v\triangleq F(u) \in W^{1, p}(U),\quad D^\alpha v = F'(u)D^\alpha u \quad |\alpha|=1 \]</div>
+<p><strong>证明</strong></p>
+<p>因为 <span class="arithmatex">\(u\in W^{1, p}(U)\)</span>，所以由 <a href="./#global-approximation">全局逼近定理</a>，   <br />
+存在函数列 <span class="arithmatex">\(u_m \in C^\infty(U)\cap W^{1, p}(U)\)</span> 使得</p>
+<div class="arithmatex">\[ \|u_m - u\|_{W^{1, p}(U)} \to 0 \]</div>
+<p>因为 <span class="arithmatex">\(U\)</span> 有界，所以 <span class="arithmatex">\(W^{1, p}(U) \subset W^{1, 1}(U)\)</span> ，则</p>
+<div class="arithmatex">\[ u_m \to u , \quad \nabla u_m \to Du \text{ in } L^q(U) \quad \forall q \in [1, p] \]</div>
+<p>那么由  <strong>Riesz 定理</strong> 存在子列 <strong>几乎处处收敛</strong>，我们 <strong>仍旧</strong> 记为 <span class="arithmatex">\(u_m\)</span>. </p>
+<div class="arithmatex">\[  u_m \to u , \quad \nabla u_m \to Du \text{ a.e. on } U \]</div>
+<p>令 <span class="arithmatex">\(v_m = F(u_m)\)</span> ，则 <span class="arithmatex">\(v_m \in C^1(U)\)</span> 且由复合函数链式法则</p>
+<div class="arithmatex">\[ \nabla v_m(x) = \nabla F(u_m(x)) = F'(u_m(x)) \nabla u_m(x) \]</div>
+<p><strong>1</strong>.</p>
+<p>下面我们先证明 <span class="arithmatex">\(v \in L^p(U)\)</span>，</p>
+<p>事实上由于 <span class="arithmatex">\(|F'| \le L\)</span> 有界</p>
+<div class="arithmatex">\[ |v_m(x)- v(x)| = |F(u_m(x)) - F(u(x))| \le L |u_m(x) - u(x)| \]</div>
+<p>特别的</p>
+<div class="arithmatex">\[ |F(0) - v(x)| = |F(0) - F(u(x))| \le L |u(x)| \]</div>
+<p>所以有</p>
+<div class="arithmatex">\[ \|v\|_{L^p(U)} \le L \|u\|_{L^p(U)} + F(0)|U|^{1/p} \]</div>
+<p>得到 <span class="arithmatex">\(v \in L^p(U)\)</span>。</p>
+<p>以及</p>
+<div class="arithmatex">\[ \|v_m - v\|_{L^p(U)} \le L \|u_m - u\|_{L^p(U)} \]</div>
+<p>即 <span class="arithmatex">\(v_m\)</span> 是 <span class="arithmatex">\(L^p(U)\)</span> 中的 Cauchy 列，且 <span class="arithmatex">\(v_m \to v \text{ in } L^p(U)\)</span> </p>
+<p><strong>2</strong>.</p>
+<p>我们证明 <span class="arithmatex">\(v\)</span> 的弱导数存在，事实上对于 <span class="arithmatex">\(\phi \in C_c^\infty(U)\)</span>，由 <a href="../Definition/#strong2weak-convergence">强收敛推弱收敛</a></p>
+<div class="arithmatex">\[ \begin{align}
+    \int_U v \nabla \phi &amp;= \lim_{m\to \infty} \int_U  v_m \nabla\phi \\
+    &amp;= \lim_{m\to \infty} \int_U -\nabla v_m \phi + \int_{\partial U} v_m \phi \nu dS \quad (\phi=0 \text{ on } \partial U) \\
+    &amp;= \lim_{m\to \infty} -\int_U F'(u_m) \nabla u_m \phi
+\end{align} \]</div>
+<p>由于 <span class="arithmatex">\(u_m(x) \to u(x)，\nabla u_m(x) \to Du(x) \text{ a.e.}\)</span>，以及 <span class="arithmatex">\(F'\)</span> 是连续的</p>
+<div class="arithmatex">\[ F'(u_m(x)) \nabla u_m(x) \to F'(u(x)) D u(x) \text{ a.e. } \]</div>
+<p>那么</p>
+<div class="arithmatex">\[ \begin{align}
+    \|F'(u_m) \nabla u_m &amp;- F'(u) D u\|_{L^p(U)}         \\
+    &amp;\le \| (F'(u_m)-F'(u)) D u \|_{L^p(U)} + \| F'(u_m) (D u - \nabla u_m) \|_{L^p(U)} \\
+    &amp;\le  \| (F'(u_m)-F'(u)) D u \|_{L^p(U)} + L \| \nabla u_m - D u \|_{L^p(U)} \\
+\end{align} \]</div>
+<p>但是由于 <span class="arithmatex">\( F'(u_m) \to F'(u) \text{ a.e. } \)</span>，以及</p>
+<div class="arithmatex">\[ |(F'(u_m)-F'(u)) D u| \le 2L|Du| \in L^p(U) \]</div>
+<p>那么由 <strong>控制收敛定理</strong> ，<span class="arithmatex">\(\| (F'(u_m)-F'(u)) D u \|_{L^p(U)} \to 0\)</span>，再加上 <span class="arithmatex">\(\| \nabla u_m - D u \|_{L^p(U)} \to 0\)</span>，我们就有</p>
+<div class="arithmatex">\[ \|F'(u_m) \nabla u_m - F'(u) D u\|_{L^p(U)} \to 0 \]</div>
+<p>因此，再次使用 <a href="../Definition/#strong2weak-convergence">强收敛推弱收敛</a>，我们得到</p>
+<div class="arithmatex">\[ \begin{align}
+    \int_U v \nabla \phi &amp;= \lim_{m\to \infty} -\int_U F'(u_m) \nabla u_m \phi 
+    = -\int_U F'(u) D u \phi
+\end{align} \]</div>
+<p>所以 <span class="arithmatex">\(v\)</span> 的弱导数存在，<span class="arithmatex">\(Dv = F'(u) D u\)</span>.          <br />
+且 <span class="arithmatex">\(\|Dv\|_{L^p(U)} \le L \|Du\|_{L^p(U)}\)</span>，因此 <span class="arithmatex">\(v\in W^{1, p}(U)\)</span>.</p>
 <hr />
 <h2 id="problems">Problems<a class="headerlink" href="#problems" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>假设 <span class="arithmatex">\(1 &lt; p \le \infty\)</span> 并且 U 有界</p>
-<p>(a) 如果 <span class="arithmatex">\(u \in W^{1,p}(U)\)</span>，那么 <span class="arithmatex">\(|u| \in W^{1,p}\)</span>
-(b) 如果 <span class="arithmatex">\(u \in W^{1,p}(U)\)</span>，那么 <span class="arithmatex">\(u^+， u^- \in W^{1,p}\)</span>，且</p>
+<p>设 <span class="arithmatex">\(1 \le p \le \infty\)</span> 并且 <span class="arithmatex">\(U\)</span> 有界</p>
+<p>a. 如果 <span class="arithmatex">\(u \in W^{1,p}(U)\)</span>，那么 <span class="arithmatex">\(|u| \in W^{1,p}\)</span></p>
+<p>b. 如果 <span class="arithmatex">\(u \in W^{1,p}(U)\)</span>，那么 <span class="arithmatex">\(u^+， u^- \in W^{1,p}\)</span>，且</p>
 <div class="arithmatex">\[ \begin{gather*}
     Du^+(x) = \begin{cases}
-        Du(x), &amp;\text{a.e. when } u(x) &gt; 0 \\
-        0, &amp;\text{a.e. when } u(x) \le 0
+        Du(x), &amp;\text{  a.e. when } u(x) &gt; 0 \\
+        0, &amp;\text{  a.e. when } u(x) \le 0
     \end{cases}     \\
     Du^-(x) = \begin{cases}
-        0, &amp;\text{a.e. when } u(x) \ge 0 \\
-        -Du(x), &amp;\text{a.e. when } u(x) &lt; 0
+        0, &amp;\text{  a.e. when } u(x) \ge 0 \\
+        -Du(x), &amp;\text{  a.e. when } u(x) &lt; 0
     \end{cases}
 \end{gather*} \]</div>
-<p>&copy; 如果 <span class="arithmatex">\(u \in W^{1,p}(U)\)</span>，那么</p>
-<div class="arithmatex">\[ Du(x) = 0  \text{a.e. when} u(x) = 0 \]</div>
+<p>c. 如果 <span class="arithmatex">\(u \in W^{1,p}(U)\)</span>，那么</p>
+<div class="arithmatex">\[ Du(x) = 0  \text{  a.e. when  } u(x) = 0 \]</div>
 </div>
+<p>令</p>
+<div class="arithmatex">\[ F_\epsilon(z) \triangleq \begin{cases}
+    \sqrt{z^2 + \epsilon^2} - \epsilon, &amp;\text{  when } z \ge 0 \\
+    0 , &amp;\text{  when } z &lt; 0
+\end{cases} \]</div>
+<p>则 <span class="arithmatex">\(F_\epsilon \in C^1(R)\)</span>，</p>
+<div class="arithmatex">\[ F'_\epsilon(z) \triangleq \begin{cases}
+    \dfrac{z}{\sqrt{z^2 + \epsilon^2}}, &amp;\text{  when } z \ge 0 \\
+    0 , &amp;\text{  when } z &lt; 0
+\end{cases} \]</div>
+<p><a class="glightbox" href="../media/images/Sobolev2/Fepsx_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Feps" src="../media/images/Sobolev2/Fepsx_ManimCE_v0.18.0.png" /></a></p>
+<p>a . b .</p>
+<p>若 <span class="arithmatex">\(u\in W^{1, p}(U)\)</span>，那么根据 <a href="#chain-rule">Chain Rule</a>，有</p>
+<div class="arithmatex">\[ D(F_\epsilon(u)) = F'_\epsilon(u) D u, \quad \epsilon &gt; 0 \]</div>
+<p>令</p>
+<div class="arithmatex">\[ F(z) = \lim_{\epsilon \to 0} F_\epsilon(z) = \begin{cases}
+    z, &amp;\text{  when } z \ge 0 \\
+    0 , &amp;\text{  when } z &lt; 0
+\end{cases} \]</div>
+<p>且 <font color="red"> 这里一定要注意 <span class="arithmatex">\(z=0\)</span> 时，极限到底是谁，看图说话 </font></p>
+<div class="arithmatex">\[\lim_{\epsilon \to 0} F'_\epsilon(z) = \begin{cases}
+    1, &amp;\text{  when } z &gt; 0 \\
+    0 , &amp;\text{  when } z \le 0
+\end{cases} \]</div>
+<p>那么</p>
+<div class="arithmatex">\[ u^+ = \lim_{\epsilon \to 0} F_\epsilon(u) \]</div>
+<p>但由于</p>
+<div class="arithmatex">\[ F_\epsilon(u) = \sqrt{u^2 + \epsilon^2}-\epsilon \le |u| \in L^p(U) \]</div>
+<p>所以由 <strong>控制收敛定理</strong></p>
+<div class="arithmatex">\[ \begin{align}
+    \int_U u^+ \nabla \phi &amp;= \int_U \lim_{\epsilon \to 0} F_\epsilon(u) \nabla \phi \\
+    &amp;= \lim_{\epsilon \to 0} \int_U F_\epsilon(u) \nabla \phi \\
+    &amp;= \lim_{\epsilon \to 0} \int_U F'_\epsilon(u)Du \phi \\
+\end{align}\]</div>
+<p>但是</p>
+<div class="arithmatex">\[ F'_\epsilon(u)Du \to Du^+ \text{ a.e. on } U \]</div>
+<p>且</p>
+<div class="arithmatex">\[ |F'_\epsilon(u)Du| \le |Du| \in L^p(U) \]</div>
+<p>那么再次由 <strong>控制收敛定理</strong>，有</p>
+<div class="arithmatex">\[ \begin{align}
+    \int_U u^+ \nabla \phi
+    = \lim_{\epsilon \to 0} \int_U F'_\epsilon(u)Du \phi 
+    = \int_U Du^+ \phi \\
+\end{align}\]</div>
+<p><font color="red"> 这里我们回收了之前提到的注意，<span class="arithmatex">\(F'_\epsilon(z)\)</span> 分解的开闭决定了 <span class="arithmatex">\(Du^+\)</span> 分界的开闭，    <br />
+并直接影响到 c 中 <span class="arithmatex">\(Du = ? \text{  when  } u=0\)</span> </font>    <br />
+因此</p>
+<div class="arithmatex">\[ D(u^+) = Du^+ \]</div>
+<p>而由于 <span class="arithmatex">\(u^- = (-u)^+\)</span>，所以</p>
+<div class="arithmatex">\[ D(u^-) = Du^- , \quad D(|u|) = D(u^+ + u^-) = Du^+ + Du^- \]</div>
+<p>因此 <span class="arithmatex">\(u^+, u^-, |u| \in W^{1, p}(U)\)</span>.</p>
+<p>c.</p>
+<p>因为</p>
+<div class="arithmatex">\[ u = u^+ - u^- \Rightarrow Du = Du^+ - Du^- \]</div>
+<p>但是 <span class="arithmatex">\(Du^+ = Du^- = 0 \text{ a.e. when } u = 0 \)</span></p>
+<p>因此 <span class="arithmatex">\(Du = 0 \text{ a.e. when } u = 0 \)</span></p>
 
 <!-- Source file information -->
 

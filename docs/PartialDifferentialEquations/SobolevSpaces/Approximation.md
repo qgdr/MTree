@@ -99,13 +99,13 @@ $$ \sum_{i=1}^N \zeta_i = \sum_{i=1}^N \frac{\phi_i}{\sum_{i=1}^N \phi_i + 1-\ph
 </font>
 
 
-## APPROXIMATION 逼近定理
-
-定义 \(U_\epsilon = \{x\in U | \text{dist}(x, \partial U) > \epsilon\}\).
-
-### Local approximation 局部逼近定理 
 
 
+定义 \(\Omega_\epsilon = \{x\in \Omega | \text{dist}(x, \partial \Omega) > \epsilon\}\).
+
+## Local approximation 局部逼近定理 
+
+\(\Omega \subseteq R^n\)，可以无界，        
 设对于某个 \(1 \le p < \infty\)， 函数 \(u \in W^{k, p}(\Omega)\)，令
 
 $$ u^\epsilon = \eta_\epsilon * u \quad \text{  in  } \Omega_\epsilon $$
@@ -154,6 +154,121 @@ $$ u^\epsilon \to u \quad \text{  in  } W_{\text{loc}}^{k, p}(\Omega)
 
 
 
+## Global approximation 全局逼近定理
+
+设 \(U\) **有界** ，对于某个 \(1 \le p < \infty\)，函数 \(u \in W^{k, p}(U)\)，          
+那么存在函数列 \(u_m \in C^\infty(U)\cap W^{k, p}(U)\) 使得
+
+$$ u_m \to u \quad \text{in } W^{k, p}(U) $$
+
+
+
+
+
+
+
+## Chain Rule
+
+
+设 \(F:R\to R\) 是 \(C^1\) 的，且 \(F'\) 有界。         
+设 \(U\) 有界，且对于某个 \(1\le p \le \infty\)， \(u\in W^{1, p}(U)\)，则
+
+$$ v\triangleq F(u) \in W^{1, p}(U),\quad D^\alpha v = F'(u)D^\alpha u \quad |\alpha|=1 $$
+
+
+**证明**
+
+因为 \(u\in W^{1, p}(U)\)，所以由 [全局逼近定理](./Approximation.md#global-approximation)，     
+存在函数列 \(u_m \in C^\infty(U)\cap W^{1, p}(U)\) 使得
+
+$$ \|u_m - u\|_{W^{1, p}(U)} \to 0 $$
+
+因为 \(U\) 有界，所以 \(W^{1, p}(U) \subset W^{1, 1}(U)\) ，则
+
+$$ u_m \to u , \quad \nabla u_m \to Du \text{ in } L^q(U) \quad \forall q \in [1, p] $$
+
+那么由  **Riesz 定理** 存在子列 **几乎处处收敛**，我们 **仍旧** 记为 \(u_m\). 
+
+$$  u_m \to u , \quad \nabla u_m \to Du \text{ a.e. on } U $$
+
+令 \(v_m = F(u_m)\) ，则 \(v_m \in C^1(U)\) 且由复合函数链式法则
+
+$$ \nabla v_m(x) = \nabla F(u_m(x)) = F'(u_m(x)) \nabla u_m(x) $$
+
+**1**.
+
+下面我们先证明 \(v \in L^p(U)\)，
+
+事实上由于 \(|F'| \le L\) 有界
+
+$$ |v_m(x)- v(x)| = |F(u_m(x)) - F(u(x))| \le L |u_m(x) - u(x)| $$
+
+特别的
+
+$$ |F(0) - v(x)| = |F(0) - F(u(x))| \le L |u(x)| $$
+
+所以有
+
+$$ \|v\|_{L^p(U)} \le L \|u\|_{L^p(U)} + F(0)|U|^{1/p} $$
+
+得到 \(v \in L^p(U)\)。
+
+以及
+
+$$ \|v_m - v\|_{L^p(U)} \le L \|u_m - u\|_{L^p(U)} $$
+
+即 \(v_m\) 是 \(L^p(U)\) 中的 Cauchy 列，且 \(v_m \to v \text{ in } L^p(U)\) 
+
+**2**.
+
+我们证明 \(v\) 的弱导数存在，事实上对于 \(\phi \in C_c^\infty(U)\)，由 [强收敛推弱收敛](./Definition.md#strong2weak-convergence)
+
+$$ \begin{align}
+    \int_U v \nabla \phi &= \lim_{m\to \infty} \int_U  v_m \nabla\phi \\
+    &= \lim_{m\to \infty} \int_U -\nabla v_m \phi + \int_{\partial U} v_m \phi \nu dS \quad (\phi=0 \text{ on } \partial U) \\
+    &= \lim_{m\to \infty} -\int_U F'(u_m) \nabla u_m \phi
+\end{align} $$
+
+由于 \(u_m(x) \to u(x)，\nabla u_m(x) \to Du(x) \text{ a.e.}\)，以及 \(F'\) 是连续的
+
+$$ F'(u_m(x)) \nabla u_m(x) \to F'(u(x)) D u(x) \text{ a.e. } $$
+
+那么
+
+$$ \begin{align}
+    \|F'(u_m) \nabla u_m &- F'(u) D u\|_{L^p(U)}         \\
+    &\le \| (F'(u_m)-F'(u)) D u \|_{L^p(U)} + \| F'(u_m) (D u - \nabla u_m) \|_{L^p(U)} \\
+    &\le  \| (F'(u_m)-F'(u)) D u \|_{L^p(U)} + L \| \nabla u_m - D u \|_{L^p(U)} \\
+\end{align} $$
+
+但是由于 \( F'(u_m) \to F'(u) \text{ a.e. } \)，以及
+
+$$ |(F'(u_m)-F'(u)) D u| \le 2L|Du| \in L^p(U) $$
+
+那么由 **控制收敛定理** ，\(\| (F'(u_m)-F'(u)) D u \|_{L^p(U)} \to 0\)，再加上 \(\| \nabla u_m - D u \|_{L^p(U)} \to 0\)，我们就有
+
+$$ \|F'(u_m) \nabla u_m - F'(u) D u\|_{L^p(U)} \to 0 $$
+
+因此，再次使用 [强收敛推弱收敛](./Definition.md#strong2weak-convergence)，我们得到
+
+$$ \begin{align}
+    \int_U v \nabla \phi &= \lim_{m\to \infty} -\int_U F'(u_m) \nabla u_m \phi 
+    = -\int_U F'(u) D u \phi
+\end{align} $$
+
+所以 \(v\) 的弱导数存在，\(Dv = F'(u) D u\).            
+且 \(\|Dv\|_{L^p(U)} \le L \|Du\|_{L^p(U)}\)，因此 \(v\in W^{1, p}(U)\).
+
+
+
+
+
+
+
+
+
+
+
 
 -----
 
@@ -162,22 +277,118 @@ $$ u^\epsilon \to u \quad \text{  in  } W_{\text{loc}}^{k, p}(\Omega)
 
 !!! Question
 
-    假设 \(1 < p \le \infty\) 并且 U 有界
+    设 \(1 \le p \le \infty\) 并且 \(U\) 有界
 
-    (a) 如果 \(u \in W^{1,p}(U)\)，那么 \(|u| \in W^{1,p}\)
-    (b) 如果 \(u \in W^{1,p}(U)\)，那么 \(u^+， u^- \in W^{1,p}\)，且
+    a. 如果 \(u \in W^{1,p}(U)\)，那么 \(|u| \in W^{1,p}\)
+
+    b. 如果 \(u \in W^{1,p}(U)\)，那么 \(u^+， u^- \in W^{1,p}\)，且
 
     $$ \begin{gather*}
         Du^+(x) = \begin{cases}
-            Du(x), &\text{a.e. when } u(x) > 0 \\
-            0, &\text{a.e. when } u(x) \le 0
+            Du(x), &\text{  a.e. when } u(x) > 0 \\
+            0, &\text{  a.e. when } u(x) \le 0
         \end{cases}     \\
         Du^-(x) = \begin{cases}
-            0, &\text{a.e. when } u(x) \ge 0 \\
-            -Du(x), &\text{a.e. when } u(x) < 0
+            0, &\text{  a.e. when } u(x) \ge 0 \\
+            -Du(x), &\text{  a.e. when } u(x) < 0
         \end{cases}
     \end{gather*} $$
 
-    (c) 如果 \(u \in W^{1,p}(U)\)，那么
+    c. 如果 \(u \in W^{1,p}(U)\)，那么
 
-    $$ Du(x) = 0  \text{a.e. when} u(x) = 0 $$
+    $$ Du(x) = 0  \text{  a.e. when  } u(x) = 0 $$
+
+
+
+令
+
+$$ F_\epsilon(z) \triangleq \begin{cases}
+    \sqrt{z^2 + \epsilon^2} - \epsilon, &\text{  when } z \ge 0 \\
+    0 , &\text{  when } z < 0
+\end{cases} $$
+
+则 \(F_\epsilon \in C^1(R)\)，
+
+$$ F'_\epsilon(z) \triangleq \begin{cases}
+    \dfrac{z}{\sqrt{z^2 + \epsilon^2}}, &\text{  when } z \ge 0 \\
+    0 , &\text{  when } z < 0
+\end{cases} $$
+
+![Feps](media/images/Sobolev2/Fepsx_ManimCE_v0.18.0.png)
+
+
+a . b .
+
+若 \(u\in W^{1, p}(U)\)，那么根据 [Chain Rule](#chain-rule)，有
+
+$$ D(F_\epsilon(u)) = F'_\epsilon(u) D u, \quad \epsilon > 0 $$
+
+令
+
+$$ F(z) = \lim_{\epsilon \to 0} F_\epsilon(z) = \begin{cases}
+    z, &\text{  when } z \ge 0 \\
+    0 , &\text{  when } z < 0
+\end{cases} $$
+
+且 <font color="red"> 这里一定要注意 \(z=0\) 时，极限到底是谁，看图说话 </font>
+
+$$\lim_{\epsilon \to 0} F'_\epsilon(z) = \begin{cases}
+    1, &\text{  when } z > 0 \\
+    0 , &\text{  when } z \le 0
+\end{cases} $$
+
+那么
+
+$$ u^+ = \lim_{\epsilon \to 0} F_\epsilon(u) $$
+
+但由于
+
+$$ F_\epsilon(u) = \sqrt{u^2 + \epsilon^2}-\epsilon \le |u| \in L^p(U) $$
+
+所以由 **控制收敛定理**
+
+$$ \begin{align}
+    \int_U u^+ \nabla \phi &= \int_U \lim_{\epsilon \to 0} F_\epsilon(u) \nabla \phi \\
+    &= \lim_{\epsilon \to 0} \int_U F_\epsilon(u) \nabla \phi \\
+    &= \lim_{\epsilon \to 0} \int_U F'_\epsilon(u)Du \phi \\
+\end{align}$$
+
+但是
+
+$$ F'_\epsilon(u)Du \to Du^+ \text{ a.e. on } U $$
+
+且
+
+$$ |F'_\epsilon(u)Du| \le |Du| \in L^p(U) $$
+
+那么再次由 **控制收敛定理**，有
+
+$$ \begin{align}
+    \int_U u^+ \nabla \phi
+    = \lim_{\epsilon \to 0} \int_U F'_\epsilon(u)Du \phi 
+    = \int_U Du^+ \phi \\
+\end{align}$$
+
+<font color="red"> 这里我们回收了之前提到的注意，\(F'_\epsilon(z)\) 分解的开闭决定了 \(Du^+\) 分界的开闭，      
+并直接影响到 c 中 \(Du = ? \text{  when  } u=0\) </font>      
+因此
+
+$$ D(u^+) = Du^+ $$
+
+而由于 \(u^- = (-u)^+\)，所以
+
+$$ D(u^-) = Du^- , \quad D(|u|) = D(u^+ + u^-) = Du^+ + Du^- $$
+
+因此 \(u^+, u^-, |u| \in W^{1, p}(U)\).
+
+
+c.
+
+因为
+
+$$ u = u^+ - u^- \Rightarrow Du = Du^+ - Du^- $$
+
+但是 \(Du^+ = Du^- = 0 \text{ a.e. when } u = 0 \)
+
+因此 \(Du = 0 \text{ a.e. when } u = 0 \)
+

@@ -1791,6 +1791,8 @@
       
         
       
+        
+      
     
     
     
@@ -1909,19 +1911,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#completeness" class="md-nav__link">
     <span class="md-ellipsis">
-      完备性
+      Completeness 完备性
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="完备性">
+    <nav class="md-nav" aria-label="Completeness 完备性">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#strong2weak-convergence" class="md-nav__link">
     <span class="md-ellipsis">
-      积分极限
+      Strong2Weak Convergence
     </span>
   </a>
   
@@ -2079,6 +2081,27 @@
   
   <span class="md-ellipsis">
     差商
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HW1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HW1
   </span>
   
 
@@ -2511,19 +2534,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#completeness" class="md-nav__link">
     <span class="md-ellipsis">
-      完备性
+      Completeness 完备性
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="完备性">
+    <nav class="md-nav" aria-label="Completeness 完备性">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#strong2weak-convergence" class="md-nav__link">
     <span class="md-ellipsis">
-      积分极限
+      Strong2Weak Convergence
     </span>
   </a>
   
@@ -2711,7 +2734,7 @@
 <p>故</p>
 <div class="arithmatex">\[ \int_U |D^\alpha u_m(x) - D^\alpha u_n(x)|^p dx &lt; \frac{1}{2^{m-1}} C(n, \alpha, p)  \to 0 \quad \text{as } m,n \to \infty \]</div>
 <p>因此 <span class="arithmatex">\(D^\alpha u_m\)</span> 是 <span class="arithmatex">\(L^p(U)\)</span> 中的 Cauchy 列，存在极限 <span class="arithmatex">\(v \in L^p(U)\)</span>。</p>
-<p>那么对于任意的 <span class="arithmatex">\(\forall \phi \in C_c^\infty(U)\)</span>，由于 <a href="#_3">引理</a></p>
+<p>那么对于任意的 <span class="arithmatex">\(\forall \phi \in C_c^\infty(U)\)</span>，由于 <a href="#strong2weak-convergence">引理</a></p>
 <div class="arithmatex">\[ \begin{align}
     \int_U u(x) D^\alpha \phi(x) dx &amp;= \lim_{m\to \infty} \int_U  u_m(x) D^\alpha \phi(x) dx \\
     &amp;= \lim_{m\to \infty} -\int_U D^\alpha u_m(x) \phi(x) dx \\
@@ -2726,7 +2749,7 @@
 </div>
 <p>从上面这个例子我们把握到了如何证明 <span class="arithmatex">\(W^{1,p}(U)\)</span> 的完备性，自然的我们试图证明 <span class="arithmatex">\(W^{k,p}(\Omega)\)</span> 的完备性。</p>
 <hr />
-<h2 id="_2">完备性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="completeness">Completeness 完备性<a class="headerlink" href="#completeness" title="Permanent link">&para;</a></h2>
 <p><font color="Black_Pink">
 对于 <span class="arithmatex">\(1\le p \le \infty\)</span>，Sobolev 空间 <span class="arithmatex">\(W^{k,p}(\Omega)\)</span> 是 Banach 空间
 </font></p>
@@ -2750,7 +2773,7 @@
 <p><span class="arithmatex">\(W^{k,p}(\Omega)\)</span> 完备，是 Banach 空间。</p>
 <div class="admonition lemma">
 <p class="admonition-title">Lemma</p>
-<h3 id="_3">积分极限<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="strong2weak-convergence">Strong2Weak Convergence<a class="headerlink" href="#strong2weak-convergence" title="Permanent link">&para;</a></h3>
 <p>事实上，我们那这里极限和积分交换了次序</p>
 <div class="arithmatex">\[ \int_\Omega u \psi dx
 = \int_\Omega \lim_{m\to \infty} u_m \psi dx = \lim_{m\to \infty} \int_\Omega  u_m \psi dx \]</div>

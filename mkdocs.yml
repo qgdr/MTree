@@ -102,6 +102,7 @@ nav:
     - "Poincar\xE9 \u4E0D\u7B49\u5F0F": "PartialDifferentialEquations/SobolevSpaces/Poincar\xE9\
         .md"
     - "\u5DEE\u5546": PartialDifferentialEquations/SobolevSpaces/Difference.md
+    - HW1: PartialDifferentialEquations/HW1.md
 - FractionalDifferentialEquations:
   - FractionalDifferentialEquations/index.md
   - "\u5206\u6570\u9636\u5FAE\u79EF\u5206": FractionalDifferentialEquations/RLFIDF.md
