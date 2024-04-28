@@ -50,7 +50,7 @@ theme:
         name: shift day
 
   font:
-    text: Noto Sans SC
+    text: Raleway # Noto Sans SC
     code: Fira Code
   # favicon: assets/images/favicon.png
   # logo: assets/images/logo.svg

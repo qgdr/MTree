@@ -45,8 +45,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Fira Code"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Raleway";--md-code-font:"Fira Code"}</style>
       
     
     
@@ -1182,8 +1182,35 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3
+    </span>
+  </a>
   
 </li>
       
@@ -2539,8 +2566,35 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3
+    </span>
+  </a>
   
 </li>
       
@@ -2567,29 +2621,30 @@
 <h1 id="hw5">HW5<a class="headerlink" href="#hw5" title="Permanent link">&para;</a></h1>
 <p><a href="../../HWpdf/Li%20-%20Homework%206%20of%20Optimization-2024%E2%80%9D.pdf">HW5pdf</a></p>
 <h2 id="1-proximal-operator">1. proximal operator<a class="headerlink" href="#1-proximal-operator" title="Permanent link">&para;</a></h2>
-<div class="arithmatex">\[ \text{Prox}_{f}(b) = \arg\min_{x} f(x) + \frac{1}{2} \|x-b\|^2  \]</div>
+<div class="arithmatex">\[ \text{Prox}_{f}(b) = \arg\min_{x} f(x) + \frac{1}{2} \|x-b\|_2^2  \]</div>
 <h3 id="11">1.1<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
 <p>Please solve the proximal of <span class="arithmatex">\(l_1\)</span> norm <span class="arithmatex">\(f (x) = ‖x‖_1 = \sum_{j=1}^n |x_j |\)</span>.  <br />
 Tips: You can solve it by Moreau decomposition and the projection on the <span class="arithmatex">\(l_\infty\)</span> ball</p>
 <p>In this case ,</p>
 <div class="arithmatex">\[ \text{Prox}_{f}(b) = \arg\min_{x} ‖x‖_1 + \frac{1}{2} \|x-b\|_2^2  \]</div>
 <p><strong>First solution</strong>:</p>
-<p>Since <span class="arithmatex">\(f(x)= \|x\|_1\)</span> is a convex function, we have </p>
-<div class="arithmatex">\[ b-x \in \partial f(x) = \{g : g_i = \begin{cases}
+<p>Let <span class="arithmatex">\(\hat{x} = \text{Prox}_{f^*}(b) \)</span> .      <br />
+Since <span class="arithmatex">\(f(x)= \|x\|_1\)</span> is a convex function, we have </p>
+<div class="arithmatex">\[ b-\hat{x} \in \partial f(\hat{x}) = \{g : g_i = \begin{cases}
     \text{sign}(x_i), &amp; \text{if } x_i \neq 0 \\
     [-1, 1], &amp; \text{if } x_i = 0
 \end{cases} \} \]</div>
 <p>So, </p>
-<div class="arithmatex">\[ x_i = \begin{cases}
+<div class="arithmatex">\[ \hat{x}_i = \begin{cases}
     0, &amp; \text{if } |b_i| \le 1 \\
     \text{sign}(b_i)(|b_i|-1 ), &amp; \text{if } |b_i| &gt; 1
 \end{cases} \]</div>
 <p><strong>Second solution</strong>:</p>
-<p>From Moreau decomposition, we have </p>
+<p>From <a href="">Moreau decomposition</a>, we have </p>
 <div class="arithmatex">\[ b = \text{Prox}_{f}(b) + \text{Prox}_{f^*}(b) \]</div>
 <p>where <span class="arithmatex">\(f^* (x) = \mathbb{I}_{\|x\|_\infty \le 1}\)</span>, that is</p>
 <div class="arithmatex">\[ \text{Prox}_{f}(b) = b - \text{Prox}_{f^*}(b) = b-\mathcal{P}_{\|x\|_\infty \le 1} (b) \]</div>
-<p>But its obviously that </p>
+<p>But it's obvious that </p>
 <div class="arithmatex">\[ \mathcal{P}_{\|x\|_\infty \le 1} (b) = \tilde{b} \quad \text{  where  } \quad \tilde{b}_i = \begin{cases}
     b_i, &amp; \text{if } |b_i| \le 1 \\
     \text{sign}(b_i), &amp; \text{if } |b_i| &gt; 1
@@ -2609,6 +2664,68 @@ Tips: You can solve it by Moreau decomposition and the projection on the <span c
     \end{cases}
 \end{align} \]</div>
 <h3 id="12">1.2<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>Example 8.1 of <a href="../../#最优化建模算法与理论">最优化：建模、算法与理论</a></p>
+<p>Please compute the proximal operator of <span class="arithmatex">\(f (x) = − \sum_{j=1}^n \ln x_j\)</span> .</p>
+<p><strong>solution</strong>.</p>
+<div class="arithmatex">\[ \text{Prox}_{f}(b) = \arg\min_{x\succ 0} f(x) + \frac{1}{2} \|x-b\|_2^2  \]</div>
+<p>Since <span class="arithmatex">\(f(x)= − \sum_{j=1}^n \ln x_j\)</span> is a convex function, 
+let <span class="arithmatex">\(\hat{x}=\text{Prox}_{f^*}(b)\)</span> .</p>
+<p>We have</p>
+<div class="arithmatex">\[ b-\hat{x} \in \partial f(\hat{x}) = \{g : g_i = -\frac{1}{\hat{x}_i} \} \]</div>
+<p>That is</p>
+<div class="arithmatex">\[ b_i = \hat{x}_i - \frac{1}{\hat{x}_i} \quad \Leftrightarrow \quad \hat{x}_i = \frac{b_i+\sqrt{b_i^2+4}}{2} \]</div>
+<h3 id="13">1.3<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>Exercise 8.4 of <a href="../../#最优化建模算法与理论">最优化：建模、算法与理论</a></p>
+<p>Please compute the proximal operator of</p>
+<div class="arithmatex">\[ f (X) = − \ln \det(X) \quad \text{ where } \quad \text{dom}(f ) = S^n_{++} \]</div>
+<p><strong>solution</strong>.</p>
+<p>Since <span class="arithmatex">\(f(X)= − \ln \det(X)\)</span> is a convex function, for any <span class="arithmatex">\(Y \in S^n\)</span></p>
+<div class="arithmatex">\[ \text{Prox}_{f}(Y) = \arg\min_{X \succ 0} − \ln \det(X) + \frac{1}{2} \|X-Y\|_F^2  \]</div>
+<p>where <a href="../../#最优化建模算法与理论">最优化：建模、算法与理论 2.1.2</a></p>
+<div class="arithmatex">\[ \|A\|_F = \sqrt{Tr(AA^T)} \quad \Rightarrow \quad \|A\|_F^2 = Tr(AA^T) \]</div>
+<div class="arithmatex">\[ \begin{align}
+    Tr((A+tV)(A^T+tV^T)) &amp;= Tr(AA^T)+t (Tr(AV^T)+Tr(VA^T))+t^2Tr(VV^T) \\
+    &amp;= Tr(AA^T)+2t\cdot Tr(A^T V)+t^2 \cdot Tr(VV^T)
+\end{align} \]</div>
+<p>Thus <span class="arithmatex">\(\nabla \|A\|_F^2 = 2A\)</span>,    <br />
+So we can get <span class="arithmatex">\(\text{Prox}_{f}(Y)\)</span>, if </p>
+<div class="arithmatex">\[ \begin{align}
+    0 &amp;= \nabla (f(X) + \frac{1}{2} \|X-Y\|_F^2)     \\
+    &amp;= \nabla (− \ln \det(X) + \frac{1}{2} \|X-Y\|_F^2)     \\
+    &amp;= -X^{-T} + X-Y
+\end{align}  \]</div>
+<p>We can select the <span class="arithmatex">\(X\)</span> such that</p>
+<div class="arithmatex">\[ Y=X-X^{-1}, \quad X\in S^n_{++} \]</div>
+<p>Because , let <span class="arithmatex">\(Y = U\Lambda_Y U^T\)</span>, where <span class="arithmatex">\(\Lambda_Y = \text{diag}(\lambda_1, \dots, \lambda_n)\)</span>, 
+and now let</p>
+<div class="arithmatex">\[ X = U\Lambda_X U^T, \quad \Lambda_X = \text{diag}(\frac{\lambda_i + \sqrt{\lambda_i^2+4}}{2}) \]</div>
+<p>That satisfy <span class="arithmatex">\(X \succ 0\)</span> and <span class="arithmatex">\(Y=X-X^{-1}\)</span>.</p>
+<h2 id="2">2<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>Please solve the following low-rank matrix recovery problem via Proximal Gradient descent </p>
+<div class="arithmatex">\[ \min_{X∈R^{n_1 ×n_2}} λ‖X‖_∗ + \frac{1}{2} ‖\mathcal{A}(X) − b‖_2^2 \]</div>
+<p>where <span class="arithmatex">\(b = \mathcal{A}(X_0) = (〈A_j, X_0〉)_{j=1}^m\)</span> with <span class="arithmatex">\(A_j ∈ R^{n_1×n_2}\)</span> with <span class="arithmatex">\(m = \mathcal{O}((n_1 + n_2)r)\)</span>, and <span class="arithmatex">\(‖ · ‖_∗\)</span> is the nuclear norm.</p>
+<p><a href="../../#最优化建模算法与理论">最优化：建模、算法与理论 8.1.3 2</a></p>
+<p><strong>solution</strong>.</p>
+<p>We want to solve the problem</p>
+<div class="arithmatex">\[ \min_{X∈R^{n_1 ×n_2}} f(x) + h(x) \]</div>
+<p>where</p>
+<div class="arithmatex">\[ f(x) =  \frac{1}{2} ‖\mathcal{A}(X) − b‖_2^2 \qquad h(x) =λ\|X\|_* \]</div>
+<p>Let the <span class="arithmatex">\(X=U\Sigma V^T\)</span> is the SVD of <span class="arithmatex">\(X\)</span>, then</p>
+<div class="arithmatex">\[ \|X\|_* = Tr(\sqrt{XX^T}) = \sum_{i=1}^r \sigma_i\]</div>
+<p>We have</p>
+<div class="arithmatex">\[ \nabla f(x) = \mathcal{A}^*(\mathcal{A}(X) − b) = \sum_{j=1}^m (Tr(A_j^TX) − b_j)A_j \]</div>
+<p>So, the proximal gradient descent is</p>
+<div class="arithmatex">\[ \begin{align}
+    Y^k &amp;= X^k - t_k \nabla f(X^k)  \\
+    &amp;=X^k - t_k \sum_{j=1}^m (Tr(A_j^TX^k) − b_j)A_j        \\
+    X^{k+1} &amp;= \text{Prox}_{t_k h}(Y^k)     \\
+    &amp;= \arg\min_{X∈R^{n_1 ×n_2}} t_k \lambda\|X\|_* + \frac{1}{2} ‖X - Y^k ‖_F^2    \\
+\end{align} \]</div>
+<p>where</p>
+<div class="arithmatex">\[ \text{Prox}_{t_k h}(Y) = \text{SVT}(Y, t_k\lambda) = U \text{diag} (\max \{d_i - t_k \lambda, 0\} ) V^T, \quad Y = U \text{diag}(d_i) V^T \]</div>
+<h2 id="3">3<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>Given the convex problem 
+<span class="arithmatex">\(\min_x ‖x‖_1\)</span>, s. t. <span class="arithmatex">\(‖A^∗(Ax − b)‖_∞ ≤ ε\)</span>, where <span class="arithmatex">\(A^∗ ∈ R^{n×m}\)</span> is the transpose of the matrix <span class="arithmatex">\(A ∈ R^{m×n}\)</span> with <span class="arithmatex">\(m &lt; n\)</span>. Please design an solving algorithm based on dual algorithm. You should give the iterated scheme in detail.</p>
 
 <!-- Source file information -->
 

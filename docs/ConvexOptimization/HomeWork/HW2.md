@@ -60,7 +60,7 @@ b. Sum of largest elements. \(f(\mathbf{x}) = \sum_{i=1}^r x_{[i]}\) on \(R^n\).
 
 c. Log function of the Matrix: \(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \).
 
-!!! solve
+!!! solution
 
     $$ f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} $$
 
@@ -107,7 +107,7 @@ c. Log function of the Matrix: \(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \).
         +\infty, & \text{otherwise}
     \end{cases} $$
 
-!!! warning
+??? warning
 
     **c**.
 
@@ -115,7 +115,6 @@ c. Log function of the Matrix: \(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \).
 
     $$ f^*(\mathbf{Y}) = \sup_{\mathbf{X} \in dom f} \{ tr(\mathbf{Y}^T\mathbf{X}) + \ln \det(\mathbf{X}) \}$$
 
-    （这什么玩意？根本就不对！先说结论）
 
     $$ f^*(\mathbf{Y}) \equiv +\infty, \text{ if } n > 1 $$
 
@@ -131,15 +130,78 @@ c. Log function of the Matrix: \(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \).
     $$ tr(Y^TX)+\ln \det(X) = -d_1 t^{n-1} + (-d_2+\sum_{i=3}^{n}d_i)/t + 0 \to +\infty $$
 
 
+!!! solution
+
+    **c**.
+
+    Since \(f(\mathbf{X}) = − \ln \det(\mathbf{X}) ,\quad \text{dom}f=S^n_{++} \), 
+    we claim that \(f(X)\) is convex! [最优化：建模、算法与理论 例 2.5][ref2]
+    
+    For \(\mathbf{Y} \in S^n\)
+
+    $$ f^*(\mathbf{Y}) = \sup_{\mathbf{X} \in S^n_{++}} \{ Tr(\mathbf{Y}^T\mathbf{X}) + \ln \det(\mathbf{X}) \} $$
+
+    Let \(Y = U\Lambda_Y U^T\), where \(U\) is an orthogonal matrix, \(\Lambda_Y\) is a diagonal matrix.
+
+    Then,
+
+    $$ \begin{align} 
+        f^*(Y) 
+        &= \sup_{X \in S^n_{++}} \{ Tr(Y^TX) + \ln \det(X) \} \\
+        &= \sup_{X \in S^n_{++}} \{ Tr(U\Lambda_Y U^T X) + \ln \det(X) \}    \\
+        &= \sup_{X \in S^n_{++}} \{ Tr(\Lambda_Y U^T XU) + \ln \det(U X U^T) \} \\
+        &= \sup_{Z \in S^n_{++}} \{ Tr(\Lambda_Y Z) + \ln \det(Z) \}
+    \end{align} $$
+
+    If there is a \(\lambda_i \ge 0\)，Let 
+    
+    $$ Z=\text{diag}(1, ..., \underbrace{t}_i, ..., 1) $$
+
+    Then 
+
+    $$ f^*(Y) \ge Tr(\Lambda_Y Z) + \ln \det(Z) = t\lambda_i + \ln t  + c \to +\infty \text{ as } t \to +\infty $$
+
+    So, \(f^*(Y) = +\infty\) if \((-Y) \notin S^n_{++}\).
+
+    On th other hand, if \((-Y) \succ 0\), since \(Tr(Y^TX)\) is linear, and \( -\ln \det(X) \) is convex,
+    we know that  
+    
+    $$ g_Y(X) \triangleq Tr(Y^TX) + \ln \det(X) $$ 
+    
+    is **concave**!
+
+    So if there is an \(X\) such that \(\nabla g_Y(X) = 0 \), then \(g_Y(X) = f^*(Y)\) is the maximum value . However 
+
+    $$ \nabla g_Y(X) = Y+X^{-T} $$
+
+    Hence \((-Y)\succ 0\), we can let \(X = (-Y)^{-1} = -Y^{-1} \in S^n_{++} \), where
+
+    $$ g_Y((-Y)^{-1}) = Tr(-YY^{-1}) + \ln(\det(-Y)^{-1}) = -Tr(I) - \ln\det(-Y) = -n-\ln\det(-Y) $$
+
+    Summary, we get
+
+    $$ f^*(Y) = \begin{cases}
+    -n-\ln\det(-Y), & \text{if } -Y \succ 0 \\
+    +\infty, & \text{otherwise}
+    \end{cases} $$
+
+
+
+
+
+
+
+
+
 ## 3. Exercise 2.6 of [最优化：建模、算法与理论][ref2]
 
 Compute the gradient of the functions with matrix variables.
 
 a. \(f (\mathbf{X}) = Tr (\mathbf{X}^T\mathbf{A}\mathbf{X})\), where \(\mathbf{X} ∈ R^{m×n}\), \(\mathbf{A} ∈ R^{m×m}\) (may not symmetrix);
 
-b. \(f (\mathbf{X}) = \ln \det(\mathbf{X})\), where \(\mathbf{X} ∈ R^{n×n}\) and domain is \(\{\mathbf{X} | det(\mathbf{X}) > 0\}\).
+b. \(f (\mathbf{X}) = \ln \det(\mathbf{X})\), where \(\mathbf{X} ∈ R^{n×n}\) and domain is \(\{\mathbf{X} | \det(\mathbf{X}) > 0\}\).
 
-!!! solve
+!!! solution
 
     **a**.
 

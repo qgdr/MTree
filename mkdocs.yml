@@ -163,7 +163,7 @@ theme:
   - toc.follow
   font:
     code: Fira Code
-    text: Noto Sans SC
+    text: Raleway
   icon:
     logo: material/pi
   language: zh

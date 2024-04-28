@@ -45,8 +45,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Fira Code"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Raleway";--md-code-font:"Fira Code"}</style>
       
     
     
@@ -2594,8 +2594,8 @@ And then we have <span class="arithmatex">\(f(\mathbf{X}) = (\det(\mathbf{X}))^{
 <p>a. Max function. <span class="arithmatex">\(f(\mathbf{x})=\max_{i=1,..,n} x_i\)</span> on <span class="arithmatex">\(R^n\)</span>.     </p>
 <p>b. Sum of largest elements. <span class="arithmatex">\(f(\mathbf{x}) = \sum_{i=1}^r x_{[i]}\)</span> on <span class="arithmatex">\(R^n\)</span>.     </p>
 <p>c. Log function of the Matrix: <span class="arithmatex">\(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \)</span>.</p>
-<div class="admonition solve">
-<p class="admonition-title">Solve</p>
+<div class="admonition solution">
+<p class="admonition-title">Solution</p>
 <div class="arithmatex">\[ f^*(y) = \sup_{x\in dom f} \{ y^T x-f(x)\} \]</div>
 <p><strong>a</strong>. </p>
 <div class="arithmatex">\[ f(\mathbf{x})=\max_{i=1,..,n} x_i \]</div>
@@ -2632,12 +2632,11 @@ Summarise:</p>
     +\infty, &amp; \text{otherwise}
 \end{cases} \]</div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<details class="warning">
+<summary>Warning</summary>
 <p><strong>c</strong>.</p>
 <p>Since <span class="arithmatex">\(f(\mathbf{X}) = − \ln \det(\mathbf{X}) \)</span>,</p>
 <div class="arithmatex">\[ f^*(\mathbf{Y}) = \sup_{\mathbf{X} \in dom f} \{ tr(\mathbf{Y}^T\mathbf{X}) + \ln \det(\mathbf{X}) \}\]</div>
-<p>（这什么玩意？根本就不对！先说结论）</p>
 <div class="arithmatex">\[ f^*(\mathbf{Y}) \equiv +\infty, \text{ if } n &gt; 1 \]</div>
 <p>根据奇异值分解， 设 <span class="arithmatex">\( Y = U D V^T \)</span>, 其中 <span class="arithmatex">\( D \)</span> 是对角矩阵, <span class="arithmatex">\( U, V \)</span> 是正交矩阵，且 <font color=Red> <span class="arithmatex">\( \det(U)=\det(V)=1 \)</span> </font>。</p>
 <p>令 <span class="arithmatex">\( X=U \Lambda V^T \)</span>，则 <span class="arithmatex">\(tr(Y^TX)=tr( V D U^T U \Lambda V^T) = \sum_{i=1}^n d_i \lambda_i \)</span>.<br />
@@ -2645,13 +2644,48 @@ Summarise:</p>
 <div class="arithmatex">\[ tr(Y^TX)+\ln \det(X) = d_1 t^{n-1} + \sum_{i=2}^{n}d_i/t + 0 \to +\infty \]</div>
 <p>若 <span class="arithmatex">\(d_1 &lt; 0\)</span>，令 <span class="arithmatex">\( \lambda_1 = -t^{n-1}, \lambda_2 = -1/t, \lambda_i = 1/t, i\geq 3 \)</span>，那么</p>
 <div class="arithmatex">\[ tr(Y^TX)+\ln \det(X) = -d_1 t^{n-1} + (-d_2+\sum_{i=3}^{n}d_i)/t + 0 \to +\infty \]</div>
+</details>
+<div class="admonition solution">
+<p class="admonition-title">Solution</p>
+<p><strong>c</strong>.</p>
+<p>Since <span class="arithmatex">\(f(\mathbf{X}) = − \ln \det(\mathbf{X}) ,\quad \text{dom}f=S^n_{++} \)</span>, 
+we claim that <span class="arithmatex">\(f(X)\)</span> is convex! <a href="../../#最优化建模算法与理论">最优化：建模、算法与理论 例 2.5</a></p>
+<p>For <span class="arithmatex">\(\mathbf{Y} \in S^n\)</span></p>
+<div class="arithmatex">\[ f^*(\mathbf{Y}) = \sup_{\mathbf{X} \in S^n_{++}} \{ Tr(\mathbf{Y}^T\mathbf{X}) + \ln \det(\mathbf{X}) \} \]</div>
+<p>Let <span class="arithmatex">\(Y = U\Lambda_Y U^T\)</span>, where <span class="arithmatex">\(U\)</span> is an orthogonal matrix, <span class="arithmatex">\(\Lambda_Y\)</span> is a diagonal matrix.</p>
+<p>Then,</p>
+<div class="arithmatex">\[ \begin{align} 
+    f^*(Y) 
+    &amp;= \sup_{X \in S^n_{++}} \{ Tr(Y^TX) + \ln \det(X) \} \\
+    &amp;= \sup_{X \in S^n_{++}} \{ Tr(U\Lambda_Y U^T X) + \ln \det(X) \}    \\
+    &amp;= \sup_{X \in S^n_{++}} \{ Tr(\Lambda_Y U^T XU) + \ln \det(U X U^T) \} \\
+    &amp;= \sup_{Z \in S^n_{++}} \{ Tr(\Lambda_Y Z) + \ln \det(Z) \}
+\end{align} \]</div>
+<p>If there is a <span class="arithmatex">\(\lambda_i \ge 0\)</span>，Let </p>
+<div class="arithmatex">\[ Z=\text{diag}(1, ..., \underbrace{t}_i, ..., 1) \]</div>
+<p>Then </p>
+<div class="arithmatex">\[ f^*(Y) \ge Tr(\Lambda_Y Z) + \ln \det(Z) = t\lambda_i + \ln t  + c \to +\infty \text{ as } t \to +\infty \]</div>
+<p>So, <span class="arithmatex">\(f^*(Y) = +\infty\)</span> if <span class="arithmatex">\((-Y) \notin S^n_{++}\)</span>.</p>
+<p>On th other hand, if <span class="arithmatex">\((-Y) \succ 0\)</span>, since <span class="arithmatex">\(Tr(Y^TX)\)</span> is linear, and <span class="arithmatex">\( -\ln \det(X) \)</span> is convex,
+we know that  </p>
+<div class="arithmatex">\[ g_Y(X) \triangleq Tr(Y^TX) + \ln \det(X) \]</div>
+<p>is <strong>concave</strong>!</p>
+<p>So if there is an <span class="arithmatex">\(X\)</span> such that <span class="arithmatex">\(\nabla g_Y(X) = 0 \)</span>, then <span class="arithmatex">\(g_Y(X) = f^*(Y)\)</span> is the maximum value . However </p>
+<div class="arithmatex">\[ \nabla g_Y(X) = Y+X^{-T} \]</div>
+<p>Hence <span class="arithmatex">\((-Y)\succ 0\)</span>, we can let <span class="arithmatex">\(X = (-Y)^{-1} = -Y^{-1} \in S^n_{++} \)</span>, where</p>
+<div class="arithmatex">\[ g_Y((-Y)^{-1}) = Tr(-YY^{-1}) + \ln(\det(-Y)^{-1}) = -Tr(I) - \ln\det(-Y) = -n-\ln\det(-Y) \]</div>
+<p>Summary, we get</p>
+<div class="arithmatex">\[ f^*(Y) = \begin{cases}
+-n-\ln\det(-Y), &amp; \text{if } -Y \succ 0 \\
++\infty, &amp; \text{otherwise}
+\end{cases} \]</div>
 </div>
 <h2 id="3-exercise-26-of">3. Exercise 2.6 of <a href="../../#最优化建模算法与理论">最优化：建模、算法与理论</a><a class="headerlink" href="#3-exercise-26-of" title="Permanent link">&para;</a></h2>
 <p>Compute the gradient of the functions with matrix variables.</p>
 <p>a. <span class="arithmatex">\(f (\mathbf{X}) = Tr (\mathbf{X}^T\mathbf{A}\mathbf{X})\)</span>, where <span class="arithmatex">\(\mathbf{X} ∈ R^{m×n}\)</span>, <span class="arithmatex">\(\mathbf{A} ∈ R^{m×m}\)</span> (may not symmetrix);</p>
-<p>b. <span class="arithmatex">\(f (\mathbf{X}) = \ln \det(\mathbf{X})\)</span>, where <span class="arithmatex">\(\mathbf{X} ∈ R^{n×n}\)</span> and domain is <span class="arithmatex">\(\{\mathbf{X} | det(\mathbf{X}) &gt; 0\}\)</span>.</p>
-<div class="admonition solve">
-<p class="admonition-title">Solve</p>
+<p>b. <span class="arithmatex">\(f (\mathbf{X}) = \ln \det(\mathbf{X})\)</span>, where <span class="arithmatex">\(\mathbf{X} ∈ R^{n×n}\)</span> and domain is <span class="arithmatex">\(\{\mathbf{X} | \det(\mathbf{X}) &gt; 0\}\)</span>.</p>
+<div class="admonition solution">
+<p class="admonition-title">Solution</p>
 <p><strong>a</strong>.</p>
 <div class="arithmatex">\[ \begin{align}
 f(X+tV)-f(X) &amp;= Tr((X^T+tV^T)A(X+tV))-Tr(X^TAX) \\
