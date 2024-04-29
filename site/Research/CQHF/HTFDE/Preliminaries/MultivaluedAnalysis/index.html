@@ -819,8 +819,6 @@
         
       
         
-          
-        
       
         
       
@@ -870,8 +868,53 @@
   
   
   
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    基础理论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            基础理论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../../../ConvexOptimization/AffineAndConvex/" class="md-nav__link">
+      <a href="../../../../../ConvexOptimization/Theory/AffineAndConvex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -891,12 +934,79 @@
   
   
   
-    
-    
+    <li class="md-nav__item">
+      <a href="../../../../../ConvexOptimization/Theory/ConvexFunction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    凸函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ConvexOptimization/Theory/ConjugateFunction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    共轭函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ConvexOptimization/Theory/SubGradient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    次梯度
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
-        
-          
-        
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
       
         
       
@@ -910,33 +1020,23 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../../../../ConvexOptimization/ConvexFunction/" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
-    凸函数
+    优化算法
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
-            凸函数
+            优化算法
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
             
               
                 
@@ -945,11 +1045,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ConvexOptimization/ConvexFunction/ConjugateFunction/" class="md-nav__link">
+      <a href="../../../../../ConvexOptimization/Algorithms/Proximal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    共轭函数
+    近似点 Proximal
   </span>
   
 
@@ -2518,7 +2618,7 @@
 </code></pre></div>
 <div class="admonition think">
 <p class="admonition-title">Think</p>
-<p>我们在凸优化中定义过所谓 <a href="../../../../../ConvexOptimization/ConvexFunction/#下半连续">下半连续</a>。他是由单值函数的连续性来定义的。<br />
+<p>我们在凸优化中定义过所谓 <a href="../../../../../ConvexOptimization/Theory/ConvexFunction/#下半连续">下半连续</a>。他是由单值函数的连续性来定义的。<br />
 而在多值函数中，没有了实数的 <strong>序关系</strong> 和 <strong>连续性</strong>，那么应该用何种方式来替代呢？   <br />
 在多值函数中，我们使用了 <strong>集合的序关系关系</strong> 以及由 <strong>开集</strong> 所描绘的连续性。<br />
 如果不理解，对于一个下半连续函数 <span class="arithmatex">\(f(x)\)</span> ，不妨令 <span class="arithmatex">\( G(x) = \{y | y \le f(x)\}\)</span>，是不是就一目了然了。</p>

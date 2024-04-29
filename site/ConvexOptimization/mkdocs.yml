@@ -1,9 +1,12 @@
 nav:
 - index.md
-- 仿射与凸集: AffineAndConvex/index.md
-- 凸函数: 
-  - ConvexFunction/index.md
-  - 共轭函数: ConvexFunction/ConjugateFunction.md
+- 基础理论:
+  - 仿射与凸集: Theory/AffineAndConvex.md
+  - 凸函数: Theory/ConvexFunction.md
+  - 共轭函数: Theory/ConjugateFunction.md
+  - 次梯度: Theory/SubGradient.md
+- 优化算法:
+  - Algorithms/Proximal.md
 - HW:
   - HW1: HomeWork/HW1.md
   - HW2: HomeWork/HW2.md

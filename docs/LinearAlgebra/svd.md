@@ -39,3 +39,12 @@ $$A=U\Sigma V^T$$
 故 $\sigma_j=\sqrt{\lambda_j}$
 
 以上，我们重新发现一遍矩阵的 **奇异值分解** (SVD).
+
+同时我们可以得到椭圆到原点最远的距离，      
+对于 \(x\in\mathbb{R}^n, \|x\|_2=1\)，令 \(y=V^Tx, \|y\|_2=1\) 
+
+$$ \|Ax\|_2 = \|U\Sigma V^Tx\|_2 = \|\Sigma y\|_2 \in [\sigma_n, \sigma_1] $$
+
+这样我们就获得了矩阵的 **谱范数** (spectral norm)
+
+$$ \|A\|_2 = \max_{x\in\mathbb{R}^n, \|x\|_2=1}\|Ax\|_2 = \sigma_1 = \sqrt{\lambda_1} = \sqrt{\rho(A^TA)} $$

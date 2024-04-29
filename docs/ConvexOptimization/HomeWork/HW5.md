@@ -19,17 +19,17 @@ $$ \text{Prox}_{f}(b) = \arg\min_{x} ‖x‖_1 + \frac{1}{2} \|x-b\|_2^2  $$
 
 **First solution**:
 
-Let \(\hat{x} = \text{Prox}_{f^*}(b) \) .        
+Let \(x = \text{Prox}_{f^*}(b) \) .        
 Since \(f(x)= \|x\|_1\) is a convex function, we have 
 
-$$ b-\hat{x} \in \partial f(\hat{x}) = \{g : g_i = \begin{cases}
+$$ b-x \in \partial f(x) = \{g : g_i = \begin{cases}
     \text{sign}(x_i), & \text{if } x_i \neq 0 \\
     [-1, 1], & \text{if } x_i = 0
 \end{cases} \} $$
 
 So, 
 
-$$ \hat{x}_i = \begin{cases}
+$$ x_i = \begin{cases}
     0, & \text{if } |b_i| \le 1 \\
     \text{sign}(b_i)(|b_i|-1 ), & \text{if } |b_i| > 1
 \end{cases} $$
@@ -37,7 +37,7 @@ $$ \hat{x}_i = \begin{cases}
 
 **Second solution**:
 
-From [Moreau decomposition](), we have 
+From [Moreau decomposition](../Algorithms/Proximal.md#moreau-decomposition), we have 
 
 $$ b = \text{Prox}_{f}(b) + \text{Prox}_{f^*}(b) $$
 
@@ -82,15 +82,15 @@ Please compute the proximal operator of \(f (x) = − \sum_{j=1}^n \ln x_j\) .
 $$ \text{Prox}_{f}(b) = \arg\min_{x\succ 0} f(x) + \frac{1}{2} \|x-b\|_2^2  $$
 
 Since \(f(x)= − \sum_{j=1}^n \ln x_j\) is a convex function, 
-let \(\hat{x}=\text{Prox}_{f^*}(b)\) .
+let \(x=\text{Prox}_{f^*}(b)\) .
 
 We have
 
-$$ b-\hat{x} \in \partial f(\hat{x}) = \{g : g_i = -\frac{1}{\hat{x}_i} \} $$
+$$ b-x \in \partial f(x) = \{g : g_i = -\frac{1}{x_i} \} $$
 
 That is
 
-$$ b_i = \hat{x}_i - \frac{1}{\hat{x}_i} \quad \Leftrightarrow \quad \hat{x}_i = \frac{b_i+\sqrt{b_i^2+4}}{2} $$
+$$ b_i = x_i - \frac{1}{x_i} \quad \Leftrightarrow \quad x_i = \frac{b_i+\sqrt{b_i^2+4}}{2} $$
 
 
 
@@ -176,9 +176,9 @@ $$ \begin{align}
     &= \arg\min_{X∈R^{n_1 ×n_2}} t_k \lambda\|X\|_* + \frac{1}{2} ‖X - Y^k ‖_F^2    \\
 \end{align} $$
 
-where
+where [SVT](../Algorithms/Proximal.md#nuclear-norm)
 
-$$ \text{Prox}_{t_k h}(Y) = \text{SVT}(Y, t_k\lambda) = U \text{diag} (\max \{d_i - t_k \lambda, 0\} ) V^T, \quad Y = U \text{diag}(d_i) V^T $$
+$$ \text{Prox}_{t_k h}(Y) = \text{SVT}(Y, t_k\lambda) = U (D - t_k \lambda I)^+ V^T, \quad Y = U D V^T $$
 
 
 

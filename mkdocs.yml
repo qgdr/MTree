@@ -58,10 +58,13 @@ nav:
     - "\u7D27\u6027": Topology/TopoSpc/compact.md
 - ConvexOptimization:
   - ConvexOptimization/index.md
-  - "\u4EFF\u5C04\u4E0E\u51F8\u96C6": ConvexOptimization/AffineAndConvex/index.md
-  - "\u51F8\u51FD\u6570":
-    - ConvexOptimization/ConvexFunction/index.md
-    - "\u5171\u8F6D\u51FD\u6570": ConvexOptimization/ConvexFunction/ConjugateFunction.md
+  - "\u57FA\u7840\u7406\u8BBA":
+    - "\u4EFF\u5C04\u4E0E\u51F8\u96C6": ConvexOptimization/Theory/AffineAndConvex.md
+    - "\u51F8\u51FD\u6570": ConvexOptimization/Theory/ConvexFunction.md
+    - "\u5171\u8F6D\u51FD\u6570": ConvexOptimization/Theory/ConjugateFunction.md
+    - "\u6B21\u68AF\u5EA6": ConvexOptimization/Theory/SubGradient.md
+  - "\u4F18\u5316\u7B97\u6CD5":
+    - ConvexOptimization/Algorithms/Proximal.md
   - HW:
     - HW1: ConvexOptimization/HomeWork/HW1.md
     - HW2: ConvexOptimization/HomeWork/HW2.md

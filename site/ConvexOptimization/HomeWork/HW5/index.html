@@ -821,8 +821,6 @@
         
       
         
-          
-        
       
         
       
@@ -872,8 +870,53 @@
   
   
   
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    基础理论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            基础理论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../AffineAndConvex/" class="md-nav__link">
+      <a href="../../Theory/AffineAndConvex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,12 +936,79 @@
   
   
   
-    
-    
+    <li class="md-nav__item">
+      <a href="../../Theory/ConvexFunction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    凸函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Theory/ConjugateFunction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    共轭函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Theory/SubGradient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    次梯度
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
-        
-          
-        
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
       
         
       
@@ -912,33 +1022,23 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../ConvexFunction/" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
-    凸函数
+    优化算法
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
-            凸函数
+            优化算法
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
             
               
                 
@@ -947,11 +1047,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ConvexFunction/ConjugateFunction/" class="md-nav__link">
+      <a href="../../Algorithms/Proximal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    共轭函数
+    近似点 Proximal
   </span>
   
 
@@ -2628,19 +2728,19 @@ Tips: You can solve it by Moreau decomposition and the projection on the <span c
 <p>In this case ,</p>
 <div class="arithmatex">\[ \text{Prox}_{f}(b) = \arg\min_{x} ‖x‖_1 + \frac{1}{2} \|x-b\|_2^2  \]</div>
 <p><strong>First solution</strong>:</p>
-<p>Let <span class="arithmatex">\(\hat{x} = \text{Prox}_{f^*}(b) \)</span> .      <br />
+<p>Let <span class="arithmatex">\(x = \text{Prox}_{f^*}(b) \)</span> .      <br />
 Since <span class="arithmatex">\(f(x)= \|x\|_1\)</span> is a convex function, we have </p>
-<div class="arithmatex">\[ b-\hat{x} \in \partial f(\hat{x}) = \{g : g_i = \begin{cases}
+<div class="arithmatex">\[ b-x \in \partial f(x) = \{g : g_i = \begin{cases}
     \text{sign}(x_i), &amp; \text{if } x_i \neq 0 \\
     [-1, 1], &amp; \text{if } x_i = 0
 \end{cases} \} \]</div>
 <p>So, </p>
-<div class="arithmatex">\[ \hat{x}_i = \begin{cases}
+<div class="arithmatex">\[ x_i = \begin{cases}
     0, &amp; \text{if } |b_i| \le 1 \\
     \text{sign}(b_i)(|b_i|-1 ), &amp; \text{if } |b_i| &gt; 1
 \end{cases} \]</div>
 <p><strong>Second solution</strong>:</p>
-<p>From <a href="">Moreau decomposition</a>, we have </p>
+<p>From <a href="../../Algorithms/Proximal/#moreau-decomposition">Moreau decomposition</a>, we have </p>
 <div class="arithmatex">\[ b = \text{Prox}_{f}(b) + \text{Prox}_{f^*}(b) \]</div>
 <p>where <span class="arithmatex">\(f^* (x) = \mathbb{I}_{\|x\|_\infty \le 1}\)</span>, that is</p>
 <div class="arithmatex">\[ \text{Prox}_{f}(b) = b - \text{Prox}_{f^*}(b) = b-\mathcal{P}_{\|x\|_\infty \le 1} (b) \]</div>
@@ -2669,11 +2769,11 @@ Since <span class="arithmatex">\(f(x)= \|x\|_1\)</span> is a convex function, we
 <p><strong>solution</strong>.</p>
 <div class="arithmatex">\[ \text{Prox}_{f}(b) = \arg\min_{x\succ 0} f(x) + \frac{1}{2} \|x-b\|_2^2  \]</div>
 <p>Since <span class="arithmatex">\(f(x)= − \sum_{j=1}^n \ln x_j\)</span> is a convex function, 
-let <span class="arithmatex">\(\hat{x}=\text{Prox}_{f^*}(b)\)</span> .</p>
+let <span class="arithmatex">\(x=\text{Prox}_{f^*}(b)\)</span> .</p>
 <p>We have</p>
-<div class="arithmatex">\[ b-\hat{x} \in \partial f(\hat{x}) = \{g : g_i = -\frac{1}{\hat{x}_i} \} \]</div>
+<div class="arithmatex">\[ b-x \in \partial f(x) = \{g : g_i = -\frac{1}{x_i} \} \]</div>
 <p>That is</p>
-<div class="arithmatex">\[ b_i = \hat{x}_i - \frac{1}{\hat{x}_i} \quad \Leftrightarrow \quad \hat{x}_i = \frac{b_i+\sqrt{b_i^2+4}}{2} \]</div>
+<div class="arithmatex">\[ b_i = x_i - \frac{1}{x_i} \quad \Leftrightarrow \quad x_i = \frac{b_i+\sqrt{b_i^2+4}}{2} \]</div>
 <h3 id="13">1.3<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
 <p>Exercise 8.4 of <a href="../../#最优化建模算法与理论">最优化：建模、算法与理论</a></p>
 <p>Please compute the proximal operator of</p>
@@ -2721,8 +2821,8 @@ and now let</p>
     X^{k+1} &amp;= \text{Prox}_{t_k h}(Y^k)     \\
     &amp;= \arg\min_{X∈R^{n_1 ×n_2}} t_k \lambda\|X\|_* + \frac{1}{2} ‖X - Y^k ‖_F^2    \\
 \end{align} \]</div>
-<p>where</p>
-<div class="arithmatex">\[ \text{Prox}_{t_k h}(Y) = \text{SVT}(Y, t_k\lambda) = U \text{diag} (\max \{d_i - t_k \lambda, 0\} ) V^T, \quad Y = U \text{diag}(d_i) V^T \]</div>
+<p>where <a href="../../Algorithms/Proximal/#nuclear-norm">SVT</a></p>
+<div class="arithmatex">\[ \text{Prox}_{t_k h}(Y) = \text{SVT}(Y, t_k\lambda) = U (D - t_k \lambda I)^+ V^T, \quad Y = U D V^T \]</div>
 <h2 id="3">3<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <p>Given the convex problem 
 <span class="arithmatex">\(\min_x ‖x‖_1\)</span>, s. t. <span class="arithmatex">\(‖A^∗(Ax − b)‖_∞ ≤ ε\)</span>, where <span class="arithmatex">\(A^∗ ∈ R^{n×m}\)</span> is the transpose of the matrix <span class="arithmatex">\(A ∈ R^{m×n}\)</span> with <span class="arithmatex">\(m &lt; n\)</span>. Please design an solving algorithm based on dual algorithm. You should give the iterated scheme in detail.</p>

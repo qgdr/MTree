@@ -831,8 +831,6 @@
         
       
         
-          
-        
       
         
       
@@ -882,8 +880,53 @@
   
   
   
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    基础理论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            基础理论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../ConvexOptimization/AffineAndConvex/" class="md-nav__link">
+      <a href="../../ConvexOptimization/Theory/AffineAndConvex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -903,12 +946,79 @@
   
   
   
-    
-    
+    <li class="md-nav__item">
+      <a href="../../ConvexOptimization/Theory/ConvexFunction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    凸函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ConvexOptimization/Theory/ConjugateFunction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    共轭函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ConvexOptimization/Theory/SubGradient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    次梯度
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
-        
-          
-        
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
       
         
       
@@ -922,33 +1032,23 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../ConvexOptimization/ConvexFunction/" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
-    凸函数
+    优化算法
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
-            凸函数
+            优化算法
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
             
               
                 
@@ -957,11 +1057,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ConvexOptimization/ConvexFunction/ConjugateFunction/" class="md-nav__link">
+      <a href="../../ConvexOptimization/Algorithms/Proximal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    共轭函数
+    近似点 Proximal
   </span>
   
 
@@ -2468,7 +2568,7 @@
 <p><span class="arithmatex">\(A\)</span> 把单位圆（球）映成一个椭圆（球）。而椭圆长短轴的原像好像也是正交的？</p>
 <p>我们知道椭圆的长短轴是 <span class="arithmatex">\(\|Ax\|, x^Tx=1\)</span> 的极值点,
 也就是 <span class="arithmatex">\(\|Ax\|^2=x^TA^TAx\)</span> 的极值点。</p>
-<p>那么，由 <a href="../../ConvexOptimization/Duality/LagrangeDual/">Lagrange 乘数法定理</a>，极值点满足，存在一个 <span class="arithmatex">\(\lambda\)</span> 使得</p>
+<p>那么，由 <a href="../ConvexOptimization/Duality/LagrangeDual.md">Lagrange 乘数法定理</a>，极值点满足，存在一个 <span class="arithmatex">\(\lambda\)</span> 使得</p>
 <div class="arithmatex">\[ \dfrac{\partial}{\partial{x}}(x^TA^TAx-\lambda x^Tx)=0 \]</div>
 <p>根据矩阵微分法则</p>
 <div class="arithmatex">\[ LHS=2(A^TAx-\lambda x) \]</div>
@@ -2482,6 +2582,11 @@
 <p>由于 <span class="arithmatex">\(\|Av_j\|^2=v_j^TA^TAv_j = v_j^T V\Sigma^2V^T v_j = \sigma_j^2\)</span>,
 故 <span class="arithmatex">\(\sigma_j=\sqrt{\lambda_j}\)</span></p>
 <p>以上，我们重新发现一遍矩阵的 <strong>奇异值分解</strong> (SVD).</p>
+<p>同时我们可以得到椭圆到原点最远的距离，    <br />
+对于 <span class="arithmatex">\(x\in\mathbb{R}^n, \|x\|_2=1\)</span>，令 <span class="arithmatex">\(y=V^Tx, \|y\|_2=1\)</span> </p>
+<div class="arithmatex">\[ \|Ax\|_2 = \|U\Sigma V^Tx\|_2 = \|\Sigma y\|_2 \in [\sigma_n, \sigma_1] \]</div>
+<p>这样我们就获得了矩阵的 <strong>谱范数</strong> (spectral norm)</p>
+<div class="arithmatex">\[ \|A\|_2 = \max_{x\in\mathbb{R}^n, \|x\|_2=1}\|Ax\|_2 = \sigma_1 = \sqrt{\lambda_1} = \sqrt{\rho(A^TA)} \]</div>
 
 <!-- Source file information -->
 
