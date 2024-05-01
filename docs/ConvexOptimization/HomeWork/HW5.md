@@ -191,13 +191,52 @@ $$ \text{Prox}_{t_k h}(Y) = \text{SVT}(Y, t_k\lambda) = U (D - t_k \lambda I)^+ 
 
 
 Given the convex problem 
-\(\min_x ‖x‖_1\), s. t. \(‖A^∗(Ax − b)‖_∞ ≤ ε\), where \(A^∗ ∈ R^{n×m}\) is the transpose of the matrix \(A ∈ R^{m×n}\) with \(m < n\). Please design an solving algorithm based on dual algorithm. You should give the iterated scheme in detail.
+\(\min_x ‖x‖_1\), s.t. \(‖A^∗(Ax − b)‖_∞ ≤ ε\), where \(A^∗ ∈ R^{n×m}\) is the transpose of the matrix \(A ∈ R^{m×n}\) with \(m < n\). Please design an solving algorithm based on dual algorithm. You should give the iterated scheme in detail.
 
 
+**solution**.
+
+refer [Foucart A Mathematical Introduction to Compressive Sensing 15.2](./Foucart%20和%20Rauhut%20-%202013%20-%20A%20Mathematical%20Introduction%20to%20Compressive%20Sensing.pdf)
 
 
+Let \(f(x) = \|x\|_1, h(x) = \mathbb{I}_{\|x\|_\infty \le \epsilon}\), then the problem is
+
+$$ \begin{gather*}
+    \min f(x) + h(y)    \\
+    \text{s.t.} \quad  y = A^∗(Ax − b)  \\
+\end{gather*} $$
+
+The Lagrange dual function is
+
+$$ \begin{align}
+    L(x,y,\nu) &= f(x) + h(y) + \text{Re}(\nu^*(A^∗(Ax − b)-y))   \\
+    &= \left( f(x)+ \langle A^*A\nu, x \rangle \right) - \langle A\nu, b \rangle + \left( h(y) - \langle \nu, y \rangle \right)     \\
+\end{align} $$
+
+Then
+
+$$ \begin{align}
+    g(\nu) &= \min_{x,y} L(x,y,\nu) \\
+    &= \min_{x,y} \left( f(x)+ \langle A^*A\nu, x \rangle \right) - \langle A\nu, b \rangle + \left( h(y) - \langle \nu, y \rangle \right)     \\
+    &= - f^*(-A^*A\nu) - h^*(\nu) - \langle \nu, A^* b \rangle     \\
+    &= -\mathbb{I}_{\|A^*A\nu\|_\infty \le 1} - \epsilon \|\nu\|_1 -  \langle \nu, A^* b \rangle     \\
+\end{align} $$
 
 
+Now, ower Lagrange dual problem is
+
+$$ \begin{align}
+    \max_{\|A^*Az\|_\infty \le 1} - \epsilon \|z\|_1 -  \langle z, A^* b \rangle     \\
+\end{align} $$
+
+
+So, using Poximal Gradient Descent, we have the scheme
+
+$$ \begin{align}
+    y^{k+1} &=  \epsilon \nabla\|z^k\|_1 + A^* b        \\
+    z^{k+1} &= \text{Prox}_{f^*(-A^*Az)} (z^k - t_k y^{k+1})       \\
+    &= \mathcal{P}_{ \|A^*Az\|_\infty \le 1} (z^k - t_k y^{k+1})   \\
+\end{align} $$
 
 
 

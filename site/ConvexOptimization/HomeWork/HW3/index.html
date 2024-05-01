@@ -2821,7 +2821,7 @@ Let <span class="arithmatex">\(y = -A^T(Ax-b)\)</span>, then the problem is equi
     &amp;= -\max_{x \in R^n} \{ \langle A^TA\nu, x \rangle - \lambda ‖x‖_1 \} - \max_{y \in R^n} \{ \langle \nu, y \rangle  - ‖y‖_∞\} + \nu^TA^Tb \\
     &amp;= - \mathbb{I}_{\|A^TA\nu\|_\infty \le \lambda} - \mathbb{I}_{\|\nu\|_1 \le 1} + \nu^TA^Tb
 \end{align} \]</div>
-<p>The last equation is the conjugate of the norm function, see <a href="../ConvexFunction/ConjugateFunction.md#范数的共轭函数-conjugate-of-norm">Conjugate of Norm</a>.      <br />
+<p>The last equation is the conjugate of the norm function, see <a href="../../Theory/ConjugateFunction/#conjugate-of-norm">Conjugate of Norm</a>.      <br />
 So the dual problem is</p>
 <div class="arithmatex">\[ \begin{align}
     \text{maximum} &amp;\qquad b^TA\nu \\
@@ -2840,7 +2840,7 @@ Let <span class="arithmatex">\(y = -A^T(Ax-b)\)</span>, similarly, the problem i
     &amp;= -\max_{x \in R^n} \{ \langle A^TA\nu, x \rangle - \lambda ‖x‖_1 \} - \max_{y \in R^n} \{ \langle \nu, y \rangle - \frac{1}{2} ‖y‖_∞^2 \} + \nu^TA^Tb \\
     &amp;= - \mathbb{I}_{\|A^TA\nu\|_\infty \le \lambda} - \frac{1}{2}\|\nu\|_1^2 + \langle A^Tb, \nu \rangle
 \end{align} \]</div>
-<p>The last equation is the conjugate of the norm-square function, see <a href="../ConvexFunction/ConjugateFunction.md#范数平方的共轭函数-conjugate-of-norm-squared">Conjugate of Norm Squared</a>.     <br />
+<p>The last equation is the conjugate of the norm-square function, see <a href="../../Theory/ConjugateFunction/#conjugate-of-norm-squared">Conjugate of Norm Squared</a>.     <br />
 So the dual problem is</p>
 <div class="arithmatex">\[ \begin{align}
     \text{maximum} &amp;\qquad \langle A^Tb, \nu \rangle - \frac{1}{2}\|\nu\|_1^2 \\

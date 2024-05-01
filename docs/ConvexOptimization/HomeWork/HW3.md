@@ -254,7 +254,7 @@ Given \(A ∈ R^{m×n}\) with \(m < n\) and \(b ∈ R^m\). Please give the dual 
         &= - \mathbb{I}_{\|A^TA\nu\|_\infty \le \lambda} - \mathbb{I}_{\|\nu\|_1 \le 1} + \nu^TA^Tb
     \end{align} $$
 
-    The last equation is the conjugate of the norm function, see [Conjugate of Norm](../ConvexFunction/ConjugateFunction.md#范数的共轭函数-conjugate-of-norm).        
+    The last equation is the conjugate of the norm function, see [Conjugate of Norm](../Theory/ConjugateFunction.md#conjugate-of-norm).        
     So the dual problem is
 
     $$ \begin{align}
@@ -282,7 +282,7 @@ Given \(A ∈ R^{m×n}\) with \(m < n\) and \(b ∈ R^m\). Please give the dual 
         &= - \mathbb{I}_{\|A^TA\nu\|_\infty \le \lambda} - \frac{1}{2}\|\nu\|_1^2 + \langle A^Tb, \nu \rangle
     \end{align} $$
 
-    The last equation is the conjugate of the norm-square function, see [Conjugate of Norm Squared](../ConvexFunction/ConjugateFunction.md#范数平方的共轭函数-conjugate-of-norm-squared).       
+    The last equation is the conjugate of the norm-square function, see [Conjugate of Norm Squared](../Theory/ConjugateFunction.md#conjugate-of-norm-squared).       
     So the dual problem is
 
     $$ \begin{align}

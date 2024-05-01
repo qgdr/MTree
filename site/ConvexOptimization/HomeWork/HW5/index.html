@@ -2825,7 +2825,36 @@ and now let</p>
 <div class="arithmatex">\[ \text{Prox}_{t_k h}(Y) = \text{SVT}(Y, t_k\lambda) = U (D - t_k \lambda I)^+ V^T, \quad Y = U D V^T \]</div>
 <h2 id="3">3<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <p>Given the convex problem 
-<span class="arithmatex">\(\min_x ‖x‖_1\)</span>, s. t. <span class="arithmatex">\(‖A^∗(Ax − b)‖_∞ ≤ ε\)</span>, where <span class="arithmatex">\(A^∗ ∈ R^{n×m}\)</span> is the transpose of the matrix <span class="arithmatex">\(A ∈ R^{m×n}\)</span> with <span class="arithmatex">\(m &lt; n\)</span>. Please design an solving algorithm based on dual algorithm. You should give the iterated scheme in detail.</p>
+<span class="arithmatex">\(\min_x ‖x‖_1\)</span>, s.t. <span class="arithmatex">\(‖A^∗(Ax − b)‖_∞ ≤ ε\)</span>, where <span class="arithmatex">\(A^∗ ∈ R^{n×m}\)</span> is the transpose of the matrix <span class="arithmatex">\(A ∈ R^{m×n}\)</span> with <span class="arithmatex">\(m &lt; n\)</span>. Please design an solving algorithm based on dual algorithm. You should give the iterated scheme in detail.</p>
+<p><strong>solution</strong>.</p>
+<p>refer <a href="../Foucart%20%E5%92%8C%20Rauhut%20-%202013%20-%20A%20Mathematical%20Introduction%20to%20Compressive%20Sensing.pdf">Foucart A Mathematical Introduction to Compressive Sensing 15.2</a></p>
+<p>Let <span class="arithmatex">\(f(x) = \|x\|_1, h(x) = \mathbb{I}_{\|x\|_\infty \le \epsilon}\)</span>, then the problem is</p>
+<div class="arithmatex">\[ \begin{gather*}
+    \min f(x) + h(y)    \\
+    \text{s.t.} \quad  y = A^∗(Ax − b)  \\
+\end{gather*} \]</div>
+<p>The Lagrange dual function is</p>
+<div class="arithmatex">\[ \begin{align}
+    L(x,y,\nu) &amp;= f(x) + h(y) + \text{Re}(\nu^*(A^∗(Ax − b)-y))   \\
+    &amp;= \left( f(x)+ \langle A^*A\nu, x \rangle \right) - \langle A\nu, b \rangle + \left( h(y) - \langle \nu, y \rangle \right)     \\
+\end{align} \]</div>
+<p>Then</p>
+<div class="arithmatex">\[ \begin{align}
+    g(\nu) &amp;= \min_{x,y} L(x,y,\nu) \\
+    &amp;= \min_{x,y} \left( f(x)+ \langle A^*A\nu, x \rangle \right) - \langle A\nu, b \rangle + \left( h(y) - \langle \nu, y \rangle \right)     \\
+    &amp;= - f^*(-A^*A\nu) - h^*(\nu) - \langle \nu, A^* b \rangle     \\
+    &amp;= -\mathbb{I}_{\|A^*A\nu\|_\infty \le 1} - \epsilon \|\nu\|_1 -  \langle \nu, A^* b \rangle     \\
+\end{align} \]</div>
+<p>Now, ower Lagrange dual problem is</p>
+<div class="arithmatex">\[ \begin{align}
+    \max_{\|A^*Az\|_\infty \le 1} - \epsilon \|z\|_1 -  \langle z, A^* b \rangle     \\
+\end{align} \]</div>
+<p>So, using Poximal Gradient Descent, we have the scheme</p>
+<div class="arithmatex">\[ \begin{align}
+    y^{k+1} &amp;=  \epsilon \nabla\|z^k\|_1 + A^* b        \\
+    z^{k+1} &amp;= \text{Prox}_{f^*(-A^*Az)} (z^k - t_k y^{k+1})       \\
+    &amp;= \mathcal{P}_{ \|A^*Az\|_\infty \le 1} (z^k - t_k y^{k+1})   \\
+\end{align} \]</div>
 
 <!-- Source file information -->
 
