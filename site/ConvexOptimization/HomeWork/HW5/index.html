@@ -2763,6 +2763,52 @@ Since <span class="arithmatex">\(f(x)= \|x\|_1\)</span> is a convex function, we
         \text{sign}(b_i)(|b_i|-1 ), &amp; \text{if } |b_i| &gt; 1
     \end{cases}
 \end{align} \]</div>
+<div class="admonition dual">
+<p class="admonition-title">Dual</p>
+<p>If we replace the <span class="arithmatex">\(\|x\|_1\)</span> with <span class="arithmatex">\(\|x\|_\infty\)</span>, in this case</p>
+<div class="arithmatex">\[ \text{Prox}_{f}(b) = \arg\min_{x} ‖x‖_\infty + \frac{1}{2} \|x-b\|_2^2  \]</div>
+<p>Let <span class="arithmatex">\(x = \text{Prox}_{\|x\|_\infty}(b)\)</span>, We have</p>
+<div class="arithmatex">\[ b-x \in \partial \|x\|_\infty = \begin{cases} 
+        \{g \in \text{span}\{ e_{[1]} , ..., e_{[r]} \}:    \\
+        \qquad \qquad x_{[i]}g_{[i]} \ge 0,  \quad 1 \le i \le r              \\
+        \qquad \qquad \sum_{i=1}^r \text{sign}(x_{[i]}) g_{[i]} = 1 \}, &amp; x \neq 0 \\
+        \{g: \sum_{i=1}^n |g_i| \le 1\} &amp; x = 0
+        \end{cases} \]</div>
+<p>If <span class="arithmatex">\(\|b\|_1 \le 1\)</span>, we take <span class="arithmatex">\(x=0\)</span>, then <span class="arithmatex">\(b\in  \partial \|\cdot\|_\infty(0)\)</span>.</p>
+<p>Otherwise, if  <span class="arithmatex">\(\|b\|_1 &gt; 1\)</span>, For simplicity, we suppose <span class="arithmatex">\(b_1 \ge b_2 \ge ... \ge b_n \ge 0\)</span> below!
+That is <span class="arithmatex">\(\sum_{i=1}^n b_i &gt; 1\)</span>.</p>
+<p>Now , let's consider the following function of integer <span class="arithmatex">\(k\)</span></p>
+<div class="arithmatex">\[ S(k) = 1+kb_k - \sum_{i=1}^k b_i \]</div>
+<p>Since <span class="arithmatex">\(S(1) = 1\)</span> and <span class="arithmatex">\(S(n+1) = 1-\sum_{i=1}^n b_i &lt; 0\)</span> , where we assume <span class="arithmatex">\(b_{n+1}=0\)</span>.   <br />
+So, there is an integer <span class="arithmatex">\(1 \le r \le n\)</span> such that <span class="arithmatex">\(S(r) \ge 0 \ge S(r+1)\)</span>, which implies</p>
+<div class="arithmatex">\[ 1+rb_r - \sum_{i=1}^r b_i \ge  0 \ge 1+(r+1)b_{r+1} - \sum_{i=1}^{r+1} b_i = 1 + rb_{r+1} - \sum_{i=1}^{r} b_i \]</div>
+<p>That deduce</p>
+<div class="arithmatex">\[ b_r \ge c \triangleq \frac{\sum_{i=1}^r b_i - 1}{r} \ge b_{r+1} \]</div>
+<p>Now, let</p>
+<div class="arithmatex">\[ x_i = \begin{cases}
+    c &amp;\text{if } 1 \le i \le r \\
+    b_i &amp; \text{if } r+1 \le i \le n
+\end{cases} \qquad
+g_i \triangleq b_i - x_i = \begin{cases}
+    b_i - c \ge 0 &amp;\text{if } 1 \le i \le r \\
+    0 &amp; \text{if } r+1 \le i \le n
+\end{cases}
+\]</div>
+<p>Now, we varify that <span class="arithmatex">\(b-x \in \partial \|x\|_\infty\)</span>.            <br />
+<span class="arithmatex">\(\|x\|_\infty=c=x_i, 1 \le i \le r\)</span> and for <span class="arithmatex">\(i \ge r+1\)</span> , <span class="arithmatex">\(x_i \le c\)</span> but <span class="arithmatex">\(g_i = 0\)</span>.</p>
+<div class="arithmatex">\[ \sum_{i=1}^r g_i  = \sum_{i=1}^r b_i - rc = \sum_{i=1}^r b_i -  (\sum_{i=1}^r b_i - 1) = 1  \]</div>
+<p>Summarize above all</p>
+<div class="arithmatex">\[ \text{Prox}_{\|x\|_\infty}(b) = \begin{cases}
+    0, &amp; \text{if } \|b\|_1 \le 1 \\
+    x : x_{[i]} = \begin{cases}
+        \text{sign}(b_{[i]}) c, &amp; 1\le i \le r  \\
+        b_{[i]}, &amp; i \ge r+1
+    \end{cases} 
+    &amp; \text{if } \|b\|_1 &gt; 1
+\end{cases} \]</div>
+<p>where <span class="arithmatex">\([i]\)</span> is the decreasing order of <span class="arithmatex">\(|b_j|\)</span> and <span class="arithmatex">\(r, c\)</span> satisfies</p>
+<div class="arithmatex">\[ |b_{[r]}| \ge c \triangleq \frac{\sum_{i=1}^r |b_{[i]}| - 1}{r} \ge b_{[r+1]} \]</div>
+</div>
 <h3 id="12">1.2<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
 <p>Example 8.1 of <a href="../../#最优化建模算法与理论">最优化：建模、算法与理论</a></p>
 <p>Please compute the proximal operator of <span class="arithmatex">\(f (x) = − \sum_{j=1}^n \ln x_j\)</span> .</p>

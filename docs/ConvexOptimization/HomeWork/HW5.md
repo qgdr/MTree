@@ -68,6 +68,76 @@ $$ \begin{align}
     \end{cases}
 \end{align} $$
 
+!!! dual
+
+    If we replace the \(\|x\|_1\) with \(\|x\|_\infty\), in this case
+
+    $$ \text{Prox}_{f}(b) = \arg\min_{x} ‖x‖_\infty + \frac{1}{2} \|x-b\|_2^2  $$
+
+    Let \(x = \text{Prox}_{\|x\|_\infty}(b)\), We have
+
+    $$ b-x \in \partial \|x\|_\infty = \begin{cases} 
+            \{g \in \text{span}\{ e_{[1]} , ..., e_{[r]} \}:    \\
+            \qquad \qquad x_{[i]}g_{[i]} \ge 0,  \quad 1 \le i \le r              \\
+            \qquad \qquad \sum_{i=1}^r \text{sign}(x_{[i]}) g_{[i]} = 1 \}, & x \neq 0 \\
+            \{g: \sum_{i=1}^n |g_i| \le 1\} & x = 0
+            \end{cases} $$
+
+
+    If \(\|b\|_1 \le 1\), we take \(x=0\), then \(b\in  \partial \|\cdot\|_\infty(0)\).
+
+    Otherwise, if  \(\|b\|_1 > 1\), For simplicity, we suppose \(b_1 \ge b_2 \ge ... \ge b_n \ge 0\) below!
+    That is \(\sum_{i=1}^n b_i > 1\).
+
+    Now , let's consider the following function of integer \(k\)
+
+    $$ S(k) = 1+kb_k - \sum_{i=1}^k b_i $$
+
+
+    Since \(S(1) = 1\) and \(S(n+1) = 1-\sum_{i=1}^n b_i < 0\) , where we assume \(b_{n+1}=0\).     
+    So, there is an integer \(1 \le r \le n\) such that \(S(r) \ge 0 \ge S(r+1)\), which implies
+
+    $$ 1+rb_r - \sum_{i=1}^r b_i \ge  0 \ge 1+(r+1)b_{r+1} - \sum_{i=1}^{r+1} b_i = 1 + rb_{r+1} - \sum_{i=1}^{r} b_i $$
+
+    That deduce
+
+    $$ b_r \ge c \triangleq \frac{\sum_{i=1}^r b_i - 1}{r} \ge b_{r+1} $$
+
+    Now, let
+
+    $$ x_i = \begin{cases}
+        c &\text{if } 1 \le i \le r \\
+        b_i & \text{if } r+1 \le i \le n
+    \end{cases} \qquad
+    g_i \triangleq b_i - x_i = \begin{cases}
+        b_i - c \ge 0 &\text{if } 1 \le i \le r \\
+        0 & \text{if } r+1 \le i \le n
+    \end{cases}
+    $$
+
+    Now, we varify that \(b-x \in \partial \|x\|_\infty\).              
+    \(\|x\|_\infty=c=x_i, 1 \le i \le r\) and for \(i \ge r+1\) , \(x_i \le c\) but \(g_i = 0\).
+
+    $$ \sum_{i=1}^r g_i  = \sum_{i=1}^r b_i - rc = \sum_{i=1}^r b_i -  (\sum_{i=1}^r b_i - 1) = 1  $$
+
+
+    Summarize above all
+
+    $$ \text{Prox}_{\|x\|_\infty}(b) = \begin{cases}
+        0, & \text{if } \|b\|_1 \le 1 \\
+        x : x_{[i]} = \begin{cases}
+            \text{sign}(b_{[i]}) c, & 1\le i \le r  \\
+            b_{[i]}, & i \ge r+1
+        \end{cases} 
+        & \text{if } \|b\|_1 > 1
+    \end{cases} $$
+
+    where \([i]\) is the decreasing order of \(|b_j|\) and \(r, c\) satisfies
+
+    $$ |b_{[r]}| \ge c \triangleq \frac{\sum_{i=1}^r |b_{[i]}| - 1}{r} \ge b_{[r+1]} $$
+
+
+
 
 
 ### 1.2
