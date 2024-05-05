@@ -992,6 +992,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    次梯度
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1001,6 +1012,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      定义
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subgradient-and-conjugate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subgradient and Conjugate 次梯度与共轭函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subgradient-of-conjugate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subgradient of Conjugate 共轭函数的次梯度
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2565,6 +2631,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      定义
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subgradient-and-conjugate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subgradient and Conjugate 次梯度与共轭函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subgradient-of-conjugate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subgradient of Conjugate 共轭函数的次梯度
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2584,6 +2694,69 @@
 
 <!-- Page content -->
 <h1 id="subgradient">SubGradient 次梯度<a class="headerlink" href="#subgradient" title="Permanent link">&para;</a></h1>
+<p>上一节我们介绍了 <a href="../ConjugateFunction/">共轭函数</a></p>
+<p><a class="glightbox" href="../media/images/convexfunc/NormSquareConjugate_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="normsquaredconjugate" src="../media/images/convexfunc/NormSquareConjugate_ManimCE_v0.18.0.png" /></a></p>
+<p>我们发现，对于凸函数 <span class="arithmatex">\(f\)</span>，直线    </p>
+<div class="arithmatex">\[ \langle y, x \rangle - f^*(y)  \]</div>
+<p>始终位于 <span class="arithmatex">\(f\)</span> 的下方，且恰好是 <span class="arithmatex">\(f\)</span> 在 <strong>切点</strong> 处的切线。</p>
+<h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>对于适当的 <strong>凸函数</strong> <span class="arithmatex">\(f : X \rightarrow \mathbb{R}\)</span>，
+若 <span class="arithmatex">\(g\in X^*\)</span> 满足</p>
+<div class="arithmatex">\[ f(y) \ge f(x) + \langle g, y-x \rangle, \quad \forall y \in \text{dom}(f) \]</div>
+<p>则称 <span class="arithmatex">\(g\)</span> 是 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(x\)</span> 处的一个 <strong>次梯度</strong>。    <br />
+进一步，称集合</p>
+<div class="arithmatex">\[ \partial f(x) = \{ g \in X^* : f(y) \ge f(x) + \langle g, y-x \rangle, \quad \forall y \in \text{dom}(f)\subset X \} \]</div>
+<p>是 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(x\)</span> 处的 <strong>次微分</strong>。</p>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<p><a class="glightbox" href="../media/images/convexfunc/NormConjugate_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="normconjugate" src="../media/images/convexfunc/NormConjugate_ManimCE_v0.18.0.png" /></a></p>
+<p><strong>1</strong>.</p>
+<p><span class="arithmatex">\(f (x) = ‖x‖_1 = \sum_{j=1}^n |x_j |\)</span></p>
+<div class="arithmatex">\[ \partial f(x) = \{g : g_i = \begin{cases}
+    \text{sign}(x_i), &amp; \text{if } x_i \neq 0 \\
+    [-1, 1], &amp; \text{if } x_i = 0
+\end{cases} \} \]</div>
+<p><strong>2</strong>.</p>
+<p><span class="arithmatex">\(f(x) = \|x\|_\infty\)</span></p>
+<p>设 <span class="arithmatex">\([i], i=1, \cdots , r\)</span> 是满足 </p>
+<div class="arithmatex">\[ |x_{[i]}| = \|x\|_\infty , 1 \le i \le r\]</div>
+<p>的指标，那么 <span class="arithmatex">\(f(x)\)</span> 的次微分是</p>
+<div class="arithmatex">\[ \partial f(x) = \begin{cases} 
+    \{g \in \text{span}\{ e_{[1]} , ..., e_{[r]} \}:    \\
+    \qquad \qquad x_{[i]}g_{[i]} \ge 0,  \quad 1 \le i \le r              \\
+    \qquad \qquad \sum_{i=1}^r \text{sign}(x_{[i]}) g_{[i]} = 1 \}, &amp; x \neq 0 \\
+    \{g: \sum_{i=1}^n |g_i| \le 1\} &amp; x = 0
+    \end{cases} \]</div>
+<iframe height=600 width=200% src="../maxx_1.html" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="subgradient-and-conjugate">Subgradient and Conjugate 次梯度与共轭函数<a class="headerlink" href="#subgradient-and-conjugate" title="Permanent link">&para;</a></h2>
+<p>看过上面的例子，我们可以意识到次梯度和共轭函数是相互关联的。</p>
+<p>设 <span class="arithmatex">\(f : X \rightarrow \mathbb{R}\)</span> 是一个适当的 <strong>凸函数</strong> ，      <br />
+对于某个 <span class="arithmatex">\(x\in \text{dom}(f)\)</span>，若 <span class="arithmatex">\(g \in \partial f(x)\)</span>，那么</p>
+<div class="arithmatex">\[ f(y) \ge f(x) + \langle g, y-x \rangle, \quad \forall y \in \text{dom}(f) \]</div>
+<p>即</p>
+<div class="arithmatex">\[ \langle g, y \rangle - f(y) \le \langle g, x \rangle - f(x) \]</div>
+<p>则</p>
+<div class="arithmatex">\[ f^*(g) = \sup_{y\in \text{dom}(f)} \langle g, y \rangle - f(y) = \langle g, x \rangle - f(x)\]</div>
+<p>或者说</p>
+<div class="arithmatex">\[ -f^*(g) = f(x) - \langle g, x \rangle \]</div>
+<p>其中 <span class="arithmatex">\(x\)</span> 是使得 <span class="arithmatex">\(g\in \partial f(x)\)</span> 的点。</p>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary</p>
+<p>回忆，<a href="../ConjugateFunction/#conjugate-of-norm">范数的共轭函数</a> <span class="arithmatex">\(f(x) = \|x\|\)</span>，则</p>
+<div class="arithmatex">\[ f^*(g) = \mathbb{I}_{\|g\|_\infty\le 1} \]</div>
+<p>示性函数的范围恰恰是 次梯度 <strong>所有可能</strong> 的集合。</p>
+</div>
+<h2 id="subgradient-of-conjugate">Subgradient of Conjugate 共轭函数的次梯度<a class="headerlink" href="#subgradient-of-conjugate" title="Permanent link">&para;</a></h2>
+<video src="../media/videos/subgrad/720p30/Subgrad.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video>
+
+<p>通过动画我们发现，对于适当的凸函数 <span class="arithmatex">\(f\)</span>，<span class="arithmatex">\(-f^*(g)\)</span> 随 <span class="arithmatex">\(g\)</span> 的增大而减小。     <br />
+那么差了多少呢？  <br />
+事实上设 <span class="arithmatex">\(x_1, x_2\)</span> 是使得 <span class="arithmatex">\(\langle g_i, x_i \rangle - f(x_i) = f^*(g_i)\)</span> 的点，也就是切点，      <br />
+若 <span class="arithmatex">\(x_1 = x_2 = x\)</span>，那么</p>
+<div class="arithmatex">\[ f^*(g_2) - f^*(g_1) = \langle g_2, x_2 \rangle - f(x_2) - \langle g_1, x_1 \rangle + f(x_1)  = \langle g_2-g_1, x \rangle \]</div>
+<p>因此我们发现，对于凸函数 <span class="arithmatex">\(f\)</span></p>
+<div class="arithmatex">\[ \partial f^*(g) = \{x : g\in \partial f(x)\} \]</div>
+<p>显然 <span class="arithmatex">\(\partial f^*(g)\)</span> 是凸集。</p>
 
 <!-- Source file information -->
 
