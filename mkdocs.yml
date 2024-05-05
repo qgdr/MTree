@@ -63,6 +63,7 @@ nav:
     - "\u51F8\u51FD\u6570": ConvexOptimization/Theory/ConvexFunction.md
     - "\u5171\u8F6D\u51FD\u6570": ConvexOptimization/Theory/ConjugateFunction.md
     - "\u6B21\u68AF\u5EA6": ConvexOptimization/Theory/SubGradient.md
+    - "\u5BF9\u5076": ConvexOptimization/Theory/LagrangeDual.md
   - "\u4F18\u5316\u7B97\u6CD5":
     - ConvexOptimization/Algorithms/Proximal.md
   - HW:
@@ -106,7 +107,7 @@ nav:
     - "Poincar\xE9 \u4E0D\u7B49\u5F0F": "PartialDifferentialEquations/SobolevSpaces/Poincar\xE9\
         .md"
     - "\u5DEE\u5546": PartialDifferentialEquations/SobolevSpaces/Difference.md
-    - HW1: PartialDifferentialEquations/HW1.md
+  - HW1: PartialDifferentialEquations/HW1.md
 - FractionalDifferentialEquations:
   - FractionalDifferentialEquations/index.md
   - "\u5206\u6570\u9636\u5FAE\u79EF\u5206": FractionalDifferentialEquations/RLFIDF.md

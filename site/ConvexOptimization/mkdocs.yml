@@ -5,6 +5,7 @@ nav:
   - 凸函数: Theory/ConvexFunction.md
   - 共轭函数: Theory/ConjugateFunction.md
   - 次梯度: Theory/SubGradient.md
+  - 对偶: Theory/LagrangeDual.md
 - 优化算法:
   - Algorithms/Proximal.md
 - HW:
