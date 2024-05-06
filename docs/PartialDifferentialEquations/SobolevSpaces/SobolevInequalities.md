@@ -392,7 +392,7 @@ $$ |u|^{\frac{n}{n-1}} \le \prod_{i=1}^n \left(\int_{-\infty}^{+\infty} |D_i u(x
 
     $$ \int_{R^n} |f(x)| dx = \int_{R^{n-1}} dx_2 \cdots dx_n |f_1(\widetilde{x_1})| \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1$$
 
-    这时候使用广义 Hölder 不等式
+    这时候使用广义 [Hölder 不等式](../../RealAnalysis/Inequalities/index.md#holder)
 
     $$ \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1 \le \left(\int |f_2(\widetilde{x_2})|^{n-1} dx_1 \right)^{\frac{1}{n-1}}  \cdots 
     \left(\int |f_n(\widetilde{x_n})|^{n-1}dx_1 \right)^{\frac{1}{n-1}} $$
@@ -454,7 +454,7 @@ $$ \|u\|_{L^{\frac{n}{n-1}}(R^n)} \le C(n) \|Du\|_{L^{1}(R^n)} $$
 
 
 **2**.  
-对于 \(1< p < n\)，将 \(|u|\) 替换成 \(|u|^\gamma\) 来进行分析，\(\gamma\) 待定，但是希望 \(\gamma>1\)，这样可以将 \(u\) 和 \(Du\) 用 Hölder 不等式分离。
+对于 \(1< p < n\)，将 \(|u|\) 替换成 \(|u|^\gamma\) 来进行分析，\(\gamma\) 待定，但是希望 \(\gamma>1\)，这样可以将 \(u\) 和 \(Du\) 用 [Hölder 不等式](../../RealAnalysis/Inequalities/index.md#holder) 分离。
 
 $$ \begin{align}
     \left( \int_{R^n} |u|^{\frac{\gamma n}{n-1}} \right)^{\frac{n-1}{n}}
@@ -695,7 +695,7 @@ $$ u_m \in C_c^\infty(U) \; m=1,2,\cdots \quad \text{s.t. }\quad u_m \to u \text
 
 $$ \|u\|_{L^{p^*}(U)} = \|u\|_{L^{p^*}(R^n)} \le C(n, p) \|Du\|_{L^{p}(R^n)} = C(n, p) \|Du\|_{L^{p}(U)} $$
 
-但是，因为 \(U\) 有界 \(|U| < \infty\)，对于 \(q\le p\)，我们有 [Hölder 不等式]
+但是，因为 \(U\) 有界 \(|U| < \infty\)，对于 \(q\le p\)，我们有 [Hölder 不等式](../../RealAnalysis/Inequalities/index.md#holder)
 
 $$ \|f\|_{L^{q}(U)} \le |U|^{1-\frac{q}{p}} \|f\|_{L^{p}(U)} = C(q,p,U)\|f\|_{L^{p}(U)} $$
 

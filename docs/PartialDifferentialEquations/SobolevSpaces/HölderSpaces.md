@@ -236,6 +236,7 @@ $$ \|u\|_{C^{0, \gamma}(\Omega)} \le \|u\|_{C^{0, \beta}(\Omega)}^{\frac{1-\gamm
 
 
 !!! footnote
+
     这是一个失败的尝试。
 
     设 \(0< \beta<\gamma < \alpha \le 1\)，
@@ -263,7 +264,7 @@ $$ \|u\|_{C^{0, \gamma}(\Omega)} \le \|u\|_{C^{0, \beta}(\Omega)}^{\frac{1-\gamm
 
 $$ \frac{\alpha-\gamma}{\alpha-\beta} = \theta, \frac{\gamma-\beta}{\alpha-\beta} = 1-\theta$$
 
-则，\(\gamma = \theta \beta + (1-\theta) \alpha \)，那么由 Hölder 不等式
+则，\(\gamma = \theta \beta + (1-\theta) \alpha \)，那么由 [Hölder 不等式](../../RealAnalysis/Inequalities/index.md#holder)
 
 $$ \begin{split}
     &\|u\|_{C^0(\Omega)} + \frac{|u(x)-u(y)|}{|x-y|^{\gamma}} 

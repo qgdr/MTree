@@ -1416,6 +1416,8 @@
       
         
       
+        
+      
     
     
     
@@ -1479,11 +1481,11 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../RealAnalysis/Convolution/" class="md-nav__link ">
+            <a href="../../../RealAnalysis/Inequalities/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    卷积
+    不等式
   </span>
   
 
@@ -1494,7 +1496,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7_2">
             <span class="md-nav__icon md-icon"></span>
-            卷积
+            不等式
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1533,6 +1535,60 @@
           
           
           <div class="md-nav__link md-nav__container">
+            <a href="../../../RealAnalysis/Convolution/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    卷积
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            卷积
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
             <a href="../../../RealAnalysis/Approximation/" class="md-nav__link ">
               
   
@@ -1545,8 +1601,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
             <span class="md-nav__icon md-icon"></span>
             逼近
           </label>
@@ -3128,7 +3184,7 @@ Brezis 书中的内容比较丰富，全面。</p>
 <div class="arithmatex">\[ \int_{R^n} |f(x)| dx = \int_{R^n} \prod_{i=1}^n |f_i(\widetilde{x_i})| dx = \int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} |f_1(\widetilde{x_1})| \cdots |f_n(\widetilde{x_n})| dx_1 \cdots dx_n \]</div>
 <p>注意到 <span class="arithmatex">\(f_1(\widetilde{x_1})\)</span> 与 <span class="arithmatex">\(x_1\)</span> 无关，所以</p>
 <div class="arithmatex">\[ \int_{R^n} |f(x)| dx = \int_{R^{n-1}} dx_2 \cdots dx_n |f_1(\widetilde{x_1})| \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1\]</div>
-<p>这时候使用广义 Hölder 不等式</p>
+<p>这时候使用广义 <a href="../../../RealAnalysis/Inequalities/#holder">Hölder 不等式</a></p>
 <div class="arithmatex">\[ \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1 \le \left(\int |f_2(\widetilde{x_2})|^{n-1} dx_1 \right)^{\frac{1}{n-1}}  \cdots 
 \left(\int |f_n(\widetilde{x_n})|^{n-1}dx_1 \right)^{\frac{1}{n-1}} \]</div>
 <p>我们有</p>
@@ -3171,7 +3227,7 @@ Brezis 书中的内容比较丰富，全面。</p>
 <p>其他证明可以看 <a href="../Liu%20-%202023%20-%20Gagliardo-Nirenberg-Sobolev%20Inequality%20An%20Inducti.pdf">Liu-2023</a></p>
 </div>
 <p><strong>2</strong>.<br />
-对于 <span class="arithmatex">\(1&lt; p &lt; n\)</span>，将 <span class="arithmatex">\(|u|\)</span> 替换成 <span class="arithmatex">\(|u|^\gamma\)</span> 来进行分析，<span class="arithmatex">\(\gamma\)</span> 待定，但是希望 <span class="arithmatex">\(\gamma&gt;1\)</span>，这样可以将 <span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(Du\)</span> 用 Hölder 不等式分离。</p>
+对于 <span class="arithmatex">\(1&lt; p &lt; n\)</span>，将 <span class="arithmatex">\(|u|\)</span> 替换成 <span class="arithmatex">\(|u|^\gamma\)</span> 来进行分析，<span class="arithmatex">\(\gamma\)</span> 待定，但是希望 <span class="arithmatex">\(\gamma&gt;1\)</span>，这样可以将 <span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(Du\)</span> 用 <a href="../../../RealAnalysis/Inequalities/#holder">Hölder 不等式</a> 分离。</p>
 <div class="arithmatex">\[ \begin{align}
     \left( \int_{R^n} |u|^{\frac{\gamma n}{n-1}} \right)^{\frac{n-1}{n}}
     &amp; \le \int_{R^n} \Big| D|u|^\gamma \Big|  =  \gamma \int_{R^n} |u|^{\gamma-1} |Du| \\
@@ -3326,7 +3382,7 @@ q_{k} &amp;= (1+\frac{p-1}{p}q_{k-1})\frac{n}{n-1}   \\
 也就是说，<span class="arithmatex">\(u\)</span> 可以延拓到 <span class="arithmatex">\(R^n\)</span> 上。</p>
 <p>那么根据 <a href="#gagliardo-nirenberg-sobolev">GNS 不等式</a>，有</p>
 <div class="arithmatex">\[ \|u\|_{L^{p^*}(U)} = \|u\|_{L^{p^*}(R^n)} \le C(n, p) \|Du\|_{L^{p}(R^n)} = C(n, p) \|Du\|_{L^{p}(U)} \]</div>
-<p>但是，因为 <span class="arithmatex">\(U\)</span> 有界 <span class="arithmatex">\(|U| &lt; \infty\)</span>，对于 <span class="arithmatex">\(q\le p\)</span>，我们有 [Hölder 不等式]</p>
+<p>但是，因为 <span class="arithmatex">\(U\)</span> 有界 <span class="arithmatex">\(|U| &lt; \infty\)</span>，对于 <span class="arithmatex">\(q\le p\)</span>，我们有 <a href="../../../RealAnalysis/Inequalities/#holder">Hölder 不等式</a></p>
 <div class="arithmatex">\[ \|f\|_{L^{q}(U)} \le |U|^{1-\frac{q}{p}} \|f\|_{L^{p}(U)} = C(q,p,U)\|f\|_{L^{p}(U)} \]</div>
 <p>因此，对于 <span class="arithmatex">\(1 \le q\le p^*\)</span>，有</p>
 <div class="arithmatex">\[ \begin{align}

@@ -127,7 +127,7 @@ $$ \left(\sum_{i=1}^{n} |a_k + b_k|^p\right)^{\frac{1}{p}} \le \left(\sum_{i=1}^
         &= \lim_{m\to \infty} \int_U \left( \sum_{k=1}^m \frac{1}{2^k} |x -r_k|^{-\alpha} \right)^p dx \\
     \end{align}  $$
 
-    然而由 Hölder 不等式，我们得到
+    然而由 [Hölder 不等式](../../RealAnalysis/Inequalities/index.md#holder)，我们得到
 
     $$ \sum_{k=1}^m \frac{1}{2^k} |x -r_k|^{-\alpha} 
     \le \left(\sum_{k=1}^m \frac{1}{2^k}  \right)^{\frac{p-1}{p}}\left( \sum_{k=1}^m \frac{1}{2^k} |x -r_k|^{-\alpha p} \right)^{\frac{1}{p}} 

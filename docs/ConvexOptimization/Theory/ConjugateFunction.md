@@ -47,7 +47,7 @@ $$ f(x)=\|x\|_p = \left(\sum_{j=1}^m |x_j|^p\right)^{1/p}, \qquad 1\le p\le \inf
 
 !!! tip
 
-    我们这里利用一点泛函的知识 （或者仅使用 Hölder 不等式） ，
+    我们这里利用一点泛函的知识 （或者仅使用 [Hölder 不等式](../../RealAnalysis/Inequalities/index.md#holder)） ，
     
     $$ \sum_{i=1}^n x_i y_i \le \left(\sum_{i=1}^n |x_i|^p\right)^{1/p} \left(\sum_{i=1}^n |y_i|^q\right)^{1/q} $$
 

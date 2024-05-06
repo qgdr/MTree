@@ -79,6 +79,8 @@ nav:
     - "\u7EBF\u6027\u591A\u6B65\u6CD5": FiniteDifferenceMethods/InitialValueProblems/LinearMultistepMethods.md
 - RealAnalysis:
   - RealAnalysis/index.md
+  - "\u4E0D\u7B49\u5F0F":
+    - RealAnalysis/Inequalities/index.md
   - "\u5377\u79EF":
     - RealAnalysis/Convolution/index.md
   - "\u903C\u8FD1":
