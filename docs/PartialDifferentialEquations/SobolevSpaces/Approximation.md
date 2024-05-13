@@ -275,7 +275,9 @@ $$ \begin{align}
 ## Problems
 
 
-!!! Question
+!!! Question 
+    
+    18
 
     设 \(1 \le p \le \infty\) 并且 \(U\) 有界
 
@@ -391,4 +393,73 @@ $$ u = u^+ - u^- \Rightarrow Du = Du^+ - Du^- $$
 但是 \(Du^+ = Du^- = 0 \text{ a.e. when } u = 0 \)
 
 因此 \(Du = 0 \text{ a.e. when } u = 0 \)
+
+
+---
+
+!!! Question
+
+    19
+
+    用另一种方式证明，对于 \(u\in H^1(U)\)，\(U\) 有界
+
+    $$ Du=0 \text{ a.e. when } u=0 $$
+
+
+
+令 \(\phi\) 是有界光滑的非减函数，使得 \(\phi'\) 有界（ Lipschitz 连续 ），并且当 \(|z|\le 1\) 时 \(\phi(z)=z\). 即
+
+$$ \begin{gather*}
+    \phi(z) \le M \\
+    \phi'(z) \le L    \\
+    \phi(z) = z \text{ when } |z| \le 1   \\
+\end{gather*} $$
+
+考虑 
+
+$$ u^\epsilon = \epsilon \phi(u/\epsilon) $$
+
+根据 [Chain Rule](#chain-rule)，有 \(u^\epsilon \in H^1(U)\)，并且 
+
+$$ u^\epsilon\le \epsilon M, \qquad 
+Du^\epsilon = \phi'(u/\epsilon) Du \Rightarrow |Du^\epsilon| \le L |Du| $$
+
+我们说明 \(u^\epsilon \rightharpoonup 0\) 在 \(H^1(U)\) 中弱收敛。
+
+由于 \(H^1(U)\) 是 Hilbert 空间，而 \(C^\infty(U) \cap H^1(U)\) 在 \(H^1(U)\) 中是稠密的，
+我们只需要证明对于任意 \(v\in H^1(U)\)，
+
+$$ \langle u^\epsilon, v \rangle = \int_U u^\epsilon v + Du^\epsilon \cdot Dv \to 0 \text{ as } \epsilon \to 0 $$
+
+首先
+
+$$ \int_U u^\epsilon v \le \epsilon M \int_U v \le \epsilon M |U| \|v\|_{L^2(U)} \to 0 \text{ as } \epsilon \to 0 $$
+
+由于 \(D^\alpha v \in L^2(U), |\alpha|=1\)，那么对于任意  \(\delta > 0\)， 存在 \(\psi \in C_c^\infty(U)\) 使得 \(\|D^\alpha v-\psi\|_{L^2(U)} \le \delta \)
+
+$$ \begin{aligned}
+    \int_U D^\alpha u^\epsilon D^\alpha v &= \int_U D^\alpha u^\epsilon \psi + \int_U Du^\epsilon (D^\alpha v-\psi) \\
+    &= -\int_U u^\epsilon D^\alpha\psi + \int_U Du^\epsilon (D^\alpha v-\psi) \\
+    &\le \epsilon M \int_U |D^\alpha \psi| + \|Du^\epsilon\|_{L^2(U)} \|D^\alpha v-\psi\|_{L^2(U)} \\
+    &\le \epsilon M |U| \|D^\alpha \psi\|_{L^2(U)} + \delta \|Du^\epsilon\|_{L^2(U)} \\ 
+    &\le \epsilon M |U| \|D^\alpha \psi\|_{L^2(U)} + \delta L^2 \|Du\|_{L^2(U)} \\
+    &\to \delta L^2 \|Du\|_{L^2(U)} \text{ as } \epsilon \to 0  \\
+\end{aligned} $$
+
+由于上面的不等式对于 \(\forall \delta>0\) 成立，所以
+
+$$ \int_U D u^\epsilon \cdot D v \to 0 \text{ as } \epsilon \to 0 $$
+
+因此 \(u^\epsilon \rightharpoonup 0\) ，
+
+$$ \int_U D u^\epsilon \cdot D u \to 0 \text{ as } \epsilon \to 0  $$
+
+但是
+
+$$ \int_U D u^\epsilon \cdot D u =  \int_U \phi'(u/\epsilon) |Du|^2 \ge \int_{\{u=0\}} |Du|^2 $$
+
+这意味着
+
+$$ Du=0 \text{ a.e. when } u=0 $$
+
 

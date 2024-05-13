@@ -3030,6 +3030,7 @@
 <h2 id="problems">Problems<a class="headerlink" href="#problems" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
+<p>18</p>
 <p>设 <span class="arithmatex">\(1 \le p \le \infty\)</span> 并且 <span class="arithmatex">\(U\)</span> 有界</p>
 <p>a. 如果 <span class="arithmatex">\(u \in W^{1,p}(U)\)</span>，那么 <span class="arithmatex">\(|u| \in W^{1,p}\)</span></p>
 <p>b. 如果 <span class="arithmatex">\(u \in W^{1,p}(U)\)</span>，那么 <span class="arithmatex">\(u^+， u^- \in W^{1,p}\)</span>，且</p>
@@ -3102,6 +3103,47 @@
 <div class="arithmatex">\[ u = u^+ - u^- \Rightarrow Du = Du^+ - Du^- \]</div>
 <p>但是 <span class="arithmatex">\(Du^+ = Du^- = 0 \text{ a.e. when } u = 0 \)</span></p>
 <p>因此 <span class="arithmatex">\(Du = 0 \text{ a.e. when } u = 0 \)</span></p>
+<hr />
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>19</p>
+<p>用另一种方式证明，对于 <span class="arithmatex">\(u\in H^1(U)\)</span>，<span class="arithmatex">\(U\)</span> 有界</p>
+<div class="arithmatex">\[ Du=0 \text{ a.e. when } u=0 \]</div>
+</div>
+<p>令 <span class="arithmatex">\(\phi\)</span> 是有界光滑的非减函数，使得 <span class="arithmatex">\(\phi'\)</span> 有界（ Lipschitz 连续 ），并且当 <span class="arithmatex">\(|z|\le 1\)</span> 时 <span class="arithmatex">\(\phi(z)=z\)</span>. 即</p>
+<div class="arithmatex">\[ \begin{gather*}
+    \phi(z) \le M \\
+    \phi'(z) \le L    \\
+    \phi(z) = z \text{ when } |z| \le 1   \\
+\end{gather*} \]</div>
+<p>考虑 </p>
+<div class="arithmatex">\[ u^\epsilon = \epsilon \phi(u/\epsilon) \]</div>
+<p>根据 <a href="#chain-rule">Chain Rule</a>，有 <span class="arithmatex">\(u^\epsilon \in H^1(U)\)</span>，并且 </p>
+<div class="arithmatex">\[ u^\epsilon\le \epsilon M, \qquad 
+Du^\epsilon = \phi'(u/\epsilon) Du \Rightarrow |Du^\epsilon| \le L |Du| \]</div>
+<p>我们说明 <span class="arithmatex">\(u^\epsilon \rightharpoonup 0\)</span> 在 <span class="arithmatex">\(H^1(U)\)</span> 中弱收敛。</p>
+<p>由于 <span class="arithmatex">\(H^1(U)\)</span> 是 Hilbert 空间，而 <span class="arithmatex">\(C^\infty(U) \cap H^1(U)\)</span> 在 <span class="arithmatex">\(H^1(U)\)</span> 中是稠密的，
+我们只需要证明对于任意 <span class="arithmatex">\(v\in H^1(U)\)</span>，</p>
+<div class="arithmatex">\[ \langle u^\epsilon, v \rangle = \int_U u^\epsilon v + Du^\epsilon \cdot Dv \to 0 \text{ as } \epsilon \to 0 \]</div>
+<p>首先</p>
+<div class="arithmatex">\[ \int_U u^\epsilon v \le \epsilon M \int_U v \le \epsilon M |U| \|v\|_{L^2(U)} \to 0 \text{ as } \epsilon \to 0 \]</div>
+<p>由于 <span class="arithmatex">\(D^\alpha v \in L^2(U), |\alpha|=1\)</span>，那么对于任意  <span class="arithmatex">\(\delta &gt; 0\)</span>， 存在 <span class="arithmatex">\(\psi \in C_c^\infty(U)\)</span> 使得 <span class="arithmatex">\(\|D^\alpha v-\psi\|_{L^2(U)} \le \delta \)</span></p>
+<div class="arithmatex">\[ \begin{aligned}
+    \int_U D^\alpha u^\epsilon D^\alpha v &amp;= \int_U D^\alpha u^\epsilon \psi + \int_U Du^\epsilon (D^\alpha v-\psi) \\
+    &amp;= -\int_U u^\epsilon D^\alpha\psi + \int_U Du^\epsilon (D^\alpha v-\psi) \\
+    &amp;\le \epsilon M \int_U |D^\alpha \psi| + \|Du^\epsilon\|_{L^2(U)} \|D^\alpha v-\psi\|_{L^2(U)} \\
+    &amp;\le \epsilon M |U| \|D^\alpha \psi\|_{L^2(U)} + \delta \|Du^\epsilon\|_{L^2(U)} \\ 
+    &amp;\le \epsilon M |U| \|D^\alpha \psi\|_{L^2(U)} + \delta L^2 \|Du\|_{L^2(U)} \\
+    &amp;\to \delta L^2 \|Du\|_{L^2(U)} \text{ as } \epsilon \to 0  \\
+\end{aligned} \]</div>
+<p>由于上面的不等式对于 <span class="arithmatex">\(\forall \delta&gt;0\)</span> 成立，所以</p>
+<div class="arithmatex">\[ \int_U D u^\epsilon \cdot D v \to 0 \text{ as } \epsilon \to 0 \]</div>
+<p>因此 <span class="arithmatex">\(u^\epsilon \rightharpoonup 0\)</span> ，</p>
+<div class="arithmatex">\[ \int_U D u^\epsilon \cdot D u \to 0 \text{ as } \epsilon \to 0  \]</div>
+<p>但是</p>
+<div class="arithmatex">\[ \int_U D u^\epsilon \cdot D u =  \int_U \phi'(u/\epsilon) |Du|^2 \ge \int_{\{u=0\}} |Du|^2 \]</div>
+<p>这意味着</p>
+<div class="arithmatex">\[ Du=0 \text{ a.e. when } u=0 \]</div>
 
 <!-- Source file information -->
 

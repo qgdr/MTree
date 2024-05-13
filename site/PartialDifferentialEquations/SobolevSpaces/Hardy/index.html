@@ -2275,6 +2275,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hardy" class="md-nav__link">
+    <span class="md-ellipsis">
+      高维 Hardy 不等式
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2739,6 +2748,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hardy" class="md-nav__link">
+    <span class="md-ellipsis">
+      高维 Hardy 不等式
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2767,6 +2785,25 @@
 <div class="arithmatex">\[ \|\sigma\|_p \le \frac{p}{p-1}\|a\|_p \]</div>
 <p>即（为了简单，这里令 <span class="arithmatex">\(t^p=|t|^p\)</span>）</p>
 <div class="arithmatex">\[ \sum_{n=1}^\infty \sigma_n^p \le \left(\frac{p}{p-1}\right)^p \sum_{n=1}^\infty a_n^p \]</div>
+<p><strong>证明</strong></p>
+<div class="arithmatex">\[ \begin{aligned}
+    \sigma_n^p - \frac{p}{p-1} \sigma_n^{p-1}a_n 
+    &amp;= \sigma_n^p(1-\frac{np}{p-1}) + \frac{(n-1)p}{p-1} \sigma_n^{p-1} \sigma_{n-1} \\ 
+    &amp;\le  \sigma_n^p(1-\frac{np}{p-1}) + \frac{(n-1)p}{p-1} \left( \frac{p-1}{p} \sigma_n^p + \frac{1}{p} \sigma_{n-1}^p \right) \\
+    &amp;= \sigma_n^p(n-\frac{np}{p-1}) + \frac{n-1}{p-1}\sigma_{n-1}^p \\
+    &amp;= \frac{1}{p-1} \left( (n-1)\sigma_{n-1}^p - n\sigma_n^p \right)
+\end{aligned} \]</div>
+<p>求和得到</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \sum_{n=1}^N \sigma_n^p - \frac{p}{p-1} \sum_{n=1}^N \sigma_n^{p-1} a_n \le -\frac{1}{p-1}Nb_N^p \le 0 
+\end{aligned} \]</div>
+<p>那么</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \sum_{n=1}^N \sigma_n^p &amp;\le \frac{p}{p-1} \sum_{n=1}^N \sigma_n^{p-1} a_n \\
+    &amp;\le   \frac{p}{p-1} \left(\sum_{n=1}^N \sigma_n^{p}\right)^{\frac{p-1}{p}} \left( \sum_{n=1}^N a_n^p \right)^{\frac{1}{p}} \\
+\end{aligned} \]</div>
+<p>因此</p>
+<div class="arithmatex">\[ \sum_{n=1}^\infty \sigma_n^p \le \left(\frac{p}{p-1}\right)^p \sum_{n=1}^\infty a_n^p \]</div>
 <h2 id="integral-hardy-inequality">Integral Hardy Inequality 积分 哈代 不等式<a class="headerlink" href="#integral-hardy-inequality" title="Permanent link">&para;</a></h2>
 <p>令 </p>
 <div class="arithmatex">\[ F(x) = \frac{1}{x}\int_0^x f(t)dt \]</div>
@@ -2774,13 +2811,87 @@
 <div class="arithmatex">\[ \|F\|_p \le \frac{p}{p-1} \|f\|_p \]</div>
 <p>即</p>
 <div class="arithmatex">\[ \int_0^\infty \Big|\frac{1}{x}\int_0^x f(t)dt \Big|^p dx \le \left(\frac{p}{p-1}\right)^p \int_0^\infty |f(t)|^p dt  \]</div>
-<p><strong>证明</strong></p>
+<p><strong>证明 1</strong></p>
+<div class="arithmatex">\[ \begin{aligned}
+    F^p(x) - \frac{p}{p-1} F^{p-1}(x)f(x) 
+    &amp;= F^p(x) - \frac{p}{p-1} F^{p-1}(x)(xF(x))' \\
+    &amp;= F^p(x) - \frac{p}{p-1}F^p(x) - \frac{p}{p-1}x F^{p-1}(x)F'(x)       \\
+    &amp;= -\frac{1}{p-1} (xF^p(x))' \\ 
+\end{aligned} \]</div>
+<p>那么</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \int_0^\infty |F(x)|^p dx 
+    &amp;\le \frac{p}{p-1} \int_0^\infty F^{p-1}(x)f(x) -\frac{1}{p-1} xF^p(x) \Big|_0^A    \\
+    &amp;\le \frac{p}{p-1} \int_0^\infty F^{p-1}(x)f(x) \\
+    &amp;\le \frac{p}{p-1} \left(\int_0^\infty |F(x)|^p dx\right)^{\frac{p-1}{p}}\left(\int_0^\infty |f(x)|^p dx\right)^{\frac{1}{p}} \\
+\end{aligned} \]</div>
+<p>因此</p>
+<div class="arithmatex">\[ \|F\|_p \le \left(\frac{p}{p-1}\right)^p \|f\|_p \]</div>
+<p><strong>证明 2</strong></p>
 <div class="arithmatex">\[ \begin{aligned}
     \|F\|_p &amp;= \left( \int_0^\infty \Big|\int_0^1 f(xt) dt \Big|^p dx \right)^{\frac{1}{p}} \\
     &amp;\le \int_0^1 \left( \int_0^\infty |f(xt)|^p dx \right)^{\frac{1}{p}} dt \qquad \text{Minkovski's Inequality} \\
     &amp;= \int_0^1 \left( \frac{1}{t}\int_0^\infty |f(y)|^p dt \right)^{\frac{1}{p}} dt \\
     &amp;= \|f\|_p  \int_0^1 t^{-1/p} dt  = \frac{p}{p-1}\|f\|_p
 \end{aligned} \]</div>
+<h2 id="hardy">高维 Hardy 不等式<a class="headerlink" href="#hardy" title="Permanent link">&para;</a></h2>
+<p><a href="../../#lawrence-cevans-partial-differential-equations">Evans PDE 5.8 Thoorem 8</a></p>
+<p>设 <span class="arithmatex">\(n \ge 3\)</span>，设 <span class="arithmatex">\(u\in H^1(\Omega)\)</span> 。
+那么对于 <span class="arithmatex">\(r&gt;0\)</span> 使得 <span class="arithmatex">\(B(0,r)\subseteq \Omega\)</span>，有 <span class="arithmatex">\(\dfrac{u}{|x|} \in L^2(B(0,r))\)</span> 且</p>
+<div class="arithmatex">\[ \int_{B(0,r)} \frac{u^2}{|x|^2}  dx \le C(n) \int_{B(0,r)} |Du|^2 + \frac{u^2}{r^2} dx \]</div>
+<p><strong>证明</strong></p>
+<p>（实际上我还没有更好的理解，只能使用教材中的方法）</p>
+<p>由于 </p>
+<div class="arithmatex">\[ D(|x|) = \frac{x}{|x|}, \quad D(\frac{1}{|x|}) = -\frac{x}{|x|^3} \]</div>
+<p>所以我们可以将左边表示为</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \int_{B(0,r)} \frac{u^2}{|x|^2} dx &amp;= -\int_{B(0,r)} u^2 D(\frac{1}{|x|}) \cdot D(|x|) dx \\
+\end{aligned} \]</div>
+<p>注意到，由 <a href="">Gauss-Green 公式</a></p>
+<div class="arithmatex">\[ \begin{aligned}
+    \int_{\partial B(0,r)} u^2 \frac{1}{|x|} D(|x|) \cdot \nu dS
+    =&amp; \int_{B(0,r)} D(u^2 \frac{1}{|x|}) \cdot D(|x|) dx + \int_{B(0,r)} u^2 \frac{1}{|x|} \Delta(|x|) dx \\
+    =&amp; \int_{B(0,r)} u^2 D(\frac{1}{|x|}) \cdot D(|x|) dx       \\
+    &amp;+\int_{B(0,r)} 2uDu \cdot \frac{x}{|x|^2} dx + \int_{B(0,r)} (n-1) \frac{u^2}{|x|^2} dx    \\
+    =&amp; (n-2)\int_{B(0,r)} \frac{u^2}{|x|^2} dx + \int_{B(0,r)} 2uDu \cdot \frac{x}{|x|^2} dx
+\end{aligned} \]</div>
+<p>因此</p>
+<div class="arithmatex">\[ \begin{aligned}
+    (n-2) \int_{B(0,r)} \frac{u^2}{|x|^2} dx 
+    &amp;= -\int_{B(0,r)} 2uDu \cdot \frac{x}{|x|^2} dx + \int_{\partial B(0,r)} u^2 \frac{x}{|x|^2} \cdot \nu dS   \\
+    &amp;= -\int_{B(0,r)} 2uDu \cdot \frac{x}{|x|^2} dx + \int_{\partial B(0,r)} u^2 \frac{1}{r} dS \\
+    &amp;\le \int_{B(0,r)} \lambda|Du|^2 + \frac{1}{\lambda}\frac{u^2}{|x|^2} dx + \int_{\partial B(0,r)} u^2 \frac{1}{r} dS 
+\end{aligned} \]</div>
+<p>又注意到</p>
+<div class="arithmatex">\[ \begin{aligned}
+    r\int_{\partial B(0,r)} u^2 dS &amp;= \int_{\partial B(0,r)} u^2 x \cdot \nu dS 
+        = \int_{B(0,r)} \text{div}(u^2x) dx \\
+    &amp;= \int_{B(0,r)} nu^2 + 2uDu \cdot x dx \\
+    &amp;\le \int_{B(0,r)} nu^2 + \frac{1}{\mu} |x|^2|Du|^2 + \mu u^2 dx    \\
+    &amp;\le \int_{B(0,r)} \frac{1}{\mu} r^2|Du|^2 + (n+\mu) u^2 dx 
+\end{aligned} \]</div>
+<p>我们得到</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \frac{1}{r} \int_{\partial B(0,r)} u^2 dS \le \int_{B(0,r)} \frac{1}{\mu}|Du|^2 + \frac{n+\mu }{r^2}u^2 dx 
+\end{aligned} \]</div>
+<p>所以，我们有</p>
+<div class="arithmatex">\[ \begin{aligned}
+    (n-2-\frac{1}{\lambda}) \int_{B(0,r)} \frac{u^2}{|x|^2} dx 
+    &amp;\le \int_{B(0,r)} (\lambda+ \frac{1}{\mu})|Du|^2 +  \frac{n+\mu }{r^2}u^2 dx  \\
+\end{aligned} \]</div>
+<p>即</p>
+<div class="arithmatex">\[ \int_{B(0,r)} \frac{u^2}{|x|^2} dx \le C(n) \int_{B(0,r)} |Du|^2 + \frac{u^2}{r^2} dx \]</div>
+<div class="admonition corollary">
+<p class="admonition-title">Corollary</p>
+<p>若 <span class="arithmatex">\(n\ge 3\)</span> ，对于 <span class="arithmatex">\(u\in H^1(R^n)\)</span>，令 <span class="arithmatex">\(r\to \infty\)</span>，那么</p>
+<div class="arithmatex">\[ \int_{B(0,r)} \frac{u^2}{r^2} dx \le \frac{1}{r^2} \int_{R^n} u^2 dx = \frac{1}{r^2} \|u\|_{L^2(R^n)}^2 \to 0 \]</div>
+<p>但是</p>
+<div class="arithmatex">\[ \int_{B(0,r)} \frac{u^2}{r^2} dx \to \int_{R^n} \frac{u^2}{|x|^2} dx ,\qquad 
+\int_{B(0,r)} |Du|^2 \to \int_{R^n} |Du|^2 \]</div>
+<p>所以</p>
+<div class="arithmatex">\[ \int_{R^n} \frac{u^2}{|x|^2} dx \le C(n) \int_{R^n} |Du|^2 \]</div>
+<p>我们给出一个具体的 <span class="arithmatex">\(C\)</span>，取 <span class="arithmatex">\(\lambda=\dfrac{2}{n-2}, \mu \to \infty\)</span>，<span class="arithmatex">\(C(n)=\lambda(n-2-\frac{1}{\lambda})^{-1}=\dfrac{4}{(n-2)^2}\)</span></p>
+</div>
 
 <!-- Source file information -->
 
