@@ -160,27 +160,27 @@ $$ W^{k, p}(R^n) \subset W^{k-1, p^*}(R^n) \subset \cdots \subset W^{1, p^{(k-1)
 
 ### case2
 
-\(k\) 被耗尽前的某一次，有 \(p^{(l)} = n, l \le k-1 \) ，即 \(n = (l+1)p\)
+\(k\) 被耗尽前的某一次，有 \(p^{(l-1)} = n, l-1 \le k-1 \) ，即 \(n = lp,  l = \frac{n}{p} \)
 
 <video src="../media/videos/Sobolev2/720p30/GSI2.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video>
 
 则根据 [p=n](./SobolevInequalities.md#pn) 和 [Morrey 不等式](#morrey)
 
 $$ \begin{align}
-    W^{k, \frac{n}{l+1}}(R^n) &\subset W^{k-1, \frac{n}{l}}(R^n)  \subset \cdots         \\
-    &\subset W^{k-l, n}(R^n) \subset W^{k-l-1, q}(R^n) \quad (n\le q <\infty)  \\
-    &\subset C^{k-l-2, \gamma}(R^n) \quad (\forall\gamma \in (0, 1)) \quad \text{ if } k-l-2 \ge 0      \\
+    W^{k, \frac{n}{l}}(R^n) &\subset W^{k-1, \frac{n}{l-1}}(R^n)  \subset \cdots         \\
+    &\subset W^{k-l+1, n}(R^n) \subset W^{k-l, q}(R^n) \quad (n\le q <\infty)  \\
+    &\subset C^{k-l-1, \gamma}(R^n) \quad (\forall\gamma \in (0, 1)) \quad \text{ if } k\ge l+1 > \frac{n}{p}      \\
 \end{align} $$
 
 !!! Corollary
 
-    特别的，若 \(l+1 = k\)，即 \(n = kp\) ，那么
+    特别的，若 \(n = kp\) ，那么
 
     $$ W^{k, \frac{n}{k}}(R^n) \subset W^{k-1, \frac{n}{k-1}}(R^n)  \subset \cdots \subset W^{1, n}(R^n)  \subset L^q(R^n) \quad (n\le q <\infty) $$
 
     又因为 
     
-    $$ W^{k, \frac{n}{k}}(R^n) \subset L^{\frac{n}{k}}(R^n) (\cap L^q(R^n) \quad n\le q <\infty) $$
+    $$ W^{k, \frac{n}{k}}(R^n) \subset L^{\frac{n}{k}}(R^n) \cap L^q(R^n) \quad (n\le q <\infty) $$
     
     利用插值不等式，有 
 
@@ -189,7 +189,7 @@ $$ \begin{align}
 
 ### case3
 
-\(k\) 被耗尽前的某一次，有 \(p^{(l)}< n, p^{(l+1)} > n, l+1 \le k-1 \) ，即 \(l < \frac{n}{p} < l+1\)
+\(k\) 被耗尽前的某一次，有 \(p^{(l-1)}< n, p^{(l)} > n, l \le k-1 \) ，即 \(l < \frac{n}{p} < l+1, l=\lfloor \frac{n}{p} \rfloor \)
 
 <video src="../media/videos/Sobolev2/720p30/GSI3.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video>
 
@@ -197,7 +197,7 @@ $$ \begin{align}
 
 $$ \begin{align}
     W^{k, p}(R^n) &\subset W^{k-1, p^*}(R^n)  \subset \cdots         \\
-    &\subset W^{k-l, p^{(l)}}(R^n) \subset W^{k-l-1, p^{(l+1)}}(R^n)  \\
-    &\subset C^{k-l-2, \gamma}(R^n) \quad (\gamma = 1- \frac{n}{p^{(l+1)}})     \\
+    &\subset W^{k-l+1, p^{(l-1)}}(R^n) \subset W^{k-l, p^{(l)}}(R^n)  \\
+    &\subset C^{k-l-1, \gamma}(R^n) \quad (\gamma = 1- \frac{n}{p^{(l)}})     \\
 \end{align} $$
 

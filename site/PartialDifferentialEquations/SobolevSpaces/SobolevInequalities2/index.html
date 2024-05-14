@@ -2966,33 +2966,33 @@
 <video src="../media/videos/Sobolev2/720p30/GSI1.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video>
 
 <h3 id="case2">case2<a class="headerlink" href="#case2" title="Permanent link">&para;</a></h3>
-<p><span class="arithmatex">\(k\)</span> 被耗尽前的某一次，有 <span class="arithmatex">\(p^{(l)} = n, l \le k-1 \)</span> ，即 <span class="arithmatex">\(n = (l+1)p\)</span></p>
+<p><span class="arithmatex">\(k\)</span> 被耗尽前的某一次，有 <span class="arithmatex">\(p^{(l-1)} = n, l-1 \le k-1 \)</span> ，即 <span class="arithmatex">\(n = lp,  l = \frac{n}{p} \)</span></p>
 <video src="../media/videos/Sobolev2/720p30/GSI2.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video>
 
 <p>则根据 <a href="../SobolevInequalities/#pn">p=n</a> 和 <a href="#morrey">Morrey 不等式</a></p>
 <div class="arithmatex">\[ \begin{align}
-    W^{k, \frac{n}{l+1}}(R^n) &amp;\subset W^{k-1, \frac{n}{l}}(R^n)  \subset \cdots         \\
-    &amp;\subset W^{k-l, n}(R^n) \subset W^{k-l-1, q}(R^n) \quad (n\le q &lt;\infty)  \\
-    &amp;\subset C^{k-l-2, \gamma}(R^n) \quad (\forall\gamma \in (0, 1)) \quad \text{ if } k-l-2 \ge 0      \\
+    W^{k, \frac{n}{l}}(R^n) &amp;\subset W^{k-1, \frac{n}{l-1}}(R^n)  \subset \cdots         \\
+    &amp;\subset W^{k-l+1, n}(R^n) \subset W^{k-l, q}(R^n) \quad (n\le q &lt;\infty)  \\
+    &amp;\subset C^{k-l-1, \gamma}(R^n) \quad (\forall\gamma \in (0, 1)) \quad \text{ if } k\ge l+1 &gt; \frac{n}{p}      \\
 \end{align} \]</div>
 <div class="admonition corollary">
 <p class="admonition-title">Corollary</p>
-<p>特别的，若 <span class="arithmatex">\(l+1 = k\)</span>，即 <span class="arithmatex">\(n = kp\)</span> ，那么</p>
+<p>特别的，若 <span class="arithmatex">\(n = kp\)</span> ，那么</p>
 <div class="arithmatex">\[ W^{k, \frac{n}{k}}(R^n) \subset W^{k-1, \frac{n}{k-1}}(R^n)  \subset \cdots \subset W^{1, n}(R^n)  \subset L^q(R^n) \quad (n\le q &lt;\infty) \]</div>
 <p>又因为 </p>
-<div class="arithmatex">\[ W^{k, \frac{n}{k}}(R^n) \subset L^{\frac{n}{k}}(R^n) (\cap L^q(R^n) \quad n\le q &lt;\infty) \]</div>
+<div class="arithmatex">\[ W^{k, \frac{n}{k}}(R^n) \subset L^{\frac{n}{k}}(R^n) \cap L^q(R^n) \quad (n\le q &lt;\infty) \]</div>
 <p>利用插值不等式，有 </p>
 <div class="arithmatex">\[ W^{k, \frac{n}{k}}(R^n) \subset L^q(R^n) \quad (\frac{n}{k} \le q &lt;\infty) \]</div>
 </div>
 <h3 id="case3">case3<a class="headerlink" href="#case3" title="Permanent link">&para;</a></h3>
-<p><span class="arithmatex">\(k\)</span> 被耗尽前的某一次，有 <span class="arithmatex">\(p^{(l)}&lt; n, p^{(l+1)} &gt; n, l+1 \le k-1 \)</span> ，即 <span class="arithmatex">\(l &lt; \frac{n}{p} &lt; l+1\)</span></p>
+<p><span class="arithmatex">\(k\)</span> 被耗尽前的某一次，有 <span class="arithmatex">\(p^{(l-1)}&lt; n, p^{(l)} &gt; n, l \le k-1 \)</span> ，即 <span class="arithmatex">\(l &lt; \frac{n}{p} &lt; l+1, l=\lfloor \frac{n}{p} \rfloor \)</span></p>
 <video src="../media/videos/Sobolev2/720p30/GSI3.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video>
 
 <p>那么</p>
 <div class="arithmatex">\[ \begin{align}
     W^{k, p}(R^n) &amp;\subset W^{k-1, p^*}(R^n)  \subset \cdots         \\
-    &amp;\subset W^{k-l, p^{(l)}}(R^n) \subset W^{k-l-1, p^{(l+1)}}(R^n)  \\
-    &amp;\subset C^{k-l-2, \gamma}(R^n) \quad (\gamma = 1- \frac{n}{p^{(l+1)}})     \\
+    &amp;\subset W^{k-l+1, p^{(l-1)}}(R^n) \subset W^{k-l, p^{(l)}}(R^n)  \\
+    &amp;\subset C^{k-l-1, \gamma}(R^n) \quad (\gamma = 1- \frac{n}{p^{(l)}})     \\
 \end{align} \]</div>
 
 <!-- Source file information -->

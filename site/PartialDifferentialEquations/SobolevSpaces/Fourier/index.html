@@ -2287,6 +2287,42 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#plancherels-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plancherel's Theorem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fourier-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fourier Transform 的性质
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fractional-sobolev-space-sobolev" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fractional Sobolev Space 分数阶Sobolev空间
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problems
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2721,6 +2757,42 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#plancherels-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plancherel's Theorem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fourier-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fourier Transform 的性质
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fractional-sobolev-space-sobolev" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fractional Sobolev Space 分数阶Sobolev空间
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problems
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2743,8 +2815,58 @@
 <!-- Page content -->
 <h1 id="fourier-transform-methods">Fourier Transform Methods 傅里叶变换方法<a class="headerlink" href="#fourier-transform-methods" title="Permanent link">&para;</a></h1>
 <h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>我们记 Fourier 变换为 <span class="arithmatex">\(\mathcal{F}u =\hat{u}\)</span></p>
-<div class="arithmatex">\[ \hat{u}(y) := \frac{1}{(2\pi)^{n/2}} \int_{\mathbb{R}^{n}} u(x) e^{-i x \cdot y} dx \]</div>
+<p>如果 <span class="arithmatex">\(u\in L^1(\mathbb{R}^{n})\)</span>，
+我们定义 Fourier 变换为 <span class="arithmatex">\(\mathcal{F}u =\hat{u}\)</span></p>
+<div class="arithmatex">\[ \hat{u}(y) := \frac{1}{(2\pi)^{n/2}} \int_{\mathbb{R}^{n}} u(x) e^{-i x \cdot y} dx \quad (y \in \mathbb{R}^{n})\]</div>
+<p>Fourier 逆变换 <span class="arithmatex">\(\mathcal{F}^{-1}=\check{u} \)</span></p>
+<div class="arithmatex">\[ \check{u}(y) := \frac{1}{(2\pi)^{n/2}} \int_{\mathbb{R}^{n}} u(x) e^{i x \cdot y} dx \quad (y \in \mathbb{R}^{n}) \]</div>
+<h2 id="plancherels-theorem">Plancherel's Theorem<a class="headerlink" href="#plancherels-theorem" title="Permanent link">&para;</a></h2>
+<p>假设 <span class="arithmatex">\(u\in L^1(\mathbb{R}^{n})\cap L^2(\mathbb{R}^{n})\)</span>.那么 <span class="arithmatex">\(\hat{u}, \check{u} \in L^2(\mathbb{R}^{n})\)</span> 且</p>
+<div class="arithmatex">\[ \|\hat{u}\|_{L^2(\mathbb{R}^{n})} = \|\check{u}\|_{L^2(\mathbb{R}^{n})} = \|u\|_{L^2(\mathbb{R}^{n})} \]</div>
+<h2 id="fourier-transform">Fourier Transform 的性质<a class="headerlink" href="#fourier-transform" title="Permanent link">&para;</a></h2>
+<p>1 .</p>
+<div class="arithmatex">\[ \int_{\mathbb{R}^{n}} u\; \bar{v}\; dx = \int_{\mathbb{R}^{n}} \hat{u}\; \bar{\hat{v}}\; dy \]</div>
+<p>2 .</p>
+<div class="arithmatex">\[ u = \mathcal{F}^{-1} \circ \mathcal{F} u = (\hat{u})\check\; \]</div>
+<p>3 .</p>
+<div class="arithmatex">\[ (D^\alpha u)\hat\; = (iy)^\alpha \hat{u} \]</div>
+<p>4 . 
+设 <span class="arithmatex">\(u,v\in L^1(\mathbb{R}^{n})\cap L^2(\mathbb{R}^{n})\)</span>，则</p>
+<div class="arithmatex">\[ (u*v)\hat\; = (2\pi)^{n/2} \hat{u}\hat{v}, \quad  \]</div>
+<h2 id="fractional-sobolev-space-sobolev">Fractional Sobolev Space 分数阶Sobolev空间<a class="headerlink" href="#fractional-sobolev-space-sobolev" title="Permanent link">&para;</a></h2>
+<p>设 <span class="arithmatex">\(0 &lt; s &lt; \infty\)</span> ， <span class="arithmatex">\(u\in L^2(\mathbb{R}^{n})\)</span>.
+那么当 <span class="arithmatex">\((1+|y|^s)\hat{u}\in L^2(\mathbb{R}^{n})\)</span> 时， <span class="arithmatex">\(u\in H^s(\mathbb{R}^{n})\)</span> ,并且令</p>
+<div class="arithmatex">\[ \|u\|_{H^s(\mathbb{R}^{n})} = \|(1+|y|^s)\hat{u}\|_{L^2(\mathbb{R}^{n})} = \left(\int_{\mathbb{R}^{n}} (1+|y|^s)^2\hat{u}^{2}dy\right)^{1/2} \]</div>
+<h2 id="problems">Problems<a class="headerlink" href="#problems" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">20</p>
+<p>若 <span class="arithmatex">\(u\in H^s(\mathbb{R}^{n})\)</span>，且 <span class="arithmatex">\(s &gt; n/2\)</span>，则 <span class="arithmatex">\(u\in L^\infty(\mathbb{R}^{n})\)</span>，且</p>
+<div class="arithmatex">\[ \|u\|_{L^\infty(\mathbb{R}^{n})} \leq C(s,n) \|u\|_{H^s(\mathbb{R}^{n})} \]</div>
+</div>
+<div class="admonition remark">
+<p class="admonition-title">Remark</p>
+<p>回忆 <a href="../SobolevInequalities2/#morrey">Morry 不等式</a> 以及 <a href="../SobolevInequalities2/#general-sobolev-inequalities-sobolev">广义 Sobolev 不等式</a> </p>
+<p>我们知道，对于 <span class="arithmatex">\(k&gt;n/p\)</span>，</p>
+<div class="arithmatex">\[ W^{k,p}(\mathbb{R}^n) \subset W^{k-1,p^*}(\mathbb{R}^n) \subset \cdots \subset W^{k-l+1,p^{(l-1)}}(\mathbb{R}^n) \subset C^{k-l-1, \gamma}(\mathbb{R}^n) \subset L^\infty(\mathbb{R}^n) \]</div>
+<p>这里我们用 Fourier 变换来证明相似的结果。</p>
+</div>
+<p>由 <a href="./#fourier-transform">性质</a> <span class="arithmatex">\(u = (\hat{u})\check\;\)</span>,</p>
+<div class="arithmatex">\[ \begin{aligned}
+    |u(x)| &amp;= \frac{1}{(2\pi)^{n/2}} \Big|\int_{\mathbb{R}^n} e^{iy \cdot x} \hat{u}(y) dy\Big|  \\
+    &amp;= C(n) \Big|\int_{\mathbb{R}^n} \frac{e^{-iy \cdot x}}{1+|y|^s} (1+|y|^s)\hat{u}(y) dy\Big|  \\
+    &amp;\le C(n)\|(1+|y|^s)\hat{u}(y)\|_{L^2(\mathbb{R}^n)}\left(\int_{\mathbb{R}^n} \left(\frac{|e^{-iy \cdot x}|}{1+|y|^s}\right)^2 dy \right)^{\frac{1}{2}} \\
+\end{aligned} \]</div>
+<p>但是</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \int_{\mathbb{R}^n}\left(\frac{|e^{-iy \cdot x}|}{1+|y|^s}\right)^2 dy 
+    &amp;\le \int_{\mathbb{R}^n}\frac{1}{1+|y|^{2s}} dy     \\
+    &amp;= n\alpha(n)\int_{0}^{\infty} \frac{r^{n-1}}{1+r^{2s}}  dr \\ 
+    &amp;= \alpha(n) \int_{0}^{\infty} \frac{1}{1+t^{2s/n}}  dt  \quad (t=r^n)
+\end{aligned}\]</div>
+<p>由于 <span class="arithmatex">\(2s &gt; n\)</span> 因此 </p>
+<div class="arithmatex">\[ \int_{0}^{\infty} \frac{1}{1+t^{2s/n}}  dt &lt; 1 + \int_1^\infty \frac{1}{t^{2s/n}} dt = 1 - \frac{1}{1-2s/n} &lt; \infty \]</div>
+<p>所以</p>
+<div class="arithmatex">\[ \|u(x)\|_{L^\infty(\mathbb{R}^n)} \le C(s, n)\|u\|_{H^s(\mathbb{R}^n)} \]</div>
 
 <!-- Source file information -->
 
