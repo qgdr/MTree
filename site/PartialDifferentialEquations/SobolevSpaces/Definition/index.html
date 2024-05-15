@@ -2866,8 +2866,8 @@
 <div class="arithmatex">\[ \|D^\alpha u + D^\alpha v\|_{L^p(\Omega)} \le \|D^\alpha u\|_{L^p(\Omega)} + \|D^\alpha v\|_{L^p(\Omega)} \]</div>
 <p>第二个不等号使用了离散形式的 Minkowski 不等式</p>
 <div class="arithmatex">\[ \left(\sum_{i=1}^{n} |a_k + b_k|^p\right)^{\frac{1}{p}} \le \left(\sum_{i=1}^{n} |a_k|^p\right)^{\frac{1}{p}} + \left(\sum_{i=1}^{n} |b_k|^p\right)^{\frac{1}{p}} \]</div>
-<div class="admonition lemma">
-<p class="admonition-title">Lemma</p>
+<div class="admonition remark">
+<p class="admonition-title">Remark</p>
 <p>事实上，当 <span class="arithmatex">\(1 \le p &lt; \infty\)</span> 时，</p>
 <div class="arithmatex">\[  \left( \sum_{|\alpha|\le k}\int_\Omega |D^\alpha u|^p dx \right)^{\frac{1}{p}} 
 \Leftrightarrow \sum_{|\alpha| \le k} \|D^\alpha u\|_{L^p(\Omega)} \]</div>
@@ -2926,9 +2926,9 @@
 <p>对于 <span class="arithmatex">\(f = |x|^{-\alpha}\)</span>，我们有</p>
 <div class="arithmatex">\[ \nabla f = -\alpha |x|^{-\alpha-2} x \]</div>
 <p>我们希望证明 <span class="arithmatex">\(Df = \nabla f \quad \text{a.e.}\)</span></p>
-<p>事实上，对于 <span class="arithmatex">\(\phi \in C_c^\infty(R^n)\)</span>，</p>
+<p>事实上，对于 <span class="arithmatex">\(\phi \in C_c^\infty(\mathbb{R}^n)\)</span>，</p>
 <div class="arithmatex">\[ \begin{align}
-    \int_{R^n} f(x) \nabla \phi 
+    \int_{\mathbb{R}^n} f(x) \nabla \phi 
     &amp;= \int_{B(0, \epsilon)} |x|^{-\alpha} \nabla \phi(x)dx
         + \int_{B(0, \epsilon)^c} |x|^{-\alpha} \nabla \phi(x)dx \\
     &amp;= I_1 + I_2
@@ -2955,7 +2955,7 @@
     \quad (\alpha =\frac{n}{p} -1 &lt; n -1)
 \end{align} \]</div>
 <p>因此当 <span class="arithmatex">\(\epsilon \to 0\)</span> 时，有</p>
-<div class="arithmatex">\[ \int_{R^n} |x|^{-\alpha} \nabla \phi(x)dx  = - \int_{R^n} \phi(x) \nabla |x|^{-\alpha} x dx = \int_{R^n} \phi(x)\alpha |x|^{-\alpha-2} x\]</div>
+<div class="arithmatex">\[ \int_{\mathbb{R}^n} |x|^{-\alpha} \nabla \phi(x)dx  = - \int_{\mathbb{R}^n} \phi(x) \nabla |x|^{-\alpha} x dx = \int_{\mathbb{R}^n} \phi(x)\alpha |x|^{-\alpha-2} x\]</div>
 <p>因此 <span class="arithmatex">\(Df = \nabla f\)</span> a.e.</p>
 <p><strong>3</strong>.</p>
 <p>对于</p>

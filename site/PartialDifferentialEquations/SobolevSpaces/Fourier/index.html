@@ -2306,6 +2306,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#equivalence" class="md-nav__link">
+    <span class="md-ellipsis">
+      等价性 Equivalence
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fractional-sobolev-space-sobolev" class="md-nav__link">
     <span class="md-ellipsis">
       Fractional Sobolev Space 分数阶Sobolev空间
@@ -2776,6 +2785,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#equivalence" class="md-nav__link">
+    <span class="md-ellipsis">
+      等价性 Equivalence
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fractional-sobolev-space-sobolev" class="md-nav__link">
     <span class="md-ellipsis">
       Fractional Sobolev Space 分数阶Sobolev空间
@@ -2832,7 +2850,21 @@
 <div class="arithmatex">\[ (D^\alpha u)\hat\; = (iy)^\alpha \hat{u} \]</div>
 <p>4 . 
 设 <span class="arithmatex">\(u,v\in L^1(\mathbb{R}^{n})\cap L^2(\mathbb{R}^{n})\)</span>，则</p>
-<div class="arithmatex">\[ (u*v)\hat\; = (2\pi)^{n/2} \hat{u}\hat{v}, \quad  \]</div>
+<div class="arithmatex">\[ (u*v)\hat\; = (2\pi)^{n/2} \hat{u}\hat{v}, \quad \hat{u}*\hat{v} = (2\pi)^{n/2} \hat{uv} \]</div>
+<h2 id="equivalence">等价性 Equivalence<a class="headerlink" href="#equivalence" title="Permanent link">&para;</a></h2>
+<p>在说明分数阶 Sobolev 范数的合理性之前，我们先观察一些等价性命题。</p>
+<p>回忆我们在泛函分析中所学到的，对于一个空间 <span class="arithmatex">\(X\)</span> 中的两个范数 <span class="arithmatex">\(\|\cdot\|_1, \|\cdot\|_2\)</span>，  <br />
+如果存在两个与 <span class="arithmatex">\(x\)</span> 无关的正实数 <span class="arithmatex">\(c, C&gt;0\)</span> 使得</p>
+<div class="arithmatex">\[ c\|x\|_1 \leq \|x\|_2 \leq C\|x\|_1 \]</div>
+<p>对所有 <span class="arithmatex">\(x\in X\)</span>，都成立，那么我们称 <span class="arithmatex">\(X\)</span> 中的两个范数是等价的。
+我们记成 <span class="arithmatex">\(\|x\|_1 \sim \|x\|_2\)</span>.</p>
+<p>回顾 <a href="../Definition/#norm">Sobolev 范数</a> 的 Remark 中通过 <a href="../../../RealAnalysis/Inequalities/#holder">Hölder 不等式</a> 指出两种范数的定义等价。</p>
+<p>事实上，我们有离散型 <a href="../../../RealAnalysis/Inequalities/#holder">Hölder 不等式</a></p>
+<div class="arithmatex">\[ \sum_{i=1}^n |x_i|^p \leq (\sum_{i=1}^n |x_i|)^p \leq n^{p-1}(\sum_{i=1}^n |x_i|^p) , \quad p\ge 1\]</div>
+<p>这其实意味着</p>
+<div class="arithmatex">\[ \|x\|_{l_1} \sim \|x\|_{l_p}, x\in \mathbb{R}^n \]</div>
+<p>特别的</p>
+<div class="arithmatex">\[ 1+|y|^s \sim (1+|y|)^s \sim (1+|y|^2)^{s/2} \]</div>
 <h2 id="fractional-sobolev-space-sobolev">Fractional Sobolev Space 分数阶Sobolev空间<a class="headerlink" href="#fractional-sobolev-space-sobolev" title="Permanent link">&para;</a></h2>
 <p>设 <span class="arithmatex">\(0 &lt; s &lt; \infty\)</span> ， <span class="arithmatex">\(u\in L^2(\mathbb{R}^{n})\)</span>.
 那么当 <span class="arithmatex">\((1+|y|^s)\hat{u}\in L^2(\mathbb{R}^{n})\)</span> 时， <span class="arithmatex">\(u\in H^s(\mathbb{R}^{n})\)</span> ,并且令</p>
@@ -2850,6 +2882,7 @@
 <div class="arithmatex">\[ W^{k,p}(\mathbb{R}^n) \subset W^{k-1,p^*}(\mathbb{R}^n) \subset \cdots \subset W^{k-l+1,p^{(l-1)}}(\mathbb{R}^n) \subset C^{k-l-1, \gamma}(\mathbb{R}^n) \subset L^\infty(\mathbb{R}^n) \]</div>
 <p>这里我们用 Fourier 变换来证明相似的结果。</p>
 </div>
+<p><strong>solution</strong></p>
 <p>由 <a href="./#fourier-transform">性质</a> <span class="arithmatex">\(u = (\hat{u})\check\;\)</span>,</p>
 <div class="arithmatex">\[ \begin{aligned}
     |u(x)| &amp;= \frac{1}{(2\pi)^{n/2}} \Big|\int_{\mathbb{R}^n} e^{iy \cdot x} \hat{u}(y) dy\Big|  \\
@@ -2861,12 +2894,51 @@
     \int_{\mathbb{R}^n}\left(\frac{|e^{-iy \cdot x}|}{1+|y|^s}\right)^2 dy 
     &amp;\le \int_{\mathbb{R}^n}\frac{1}{1+|y|^{2s}} dy     \\
     &amp;= n\alpha(n)\int_{0}^{\infty} \frac{r^{n-1}}{1+r^{2s}}  dr \\ 
-    &amp;= \alpha(n) \int_{0}^{\infty} \frac{1}{1+t^{2s/n}}  dt  \quad (t=r^n)
+    &amp;= \alpha(n) \int_{0}^{\infty} \frac{1}{1+t^{2s/n}}  dt  \quad (t=\mathbb{R}^n)
 \end{aligned}\]</div>
 <p>由于 <span class="arithmatex">\(2s &gt; n\)</span> 因此 </p>
 <div class="arithmatex">\[ \int_{0}^{\infty} \frac{1}{1+t^{2s/n}}  dt &lt; 1 + \int_1^\infty \frac{1}{t^{2s/n}} dt = 1 - \frac{1}{1-2s/n} &lt; \infty \]</div>
 <p>所以</p>
 <div class="arithmatex">\[ \|u(x)\|_{L^\infty(\mathbb{R}^n)} \le C(s, n)\|u\|_{H^s(\mathbb{R}^n)} \]</div>
+<div class="admonition question">
+<p class="admonition-title">21</p>
+<p>考虑 <span class="arithmatex">\(u v\in H^s(\mathbb{R}^{n})\)</span>，若 <span class="arithmatex">\(s &gt; n/2\)</span>，则 <span class="arithmatex">\(uv\in H^s(\mathbb{R}^{n})\)</span>，且</p>
+<div class="arithmatex">\[ \|uv\|_{H^s(\mathbb{R}^{n})} \leq C(s,n) \|u\|_{H^s(\mathbb{R}^{n})} \|v\|_{H^s(\mathbb{R}^{n})} \]</div>
+</div>
+<p><strong>solution</strong></p>
+<p>由 <a href="./#fourier-transform">性质</a> 4，</p>
+<div class="arithmatex">\[ uv = \mathcal{F}^{-1} \circ \mathcal{F} (uv) = \frac{1}{(2\pi)^{n/2}}(\hat{u}*\hat{v})\check\; \]</div>
+<p>因此</p>
+<div class="arithmatex">\[ \begin{aligned} 
+    \|uv\|_{H^s(\mathbb{R}^{n})} &amp;= \| (1+|y|^s) \;\hat{uv} \|_{L^2(\mathbb{R}^{n})} \\
+    &amp;= \frac{1}{(2\pi)^{n/2}} \|(1+|y|^s) \;\hat{u}*\hat{v} \|_{L^2(\mathbb{R}^{n})} \\
+    &amp;= C(n)\| (1+|y|^s) \int_{\mathbb{R}^{n}} \hat{u}(t) \; \hat{v}(y-t)\; dt \|_{L^2(\mathbb{R}^{n})}
+\end{aligned} \]</div>
+<p>但是经过我们在 <a href="./#equivalence">等价性</a> 中的讨论</p>
+<div class="arithmatex">\[ |y|^s = |t + y-t|^s \leq (|t| + |y-t|)^s \sim |t|^s + |y-t|^s \]</div>
+<p>那么 </p>
+<div class="arithmatex">\[ \begin{aligned} 
+    \|uv\|_{H^s(\mathbb{R}^{n})} 
+    &amp;= C(n) \| \int_{\mathbb{R}^{n}} (1+|y|^s) \; \hat{u}(t) \; \hat{v}(y-t)\; dt \|_{L^2(\mathbb{R}^{n})}      \\
+    &amp;\le C(s, n) \| \int_{\mathbb{R}^{n}} (1+|t|^s + 1+|y-t|^s) \; \hat{u}(t) \; \hat{v}(y-t)\; dt \|_{L^2(\mathbb{R}^{n})}     \\
+    &amp;\le C(s, n) ( \|  ((1+|y|^s) \; \hat{u}) * \hat{v} \|_{L^2(\mathbb{R}^{n})} + \| \hat{u} * ((1+|y|^s) \; \hat{v}) \|_{L^2(\mathbb{R}^{n})} )    \\
+\end{aligned} \]</div>
+<p>现在我们由 <a href="../../../RealAnalysis/Inequalities/#young">Young 不等式</a></p>
+<div class="arithmatex">\[ \|f*g\|_{L^p} \le \|f\|_{L^1} \|g\|_{L^p} \]</div>
+<p>我们得到</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \|  ((1+|y|^s) \; \hat{u}) * \hat{v} \|_{L^2(\mathbb{R}^{n})} 
+    &amp;\le \| (1+|y|^s) \; \hat{u} \|_{L^2(\mathbb{R}^{n})} \| \hat{v} \|_{L^1(\mathbb{R}^{n})}   \\
+    &amp;= \| (1+|y|^s) \; \hat{u} \|_{L^2(\mathbb{R}^{n})} \int_{\mathbb{R}^{n}} \frac{1}{1+|y|^s} (1+|y|^s)\hat{v}dy          \\
+    &amp;\le \| (1+|y|^s) \; \hat{u} \|_{L^2(\mathbb{R}^{n})}\| (1+|y|^s) \; \hat{v} \|_{L^2(\mathbb{R}^{n})} \| \frac{1}{1+|y|^s} \|_{L^2(\mathbb{R}^{n})}          \\
+    &amp;\le C(s, n) \| (1+|y|^s) \; \hat{u} \|_{L^2(\mathbb{R}^{n})} \| (1+|y|^s) \; \hat{v} \|_{L^2(\mathbb{R}^{n})}  \\
+    &amp;= C(s, n) \|u\|_{H^s(\mathbb{R}^{n})} \|v\|_{H^s(\mathbb{R}^{n})}  \\
+\end{aligned} \]</div>
+<p>其最后一步使用了 当 <span class="arithmatex">\(s &gt; n/2\)</span> 时，</p>
+<div class="arithmatex">\[ \| \frac{1}{1+|y|^s} \|_{L^2(\mathbb{R}^{n})}^2 = \int_{\mathbb{R}^{n}} \left(\frac{1}{1+|y|^s}\right)^2 dy \le \int_{\mathbb{R}^{n}} \frac{1}{1+|y|^{2s}} dy = C(s,n) &lt; \infty \]</div>
+<p>在上题 20 中已经证明过了。</p>
+<p>因此，我们证明了</p>
+<div class="arithmatex">\[ \|uv\|_{H^s(\mathbb{R}^{n})} \leq C(s,n) \|u\|_{H^s(\mathbb{R}^{n})} \|v\|_{H^s(\mathbb{R}^{n})} \]</div>
 
 <!-- Source file information -->
 
