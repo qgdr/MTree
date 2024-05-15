@@ -76,7 +76,7 @@ $$ \|D^\alpha u + D^\alpha v\|_{L^p(\Omega)} \le \|D^\alpha u\|_{L^p(\Omega)} + 
 
 $$ \left(\sum_{i=1}^{n} |a_k + b_k|^p\right)^{\frac{1}{p}} \le \left(\sum_{i=1}^{n} |a_k|^p\right)^{\frac{1}{p}} + \left(\sum_{i=1}^{n} |b_k|^p\right)^{\frac{1}{p}} $$
 
-!!! Lemma
+!!! Remark
 
     事实上，当 \(1 \le p < \infty\) 时，
 
@@ -179,10 +179,10 @@ $$ \left(\sum_{i=1}^{n} |a_k + b_k|^p\right)^{\frac{1}{p}} \le \left(\sum_{i=1}^
 
     我们希望证明 \(Df = \nabla f \quad \text{a.e.}\)
 
-    事实上，对于 \(\phi \in C_c^\infty(R^n)\)，
+    事实上，对于 \(\phi \in C_c^\infty(\mathbb{R}^n)\)，
 
     $$ \begin{align}
-        \int_{R^n} f(x) \nabla \phi 
+        \int_{\mathbb{R}^n} f(x) \nabla \phi 
         &= \int_{B(0, \epsilon)} |x|^{-\alpha} \nabla \phi(x)dx
             + \int_{B(0, \epsilon)^c} |x|^{-\alpha} \nabla \phi(x)dx \\
         &= I_1 + I_2
@@ -218,7 +218,7 @@ $$ \left(\sum_{i=1}^{n} |a_k + b_k|^p\right)^{\frac{1}{p}} \le \left(\sum_{i=1}^
 
     因此当 \(\epsilon \to 0\) 时，有
 
-    $$ \int_{R^n} |x|^{-\alpha} \nabla \phi(x)dx  = - \int_{R^n} \phi(x) \nabla |x|^{-\alpha} x dx = \int_{R^n} \phi(x)\alpha |x|^{-\alpha-2} x$$
+    $$ \int_{\mathbb{R}^n} |x|^{-\alpha} \nabla \phi(x)dx  = - \int_{\mathbb{R}^n} \phi(x) \nabla |x|^{-\alpha} x dx = \int_{\mathbb{R}^n} \phi(x)\alpha |x|^{-\alpha-2} x$$
 
     因此 \(Df = \nabla f\) a.e.
 

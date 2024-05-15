@@ -11,9 +11,9 @@
     对于 \(n<p\le\infty\)，有
 
     $$ \begin{gather*}
-        \|u\|_{C^{0, 1-\frac{n}{p}}(R^n)} \le C(n,p)\|u\|_{W^{1,p}(R^n)}    \\
+        \|u\|_{C^{0, 1-\frac{n}{p}}(\mathbb{R}^n)} \le C(n,p)\|u\|_{W^{1,p}(\mathbb{R}^n)}    \\
         \text{i.e.} \quad 
-        W^{1,p}(R^n) \subset  C^{0, \gamma}(R^n), \quad \gamma = 1-\frac{n}{p}
+        W^{1,p}(\mathbb{R}^n) \subset  C^{0, \gamma}(\mathbb{R}^n), \quad \gamma = 1-\frac{n}{p}
     \end{gather*} $$
 
     </font>
@@ -25,7 +25,7 @@
 
     <font size="2">
 
-    设 \(U\subset R^n\) 是有界开集，且 <font color="Red"> \(\partial U\) 是 \(C^1\) 的 </font>
+    设 \(U\subset \mathbb{R}^n\) 是有界开集，且 <font color="Red"> \(\partial U\) 是 \(C^1\) 的 </font>
     那么对于 \(n<p\le\infty\)，有
 
     $$ \begin{gather*}
@@ -61,7 +61,7 @@
 我们在 [Rellich-Kondrachov Compactness Theorem](./SobolevInequalities.md#rellich-kondrachov-compactness-theorem) 的 Corollary 中提出了一般情况的紧嵌入定理。        
 现在我们说明 \(p=\infty\)，或者利用 Morrey 不等式重复说明 \(n < p \le \infty\) 的情况
 
-令 \(U\subset R^n\) 是有界开集，且 \(\partial U\) 是 \(C^1\) 的，\(n< p \le \infty\)，\(u\in W^{1,p}(U)\)，则 由 Morrey 不等式可以得到
+令 \(U\subset \mathbb{R}^n\) 是有界开集，且 \(\partial U\) 是 \(C^1\) 的，\(n< p \le \infty\)，\(u\in W^{1,p}(U)\)，则 由 Morrey 不等式可以得到
 
 $$ \|u\|_{C^{0, \gamma}(U)} \le C(n,U,p) \|u\|_{W^{1,p}(U)} $$
 
@@ -119,15 +119,15 @@ $$ D^\alpha u \in W^{1,p}(\Omega), \quad  |\alpha| \le k-1 $$
 
 当 $p<n$ 时，我们有
 
-$$ D^\alpha u \in L^{p^*}(R^n), \quad  |\alpha| \le k-1 $$
+$$ D^\alpha u \in L^{p^*}(\mathbb{R}^n), \quad  |\alpha| \le k-1 $$
 
 我们能够得到
 
-$$ W^{k, p}(R^n) \subset W^{k-1, p^*}(R^n)$$
+$$ W^{k, p}(\mathbb{R}^n) \subset W^{k-1, p^*}(\mathbb{R}^n)$$
 
 我们貌似能够使用 [GNS 不等式](./SobolevInequalities.md#gagliardo-nirenberg-sobolev) 把这个嵌入链条继续下去
 
-$$ W^{k, p}(R^n) \subset W^{k-1, p^*}(R^n) \subset \cdots $$
+$$ W^{k, p}(\mathbb{R}^n) \subset W^{k-1, p^*}(\mathbb{R}^n) \subset \cdots $$
 
 直到什么时候停止呢？
 我们知道
@@ -144,7 +144,7 @@ $$ \frac{1}{p^{(i)}} = \frac{1}{p} - \frac{i}{n} $$
 
 也就是
 
-$$ W^{k, p}(R^n) \subset W^{k-1, p^*}(R^n) \subset \cdots \subset W^{k-i, p^{(i)}}(R^n), \quad p^{(i)} = \frac{np}{n-ip} $$
+$$ W^{k, p}(\mathbb{R}^n) \subset W^{k-1, p^*}(\mathbb{R}^n) \subset \cdots \subset W^{k-i, p^{(i)}}(\mathbb{R}^n), \quad p^{(i)} = \frac{np}{n-ip} $$
 
 直到 \(p^{(i)} \ge n\) 或者 \(i=k\)，我们需要更换不等式。 
 那么
@@ -154,7 +154,7 @@ $$ W^{k, p}(R^n) \subset W^{k-1, p^*}(R^n) \subset \cdots \subset W^{k-i, p^{(i)
 \(k\) 被耗尽前的最后一此，仍有 \(p^{(k-1)} < n\) ，即 \(\frac{1}{p} - \frac{k-1}{n} > \frac{1}{n}\)，
 也就是 \(k<\frac{n}{p}\)，那么
 
-$$ W^{k, p}(R^n) \subset W^{k-1, p^*}(R^n) \subset \cdots \subset W^{1, p^{(k-1)}}(R^n) \subset L^{p^{(k)}}(R^n), \quad p^{(k)} = \frac{np}{n-kp} $$
+$$ W^{k, p}(\mathbb{R}^n) \subset W^{k-1, p^*}(\mathbb{R}^n) \subset \cdots \subset W^{1, p^{(k-1)}}(\mathbb{R}^n) \subset L^{p^{(k)}}(\mathbb{R}^n), \quad p^{(k)} = \frac{np}{n-kp} $$
 
 <video src="../media/videos/Sobolev2/720p30/GSI1.mp4" width="100%"  type="video/mp4" controls="controls" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true"></video>
 
@@ -167,24 +167,24 @@ $$ W^{k, p}(R^n) \subset W^{k-1, p^*}(R^n) \subset \cdots \subset W^{1, p^{(k-1)
 则根据 [p=n](./SobolevInequalities.md#pn) 和 [Morrey 不等式](#morrey)
 
 $$ \begin{align}
-    W^{k, \frac{n}{l}}(R^n) &\subset W^{k-1, \frac{n}{l-1}}(R^n)  \subset \cdots         \\
-    &\subset W^{k-l+1, n}(R^n) \subset W^{k-l, q}(R^n) \quad (n\le q <\infty)  \\
-    &\subset C^{k-l-1, \gamma}(R^n) \quad (\forall\gamma \in (0, 1)) \quad \text{ if } k\ge l+1 > \frac{n}{p}      \\
+    W^{k, \frac{n}{l}}(\mathbb{R}^n) &\subset W^{k-1, \frac{n}{l-1}}(\mathbb{R}^n)  \subset \cdots         \\
+    &\subset W^{k-l+1, n}(\mathbb{R}^n) \subset W^{k-l, q}(\mathbb{R}^n) \quad (n\le q <\infty)  \\
+    &\subset C^{k-l-1, \gamma}(\mathbb{R}^n) \quad (\forall\gamma \in (0, 1)) \quad \text{ if } k\ge l+1 > \frac{n}{p}      \\
 \end{align} $$
 
 !!! Corollary
 
     特别的，若 \(n = kp\) ，那么
 
-    $$ W^{k, \frac{n}{k}}(R^n) \subset W^{k-1, \frac{n}{k-1}}(R^n)  \subset \cdots \subset W^{1, n}(R^n)  \subset L^q(R^n) \quad (n\le q <\infty) $$
+    $$ W^{k, \frac{n}{k}}(\mathbb{R}^n) \subset W^{k-1, \frac{n}{k-1}}(\mathbb{R}^n)  \subset \cdots \subset W^{1, n}(\mathbb{R}^n)  \subset L^q(\mathbb{R}^n) \quad (n\le q <\infty) $$
 
     又因为 
     
-    $$ W^{k, \frac{n}{k}}(R^n) \subset L^{\frac{n}{k}}(R^n) \cap L^q(R^n) \quad (n\le q <\infty) $$
+    $$ W^{k, \frac{n}{k}}(\mathbb{R}^n) \subset L^{\frac{n}{k}}(\mathbb{R}^n) \cap L^q(\mathbb{R}^n) \quad (n\le q <\infty) $$
     
     利用插值不等式，有 
 
-    $$ W^{k, \frac{n}{k}}(R^n) \subset L^q(R^n) \quad (\frac{n}{k} \le q <\infty) $$
+    $$ W^{k, \frac{n}{k}}(\mathbb{R}^n) \subset L^q(\mathbb{R}^n) \quad (\frac{n}{k} \le q <\infty) $$
 
 
 ### case3
@@ -196,8 +196,8 @@ $$ \begin{align}
 那么
 
 $$ \begin{align}
-    W^{k, p}(R^n) &\subset W^{k-1, p^*}(R^n)  \subset \cdots         \\
-    &\subset W^{k-l+1, p^{(l-1)}}(R^n) \subset W^{k-l, p^{(l)}}(R^n)  \\
-    &\subset C^{k-l-1, \gamma}(R^n) \quad (\gamma = 1- \frac{n}{p^{(l)}})     \\
+    W^{k, p}(\mathbb{R}^n) &\subset W^{k-1, p^*}(\mathbb{R}^n)  \subset \cdots         \\
+    &\subset W^{k-l+1, p^{(l-1)}}(\mathbb{R}^n) \subset W^{k-l, p^{(l)}}(\mathbb{R}^n)  \\
+    &\subset C^{k-l-1, \gamma}(\mathbb{R}^n) \quad (\gamma = 1- \frac{n}{p^{(l)}})     \\
 \end{align} $$
 

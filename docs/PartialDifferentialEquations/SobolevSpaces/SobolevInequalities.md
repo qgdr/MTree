@@ -16,12 +16,12 @@ Brezis 书中的内容比较丰富，全面。
 并提出如下基本问题：    
 如果一个函数 \(u\) 属于 \(W^{1, P} ( \Omega )\)，那么 \(\Omega\) 是否自动属于某个其他空间?（我们称之为 **嵌入** embedded ）   
 
-我们在这里应当做出提醒，这些对 \(W^{1,p}(\Omega)\) 建立的不等式，根据 \(\Omega = R^n\) 还是有界开集的不同而有很大差别。
+我们在这里应当做出提醒，这些对 \(W^{1,p}(\Omega)\) 建立的不等式，根据 \(\Omega = \mathbb{R}^n\) 还是有界开集的不同而有很大差别。
 
 
 ## n=1
 
-在对一般的 \(R^n\) 分析前，我们不妨先研究一下 \(n=1\) 的情况。
+在对一般的 \(\mathbb{R}^n\) 分析前，我们不妨先研究一下 \(n=1\) 的情况。
 
 参考 [Brezis - Functional Analysis, Sobolev Spaces and Partial Differential Equations 8.2 The Soblev Space \(W^{1, p}(I)\) Theorem 8.2](../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf)
 
@@ -205,7 +205,7 @@ $$ u(x) = c + \int_{x_0}^x Du \text{ a.e. } $$
 
 ## 直观理解
 
-对于一般的 \(R^n, n\ge 1\)，
+对于一般的 \(\mathbb{R}^n, n\ge 1\)，
 对于建立不等式的动机，两本书中都提到了用伸缩变换发现的参数，但这里我们给出另一种直观上的理解。
 
 !!! view
@@ -219,9 +219,9 @@ $$ u(x) = c + \int_{x_0}^x Du \text{ a.e. } $$
     ![LowerThanxinv](media/images/Sobolev/LowerThanxinv_ManimCE_v0.18.0.png)
 
     如果对于某个这样的 \(g\) 和常数 \(C\)，有 \(h=Cg\)，我们记他满足 \(h \prec  \dfrac{1}{|x|}\)        
-    我们用类似 \(h\) 这样的“测试函数”，来对 \(u \in W^{1, p} (R^n)\) 如何被 \(Du\) 控制进行粗略的把握。         
+    我们用类似 \(h\) 这样的“测试函数”，来对 \(u \in W^{1, p} (\mathbb{R}^n)\) 如何被 \(Du\) 控制进行粗略的把握。         
 
-    如果 \(h \in W^{1,p}(R^n)\)，那么
+    如果 \(h \in W^{1,p}(\mathbb{R}^n)\)，那么
 
     $$ \begin{gather}
         \int |Dh|^p = n\alpha(n)\int_0^\infty |Dh(r)|^p r^{n-1} dr  \\
@@ -296,7 +296,7 @@ $$ u(x) = c + \int_{x_0}^x Du \text{ a.e. } $$
     因为最极端的情况也只是在 \(r\to 0\) 处。
 
 
-至此，我们对 \(h\) 的可积性有了直观的把握，而对于任意的 \(u \in W^{1, p} (R^n)\)
+至此，我们对 \(h\) 的可积性有了直观的把握，而对于任意的 \(u \in W^{1, p} (\mathbb{R}^n)\)
 他几乎处处和 \(h\) 差不多。     
 （甚至沿着 [case3](#case3) 的思想我们可以获得 Morrey 不等式证明的直观理解。）
 
@@ -317,10 +317,10 @@ $$ \begin{align}
 
 ## Gagliardo-Nirenberg-Sobolev 不等式
 
-对于第一种情况，我们先对 \(u\in C_c^\infty(R^n)\) 进行研究。    
-若 \(1\le p \le n\)， 我们能否找到特定的 \( (C, q) \) ，使得对于任意的 \(u\in C_c^\infty(R^n)\) 可以建立这样的一个估计？
+对于第一种情况，我们先对 \(u\in C_c^\infty(\mathbb{R}^n)\) 进行研究。    
+若 \(1\le p \le n\)， 我们能否找到特定的 \( (C, q) \) ，使得对于任意的 \(u\in C_c^\infty(\mathbb{R}^n)\) 可以建立这样的一个估计？
 
-$$ \|u\|_{L^q(R^n)} \le C \|Du\|_{L^{p}(R^n)} $$
+$$ \|u\|_{L^q(\mathbb{R}^n)} \le C \|Du\|_{L^{p}(\mathbb{R}^n)} $$
 
 **定义**：  如果 \(1\le p < n\)，那么 \(p\) 的 Sobolev 共轭为
 
@@ -346,9 +346,9 @@ $$ p^* = \frac{np}{n-p} $$
 
     **Gagliardcr-Nirenberg-Sobolev inequality**
 
-    设 \(1\le p < n\)，则存在只跟 \(p, n\) 有关的常数 \(C\)，使得对于任意的 \(u\in C_c^1(R^n)\)，有
+    设 \(1\le p < n\)，则存在只跟 \(p, n\) 有关的常数 \(C\)，使得对于任意的 \(u\in C_c^1(\mathbb{R}^n)\)，有
 
-    $$ \|u\|_{L^{p^*}(R^n)} \le C \|Du\|_{L^{p}(R^n)} $$
+    $$ \|u\|_{L^{p^*}(\mathbb{R}^n)} \le C \|Du\|_{L^{p}(\mathbb{R}^n)} $$
 
     </font>
 
@@ -359,7 +359,7 @@ $$ p^* = \frac{np}{n-p} $$
 
 
 **1**.      
-首先考虑 \(p=1\) 的情况，因为 \(u\) 具有紧支集， 对于每个 \(i=1, \cdots, n\) 和 \(x\in R^n\)，我们有
+首先考虑 \(p=1\) 的情况，因为 \(u\) 具有紧支集， 对于每个 \(i=1, \cdots, n\) 和 \(x\in \mathbb{R}^n\)，我们有
 
 $$ u(x) = \int_{-\infty}^{x^i} D_i u(x_1, \cdots, x_{i-1}, \xi_i, x_{i+1}, \cdots, x_n) d\xi_i $$
 
@@ -372,7 +372,7 @@ $$ |u| \le \int_{-\infty}^{+\infty} |D_i u(x_1, \cdots, x_{i-1}, \xi_i, x_{i+1},
 
 $$ |u|^{\frac{n}{n-1}} \le \prod_{i=1}^n \left(\int_{-\infty}^{+\infty} |D_i u(x_1, \cdots, x_{i-1}, \xi_i, x_{i+1}, \cdots, x_n)| d\xi_i \right)^{\frac{1}{n-1}} $$
 
-我们想要估计 \(\int_{R^n}|u|^{\frac{n}{n-1}}\)，那么这里我们就介绍一个重要的不等式
+我们想要估计 \(\int_{\mathbb{R}^n}|u|^{\frac{n}{n-1}}\)，那么这里我们就介绍一个重要的不等式
 
 !!! Lemma
 
@@ -386,11 +386,11 @@ $$ |u|^{\frac{n}{n-1}} \le \prod_{i=1}^n \left(\int_{-\infty}^{+\infty} |D_i u(x
 
     那么有
 
-    $$ \int_{R^n} |f(x)| dx = \int_{R^n} \prod_{i=1}^n |f_i(\widetilde{x_i})| dx = \int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} |f_1(\widetilde{x_1})| \cdots |f_n(\widetilde{x_n})| dx_1 \cdots dx_n $$ 
+    $$ \int_{\mathbb{R}^n} |f(x)| dx = \int_{\mathbb{R}^n} \prod_{i=1}^n |f_i(\widetilde{x_i})| dx = \int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} |f_1(\widetilde{x_1})| \cdots |f_n(\widetilde{x_n})| dx_1 \cdots dx_n $$ 
 
     注意到 \(f_1(\widetilde{x_1})\) 与 \(x_1\) 无关，所以
 
-    $$ \int_{R^n} |f(x)| dx = \int_{R^{n-1}} dx_2 \cdots dx_n |f_1(\widetilde{x_1})| \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1$$
+    $$ \int_{\mathbb{R}^n} |f(x)| dx = \int_{R^{n-1}} dx_2 \cdots dx_n |f_1(\widetilde{x_1})| \int |f_2(\widetilde{x_2})| \cdots |f_n(\widetilde{x_n})| dx_1$$
 
     这时候使用广义 [Hölder 不等式](../../RealAnalysis/Inequalities/index.md#holder)
 
@@ -399,7 +399,7 @@ $$ |u|^{\frac{n}{n-1}} \le \prod_{i=1}^n \left(\int_{-\infty}^{+\infty} |D_i u(x
 
     我们有
 
-    $$ \int_{R^n} |f(x)| dx 
+    $$ \int_{\mathbb{R}^n} |f(x)| dx 
     \le  \int_{R^{n-1}} dx_2 \cdots dx_n |f_1(\widetilde{x_1})| 
     \prod_{i=2}^n \left(\int |f_2(\widetilde{x_2})|^{n-1} dx_1 \right)^{\frac{1}{n-1}} $$
 
@@ -410,44 +410,44 @@ $$ |u|^{\frac{n}{n-1}} \le \prod_{i=1}^n \left(\int_{-\infty}^{+\infty} |D_i u(x
 
     最后一向正好有 \(n-1\) 项，所以可以推出
 
-    $$ \int_{R^n} |f(x)| dx 
+    $$ \int_{\mathbb{R}^n} |f(x)| dx 
     \le  \int_{R^{n-1}} dx_3 \cdots dx_n
     \left( \left(\int |f_1(\widetilde{x_1})|^{n-1} dx_2\right)^{\frac{1}{n-1}}
     \prod_{i=2}^n \left(\int |f_2(\widetilde{x_2})|^{n-1} dx_1 dx_2 \right)^{\frac{1}{n-1}} \right) $$
 
     以此类推，我们得到了
 
-    $$ \int_{R^n} |f(x)| dx \le \prod_{i=1}^n \left(\int |f_i(\widetilde{x_i})|^{n-1} dx_1 \cdots dx_{i-1} dx_{i+1} \cdots dx_n \right)^{\frac{1}{n-1}} $$
+    $$ \int_{\mathbb{R}^n} |f(x)| dx \le \prod_{i=1}^n \left(\int |f_i(\widetilde{x_i})|^{n-1} dx_1 \cdots dx_{i-1} dx_{i+1} \cdots dx_n \right)^{\frac{1}{n-1}} $$
 
     即
 
-    $$ \|f\|_{L^1(R^n)} \le \prod_{i=1}^n \|f_i\|_{L^{n-1}(R^{n-1})} $$
+    $$ \|f\|_{L^1(\mathbb{R}^n)} \le \prod_{i=1}^n \|f_i\|_{L^{n-1}(R^{n-1})} $$
 
 
 应用引理， 我们有
 
 $$ \begin{align}
-\int_{R^n}|u|^{\frac{n}{n-1}} 
-&\le \int_{R^n} \prod_{i=1}^n \left(\int_{-\infty}^{+\infty} |D_i u(x_1, \cdots, x_{i-1}, \xi_i, x_{i+1}, \cdots, x_n)| d\xi_i \right)^{\frac{1}{n-1}}   \\
-&\le \prod_{i=1}^n \left( \int_{R^n}|D_i u| \right)^{\frac{1}{n-1}} \\
-&\le \left(\int_{R^n} |D u|\right)^{\frac{n}{n-1}}
+\int_{\mathbb{R}^n}|u|^{\frac{n}{n-1}} 
+&\le \int_{\mathbb{R}^n} \prod_{i=1}^n \left(\int_{-\infty}^{+\infty} |D_i u(x_1, \cdots, x_{i-1}, \xi_i, x_{i+1}, \cdots, x_n)| d\xi_i \right)^{\frac{1}{n-1}}   \\
+&\le \prod_{i=1}^n \left( \int_{\mathbb{R}^n}|D_i u| \right)^{\frac{1}{n-1}} \\
+&\le \left(\int_{\mathbb{R}^n} |D u|\right)^{\frac{n}{n-1}}
 \end{align}  $$
 
 或者更精细一点 [Sobolev空间与偏微分方程引论-王术 2.2.5](../index.md#sobolev空间与偏微分方程引论-王术)
 
 $$ \begin{align}
-\int_{R^n}|u|^{\frac{n}{n-1}} 
-&\le \prod_{i=1}^n \left(\int_{R^n} |D_i u| \right)^{\frac{1}{n-1}}
-= \left( \prod_{i=1}^n \left(\int_{R^n} |D_i u| \right)^{\frac{1}{n}} \right)^{\frac{n}{n-1}} \\
-&\le \left( \frac{1}{n}\sum_{i=1}^n \int_{R^n} |D_i u| \right)^{\frac{n}{n-1}} \\
-&\le \left( \frac{1}{\sqrt{n}} \int_{R^n} |D u| \right)^{\frac{n}{n-1}}
+\int_{\mathbb{R}^n}|u|^{\frac{n}{n-1}} 
+&\le \prod_{i=1}^n \left(\int_{\mathbb{R}^n} |D_i u| \right)^{\frac{1}{n-1}}
+= \left( \prod_{i=1}^n \left(\int_{\mathbb{R}^n} |D_i u| \right)^{\frac{1}{n}} \right)^{\frac{n}{n-1}} \\
+&\le \left( \frac{1}{n}\sum_{i=1}^n \int_{\mathbb{R}^n} |D_i u| \right)^{\frac{n}{n-1}} \\
+&\le \left( \frac{1}{\sqrt{n}} \int_{\mathbb{R}^n} |D u| \right)^{\frac{n}{n-1}}
 \end{align}  $$
    
 后两个不等式是 几何平均 \(\le\) 算术平均 \(\le\) 平方平均。
 
 至此我们得到了
 
-$$ \|u\|_{L^{\frac{n}{n-1}}(R^n)} \le C(n) \|Du\|_{L^{1}(R^n)} $$
+$$ \|u\|_{L^{\frac{n}{n-1}}(\mathbb{R}^n)} \le C(n) \|Du\|_{L^{1}(\mathbb{R}^n)} $$
 
 !!! footnote
     其他证明可以看 [Liu-2023](./Liu%20-%202023%20-%20Gagliardo-Nirenberg-Sobolev%20Inequality%20An%20Inducti.pdf)
@@ -457,9 +457,9 @@ $$ \|u\|_{L^{\frac{n}{n-1}}(R^n)} \le C(n) \|Du\|_{L^{1}(R^n)} $$
 对于 \(1< p < n\)，将 \(|u|\) 替换成 \(|u|^\gamma\) 来进行分析，\(\gamma\) 待定，但是希望 \(\gamma>1\)，这样可以将 \(u\) 和 \(Du\) 用 [Hölder 不等式](../../RealAnalysis/Inequalities/index.md#holder) 分离。
 
 $$ \begin{align}
-    \left( \int_{R^n} |u|^{\frac{\gamma n}{n-1}} \right)^{\frac{n-1}{n}}
-    & \le \int_{R^n} \Big| D|u|^\gamma \Big|  =  \gamma \int_{R^n} |u|^{\gamma-1} |Du| \\
-    & \le \gamma \left( \int_{R^n} |u|^{(\gamma-1)\frac{p}{p-1}} \right)^{\frac{p-1}{p}} \left( \int_{R^n} |Du|^p \right)^{\frac{1}{p}}
+    \left( \int_{\mathbb{R}^n} |u|^{\frac{\gamma n}{n-1}} \right)^{\frac{n-1}{n}}
+    & \le \int_{\mathbb{R}^n} \Big| D|u|^\gamma \Big|  =  \gamma \int_{\mathbb{R}^n} |u|^{\gamma-1} |Du| \\
+    & \le \gamma \left( \int_{\mathbb{R}^n} |u|^{(\gamma-1)\frac{p}{p-1}} \right)^{\frac{p-1}{p}} \left( \int_{\mathbb{R}^n} |Du|^p \right)^{\frac{1}{p}}
 \end{align} $$
 
 这里为了让右面关于 \(u\) 的积分抵消掉，我们令 \(\frac{\gamma n}{n-1}=(\gamma-1)\frac{p}{p-1}\)，即
@@ -468,14 +468,14 @@ $$ \gamma = \frac{p(n-1)}{n-p} > 1 $$
 
 这时，\(\frac{\gamma n}{n-1}=(\gamma-1)\frac{p}{p-1}=\frac{np}{n-p} = p^*\)，\(\frac{n-1}{n} - \frac{p-1}{p} = \frac{1}{p} - \frac{1}{n} = \frac{1}{p^*}\) 故
 
-$$ \left(\int_{R^n} |u|^{p^*}\right)^{\frac{1}{p^*}} \le \gamma \left(\int_{R^n} |Du|^p\right)^{\frac{1}{p}} $$
+$$ \left(\int_{\mathbb{R}^n} |u|^{p^*}\right)^{\frac{1}{p^*}} \le \gamma \left(\int_{\mathbb{R}^n} |Du|^p\right)^{\frac{1}{p}} $$
 
 即
 
 $$ \begin{gather}
-    \|u\|_{L^{p^*}(R^n)} \le C(n,p,p^*) \|Du\|_{L^p(R^n)}   \\
+    \|u\|_{L^{p^*}(\mathbb{R}^n)} \le C(n,p,p^*) \|Du\|_{L^p(\mathbb{R}^n)}   \\
     \Rightarrow \\
-     W^{1,p}(R^n) \subset  L^{p^*}(R^n)
+     W^{1,p}(\mathbb{R}^n) \subset  L^{p^*}(\mathbb{R}^n)
 \end{gather} $$
 
 
@@ -484,13 +484,13 @@ $$ \begin{gather}
 
     [Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Corollary 9.10][Brezis]
 
-    $$ \begin{cases} W^{1,p}(R^n) \subset  L^{p^*}(R^n) \\ W^{1,p}(R^n) \subset  L^{p}(R^n) \end{cases} \Rightarrow W^{1,p}(R^n) \subset  L^{q}(R^n), \; q\in [p, p^*] $$
+    $$ \begin{cases} W^{1,p}(\mathbb{R}^n) \subset  L^{p^*}(\mathbb{R}^n) \\ W^{1,p}(\mathbb{R}^n) \subset  L^{p}(\mathbb{R}^n) \end{cases} \Rightarrow W^{1,p}(\mathbb{R}^n) \subset  L^{q}(\mathbb{R}^n), \; q\in [p, p^*] $$
 
     ----
 
     ### **插值不等式**
 
-    $$ \|u\|_{L^q(R^n)} \le \|u\|_{L^p(R^n)}^{\theta}\|u\|_{L^r(R^n)}^{1-\theta}, \; 
+    $$ \|u\|_{L^q(\mathbb{R}^n)} \le \|u\|_{L^p(\mathbb{R}^n)}^{\theta}\|u\|_{L^r(\mathbb{R}^n)}^{1-\theta}, \; 
     1\le p \le q \le r \le \infty, \; 
     \frac{1}{q} = \frac{\theta}{p} + \frac{1-\theta}{r} $$
 
@@ -507,7 +507,7 @@ $$ \begin{gather}
 
     故
 
-    $$ \|u\|_{L^q(R^n)} \le \|u\|_{L^p(R^n)}^{\theta}\|u\|_{L^r(R^n)}^{1-\theta} $$
+    $$ \|u\|_{L^q(\mathbb{R}^n)} \le \|u\|_{L^p(\mathbb{R}^n)}^{\theta}\|u\|_{L^r(\mathbb{R}^n)}^{1-\theta} $$
 
     ----
 
@@ -521,7 +521,7 @@ $$ \begin{gather}
 
     因此
 
-    $$ W^{1,p}(R^n) \subset  L^{q}(R^n), \; q\in [p, p^*] $$
+    $$ W^{1,p}(\mathbb{R}^n) \subset  L^{q}(\mathbb{R}^n), \; q\in [p, p^*] $$
 
 
 
@@ -534,7 +534,7 @@ $$ \begin{gather}
 
 !!! tip
     我们已经知道上一节的不等式，而且当 \(p\to n\) 时，有 \(p^* = \frac{np}{n-p} \to +\infty \)。        
-    那么当 \(p=n\), \(u \in W^{1,p}(R^n)\) 时，\(u\) 是否自动属于 \(L^\infty\) 呢？
+    那么当 \(p=n\), \(u \in W^{1,p}(\mathbb{R}^n)\) 时，\(u\) 是否自动属于 \(L^\infty\) 呢？
 
 
     这个命题只有当 \(n=1\) 时才成立。
@@ -580,8 +580,8 @@ $$ \begin{gather}
     [Functional Analysis, Sobolev Spaces and Partial Differential Equations 9.3 Corollary 9.11][Brezis]
 
     $$ \begin{gather*}
-        \|u\|_{L^q(R^n)} \le C(n, q) \|u\|_{W^{1, n}(R^n)} \\
-        \text{ i.e. } \quad W^{1,n}(R^n) \subset  L^q(R^n), \quad n \le q < \infty
+        \|u\|_{L^q(\mathbb{R}^n)} \le C(n, q) \|u\|_{W^{1, n}(\mathbb{R}^n)} \\
+        \text{ i.e. } \quad W^{1,n}(\mathbb{R}^n) \subset  L^q(\mathbb{R}^n), \quad n \le q < \infty
     \end{gather*} $$
 
     </font>
@@ -593,51 +593,51 @@ $$ \begin{gather}
 对 \(\gamma > 1\)，
 
 $$ \begin{gather*}
-    \left( \int_{R^n} |u|^{\frac{\gamma n}{n-1}} \right)^{\frac{n-1}{n}}
-    \le \gamma \left( \int_{R^n} |u|^{(\gamma-1)\frac{p}{p-1}} \right)^{\frac{p-1}{p}} \left( \int_{R^n} |Du|^p \right)^{\frac{1}{p}}   \\
+    \left( \int_{\mathbb{R}^n} |u|^{\frac{\gamma n}{n-1}} \right)^{\frac{n-1}{n}}
+    \le \gamma \left( \int_{\mathbb{R}^n} |u|^{(\gamma-1)\frac{p}{p-1}} \right)^{\frac{p-1}{p}} \left( \int_{\mathbb{R}^n} |Du|^p \right)^{\frac{1}{p}}   \\
     \text{i.e. }    \\
-    \|u\|_{L^{\frac{\gamma n}{n-1}}(R^n)}^{\gamma} \le C(n, p, \gamma) \|u\|_{L^{(\gamma-1)\frac{p}{p-1}}(R^n)}^{\gamma-1} \|Du\|_{L^{p}(R^n)}
+    \|u\|_{L^{\frac{\gamma n}{n-1}}(\mathbb{R}^n)}^{\gamma} \le C(n, p, \gamma) \|u\|_{L^{(\gamma-1)\frac{p}{p-1}}(\mathbb{R}^n)}^{\gamma-1} \|Du\|_{L^{p}(\mathbb{R}^n)}
 \end{gather*} $$
 
 利用 Young 不等式 \(ab \le \frac{a^p}{p} + \frac{b^q}{q}, p, q > 1, 1/p+1/q=1 \) ，可以得到
 
 $$ \begin{align}
-    \|u\|_{L^{\frac{\gamma n}{n-1}}(R^n)} & \le C(n, p, \gamma) \|u\|_{L^{(\gamma-1)\frac{p}{p-1}}(R^n)}^{\frac{\gamma-1}{\gamma}} \|Du\|_{L^{p}(R^n)}^{\frac{1}{\gamma}}     \\
-    & \le C(n, p, \gamma) \left( \frac{\gamma-1}{\gamma}\|u\|_{L^{(\gamma-1)\frac{p}{p-1}}(R^n)} + \frac{1}{\gamma}\|Du\|_{L^{p}(R^n)}\right)     \\
-    & \le C(n, p, \gamma) \left(\|u\|_{L^{(\gamma-1)\frac{p}{p-1}}(R^n)} + \|Du\|_{L^{p}(R^n)}\right)     \\
+    \|u\|_{L^{\frac{\gamma n}{n-1}}(\mathbb{R}^n)} & \le C(n, p, \gamma) \|u\|_{L^{(\gamma-1)\frac{p}{p-1}}(\mathbb{R}^n)}^{\frac{\gamma-1}{\gamma}} \|Du\|_{L^{p}(\mathbb{R}^n)}^{\frac{1}{\gamma}}     \\
+    & \le C(n, p, \gamma) \left( \frac{\gamma-1}{\gamma}\|u\|_{L^{(\gamma-1)\frac{p}{p-1}}(\mathbb{R}^n)} + \frac{1}{\gamma}\|Du\|_{L^{p}(\mathbb{R}^n)}\right)     \\
+    & \le C(n, p, \gamma) \left(\|u\|_{L^{(\gamma-1)\frac{p}{p-1}}(\mathbb{R}^n)} + \|Du\|_{L^{p}(\mathbb{R}^n)}\right)     \\
 \end{align}$$
 
 当 \(p=n\)，上式就成了
 
 
 $$ \begin{align}
-    \|u\|_{L^{\frac{\gamma n}{n-1}}(R^n)}
-    \le C(n, p, \gamma) \left(\|u\|_{L^{(\gamma-1)\frac{n}{n-1}}(R^n)} + \|Du\|_{L^{n}(R^n)}\right)
+    \|u\|_{L^{\frac{\gamma n}{n-1}}(\mathbb{R}^n)}
+    \le C(n, p, \gamma) \left(\|u\|_{L^{(\gamma-1)\frac{n}{n-1}}(\mathbb{R}^n)} + \|Du\|_{L^{n}(\mathbb{R}^n)}\right)
 \end{align}$$
 
 令 \(\gamma = n\)， 则
 
-$$ \|u\|_{L^{\frac{n^2}{n-1}}(R^n)} \le C(n, p) \left(\|u\|_{L^{n}(R^n)} + \|Du\|_{L^{n}(R^n)}\right) \le C(n, p) \|u\|_{W^{1,n}(R^n)} $$
+$$ \|u\|_{L^{\frac{n^2}{n-1}}(\mathbb{R}^n)} \le C(n, p) \left(\|u\|_{L^{n}(\mathbb{R}^n)} + \|Du\|_{L^{n}(\mathbb{R}^n)}\right) \le C(n, p) \|u\|_{W^{1,n}(\mathbb{R}^n)} $$
 
-得到 \(W^{1,n}(R^n) \subset  L^{\frac{n^2}{n-1}}(R^n)\)。
+得到 \(W^{1,n}(\mathbb{R}^n) \subset  L^{\frac{n^2}{n-1}}(\mathbb{R}^n)\)。
 
 令 \(\gamma = n+1, n+2, \cdots\)，则有
 
 $$ \begin{align}
-    \|u\|_{L^{(n+k+1)\frac{n}{n-1}}(R^n)}
-    & \le C(n, p, k) \left(\|u\|_{L^{(n+k)\frac{n}{n-1}}(R^n)} + \|Du\|_{L^{n}(R^n)}\right) \\
+    \|u\|_{L^{(n+k+1)\frac{n}{n-1}}(\mathbb{R}^n)}
+    & \le C(n, p, k) \left(\|u\|_{L^{(n+k)\frac{n}{n-1}}(\mathbb{R}^n)} + \|Du\|_{L^{n}(\mathbb{R}^n)}\right) \\
     & \le \cdots    \\
-    & \le C(n, p, k) \left(\|u\|_{L^{n\frac{n}{n-1}}(R^n)} + \|Du\|_{L^{n}(R^n)}\right)   \\
-    & \le C(n, p, k) \|u\|_{W^{1,n}(R^n)}
+    & \le C(n, p, k) \left(\|u\|_{L^{n\frac{n}{n-1}}(\mathbb{R}^n)} + \|Du\|_{L^{n}(\mathbb{R}^n)}\right)   \\
+    & \le C(n, p, k) \|u\|_{W^{1,n}(\mathbb{R}^n)}
 \end{align}$$
 
 因此，对 \(q=n, n\frac{n}{n-1}, (n+1)\frac{n}{n-1}, \cdots, (n+k)\frac{n}{n-1}, \cdots\)，有
 
-$$ W^{1,n}(R^n) \subset  L^{q}(R^n) $$
+$$ W^{1,n}(\mathbb{R}^n) \subset  L^{q}(\mathbb{R}^n) $$
 
 再利用 **插值不等式** ，我们得到
 
-$$ W^{1,n}(R^n) \subset  L^{q}(R^n) \quad n \le q < \infty $$
+$$ W^{1,n}(\mathbb{R}^n) \subset  L^{q}(\mathbb{R}^n) \quad n \le q < \infty $$
 
 
 !!! tip
@@ -648,7 +648,7 @@ $$ W^{1,n}(R^n) \subset  L^{q}(R^n) \quad n \le q < \infty $$
     则 \((\gamma_i-1)\frac{p}{p-1} = q_i\)，\(q_{i+1} \triangleq \gamma_i \frac{n}{n-1}\)，
     有
 
-    $$ \|u\|_{L^{q_i}(R^n)} \le C(n, p, i) \|u\|_{W^{1,p}(R^n)} \quad i=0, 1, 2, \cdots $$
+    $$ \|u\|_{L^{q_i}(\mathbb{R}^n)} \le C(n, p, i) \|u\|_{W^{1,p}(\mathbb{R}^n)} \quad i=0, 1, 2, \cdots $$
 
     但是
 
@@ -669,7 +669,7 @@ $$ W^{1,n}(R^n) \subset  L^{q}(R^n) \quad n \le q < \infty $$
 
 ## Bounded 有界情况
 
-对于 \(1\le p\le n\)， 我们已经建立了对 \(u\in C_c^\infty(R^n)\) 的估计， 但是我们之前提到过，对于 \(\Omega\) 是 \(R^n\) 和 \(U\) 的情况是不一样的。        
+对于 \(1\le p\le n\)， 我们已经建立了对 \(u\in C_c^\infty(\mathbb{R}^n)\) 的估计， 但是我们之前提到过，对于 \(\Omega\) 是 \(\mathbb{R}^n\) 和 \(U\) 的情况是不一样的。        
 对于有界集，\(u\) 在靠近 \(\partial\Omega\) 的地方不一定是 0，这就意味着 \(|u|\) 不能直接被 \(Du\) 控制。
 
 对于这种情况， [教材 5.6.1 Theorem 2 3](../index.md#教材) 做出了回答。只不过 \(C\) 要依赖于 \(U\)      
@@ -679,21 +679,21 @@ $$ W^{1,n}(R^n) \subset  L^{q}(R^n) \quad n \le q < \infty $$
 
 ### \(W_0^{1, p}(U)\)
 
-设 \(U \subset R^n\) 是有界开集，           
+设 \(U \subset \mathbb{R}^n\) 是有界开集，           
 对于某个 \(1 \le p < n\)，若 \(u \in W_0^{1, p}(U)\)，
-那么我们应当意识到，\(D^\alpha u, |\alpha| \le 1\) 在靠近 \(\partial\Omega\) 的地方为 0，那么 \(u\) 可以直接延拓到 \(R^n\) 上。
+那么我们应当意识到，\(D^\alpha u, |\alpha| \le 1\) 在靠近 \(\partial\Omega\) 的地方为 0，那么 \(u\) 可以直接延拓到 \(\mathbb{R}^n\) 上。
 
 事实上，因为 \(W_0^{1, p}(U)\) 是 \(C_c^\infty(U)\) 的 **闭包**，所以存在
 
 $$ u_m \in C_c^\infty(U) \; m=1,2,\cdots \quad \text{s.t. }\quad u_m \to u \text{ in } W^{1, p}(U) $$
 
-那么 \(u_m\) 可以延拓到 \(R^n\) 上，        
-那么他们在 \(W^{1,p}(R^n)\) 中的极限显然在 \(U\) 上等于 \(u\)，在 \(U\) 外为 0。        
-也就是说，\(u\) 可以延拓到 \(R^n\) 上。
+那么 \(u_m\) 可以延拓到 \(\mathbb{R}^n\) 上，        
+那么他们在 \(W^{1,p}(\mathbb{R}^n)\) 中的极限显然在 \(U\) 上等于 \(u\)，在 \(U\) 外为 0。        
+也就是说，\(u\) 可以延拓到 \(\mathbb{R}^n\) 上。
 
 那么根据 [GNS 不等式](#gagliardo-nirenberg-sobolev)，有
 
-$$ \|u\|_{L^{p^*}(U)} = \|u\|_{L^{p^*}(R^n)} \le C(n, p) \|Du\|_{L^{p}(R^n)} = C(n, p) \|Du\|_{L^{p}(U)} $$
+$$ \|u\|_{L^{p^*}(U)} = \|u\|_{L^{p^*}(\mathbb{R}^n)} \le C(n, p) \|Du\|_{L^{p}(\mathbb{R}^n)} = C(n, p) \|Du\|_{L^{p}(U)} $$
 
 但是，因为 \(U\) 有界 \(|U| < \infty\)，对于 \(q\le p\)，我们有 [Hölder 不等式](../../RealAnalysis/Inequalities/index.md#holder)
 
@@ -704,12 +704,12 @@ $$ \|f\|_{L^{q}(U)} \le |U|^{1-\frac{q}{p}} \|f\|_{L^{p}(U)} = C(q,p,U)\|f\|_{L^
 $$ \begin{align}
     \|u\|_{L^{q}(U)} &
     \le C(q,p^*,U)\|u\|_{L^{p^*}(U)} \\
-    &\le C(q,p^*,p, U)\|Du\|_{L^{p}(R^n)} \\
+    &\le C(q,p^*,p, U)\|Du\|_{L^{p}(\mathbb{R}^n)} \\
 \end{align} $$
 
 因此对于每个 \(q \in [1, p^*]\)，有
 
-$$ \|u\|_{L^{q}(U)} \le C(U, p, q)\|Du\|_{L^{p}(R^n)} $$
+$$ \|u\|_{L^{q}(U)} \le C(U, p, q)\|Du\|_{L^{p}(\mathbb{R}^n)} $$
 
 得到
 
@@ -770,7 +770,7 @@ $$ W_0^{1, p}(U) \subset L^{q}(U), \quad q \in [1, p^*]  $$
 但如果是 \(Du\) 和 \(u\) 的组合呢？答案是有的
 
 
-令 \(U\subset R^n\) 是有界开集，且 \(\partial U\) 是 \(C^1\) 的，\(1\le p < n\)，\(u\in W^{1,p}(U)\)，则        
+令 \(U\subset \mathbb{R}^n\) 是有界开集，且 \(\partial U\) 是 \(C^1\) 的，\(1\le p < n\)，\(u\in W^{1,p}(U)\)，则        
 
 $$ \|u\|_{L^{p^*}(U)} \le C(n, U, p) \|u\|_{W^{1,p(U)}} $$
 
@@ -822,7 +822,7 @@ $$ W^{1,p}(U) \subset L^{p^*}(U) $$
 [Lawrence C.Evans Partial differential equations 5.7 COMPACTNESS](../index.md#lawrence-cevans-partial-differential-equations)
 
 对于上面最后一种的某些情况，嵌入不仅是连续的，还是紧的，即        
-令 \(U\subset R^n\) 是有界开集，且 \(\partial U\) 是 \(C^1\) 的，\(1\le p < n\)，\(u\in W^{1,p}(U)\)，则
+令 \(U\subset \mathbb{R}^n\) 是有界开集，且 \(\partial U\) 是 \(C^1\) 的，\(1\le p < n\)，\(u\in W^{1,p}(U)\)，则
 
 $$ W^{1,p}(U) \subset\subset L^{q}(U), \quad q \in [1, p^*) $$
 

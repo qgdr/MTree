@@ -9,7 +9,7 @@ $$ \eta(x) = \begin{cases}
     0                       & if \; |x| \ge 1
 \end{cases} $$
 
-\(\eta\) 是光滑的，且 \(\int_{R^n} \eta = 1\)
+\(\eta\) 是光滑的，且 \(\int_{\mathbb{R}^n} \eta = 1\)
 
 对于 \(\epsilon > 0\) ， 令
 
@@ -17,7 +17,7 @@ $$ \eta_\epsilon = \frac{1}{\epsilon^n}  \eta(\frac{x}{\epsilon}) $$
 
 我们有 \( \eta_\epsilon \in C^\infty\) ，
 
-$$ \int_{R^n} \eta_\epsilon = 1 \quad \text{supp} (\eta_\epsilon) \subset B(0, \epsilon) $$
+$$ \int_{\mathbb{R}^n} \eta_\epsilon = 1 \quad \text{supp} (\eta_\epsilon) \subset B(0, \epsilon) $$
 
 ![mollifier](media/images/Sobolev/Mollifier_ManimCE_v0.18.0.png)
 
@@ -25,7 +25,7 @@ $$ \int_{R^n} \eta_\epsilon = 1 \quad \text{supp} (\eta_\epsilon) \subset B(0, \
 
 ## Urysohn 引理
 
-令 \(U, V\) 是 \(R^n\) 中的开集，\(V \subset\subset U\)。
+令 \(U, V\) 是 \(\mathbb{R}^n\) 中的开集，\(V \subset\subset U\)。
 则存在一个光滑函数 \(\zeta\) 使得 \(\zeta(x) \equiv 1, x\in V\)，\(\zeta(x) = 0, x \text{  near  } U\)
 
 **证明**
@@ -63,7 +63,7 @@ $$ \begin{cases}
 因为 \(U \subset\subset \bigcup_{i=1}^N V_i\)，其中 \(V_i\) 是开集，        
 我们可以找到 \(W_i \subset\subset V_i\)，
 使得 \(U \subset\subset \bigcup_{i=1}^N W_i \subset\subset \bigcup_{i=1}^N V_i\)。            
-（由于 \(U \in R^n\) 有界，所以 \(\bar{U}\) 是紧的，每个点都有开集 \(U_x \subset\subset V_i\) 对于某个 \(i\)，\(U_x\) 是一个开覆盖，所以有有限开覆盖 \(U \subset\subset \bigcup_{i=1}^M U_{x_i}\)，将他们分组到各自属于的 \(V_i\)，令每一组的并为 \(W_i\)，则 \(U \subset\subset \bigcup_{i=1}^N W_i\)，且 \(W_i \subset\subset V_i\) ）
+（由于 \(U \in \mathbb{R}^n\) 有界，所以 \(\bar{U}\) 是紧的，每个点都有开集 \(U_x \subset\subset V_i\) 对于某个 \(i\)，\(U_x\) 是一个开覆盖，所以有有限开覆盖 \(U \subset\subset \bigcup_{i=1}^M U_{x_i}\)，将他们分组到各自属于的 \(V_i\)，令每一组的并为 \(W_i\)，则 \(U \subset\subset \bigcup_{i=1}^N W_i\)，且 \(W_i \subset\subset V_i\) ）
 
 对于每个 \(W_i, V_i, i=1, \dots, N\)，存在 \(\phi_i \in C^\infty\) 使得
 
@@ -105,7 +105,7 @@ $$ \sum_{i=1}^N \zeta_i = \sum_{i=1}^N \frac{\phi_i}{\sum_{i=1}^N \phi_i + 1-\ph
 
 ## Local approximation 局部逼近定理 
 
-\(\Omega \subseteq R^n\)，可以无界，        
+\(\Omega \subseteq \mathbb{R}^n\)，可以无界，        
 设对于某个 \(1 \le p < \infty\)， 函数 \(u \in W^{k, p}(\Omega)\)，令
 
 $$ u^\epsilon = \eta_\epsilon * u \quad \text{  in  } \Omega_\epsilon $$

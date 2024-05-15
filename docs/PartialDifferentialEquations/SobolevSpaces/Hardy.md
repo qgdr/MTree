@@ -167,18 +167,18 @@ $$ \int_{B(0,r)} \frac{u^2}{|x|^2} dx \le C(n) \int_{B(0,r)} |Du|^2 + \frac{u^2}
 
 !!! Corollary
 
-    若 \(n\ge 3\) ，对于 \(u\in H^1(R^n)\)，令 \(r\to \infty\)，那么
+    若 \(n\ge 3\) ，对于 \(u\in H^1(\mathbb{R}^n)\)，令 \(r\to \infty\)，那么
 
-    $$ \int_{B(0,r)} \frac{u^2}{r^2} dx \le \frac{1}{r^2} \int_{R^n} u^2 dx = \frac{1}{r^2} \|u\|_{L^2(R^n)}^2 \to 0 $$
+    $$ \int_{B(0,r)} \frac{u^2}{r^2} dx \le \frac{1}{r^2} \int_{\mathbb{R}^n} u^2 dx = \frac{1}{r^2} \|u\|_{L^2(\mathbb{R}^n)}^2 \to 0 $$
 
     但是
 
-    $$ \int_{B(0,r)} \frac{u^2}{r^2} dx \to \int_{R^n} \frac{u^2}{|x|^2} dx ,\qquad 
-    \int_{B(0,r)} |Du|^2 \to \int_{R^n} |Du|^2 $$
+    $$ \int_{B(0,r)} \frac{u^2}{r^2} dx \to \int_{\mathbb{R}^n} \frac{u^2}{|x|^2} dx ,\qquad 
+    \int_{B(0,r)} |Du|^2 \to \int_{\mathbb{R}^n} |Du|^2 $$
 
     所以
 
-    $$ \int_{R^n} \frac{u^2}{|x|^2} dx \le C(n) \int_{R^n} |Du|^2 $$
+    $$ \int_{\mathbb{R}^n} \frac{u^2}{|x|^2} dx \le C(n) \int_{\mathbb{R}^n} |Du|^2 $$
 
     我们给出一个具体的 \(C\)，取 \(\lambda=\dfrac{2}{n-2}, \mu \to \infty\)，\(C(n)=\lambda(n-2-\frac{1}{\lambda})^{-1}=\dfrac{4}{(n-2)^2}\)
 

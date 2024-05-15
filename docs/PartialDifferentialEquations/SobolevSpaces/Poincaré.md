@@ -15,7 +15,7 @@ $$ (u)_U = {-\mkern -19mu\int}_{U} u $$
 
 ## Poincare's inequalities
 
-令 \(U \subset R^n\) 是 *有界连通开集* ，\(\partial U\) 是 \(C^1\) 的。       
+令 \(U \subset \mathbb{R}^n\) 是 *有界连通开集* ，\(\partial U\) 是 \(C^1\) 的。       
 设 \(1 \le p \le \infty\)，那么存在常数 \(C=C(n,p,U)\) 使得对于任何 \(u \in W^{1,p}(U)\)
 
 $$ \|u-(u)_U\|_{L^p(U)} \le C \|Du\|_{L^p(U)} $$
@@ -45,7 +45,7 @@ $$ \|u-(u)_U\|_{L^p(U)} \le C \|Du\|_{L^p(U)} $$
 
 !!! Question
 
-    固定 \(\alpha>0\)，\(U \subset R^n\) 是有界 **连通** 开集，     
+    固定 \(\alpha>0\)，\(U \subset \mathbb{R}^n\) 是有界 **连通** 开集，     
     设 \(1 \le p \le \infty\)，那么存在常数 \(C=C(n,p,U)\) 使得对于任何 \(u \in W^{1,p}(U)\) 且
 
     $$ E_u = \{x\in U | u(x)=0\}, \quad \mu(E_u) \ge \alpha $$
