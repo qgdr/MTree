@@ -13,6 +13,10 @@
       
       
       
+        <link rel="prev" href="../../LpSpaces/">
+      
+      
+        <link rel="next" href="../../Approximation/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>叠加原理 - MTree</title>
+        <title>卷积2 - MTree</title>
       
     
     
@@ -85,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#convolution-2-2" class="md-skip">
           跳转至
         </a>
       
@@ -121,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              叠加原理
+              卷积2
             
           </span>
         </div>
@@ -1422,6 +1426,8 @@
       
   
   
+    
+  
   
   
     
@@ -1444,11 +1450,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           
@@ -1470,7 +1476,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             RealAnalysis
@@ -1645,10 +1651,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../conv2/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    卷积2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1657,6 +1683,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      连续性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#young" class="md-nav__link">
+    <span class="md-ellipsis">
+      Young 不等式
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2751,6 +2815,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      连续性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#young" class="md-nav__link">
+    <span class="md-ellipsis">
+      Young 不等式
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2769,7 +2859,43 @@
 
 
 <!-- Page content -->
-<h1 id="_1">叠加原理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="convolution-2-2">Convolution 2 卷积 2<a class="headerlink" href="#convolution-2-2" title="Permanent link">&para;</a></h1>
+<p>在认识了 <span class="arithmatex">\(L^p\)</span> 空间后，我们进一步认识一下卷积</p>
+<h2 id="_1">连续性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>对于 <span class="arithmatex">\(1\le p &lt; \infty\)</span>，如果 <span class="arithmatex">\(f\in L^p(\mathbb{R}^n), g\in L^{p'}(\mathbb{R}^n)\)</span>，则 <span class="arithmatex">\(f*g\in C(\mathbb{R}^n)\)</span></p>
+<p><strong>proof</strong></p>
+<div class="arithmatex">\[ \begin{aligned}
+    f*g(x)-f*g(y) &amp;= \int_{\mathbb{R}^n} (f(x-t)-f(y-t))g(t)dt \\
+    &amp;\le \|f-\tau_{y-x}f\|_{L^{p}(\mathbb{R}^n)}\|g\|_{L^{p'}(\mathbb{R}^n)}   \\
+\end{aligned} \]</div>
+<p>其中  <span class="arithmatex">\(\tau_{y-x}f(t) = f(t+y-x)\)</span>， <span class="arithmatex">\(\tau\)</span> 称为平移算子。</p>
+<p>当 <span class="arithmatex">\(y-x\to 0\)</span> 时， <span class="arithmatex">\(\|f-\tau_{y-x}f\|_{L^{p}(\mathbb{R}^n)} \to 0\)</span>，      <br />
+因此 <span class="arithmatex">\(f*g(x)-f*g(y) \to 0\)</span>，那么 <span class="arithmatex">\(f*g\in C(\mathbb{R}^n)\)</span>。</p>
+<p>我们简要说明为何 <span class="arithmatex">\(\|f-\tau_{y-x}f\|_{L^{p}(\mathbb{R}^n)} \to 0\)</span>。
+这是因为 <span class="arithmatex">\(C_c^\infty(\mathbb{R}^n)\)</span> 在 <span class="arithmatex">\(L^p(\mathbb{R}^n)\)</span> 中 <strong>稠密</strong>，  <br />
+因此对任意的 <span class="arithmatex">\(\forall \epsilon&gt;0\)</span> ， 我们可以找到 <span class="arithmatex">\(\phi\in C_c^\infty(\mathbb{R}^n)\)</span> 使得 <span class="arithmatex">\(\|f-\phi\|_{L^{p}(\mathbb{R}^n)} &lt; \epsilon\)</span>.
+那么，</p>
+<div class="arithmatex">\[ \begin{aligned} \|f-\tau_{y-x}f\|_{L^{p}(\mathbb{R}^n)} 
+&amp;\le \|f-\phi\|_{L^{p}(\mathbb{R}^n)} + \|\tau_{y-x}\phi-\tau_{y-x}f\|_{L^{p}(\mathbb{R}^n)} + \|\phi-\tau_{y-x}\phi\|_{L^{p}(\mathbb{R}^n)}        \\
+&amp;= 2\|f-\phi\|_{L^{p}(\mathbb{R}^n)} + \|\phi-\tau_{y-x}\phi\|_{L^{p}(\mathbb{R}^n)}        \\
+&amp;&lt; 2\epsilon +  \|\|\phi'\|_{L^\infty}(y-x)\|_{L^{p}(\mathbb{R}^n)}       \\
+% &amp;&lt; 2\epsilon + \left( \int_{\mathbb{R}^n} \|\phi'(t)\|_{L^\infty}^p dt \right)^{\frac{1}{p}}        \\
+&amp;= 2\epsilon +  \|\phi'\|_{L^\infty}|y-x|\mu(\text{supp}(\phi)+B(0,y-x))       \\
+&amp;\to 2\epsilon \quad \text{ as } y-x\to 0.
+\end{aligned} \]</div>
+<p>所以 <span class="arithmatex">\(\|f-\tau_{y-x}f\|_{L^{p}(\mathbb{R}^n)} \to 0\)</span>.</p>
+<h2 id="young">Young 不等式<a class="headerlink" href="#young" title="Permanent link">&para;</a></h2>
+<p><span class="arithmatex">\(f\in L^1(\mathbb{R}^n), g\in L^p(\mathbb{R}^n), 1\le p &lt; \infty\)</span>，则</p>
+<div class="arithmatex">\[ \|f*g\|_{L^p(\mathbb{R}^n)} \le \|f\|_{L^1(\mathbb{R}^n)} \|g\|_{L^p(\mathbb{R}^n)} \]</div>
+<p><strong>proof</strong></p>
+<p>我们利用 <a href="../../Inequalities/#minkowski">Minkowski 不等式</a> 4</p>
+<p>记 <span class="arithmatex">\(G_x(y) := f(x)g(y-x)\)</span>，则</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \|f*g\|_{L^p(\mathbb{R}^n)} &amp;= \|\int_{\mathbb{R}^n} G_x(y) dx\|_{L^p} \\
+    &amp;\le \int_{\mathbb{R}^n}\| G_x(y) \|_{L^p} \; dx         \quad \text{ by Minkowski} \\
+    &amp;= \int_{\mathbb{R}^n} f(x)\|g\|_{L^p} \;dx \\
+    &amp;= \|f\|_{L^1} \|g\|_{L^p}
+\end{aligned} \]</div>
 
 <!-- Source file information -->
 
@@ -2788,8 +2914,50 @@ aria-label="页脚"
 
 <!-- Link to previous page -->
 
+  
+  <a
+    href="../../LpSpaces/"
+    class="md-footer__link md-footer__link--prev"
+    aria-label="上一页: \(L^p\) 空间"
+    rel="prev"
+  >
+    <div class="md-footer__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+    </div>
+    <div class="md-footer__title">
+      <span class="md-footer__direction">
+        上一页
+      </span>
+      <div class="md-ellipsis">
+        \(L^p\) 空间
+      </div>
+    </div>
+  </a>
+
 
 <!-- Link to next page -->
+
+  
+  <a
+    href="../../Approximation/"
+    class="md-footer__link md-footer__link--next"
+    aria-label="下一页: 逼近 Approximation"
+    rel="next"
+  >
+    <div class="md-footer__title">
+      <span class="md-footer__direction">
+        下一页
+      </span>
+      <div class="md-ellipsis">
+        逼近 Approximation
+      </div>
+    </div>
+    <div class="md-footer__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+    </div>
+  </a>
 
 </nav>
 
@@ -2815,6 +2983,44 @@ aria-label="页脚"
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../../LpSpaces/" class="md-footer__link md-footer__link--prev" aria-label="上一页: \(L^p\) 空间">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                \(L^p\) 空间
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../Approximation/" class="md-footer__link md-footer__link--next" aria-label="下一页: 逼近 Approximation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                逼近 Approximation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

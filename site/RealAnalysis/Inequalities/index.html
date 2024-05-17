@@ -1443,6 +1443,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1616,6 +1620,81 @@
           
           
           <div class="md-nav__link md-nav__container">
+            <a href="../LpSpaces/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Lp 空间
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lp 空间
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Convolution/conv2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    卷积2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
             <a href="../Approximation/" class="md-nav__link ">
               
   
@@ -1628,8 +1707,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
             <span class="md-nav__icon md-icon"></span>
             逼近
           </label>
@@ -2713,6 +2792,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#minkowski" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minkowski 不等式
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2756,7 +2844,7 @@
 <p>我更喜欢下面的形式，对于 <span class="arithmatex">\(a_i, b_i \in \mathbb{R}\)</span>, <span class="arithmatex">\(\theta \in [0,1]\)</span></p>
 <div class="arithmatex">\[ \sum_{i=1}^n |a_i|^\theta |b_i|^{1-\theta} \le ( \sum_{i=1}^n |a_i| )^{\theta} ( \sum_{i=1}^n |b_i| )^{1-\theta} \]</div>
 <p>我们介绍两种典型的证明方法</p>
-<p>当 <span class="arithmatex">\(a_i = 0\)</span> 或 <span class="arithmatex">\(b_i = 0\)</span> 时，显然成立。  <br />
+<p>当 <span class="arithmatex">\(\symbf{a} = \symbf{0}\)</span> 或 <span class="arithmatex">\(\symbf{b} = \symbf{0}\)</span> 时，显然成立。  <br />
 否则，不妨设 <span class="arithmatex">\(\sum_{i=1}^n a_i = 1, \sum_{i=1}^n b_i = 1\)</span>，那么由 <a href="./#young">Young 不等式</a> 可以得到</p>
 <div class="arithmatex">\[ \begin{gather*}
     |a_i|^\theta |b_i|^{1-\theta} \le \theta |a_i| + (1-\theta) |b_i|       \\
@@ -2770,6 +2858,7 @@
 \end{gather*} \]</div>
 <p>令 <span class="arithmatex">\(\lambda = \dfrac{\sum_{i=1}^n |b_i|}{\sum_{i=1}^n |a_i|}\)</span>，则不等式变为</p>
 <div class="arithmatex">\[ \sum_{i=1}^n |a_i|^\theta |b_i|^{1-\theta} \le (\theta + 1-\theta) (\sum_{i=1}^n  |a_i|)^\theta (\sum_{i=1}^n |b_i|)^{1-\theta} \]</div>
+<p>我们再说连续版本</p>
 <p><strong>2</strong>.</p>
 <p>对于 <span class="arithmatex">\(a_i, b_i, c_i \in \mathbb{R}, i = 1,2,\dots,n\)</span>, 
 以及 <span class="arithmatex">\(\alpha, \beta, \gamma \in [0,1],  \alpha + \beta + \gamma = 1\)</span></p>
@@ -2805,6 +2894,42 @@
 <div class="arithmatex">\[ \int_\Omega \prod_{j=1}^m |f_j|^{\alpha_j} \le \prod_{j=1}^m \left( \int_\Omega |f_j| \right)^{\alpha_j} \]</div>
 <p>也即</p>
 <div class="arithmatex">\[ \|f_1\cdots f_m\|_1 \le \|f_1\|_{p_1} \cdots \|f_m\|_{p_m}, \quad 1\le p_j \le \infty , \sum_{j=1}^m \frac{1}{p_j} = 1 \]</div>
+<h2 id="minkowski">Minkowski 不等式<a class="headerlink" href="#minkowski" title="Permanent link">&para;</a></h2>
+<p>同样也有离散和连续版本</p>
+<p><strong>1</strong>.</p>
+<p>对于 <span class="arithmatex">\(\symbf{a} , \symbf{b} \in \mathbb{R}^n, 1\le p&lt; \infty\)</span></p>
+<div class="arithmatex">\[ \|\symbf{a} + \symbf{b}\|_p \le \|\symbf{a}\|_p + \| \symbf{b}\|_p \]</div>
+<p><strong>2</strong>.</p>
+<p>对于函数 <span class="arithmatex">\(f, g \in L^p(\Omega), 1\le p &lt;\infty\)</span></p>
+<div class="arithmatex">\[ \|f+g\|_{L^p} \le \|f\|_{L^p} + \|g\|_{L^p} \]</div>
+<p>这两个不等式都描述了一个事实， 即范数 <span class="arithmatex">\(l_p, L^p\)</span> 的三角不等式! 证明也极其类似。</p>
+<p>我们为了简化问题，不妨将向量（函数）单位化，将原问题改写为</p>
+<div class="arithmatex">\[ \|a\symbf{x} + b\symbf{y}\|_p \le \|a\symbf{x}\|_p + \|b \symbf{y}\|_p = a + b \]</div>
+<p>其中 <span class="arithmatex">\(\|\symbf{x}\|_p = \|\symbf{x}\|_p\ = 1, \quad a, b \ge 0\)</span>.
+那么不等式等价于</p>
+<div class="arithmatex">\[ \sum_{i=1}^n |a x_i + b y_i |^p \le (a + b)^p \]</div>
+<p>但是由 <a href="./#holder">Hölder 不等式</a>，我们有</p>
+<div class="arithmatex">\[ |a x_i + b y_i |^p \le (a+b)^{p-1}(a |x_i|^p + b |y_i|^p ) \]</div>
+<p>求和则有</p>
+<div class="arithmatex">\[ \sum_{i=1}^n |a x_i + b y_i |^p \le (a+b)^{p-1} \sum_{i=1}^n  (a |x_i|^p + b |y_i|^p ) = (a+b)^p  \]</div>
+<p>得证.     <br />
+绝大多数教材上的标准证法都与上面的等价。</p>
+<p>连续版本同理，</p>
+<div class="arithmatex">\[ \int_\Omega |a f(x) + b g(x)|^p \le (a+b)^{p-1}\int_\Omega a|f(x)|^p + b|g(x)|^p = (a+b)^p\]</div>
+<p>where <span class="arithmatex">\(\|f\|_p = \|g\|_p = 1\)</span> </p>
+<p>对于 <span class="arithmatex">\(p=\infty\)</span> 是不言自明的。</p>
+<p><strong>3</strong>.</p>
+<p>对于 <span class="arithmatex">\(\symbf{a}_i \in \mathbb{R}^n, i=1, 2,\dots,m ,\quad 1\le p\le \infty\)</span></p>
+<div class="arithmatex">\[ \|\sum_{i=1}^m \symbf{a}_i\|_p \le \sum_{i=1}^m \|\symbf{a}_i\|_p \]</div>
+<p>在函数情况下类比有</p>
+<p><strong>4</strong>.</p>
+<p>设 <span class="arithmatex">\(f(x, y)\)</span> 是 <span class="arithmatex">\(\mathbb{R}^n \times \mathbb{R}^m\)</span> 上的可测函数，<span class="arithmatex">\(1\le p &lt;\infty\)</span>。
+且对几乎处处的 <span class="arithmatex">\(y\in \mathbb{R}^m\)</span>，<span class="arithmatex">\(f_y(x) := f(x,y) \in L^p(\mathbb{R}^n)\)</span>，且</p>
+<div class="arithmatex">\[ \int_{\mathbb{R}^n} \|f_y(x)\|_{L^p(\mathbb{R}^n)}dy = \int_{\mathbb{R}^n} \left(\int_{\mathbb{R}^m} |f(x, y)|^p dx \right)^{\frac{1}{p}} dy &lt; \infty \]</div>
+<p>则</p>
+<div class="arithmatex">\[ \| \int_{\mathbb{R}^n} f_y(x)dy \|_{L^p(\mathbb{R})^n} \le \int_{\mathbb{R}^n} \|f_y(x)\|_{L^p(\mathbb{R}^n)}dy \]</div>
+<p>证明需要一些技巧</p>
+<p><a href="../../Library/%E3%80%8A%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E8%AE%BA%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8B%E5%91%A8%E6%B0%91%E5%BC%BA%2B%E5%8C%97%E4%BA%AC%E5%A4%A7%E5%AD%A62008%E5%B9%B45%E6%9C%88%E7%AC%AC2%E7%89%88.pdf">周民强 实变函数论 6.4 定理 6.20</a></p>
 
 <!-- Source file information -->
 
@@ -2851,7 +2976,7 @@ aria-label="页脚"
   <a
     href="../Convolution/"
     class="md-footer__link md-footer__link--next"
-    aria-label="下一页: 卷积"
+    aria-label="下一页: Convolution 卷积"
     rel="next"
   >
     <div class="md-footer__title">
@@ -2859,7 +2984,7 @@ aria-label="页脚"
         下一页
       </span>
       <div class="md-ellipsis">
-        卷积
+        Convolution 卷积
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -2914,13 +3039,13 @@ aria-label="页脚"
         
         
           
-          <a href="../Convolution/" class="md-footer__link md-footer__link--next" aria-label="下一页: 卷积">
+          <a href="../Convolution/" class="md-footer__link md-footer__link--next" aria-label="下一页: Convolution 卷积">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                卷积
+                Convolution 卷积
               </div>
             </div>
             <div class="md-footer__button md-icon">

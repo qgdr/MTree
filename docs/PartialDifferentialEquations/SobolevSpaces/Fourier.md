@@ -22,6 +22,8 @@ $$ \|\hat{u}\|_{L^2(\mathbb{R}^{n})} = \|\check{u}\|_{L^2(\mathbb{R}^{n})} = \|u
 
 ## Fourier Transform 的性质
 
+对于 \(u, v \in L^2(\mathbb{R}^{n})\) 有下面的性质
+
 1 .
 
 $$ \int_{\mathbb{R}^{n}} u\; \bar{v}\; dx = \int_{\mathbb{R}^{n}} \hat{u}\; \bar{\hat{v}}\; dy $$
@@ -38,7 +40,11 @@ $$ (D^\alpha u)\hat\; = (iy)^\alpha \hat{u} $$
 4 . 
 设 \(u,v\in L^1(\mathbb{R}^{n})\cap L^2(\mathbb{R}^{n})\)，则
 
-$$ (u*v)\hat\; = (2\pi)^{n/2} \hat{u}\hat{v}, \quad \hat{u}*\hat{v} = (2\pi)^{n/2} \hat{uv} $$
+$$ (u*v)\hat\; = (2\pi)^{n/2} \hat{u}\hat{v}$$
+
+同理, 若 \(\hat{u},\hat{v}\in L^1(\mathbb{R}^{n})\cap L^2(\mathbb{R}^{n})\)，则
+
+$$ \hat{u}*\hat{v} = (2\pi)^{n/2} \hat{uv} $$
 
 
 ## 等价性 Equivalence
@@ -102,19 +108,18 @@ $$ \|u\|_{H^s(\mathbb{R}^{n})} = \|(1+|y|^s)\hat{u}\|_{L^2(\mathbb{R}^{n})} = \l
 
 **solution**
 
-由 [性质](./Fourier.md#fourier-transform) \(u = (\hat{u})\check\;\),
+因为
 
 $$ \begin{aligned}
-    |u(x)| &= \frac{1}{(2\pi)^{n/2}} \Big|\int_{\mathbb{R}^n} e^{iy \cdot x} \hat{u}(y) dy\Big|  \\
-    &= C(n) \Big|\int_{\mathbb{R}^n} \frac{e^{-iy \cdot x}}{1+|y|^s} (1+|y|^s)\hat{u}(y) dy\Big|  \\
-    &\le C(n)\|(1+|y|^s)\hat{u}(y)\|_{L^2(\mathbb{R}^n)}\left(\int_{\mathbb{R}^n} \left(\frac{|e^{-iy \cdot x}|}{1+|y|^s}\right)^2 dy \right)^{\frac{1}{2}} \\
+    \int_{\mathbb{R}^{n}} |\hat{u}(x)| dx &= \int_{\mathbb{R}^{n}} \frac{1}{1+|y|^s} (1+|y|^s)|\hat{u}(y)| dy \\
+    &\le \|(1+|y|^s)\hat{u}(y)\|_{L^2(\mathbb{R}^n)}  \|\frac{1}{1+|y|^s}\|_{L^2(\mathbb{R}^{n})} \\
 \end{aligned} $$
-
 
 但是
 
 $$ \begin{aligned}
-    \int_{\mathbb{R}^n}\left(\frac{|e^{-iy \cdot x}|}{1+|y|^s}\right)^2 dy 
+\|\frac{1}{1+|y|^s}\|_{L^2(\mathbb{R}^{n})}^2
+    % \int_{\mathbb{R}^n}\left(\frac{|e^{-iy \cdot x}|}{1+|y|^s}\right)^2 dy 
     &\le \int_{\mathbb{R}^n}\frac{1}{1+|y|^{2s}} dy     \\
     &= n\alpha(n)\int_{0}^{\infty} \frac{r^{n-1}}{1+r^{2s}}  dr \\ 
     &= \alpha(n) \int_{0}^{\infty} \frac{1}{1+t^{2s/n}}  dt  \quad (t=\mathbb{R}^n)
@@ -126,7 +131,20 @@ $$ \int_{0}^{\infty} \frac{1}{1+t^{2s/n}}  dt < 1 + \int_1^\infty \frac{1}{t^{2s
 
 所以
 
-$$ \|u(x)\|_{L^\infty(\mathbb{R}^n)} \le C(s, n)\|u\|_{H^s(\mathbb{R}^n)} $$
+$$ \|\hat{u}\|_{L^1(\mathbb{R}^{n})} \le C(s,n)\|u\|_{H^s(\mathbb{R}^{n})} < \infty $$
+
+即 \(\hat{u}\in L^1(\mathbb{R}^{n})\). 又因为 \(u\in L^2(\mathbb{R}^{n}) \Rightarrow \hat{u} \in L^2(\mathbb{R}^{n})\)，我们得到
+
+$$ \hat{u} \in L^1(\mathbb{R}^{n}) \cap L^2(\mathbb{R}^{n}) $$
+
+那么，由 [性质](./Fourier.md#fourier-transform) 2 ，我们有 \(u = (\hat{u})\check\;\),
+
+$$ \begin{aligned}
+    |u(x)| &= \frac{1}{(2\pi)^{n/2}} \Big|\int_{\mathbb{R}^n} e^{iy \cdot x} \hat{u}(y) dy\Big|  \\
+    &\le \frac{1}{(2\pi)^{n/2}}\int_{\mathbb{R}^n} |\hat{u}(y)| dy \\
+    &\le C(s, n)\|u\|_{H^s(\mathbb{R}^n)}
+\end{aligned} $$
+
 
 
 
@@ -140,6 +158,7 @@ $$ \|u(x)\|_{L^\infty(\mathbb{R}^n)} \le C(s, n)\|u\|_{H^s(\mathbb{R}^n)} $$
 
 **solution**
 
+经过上一题的讨论， 由 \(s > n/2\)，我们可以得到 \(\hat{u}, \hat{v}\in L^1(\mathbb{R}^{n})\)，那么
 由 [性质](./Fourier.md#fourier-transform) 4，
 
 $$ uv = \mathcal{F}^{-1} \circ \mathcal{F} (uv) = \frac{1}{(2\pi)^{n/2}}(\hat{u}*\hat{v})\check\; $$
@@ -166,7 +185,7 @@ $$ \begin{aligned}
 \end{aligned} $$
 
 
-现在我们由 [Young 不等式](../../RealAnalysis/Inequalities/index.md#young)
+现在我们由 [Young 不等式](../../RealAnalysis/Convolution/conv2.md#young)
 
 $$ \|f*g\|_{L^p} \le \|f\|_{L^1} \|g\|_{L^p} $$
 

@@ -4,6 +4,9 @@ nav:
   - Inequalities/index.md
 - 卷积: 
   - Convolution/index.md
+- Lp 空间: 
+  - LpSpaces/index.md
+- 卷积2: Convolution/conv2.md
 - 逼近: 
   - Approximation/index.md
 

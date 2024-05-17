@@ -1441,6 +1441,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1612,6 +1616,81 @@
           
           
           <div class="md-nav__link md-nav__container">
+            <a href="../../../RealAnalysis/LpSpaces/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Lp 空间
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lp 空间
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RealAnalysis/Convolution/conv2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    卷积2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
             <a href="../../../RealAnalysis/Approximation/" class="md-nav__link ">
               
   
@@ -1624,8 +1703,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
             <span class="md-nav__icon md-icon"></span>
             逼近
           </label>
@@ -2865,6 +2944,7 @@
 <p>假设 <span class="arithmatex">\(u\in L^1(\mathbb{R}^{n})\cap L^2(\mathbb{R}^{n})\)</span>.那么 <span class="arithmatex">\(\hat{u}, \check{u} \in L^2(\mathbb{R}^{n})\)</span> 且</p>
 <div class="arithmatex">\[ \|\hat{u}\|_{L^2(\mathbb{R}^{n})} = \|\check{u}\|_{L^2(\mathbb{R}^{n})} = \|u\|_{L^2(\mathbb{R}^{n})} \]</div>
 <h2 id="fourier-transform">Fourier Transform 的性质<a class="headerlink" href="#fourier-transform" title="Permanent link">&para;</a></h2>
+<p>对于 <span class="arithmatex">\(u, v \in L^2(\mathbb{R}^{n})\)</span> 有下面的性质</p>
 <p>1 .</p>
 <div class="arithmatex">\[ \int_{\mathbb{R}^{n}} u\; \bar{v}\; dx = \int_{\mathbb{R}^{n}} \hat{u}\; \bar{\hat{v}}\; dy \]</div>
 <p>2 .</p>
@@ -2873,7 +2953,9 @@
 <div class="arithmatex">\[ (D^\alpha u)\hat\; = (iy)^\alpha \hat{u} \]</div>
 <p>4 . 
 设 <span class="arithmatex">\(u,v\in L^1(\mathbb{R}^{n})\cap L^2(\mathbb{R}^{n})\)</span>，则</p>
-<div class="arithmatex">\[ (u*v)\hat\; = (2\pi)^{n/2} \hat{u}\hat{v}, \quad \hat{u}*\hat{v} = (2\pi)^{n/2} \hat{uv} \]</div>
+<div class="arithmatex">\[ (u*v)\hat\; = (2\pi)^{n/2} \hat{u}\hat{v}\]</div>
+<p>同理, 若 <span class="arithmatex">\(\hat{u},\hat{v}\in L^1(\mathbb{R}^{n})\cap L^2(\mathbb{R}^{n})\)</span>，则</p>
+<div class="arithmatex">\[ \hat{u}*\hat{v} = (2\pi)^{n/2} \hat{uv} \]</div>
 <h2 id="equivalence">等价性 Equivalence<a class="headerlink" href="#equivalence" title="Permanent link">&para;</a></h2>
 <p>在说明分数阶 Sobolev 范数的合理性之前，我们先观察一些等价性命题。</p>
 <p>回忆我们在泛函分析中所学到的，对于一个空间 <span class="arithmatex">\(X\)</span> 中的两个范数 <span class="arithmatex">\(\|\cdot\|_1, \|\cdot\|_2\)</span>，  <br />
@@ -2906,15 +2988,15 @@
 <p>这里我们用 Fourier 变换来证明相似的结果。</p>
 </div>
 <p><strong>solution</strong></p>
-<p>由 <a href="./#fourier-transform">性质</a> <span class="arithmatex">\(u = (\hat{u})\check\;\)</span>,</p>
+<p>因为</p>
 <div class="arithmatex">\[ \begin{aligned}
-    |u(x)| &amp;= \frac{1}{(2\pi)^{n/2}} \Big|\int_{\mathbb{R}^n} e^{iy \cdot x} \hat{u}(y) dy\Big|  \\
-    &amp;= C(n) \Big|\int_{\mathbb{R}^n} \frac{e^{-iy \cdot x}}{1+|y|^s} (1+|y|^s)\hat{u}(y) dy\Big|  \\
-    &amp;\le C(n)\|(1+|y|^s)\hat{u}(y)\|_{L^2(\mathbb{R}^n)}\left(\int_{\mathbb{R}^n} \left(\frac{|e^{-iy \cdot x}|}{1+|y|^s}\right)^2 dy \right)^{\frac{1}{2}} \\
+    \int_{\mathbb{R}^{n}} |\hat{u}(x)| dx &amp;= \int_{\mathbb{R}^{n}} \frac{1}{1+|y|^s} (1+|y|^s)|\hat{u}(y)| dy \\
+    &amp;\le \|(1+|y|^s)\hat{u}(y)\|_{L^2(\mathbb{R}^n)}  \|\frac{1}{1+|y|^s}\|_{L^2(\mathbb{R}^{n})} \\
 \end{aligned} \]</div>
 <p>但是</p>
 <div class="arithmatex">\[ \begin{aligned}
-    \int_{\mathbb{R}^n}\left(\frac{|e^{-iy \cdot x}|}{1+|y|^s}\right)^2 dy 
+\|\frac{1}{1+|y|^s}\|_{L^2(\mathbb{R}^{n})}^2
+    % \int_{\mathbb{R}^n}\left(\frac{|e^{-iy \cdot x}|}{1+|y|^s}\right)^2 dy 
     &amp;\le \int_{\mathbb{R}^n}\frac{1}{1+|y|^{2s}} dy     \\
     &amp;= n\alpha(n)\int_{0}^{\infty} \frac{r^{n-1}}{1+r^{2s}}  dr \\ 
     &amp;= \alpha(n) \int_{0}^{\infty} \frac{1}{1+t^{2s/n}}  dt  \quad (t=\mathbb{R}^n)
@@ -2922,14 +3004,23 @@
 <p>由于 <span class="arithmatex">\(2s &gt; n\)</span> 因此 </p>
 <div class="arithmatex">\[ \int_{0}^{\infty} \frac{1}{1+t^{2s/n}}  dt &lt; 1 + \int_1^\infty \frac{1}{t^{2s/n}} dt = 1 - \frac{1}{1-2s/n} &lt; \infty \]</div>
 <p>所以</p>
-<div class="arithmatex">\[ \|u(x)\|_{L^\infty(\mathbb{R}^n)} \le C(s, n)\|u\|_{H^s(\mathbb{R}^n)} \]</div>
+<div class="arithmatex">\[ \|\hat{u}\|_{L^1(\mathbb{R}^{n})} \le C(s,n)\|u\|_{H^s(\mathbb{R}^{n})} &lt; \infty \]</div>
+<p>即 <span class="arithmatex">\(\hat{u}\in L^1(\mathbb{R}^{n})\)</span>. 又因为 <span class="arithmatex">\(u\in L^2(\mathbb{R}^{n}) \Rightarrow \hat{u} \in L^2(\mathbb{R}^{n})\)</span>，我们得到</p>
+<div class="arithmatex">\[ \hat{u} \in L^1(\mathbb{R}^{n}) \cap L^2(\mathbb{R}^{n}) \]</div>
+<p>那么，由 <a href="./#fourier-transform">性质</a> 2 ，我们有 <span class="arithmatex">\(u = (\hat{u})\check\;\)</span>,</p>
+<div class="arithmatex">\[ \begin{aligned}
+    |u(x)| &amp;= \frac{1}{(2\pi)^{n/2}} \Big|\int_{\mathbb{R}^n} e^{iy \cdot x} \hat{u}(y) dy\Big|  \\
+    &amp;\le \frac{1}{(2\pi)^{n/2}}\int_{\mathbb{R}^n} |\hat{u}(y)| dy \\
+    &amp;\le C(s, n)\|u\|_{H^s(\mathbb{R}^n)}
+\end{aligned} \]</div>
 <div class="admonition question">
 <p class="admonition-title">21</p>
 <p>考虑 <span class="arithmatex">\(u v\in H^s(\mathbb{R}^{n})\)</span>，若 <span class="arithmatex">\(s &gt; n/2\)</span>，则 <span class="arithmatex">\(uv\in H^s(\mathbb{R}^{n})\)</span>，且</p>
 <div class="arithmatex">\[ \|uv\|_{H^s(\mathbb{R}^{n})} \leq C(s,n) \|u\|_{H^s(\mathbb{R}^{n})} \|v\|_{H^s(\mathbb{R}^{n})} \]</div>
 </div>
 <p><strong>solution</strong></p>
-<p>由 <a href="./#fourier-transform">性质</a> 4，</p>
+<p>经过上一题的讨论， 由 <span class="arithmatex">\(s &gt; n/2\)</span>，我们可以得到 <span class="arithmatex">\(\hat{u}, \hat{v}\in L^1(\mathbb{R}^{n})\)</span>，那么
+由 <a href="./#fourier-transform">性质</a> 4，</p>
 <div class="arithmatex">\[ uv = \mathcal{F}^{-1} \circ \mathcal{F} (uv) = \frac{1}{(2\pi)^{n/2}}(\hat{u}*\hat{v})\check\; \]</div>
 <p>因此</p>
 <div class="arithmatex">\[ \begin{aligned} 
@@ -2946,7 +3037,7 @@
     &amp;\le C(s, n) \| \int_{\mathbb{R}^{n}} (1+|t|^s + 1+|y-t|^s) \; \hat{u}(t) \; \hat{v}(y-t)\; dt \|_{L^2(\mathbb{R}^{n})}     \\
     &amp;\le C(s, n) ( \|  ((1+|y|^s) \; \hat{u}) * \hat{v} \|_{L^2(\mathbb{R}^{n})} + \| \hat{u} * ((1+|y|^s) \; \hat{v}) \|_{L^2(\mathbb{R}^{n})} )    \\
 \end{aligned} \]</div>
-<p>现在我们由 <a href="../../../RealAnalysis/Inequalities/#young">Young 不等式</a></p>
+<p>现在我们由 <a href="../../../RealAnalysis/Convolution/conv2/#young">Young 不等式</a></p>
 <div class="arithmatex">\[ \|f*g\|_{L^p} \le \|f\|_{L^1} \|g\|_{L^p} \]</div>
 <p>我们得到</p>
 <div class="arithmatex">\[ \begin{aligned}

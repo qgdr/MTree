@@ -44,7 +44,7 @@ $$ \sum_{i=1}^n |a_i|^\theta |b_i|^{1-\theta} \le ( \sum_{i=1}^n |a_i| )^{\theta
 
 我们介绍两种典型的证明方法
 
-当 \(a_i = 0\) 或 \(b_i = 0\) 时，显然成立。    
+当 \(\symbf{a} = \symbf{0}\) 或 \(\symbf{b} = \symbf{0}\) 时，显然成立。    
 否则，不妨设 \(\sum_{i=1}^n a_i = 1, \sum_{i=1}^n b_i = 1\)，那么由 [Young 不等式](./index.md#young) 可以得到
 
 $$ \begin{gather*}
@@ -65,6 +65,7 @@ $$ \begin{gather*}
 
 $$ \sum_{i=1}^n |a_i|^\theta |b_i|^{1-\theta} \le (\theta + 1-\theta) (\sum_{i=1}^n  |a_i|)^\theta (\sum_{i=1}^n |b_i|)^{1-\theta} $$
 
+我们再说连续版本
 
 **2**.
 
@@ -131,3 +132,88 @@ $$ \int_\Omega \prod_{j=1}^m |f_j|^{\alpha_j} \le \prod_{j=1}^m \left( \int_\Ome
 也即
 
 $$ \|f_1\cdots f_m\|_1 \le \|f_1\|_{p_1} \cdots \|f_m\|_{p_m}, \quad 1\le p_j \le \infty , \sum_{j=1}^m \frac{1}{p_j} = 1 $$
+
+
+
+## Minkowski 不等式
+
+同样也有离散和连续版本
+
+**1**.
+
+对于 \(\symbf{a} , \symbf{b} \in \mathbb{R}^n, 1\le p< \infty\)
+
+$$ \|\symbf{a} + \symbf{b}\|_p \le \|\symbf{a}\|_p + \| \symbf{b}\|_p $$
+
+**2**.
+
+对于函数 \(f, g \in L^p(\Omega), 1\le p <\infty\)
+
+$$ \|f+g\|_{L^p} \le \|f\|_{L^p} + \|g\|_{L^p} $$
+
+这两个不等式都描述了一个事实， 即范数 \(l_p, L^p\) 的三角不等式! 证明也极其类似。
+
+我们为了简化问题，不妨将向量（函数）单位化，将原问题改写为
+
+$$ \|a\symbf{x} + b\symbf{y}\|_p \le \|a\symbf{x}\|_p + \|b \symbf{y}\|_p = a + b $$
+
+其中 \(\|\symbf{x}\|_p = \|\symbf{x}\|_p\ = 1, \quad a, b \ge 0\).
+那么不等式等价于
+
+$$ \sum_{i=1}^n |a x_i + b y_i |^p \le (a + b)^p $$
+
+但是由 [Hölder 不等式](./index.md#holder)，我们有
+
+$$ |a x_i + b y_i |^p \le (a+b)^{p-1}(a |x_i|^p + b |y_i|^p ) $$
+
+求和则有
+
+$$ \sum_{i=1}^n |a x_i + b y_i |^p \le (a+b)^{p-1} \sum_{i=1}^n  (a |x_i|^p + b |y_i|^p ) = (a+b)^p  $$
+
+得证.       
+绝大多数教材上的标准证法都与上面的等价。
+
+连续版本同理，
+
+$$ \int_\Omega |a f(x) + b g(x)|^p \le (a+b)^{p-1}\int_\Omega a|f(x)|^p + b|g(x)|^p = (a+b)^p$$
+
+where \(\|f\|_p = \|g\|_p = 1\) 
+
+对于 \(p=\infty\) 是不言自明的。
+
+
+**3**.
+
+对于 \(\symbf{a}_i \in \mathbb{R}^n, i=1, 2,\dots,m ,\quad 1\le p\le \infty\)
+
+$$ \|\sum_{i=1}^m \symbf{a}_i\|_p \le \sum_{i=1}^m \|\symbf{a}_i\|_p $$
+
+在函数情况下类比有
+
+**4**.
+
+设 \(f(x, y)\) 是 \(\mathbb{R}^n \times \mathbb{R}^m\) 上的可测函数，\(1\le p <\infty\)。
+且对几乎处处的 \(y\in \mathbb{R}^m\)，\(f_y(x) := f(x,y) \in L^p(\mathbb{R}^n)\)，且
+
+$$ \int_{\mathbb{R}^n} \|f_y(x)\|_{L^p(\mathbb{R}^n)}dy = \int_{\mathbb{R}^n} \left(\int_{\mathbb{R}^m} |f(x, y)|^p dx \right)^{\frac{1}{p}} dy < \infty $$
+
+则
+
+$$ \| \int_{\mathbb{R}^n} f_y(x)dy \|_{L^p(\mathbb{R})^n} \le \int_{\mathbb{R}^n} \|f_y(x)\|_{L^p(\mathbb{R}^n)}dy $$
+
+证明需要一些技巧
+
+
+[周民强 实变函数论 6.4 定理 6.20](../../Library/《实变函数论第二版》周民强+北京大学2008年5月第2版.pdf)
+
+
+
+
+
+
+
+
+
+
+
+

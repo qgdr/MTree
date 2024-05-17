@@ -84,6 +84,9 @@ nav:
     - RealAnalysis/Inequalities/index.md
   - "\u5377\u79EF":
     - RealAnalysis/Convolution/index.md
+  - "Lp \u7A7A\u95F4":
+    - RealAnalysis/LpSpaces/index.md
+  - "\u5377\u79EF2": RealAnalysis/Convolution/conv2.md
   - "\u903C\u8FD1":
     - RealAnalysis/Approximation/index.md
 - FunctionalAnalysis:
