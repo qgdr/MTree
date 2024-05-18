@@ -18,4 +18,7 @@ nav:
   - 差商: SobolevSpaces/Difference.md
   - Hardy 不等式: SobolevSpaces/Hardy.md
   - Fourier 变换方法: SobolevSpaces/Fourier.md
+- 二阶椭圆方程:
+  - SecondOrderEllipticEquations/index.md
+  - 弱解: SecondOrderEllipticEquations/WeakSolutions.md
 - HW1: HW1.md

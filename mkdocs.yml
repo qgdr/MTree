@@ -115,6 +115,9 @@ nav:
     - "\u5DEE\u5546": PartialDifferentialEquations/SobolevSpaces/Difference.md
     - "Hardy \u4E0D\u7B49\u5F0F": PartialDifferentialEquations/SobolevSpaces/Hardy.md
     - "Fourier \u53D8\u6362\u65B9\u6CD5": PartialDifferentialEquations/SobolevSpaces/Fourier.md
+  - "\u4E8C\u9636\u692D\u5706\u65B9\u7A0B":
+    - PartialDifferentialEquations/SecondOrderEllipticEquations/index.md
+    - "\u5F31\u89E3": PartialDifferentialEquations/SecondOrderEllipticEquations/WeakSolutions.md
   - HW1: PartialDifferentialEquations/HW1.md
 - FractionalDifferentialEquations:
   - FractionalDifferentialEquations/index.md
