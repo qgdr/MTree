@@ -1866,6 +1866,8 @@
       
         
       
+        
+      
     
     
     
@@ -2192,7 +2194,7 @@
         
   
   <span class="md-ellipsis">
-    延拓
+    延拓与迹
   </span>
   
 
@@ -2553,6 +2555,27 @@
   
   <span class="md-ellipsis">
     HW1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HW2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HW2
   </span>
   
 
@@ -3074,11 +3097,13 @@
 <div class="arithmatex">\[ \beta \|u\|^2 \le B[u,u]  \quad \forall u \in H \]</div>
 <p>最后令 <span class="arithmatex">\(f: H \to \mathbb{R}\)</span> 是一个 <span class="arithmatex">\(H\)</span> 上的有界线性泛函。</p>
 <p>那么存在唯一的 <span class="arithmatex">\(u\in H\)</span> 使得</p>
-<div class="arithmatex">\[ B[u,v] = (f,v) \quad \forall v \in H \]</div>
+<div class="arithmatex">\[ B[u,v] = \langle f,v \rangle \quad \forall v \in H \]</div>
 <h2 id="problems">Problems<a class="headerlink" href="#problems" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">2</p>
-<p>令</p>
+<p>设 <span class="arithmatex">\(U\subset \mathbb{R}^n\)</span> 是有界开集，<span class="arithmatex">\(\partial U\)</span> 光滑，
+<span class="arithmatex">\(a^{ij}, b^i, c \in L^\infty(U)\)</span> 光滑，且 <span class="arithmatex">\(L\)</span> 一致椭圆。
+令</p>
 <div class="arithmatex">\[ Lu = -\sum_{i,j=1}^n \partial_j(a^{ij}(x)\partial_i u) + c(x) u \]</div>
 <p>证明存在常数 <span class="arithmatex">\(\mu&gt;0\)</span> 使得在 <span class="arithmatex">\(c(x)\ge -\mu\)</span> 的条件下，相应的 <span class="arithmatex">\(B[\;,\;]\)</span> 满足 Lax-Milgram 定理的假设条件，
 即存在常数 <span class="arithmatex">\(\alpha, \beta &gt; 0\)</span> 使得对 <span class="arithmatex">\(u,v\in H_0^1(U)\)</span> 满足</p>
@@ -3117,7 +3142,224 @@
 <p>总结可得 Lax-Milgram 定理的假设条件。</p>
 <div class="admonition question">
 <p class="admonition-title">3</p>
+<p>设 <span class="arithmatex">\(U\subset \mathbb{R}^n\)</span> 有界开集，
+对于 <strong>双调和方程 biharmonic equation</strong> 的如下边值问题：</p>
+<div class="arithmatex">\[ \begin{cases}
+    \Delta^2 u = f &amp; \text{in } U \\
+    u=\frac{\partial u}{\partial \nu}{} = 0 &amp; \text{on } \partial U
+\end{cases} \]</div>
+<p>若函数 <span class="arithmatex">\(u\in H_0^2(U)\)</span> 满足</p>
+<div class="arithmatex">\[ \int_U \Delta u \Delta v \; dx = \int_U fv \; dx \quad \forall v\in H_0^2(U) \]</div>
+<p>则称 <span class="arithmatex">\(u\)</span> 是问题的弱解。</p>
+<p>给定 <span class="arithmatex">\(f\in L^2(U)\)</span>， 证明问题存在唯一弱解。</p>
 </div>
+<p><strong>proof</strong></p>
+<p>我们仿照二阶椭圆方程的方法，利用 Lax-Milgram 定理来证明。     <br />
+令</p>
+<div class="arithmatex">\[ B[u,v] = \int_U \Delta u \Delta v \; dx \quad u,v\in H_0^2(U) \]</div>
+<p>我们验证 Lax-Milgram 定理的假设条件。</p>
+<p><strong>1</strong></p>
+<div class="arithmatex">\[ \begin{aligned}
+    |B[u,v]| &amp;\le \int_U |\Delta u| |\Delta v| \; dx \\
+    &amp;\le  \|\Delta u\|_{L^2} \|\Delta v\|_{L^2}    \\
+    &amp;\le  n\|u\|_{H_0^2} \|v\|_{H_0^2}
+\end{aligned} \]</div>
+<p>最后一步是因为</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \|\Delta u\|_{L^2}^2 &amp;= \int_U |\Delta u|^2 \; dx 
+    = \int_U  |\sum_{i=1}^n D_{ii} u|^2 \; dx    \\
+    &amp;\le \int_U  n \sum_{i=1}^n| D_{ii} u|^2 \; dx  \quad \text{by Cauchy} \\
+    &amp;\le n \sum_{|\alpha|=2} \int_U |D^{\alpha} u|^2 \; dx \le n \|u\|_{H_0^2}^2
+\end{aligned} \]</div>
+<p><strong>2</strong></p>
+<div class="arithmatex">\[ \begin{aligned}
+    B[u,u] &amp;= \int_U |\Delta u|^2 \; dx = \|\Delta u\|_{L^2}^2 \\
+\end{aligned} \]</div>
+<p>我们试图构建不等式</p>
+<div class="arithmatex">\[ \beta \|u\|_{H_0^2}^2  \le  \|\Delta u\|_{L^2}^2 \]</div>
+<div class="admonition lemma">
+<p class="admonition-title">Lemma</p>
+<p>对于 <span class="arithmatex">\(u\in H_0^2(U)\)</span>， 存在一个常数 <span class="arithmatex">\(C=C(n,U)\)</span> 使得</p>
+<div class="arithmatex">\[ \|u\|_{H_0^2} \le C \|\Delta u\|_{L^2} \]</div>
+<hr />
+<p>我们先证明当 <span class="arithmatex">\(u\in C_c^\infty(U)\)</span> 时成立，再由稠密性得到对 <span class="arithmatex">\(H_0^1(U)\)</span> 成立。</p>
+<p>当 <span class="arithmatex">\(u\in C_c^\infty(U)\)</span> 时</p>
+<div class="arithmatex">\[ \|\Delta u \|_{L^2}^2 = \sum_{i,j=1}^n \int_U |\partial_i^2 u|^2 \; dx \]</div>
+<p>但是注意到 由 Gauss-Green 公式 </p>
+<div class="arithmatex">\[ \int_U \partial_i^2 u \partial_j^2 u = -\int_U \partial_i u \; \partial_i \partial_j^2 u 
+= \int_U \partial_{ij} u \; \partial_{ij} u \]</div>
+<p>所以</p>
+<div class="arithmatex">\[ \begin{aligned} 
+    \|\Delta u \|_{L^2}^2 &amp;= \int_U |\Delta u|^2 \; dx = \int_U \sum_{i,j=1}^n \partial_i^2 u \partial_j^2 u \; dx \\
+    &amp;= \sum_{i,j=1}^n \int_U  |\partial_{ij}u|^2 \; dx  = \| \nabla^2 u\|_{L^2}^2 \\
+\end{aligned} \]</div>
+<p>事实上由于 <span class="arithmatex">\(u\in H_0^2(U) \subset H_0^1(U), \nabla u \in H_0^1(U), i=1, \cdots, n\)</span>，
+那么根据 <a href="../../SobolevSpaces/SobolevInequalities/#w_01-pu">Poincaré 不等式</a> Corrollary ，我们有</p>
+<div class="arithmatex">\[ \begin{gather*} 
+    \|u\|_{L^2}^2 \le C_1(n, U)\|\nabla u\|_{L^2}^2 = C_1(n, U)\|Du\|_{L^2}^2   \\
+    \|\nabla u\|_{L^2}^2 \le C_2(n, U)\|\nabla^2 u\|_{L^2}^2 = C_2(n, U) \sum_{|\alpha|=2} \int_U |D^\alpha u|^2 \; dx  \\
+\end{gather*} \]</div>
+<p>因此</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \|u\|_{H_0^2}^2 &amp;= \|u\|_{L^2}^2 + \|\nabla u\|_{L^2}^2 + \|\nabla^2 u\|_{L^2}^2 \le C(n, U) \|\nabla^2 u\|_{L^2}^2
+\end{aligned} \]</div>
+<p>所以我们有了</p>
+<div class="arithmatex">\[ \|u\|_{H_0^2} \le C(n, U) \|\Delta u\|_{L^2} \]</div>
+<p>而对于任意 <span class="arithmatex">\(u\in H_0^2(U)\)</span>，存在 <span class="arithmatex">\(u_m \in C_c^\infty(U), \|u_m-u\|_{H_0^2} \to 0\)</span>，那么</p>
+<div class="arithmatex">\[  \|\Delta u_m-\Delta u\|_{L^2} \le \|u_m-u\|_{H_0^2} \to 0 \]</div>
+<p>因此</p>
+<div class="arithmatex">\[ \|u_m\|_{H_0^2} \to \|u\|_{H_0^2}, \quad \|\Delta u_m\|_{L^2} \to \|\Delta u\|_{L^2} \]</div>
+<p>不等式两边取极限得到</p>
+<div class="arithmatex">\[ \|u\|_{H_0^2} \le C(n, U) \|\Delta u\|_{L^2} \quad \forall u\in H_0^2(U) \]</div>
+</div>
+<p>因此，存在 <span class="arithmatex">\(\beta&gt;0\)</span> 使得</p>
+<div class="arithmatex">\[ B[u,u] \ge \beta \|u\|_{H_0^2}^2 \]</div>
+<p>至此，我们证明了 <span class="arithmatex">\(B[\;, \;]\)</span> 满足 Lax-Milgram 定理的假设条件。</p>
+<p>又因为 <span class="arithmatex">\(f\in L^2(U)\)</span>，所以</p>
+<div class="arithmatex">\[ \langle F, v \rangle \triangleq \int_U fv \; dx \le \|f\|_{L^2} \|v\|_{L^2} \le \|f\|_{L^2} \|v\|_{H_0^2} \]</div>
+<p><span class="arithmatex">\(F\)</span> 是有界线性泛函。
+那么由 Lax-Milgram 定理，存在唯一的 <span class="arithmatex">\(u\in H_0^2(U)\)</span> 使得</p>
+<div class="arithmatex">\[ \int_U \Delta u \Delta v \; dx = B[u, v] = \int_U fv \; dx \quad \forall v\in H_0^2(U) \]</div>
+<div class="admonition question">
+<p class="admonition-title">4</p>
+<p>设 <span class="arithmatex">\(U\subset \mathbb{R}^n\)</span> 是 <strong>连通有界</strong> 开集，<span class="arithmatex">\(\partial U\)</span> 光滑。</p>
+<p>Neumann 问题：</p>
+<div class="arithmatex">\[ \begin{cases}
+    -\Delta u = f &amp; \text{in } U \\
+    \frac{\partial u}{\partial \nu} = 0 &amp; \text{on } \partial U
+\end{cases} \]</div>
+<p>若函数 <span class="arithmatex">\(u\in H^1(U)\)</span> 满足</p>
+<div class="arithmatex">\[ \int_U Du \cdot Dv \; dx = \int_U fv \; dx \quad \forall v\in H^1(U) \]</div>
+<p>则称 <span class="arithmatex">\(u\)</span> 是 Neumann 问题的一个弱解。</p>
+<p>设 <span class="arithmatex">\(f\in L^2(U)\)</span>，证明弱解存在当且仅当</p>
+<div class="arithmatex">\[ \int_U f \; dx = 0 \]</div>
+</div>
+<p><strong>proof</strong></p>
+<p>必要性显然，我们证明充分性。            <br />
+令 </p>
+<div class="arithmatex">\[ H_\sigma^1 = \{u\in H^1(U): \int_U u \; dx = 0 \} \]</div>
+<p>则 <span class="arithmatex">\(H_\sigma^1\)</span> 是一个 Hilbert 空间。实际上它是 <span class="arithmatex">\(H^1(U)\)</span> 的闭子空间，他的闭性由</p>
+<div class="arithmatex">\[ |\int_U f-\int_U g| \le \|f-g\|_{L^1} \le |U|^{1/2}\|f-g\|_{L^2}  \]</div>
+<p>保证。而且 <span class="arithmatex">\(\|u\|_{H_\sigma^1} = \|u\|_{H^1}\)</span>.</p>
+<p>现在我们构造 <span class="arithmatex">\(H_\sigma^1\)</span> 中的双线性映射。</p>
+<div class="arithmatex">\[ B[u,v] = \int_U Du \cdot Dv \; dx \quad u,v \in H_\sigma^1 \]</div>
+<p>我们验证 Lax-Milgram 定理的假设条件。</p>
+<p><strong>1</strong></p>
+<div class="arithmatex">\[ \begin{aligned}
+    |B[u,v]| &amp;\le  \int_U |Du| |Dv| \; dx \le \|Du\|_{L^2} \|Dv\|_{L^2} \le \|u\|_{H_\sigma^1} \|v\|_{H_\sigma^1}
+\end{aligned} \]</div>
+<p><strong>2</strong></p>
+<div class="arithmatex">\[ B[u,u] = \int_U |Du|^2 \; dx = \|Du\|_{L^2}^2 \]</div>
+<p>但是由 <a href="../../SobolevSpaces/Poincar%C3%A9/#poincares-inequalities">Poincaré 不等式</a> ，我们有</p>
+<div class="arithmatex">\[ \|u\|_{L^2} = \|u-(u)_U\|_{L^2} \le C(n,U) \|Du\|_{L^2} \]</div>
+<p>因此存在 <span class="arithmatex">\(\beta = \frac{1}{C(n,U)^2} &gt; 0\)</span> 使得</p>
+<div class="arithmatex">\[ \beta \|u\|_{H_\sigma^1}^2 \le B[u,u] \]</div>
+<p>因此 <span class="arithmatex">\(B[\;, \;]\)</span> 满足 Lax-Milgram 定理的假设条件。</p>
+<p>同样的，我们令</p>
+<div class="arithmatex">\[ \langle F, v \rangle \triangleq \int_U fv \; dx \le \|f\|_{L^2} \|v\|_{L^2} \le \|f\|_{L^2} \|v\|_{H_\sigma^1} \]</div>
+<p>因此对于任意的 <span class="arithmatex">\(v\in H^1(U)\)</span>，令 <span class="arithmatex">\(\tilde{v} = v - (v)_U \in H_\sigma^1\)</span>， <span class="arithmatex">\((v)_U\int_U f=0\)</span>.</p>
+<p>存在唯一的 <span class="arithmatex">\(u\in H_\sigma^1\)</span> 使得</p>
+<div class="arithmatex">\[ B[u, \tilde{v}] = \langle F, \tilde{v} \rangle = \int_U f\tilde{v} \; dx = \int_U fv \; dx \]</div>
+<p>而 </p>
+<div class="arithmatex">\[ B[u, \tilde{v}] = \int_U Du \cdot D\tilde{v} \; dx = \int_U Du \cdot Dv \; dx = B[u,v] \]</div>
+<p>也就是原问题有解。</p>
+<div class="admonition question">
+<p class="admonition-title">5</p>
+<p>解释怎么定义 具有 Robin 边界条件的 Poisson 方程</p>
+<div class="arithmatex">\[ \begin{cases}
+    -\Delta u = f &amp; \text{in } U \\
+    u + \frac{\partial u}{\partial \nu} = 0 &amp; \text{ on } \partial U
+\end{cases} \]</div>
+<p><span class="arithmatex">\(u\in H^1(U)\)</span>，的弱解。</p>
+<p>给定 <span class="arithmatex">\(f\in L^2(U)\)</span>，讨论存在唯一性。</p>
+</div>
+<p><strong>solution</strong></p>
+<p>对于 <span class="arithmatex">\(u, v\in C^\infty(U)\)</span> ，研究 <span class="arithmatex">\(Lu\)</span> 与 <span class="arithmatex">\(v\)</span> 的 <span class="arithmatex">\(L^2\)</span> 内积，利用 Gauss-Green 公式，我们可以得到</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \int_U -\Delta u v \;dx &amp;= \int_U Du \cdot Dv \; dx - \int_{\partial U} v \frac{\partial u}{\partial \nu} \; dS \quad (\text{by Gauss-Green}) \\
+    &amp;=  \int_U Du \cdot Dv \; dx + \int_{\partial U} uv \; dS \quad (u + \frac{\partial u}{\partial \nu} = 0 \text{ on } \partial U )
+\end{aligned}\]</div>
+<p>那么我们可以定义弱解 <span class="arithmatex">\(u\in H^1(U)\)</span> 为满足</p>
+<div class="arithmatex">\[  \int_U Du \cdot Dv \; dx + \int_{\partial U} Tu \; Tv \; dS = \int_U fv \; dx \quad \forall v\in H^1(U) \]</div>
+<p>其中 <span class="arithmatex">\(T\)</span> 是 <a href="../../SobolevSpaces/Extensions/#trace">迹算子</a></p>
+<hr />
+<p>我们立即定义</p>
+<div class="arithmatex">\[ B[u,v] = \int_U Du \cdot Dv \; dx + \int_{\partial U} Tu \; Tv \; dS \quad  u, v\in H^1(U) \]</div>
+<p>我们验证 Lax-Milgram 定理的假设条件。</p>
+<p><strong>1</strong></p>
+<div class="arithmatex">\[ \begin{aligned}
+    |B[u,v]| &amp;\le  \int_U |Du| |Dv| \; dx + \int_{\partial U} |Tu| |Tv| \; dS   \\ 
+    &amp;\le \|Du\|_{L^2(U)} \|Dv\|_{L^2(U)} + \|Tu\|_{L^2(\partial U)} \|Tv\|_{L^2(\partial U)}
+\end{aligned} \]</div>
+<p>但是我们有 <span class="arithmatex">\(\|Du\|_{L^2(U)} \le \|u\|_{H^1(U)}\)</span>，以及<a href="../../SobolevSpaces/Extensions/#trace-theorem">迹定理</a></p>
+<div class="arithmatex">\[ \|Tu\|_{L^2(\partial U)} \le C(n, U) \|u\|_{H^1(U)} \quad \forall u\in H^1(U) \]</div>
+<p>因此</p>
+<div class="arithmatex">\[ |B[u,v]| \le C(n, U) \|u\|_{H^1(U)} \|v\|_{H^1(U)} \]</div>
+<p><strong>2</strong></p>
+<div class="arithmatex">\[ B[u, u] = \|Du\|_{L^2(U)}^2 +  \|Tu\|_{L^2(\partial U)}^2 \]</div>
+<p>我们只要能证明</p>
+<div class="arithmatex">\[ \|u\|_{H^1(U)} \le C(n, U) \left( \|Du\|_{L^2(U)} + \|Tu\|_{L^2(\partial U)} \right)^2 \]</div>
+<p>即可。</p>
+<div class="admonition lemma">
+<p class="admonition-title">Lemma</p>
+<p>设 <span class="arithmatex">\(U \subset \mathbb{R}^n\)</span> 是有界开集，<span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 光滑的。      <br />
+那么存在 <span class="arithmatex">\(C=C(n, U)\)</span> 使得</p>
+<div class="arithmatex">\[ \|u\|_{H^1(U)} \le C(n, U) \left( \|Du\|_{L^2(U)} + \|Tu\|_{L^2(\partial U)} \right) 
+\quad \forall u\in H^1(U) \]</div>
+<hr />
+<p><strong>proof</strong></p>
+<p>否则，存在 <span class="arithmatex">\(u_k \in H^1(U), k=1, 2, ...\)</span> 使得 <span class="arithmatex">\(\|u_k\|_{H^1(U)}=1\)</span>，且</p>
+<div class="arithmatex">\[ \|Du_k\|_{L^2(U)} + \|Tu_k\|_{L^2(\partial U)} &lt; \frac{1}{k} \]</div>
+<p>由于 <span class="arithmatex">\(H^1\)</span> 是 Hilbert 空间，属于自反 Banach 空间，而  <span class="arithmatex">\(u_k\)</span> 一致有界，
+那么由 <a href="">Kakutani 定理</a>   <br />
+见 <a href="../../../Library/Brezis%20-%202011%20-%20Functional%20Analysis%2C%20Sobolev%20Spaces%20and%20Partial%20Di.pdf">Brezis Functional Analysis, Sobolev Spaces and Partial Differential Equations Theorem 4.17</a></p>
+<p>存在弱收敛子列，仍记为 </p>
+<div class="arithmatex">\[ u_k \rightharpoonup u  \text{ in }  H^1(U) \Rightarrow
+\begin{gather*}
+    u_k \rightharpoonup u  \text{ in }  L^2(U)   \\
+    Du_k \rightharpoonup Du  \text{ in }  L^2(U)
+\end{gather*}\]</div>
+<p>又因为 <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 光滑的，根据 <a href="../../SobolevSpaces/SobolevInequalities2/#rellich-kondrachov-compactness-theorem-2">Rellich-Kondrachov Compactness Theorem</a>，我们有</p>
+<div class="arithmatex">\[ H^1(U) \subset\subset L^2(U) \]</div>
+<p>所以存在子列，仍记为 <span class="arithmatex">\(u_k\)</span> ，使得 </p>
+<div class="arithmatex">\[ \begin{gather*}
+    u_k \to u \text{ in } L^2(U)
+    Du_k \rightharpoonup Du  \text{ in }  L^2(U)   \\
+\end{gather*}  \]</div>
+<p>由 <a href="">一致有界原理</a>       <br />
+参考 <a href="../../../Library/Brezis%20-%202011%20-%20Functional%20Analysis%2C%20Sobolev%20Spaces%20and%20Partial%20Di.pdf">Brezis Functional Analysis, Sobolev Spaces and Partial Differential Equations Corollary 2.3</a></p>
+<div class="arithmatex">\[ \|Du\|_{L^2(U)} \le  \liminf_{k\to\infty} \|Du_k\|_{L^2(U)} \to 0 \]</div>
+<p>那么有 <span class="arithmatex">\(Du = 0 \text{  a.e.}\)</span>，
+<!-- 那么 --></p>
+<p>我们就有</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \|u_k-u\|_{H^1(U)}^2 &amp;= \|u_k-u\|_{L^2(U)}^2 + \|Du_k-Du\|_{L^2(U)}^2   \\
+    &amp;= \|u_k-u\|_{L^2(U)}^2 + \|Du_k\|_{L^2(U)}^2 \\
+    &amp;\to 0 \text{  as  } k\to\infty
+\end{aligned}  \]</div>
+<p>因此我们得到 <span class="arithmatex">\(u_k \to u \text{  in  }  H^1(U)\)</span>.</p>
+<p>所以</p>
+<div class="arithmatex">\[ \|u\|_{L^2(U)} = \|u\|_{H^1(U)} = \lim_{k\to\infty} \|u_k\|_{H^1(U)} = 1 \]</div>
+<p>而 <span class="arithmatex">\(Du = 0 \text{  a.e.}\)</span>，以及根据 <a href="../../SobolevSpaces/Approximation/#local-approximation">引理</a> Corollary ，
+<span class="arithmatex">\(u\)</span> 在每个连通分支上都几乎处处等以一个常数 <span class="arithmatex">\(u=c_\alpha \text{ a.e.}\)</span></p>
+<p>但是根据 <a href="../../SobolevSpaces/Extensions/#trace-theorem">迹定理</a>，以及 <span class="arithmatex">\(u_k \to u \text{  in  }  H^1(U)\)</span></p>
+<div class="arithmatex">\[ \begin{aligned}
+    \|Tu\|_{L^2(\partial U)} &amp;=  \lim_{k\to\infty} \|Tu_k\|_{L^2(\partial U)} \to 0 \text{ as  } k\to\infty \\
+    \Rightarrow u=0 \text{  a.e. on  } \partial U
+\end{aligned}\]</div>
+<p>那么根据 <a href="../../SobolevSpaces/Extensions/#trace-zero-functions">迹零定理</a>，
+<span class="arithmatex">\(u\in H_0^1(U)\)</span>，但是由 Poincaré 不等式</p>
+<div class="arithmatex">\[ \|u\|_{L^2(U)} \le C(n, U) \|Du\|_{L^2(U)} = 0 \]</div>
+<p>说明 <span class="arithmatex">\(u=0 \text{  a.e.}\)</span> ，这与 <span class="arithmatex">\(\|u\|_{L^2(U)}=1\)</span> 矛盾！</p>
+<p>因此存在 <span class="arithmatex">\(C=C(n, U)\)</span> 使得</p>
+<div class="arithmatex">\[ \|u\|_{H^1(U)} \le C(n, U) \left( \|Du\|_{L^2(U)} + \|Tu\|_{L^2(\partial U)} \right) \]</div>
+</div>
+<p>根据引理，我们得到存在 <span class="arithmatex">\(\beta&gt;0\)</span> 使得</p>
+<div class="arithmatex">\[ \beta \|u\|_{H^1(U)}^2 \le C(n, U) \|Du\|_{L^2(U)}^2 + \|Tu\|_{L^2(\partial U)}^2 \]</div>
+<p>现在，我们验证了 <span class="arithmatex">\(B[\;, \;]\)</span> 满足 Lax-Milgram 条件，那么由 Lax-Milgram 定理，</p>
+<p>对于 <span class="arithmatex">\(v\in H^1(U)\)</span>，存在唯一的 <span class="arithmatex">\(u\in H^1(U)\)</span> 使得</p>
+<div class="arithmatex">\[ B[u,v] = \int_U fv \; dx \]</div>
+<p>即弱解存在。</p>
 
 <!-- Source file information -->
 

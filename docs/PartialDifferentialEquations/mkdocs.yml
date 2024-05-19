@@ -10,7 +10,7 @@ nav:
   - SobolevSpaces/index.md
   - 定义: SobolevSpaces/Definition.md
   - 逼近: SobolevSpaces/Approximation.md
-  - 延拓: SobolevSpaces/Extensions.md
+  - 延拓与迹: SobolevSpaces/Extensions.md
   - Sobolev 不等式 I: SobolevSpaces/SobolevInequalities.md
   - Hölder 空间: SobolevSpaces/HölderSpaces.md
   - Sobolev 不等式 II: SobolevSpaces/SobolevInequalities2.md
@@ -22,3 +22,4 @@ nav:
   - SecondOrderEllipticEquations/index.md
   - 弱解: SecondOrderEllipticEquations/WeakSolutions.md
 - HW1: HW1.md
+- HW2: HW2.md

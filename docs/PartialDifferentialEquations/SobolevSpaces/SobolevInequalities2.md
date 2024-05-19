@@ -106,6 +106,9 @@ $$  W^{1,p}(U) \subset\subset C^{0, \gamma}(U) \subset C^{0}(U) \subset L^q(U) $
 
 $$ W^{1,p}(U) \subset\subset L^p(U) \quad n <p \le \infty $$
 
+与  [Rellich-Kondrachov Compactness Theorem](./SobolevInequalities.md#rellich-kondrachov-compactness-theorem) 总结起来就有
+
+$$ W^{1,p}(U) \subset\subset L^p(U) \quad 1\le p \le \infty $$
 
 
 

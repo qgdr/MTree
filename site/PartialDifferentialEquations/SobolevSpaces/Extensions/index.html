@@ -24,7 +24,7 @@
     
     
       
-        <title>延拓 - MTree</title>
+        <title>延拓与迹 - MTree</title>
       
     
     
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              延拓
+              延拓与迹
             
           </span>
         </div>
@@ -1866,6 +1866,8 @@
       
         
       
+        
+      
     
     
     
@@ -2199,15 +2201,54 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    延拓与迹
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    延拓
+    延拓与迹
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#extension-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extension Theorem 延拓定理
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2463,6 +2504,27 @@
   
   <span class="md-ellipsis">
     HW1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HW2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HW2
   </span>
   
 
@@ -2853,6 +2915,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#extension-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extension Theorem 延拓定理
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2871,7 +2950,34 @@
 
 
 <!-- Page content -->
-<h1 id="extensions">延拓 Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h1>
+<h1 id="extensions">Extensions 延拓<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h1>
+<h2 id="extension-theorem">Extension Theorem 延拓定理<a class="headerlink" href="#extension-theorem" title="Permanent link">&para;</a></h2>
+<p>设<span class="arithmatex">\(U\)</span> 有界且 <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 连续的。
+选取一个有界开集 <span class="arithmatex">\(V\)</span> 使得 <span class="arithmatex">\(U\subset\subset V\)</span>。
+那么存在 <strong>延拓算子</strong> </p>
+<div class="arithmatex">\[ E : W^{1,p}(U) \to W^{1,p}(\mathbb{R}^n) \]</div>
+<p>是有界线性算子，对 <span class="arithmatex">\(\forall u\in W^{1,p}(U)\)</span> 满足</p>
+<p>1 . </p>
+<div class="arithmatex">\[ Eu = u \text{ a.e. in } U \]</div>
+<p>2 . </p>
+<div class="arithmatex">\[ \text{supp}(Eu) \subset V \]</div>
+<p>3 .
+存在常数 <span class="arithmatex">\(C=C(n,U,V,p)\)</span>，使得</p>
+<div class="arithmatex">\[ \|Eu\|_{W^{1,p}(\mathbb{R}^n)} \leq C\|u\|_{W^{1,p}(U)} \]</div>
+<h1 id="trace">Trace 迹算子<a class="headerlink" href="#trace" title="Permanent link">&para;</a></h1>
+<h2 id="trace-theorem">Trace Theorem 迹定理<a class="headerlink" href="#trace-theorem" title="Permanent link">&para;</a></h2>
+<p>假设 <span class="arithmatex">\(U\)</span> 有界且 <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 连续的。那么存在 <strong>迹算子</strong> </p>
+<div class="arithmatex">\[ T: W^{1,p}(U) \to L^p(\partial U) \]</div>
+<p>是有界线性算子，满足</p>
+<p>1 . 
+对于 <span class="arithmatex">\(u\in W^{1,p}(U)\cap C(\bar{U})\)</span>，有 <span class="arithmatex">\(Tu = u|_{\partial U}\)</span>.</p>
+<p>2 .
+存在常数 <span class="arithmatex">\(C=C(n,U,p)\)</span> 使得</p>
+<div class="arithmatex">\[ \|Tu\|_{L^p(\partial U)} \leq C\|u\|_{W^{1,p}(U)} , \quad \forall u\in W^{1,p}(U) \]</div>
+<p>我们称 <span class="arithmatex">\(Tu\)</span> 为 <span class="arithmatex">\(u\)</span> 在 <span class="arithmatex">\(\partial U\)</span> 上的 <strong>迹 trace</strong> 。</p>
+<h2 id="trace-zero-functions">Trace-zero functions 迹零函数<a class="headerlink" href="#trace-zero-functions" title="Permanent link">&para;</a></h2>
+<p>设 <span class="arithmatex">\(U\)</span> 有界且 <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 连续的。那么对于 <span class="arithmatex">\(u\in W^{1,p}(U)\)</span>，</p>
+<div class="arithmatex">\[ Tu = 0 \text{ on } \partial U \Leftrightarrow u\in W_0^{1,p}(U) \]</div>
 
 <!-- Source file information -->
 

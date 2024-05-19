@@ -761,6 +761,24 @@ $$ W_0^{1, p}(U) \subset L^{q}(U), \quad q \in [1, p^*]  $$
 
     $$ \|u\|_{L^{\infty}(U)} \le C(U,\infty)\|Du\|_{L^{\infty}(U)} $$
 
+    ---
+
+    将所有情况总结起来，对于 \(u\in W_0^{1, p}(U)\)，有
+
+    $$ \|u\|_{L^{q}(U)} \le C(U, p, q)\|Du\|_{L^{p}(U)} $$
+
+    其中 \(p, q\) 满足
+
+    $$ \begin{cases}
+        q \in [1, p^*] , &\text{ when } 1\le p < n \\
+        q \in [1, \infty) , &\text{ when } n \le p < \infty \\
+        q \in [1, \infty], &\quad p=\infty
+    \end{cases} $$
+
+    特别的
+
+    $$ \|u\|_{L^{p}(U)} \le C(U, p)\|Du\|_{L^{p}(U)}, \quad 1 \le p \le \infty $$
+
     这个不等式也是 [Poincaré 不等式](./Poincaré.md#poincaré) 的一种。
 
 
