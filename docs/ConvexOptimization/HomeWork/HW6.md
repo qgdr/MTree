@@ -1,5 +1,7 @@
 # HW6
 
+[HWpdf](../HWpdf/Homework7-2024.pdf)
+
 ## 1
 
 Low-rank Matrix Recovery. 
