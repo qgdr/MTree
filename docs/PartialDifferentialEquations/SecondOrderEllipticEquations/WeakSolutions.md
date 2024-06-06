@@ -443,7 +443,7 @@ $$ B[u, u] = \|Du\|_{L^2(U)}^2 +  \|Tu\|_{L^2(\partial U)}^2 $$
 
 我们只要能证明
 
-$$ \|u\|_{H^1(U)} \le C(n, U) \left( \|Du\|_{L^2(U)} + \|Tu\|_{L^2(\partial U)} \right)^2 $$
+$$ \|u\|_{H^1(U)} \le C(n, U) \left( \|Du\|_{L^2(U)} + \|Tu\|_{L^2(\partial U)} \right) $$
 
 即可。
 
@@ -464,36 +464,11 @@ $$ \|u\|_{H^1(U)} \le C(n, U) \left( \|Du\|_{L^2(U)} + \|Tu\|_{L^2(\partial U)} 
 
     $$ \|Du_k\|_{L^2(U)} + \|Tu_k\|_{L^2(\partial U)} < \frac{1}{k} $$
 
-    由于 \(H^1\) 是 Hilbert 空间，属于自反 Banach 空间，而  \(u_k\) 一致有界，
-    那么由 [Kakutani 定理]()     
-    见 [Brezis Functional Analysis, Sobolev Spaces and Partial Differential Equations Theorem 4.17](../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf)
+    由于 \(\|Du_k\|_{L^2(U)}\le \dfrac{1}{k}\)， 
+    仿照 Poincaré 不等式的证明，存在子列，仍记为 \(u_k\) ，满足
 
-    存在弱收敛子列，仍记为 
+    $$ u_k \to u \text{  in  } L^2(U) \quad Du = 0 \text{  a.e.  } $$
 
-    $$ u_k \rightharpoonup u  \text{ in }  H^1(U) \Rightarrow
-    \begin{gather*}
-        u_k \rightharpoonup u  \text{ in }  L^2(U)   \\
-        Du_k \rightharpoonup Du  \text{ in }  L^2(U)
-    \end{gather*}$$         
-
-    又因为 \(\partial U\) 是 \(C^1\) 光滑的，根据 [Rellich-Kondrachov Compactness Theorem](../SobolevSpaces/SobolevInequalities2.md#rellich-kondrachov-compactness-theorem-2)，我们有
-
-    $$ H^1(U) \subset\subset L^2(U) $$
-
-    所以存在子列，仍记为 \(u_k\) ，使得 
-
-    $$ \begin{gather*}
-        u_k \to u \text{ in } L^2(U)
-        Du_k \rightharpoonup Du  \text{ in }  L^2(U)   \\
-    \end{gather*}  $$
-
-    由 [一致有界原理]()         
-    参考 [Brezis Functional Analysis, Sobolev Spaces and Partial Differential Equations Corollary 2.3](../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf)
-
-    $$ \|Du\|_{L^2(U)} \le  \liminf_{k\to\infty} \|Du_k\|_{L^2(U)} \to 0 $$
-
-    那么有 \(Du = 0 \text{  a.e.}\)，
-    <!-- 那么 -->
 
     我们就有
 
@@ -516,7 +491,7 @@ $$ \|u\|_{H^1(U)} \le C(n, U) \left( \|Du\|_{L^2(U)} + \|Tu\|_{L^2(\partial U)} 
 
     $$ \begin{aligned}
         \|Tu\|_{L^2(\partial U)} &=  \lim_{k\to\infty} \|Tu_k\|_{L^2(\partial U)} \to 0 \text{ as  } k\to\infty \\
-        \Rightarrow u=0 \text{  a.e. on  } \partial U
+        &\Rightarrow u=0 \text{  a.e. on  } \partial U
     \end{aligned}$$
 
     那么根据 [迹零定理](../SobolevSpaces/Extensions.md#trace-zero-functions)，
@@ -533,7 +508,7 @@ $$ \|u\|_{H^1(U)} \le C(n, U) \left( \|Du\|_{L^2(U)} + \|Tu\|_{L^2(\partial U)} 
 
 根据引理，我们得到存在 \(\beta>0\) 使得
 
-$$ \beta \|u\|_{H^1(U)}^2 \le C(n, U) \|Du\|_{L^2(U)}^2 + \|Tu\|_{L^2(\partial U)}^2 $$
+$$ \beta \|u\|_{H^1(U)}^2 \le C(n, U) (\|Du\|_{L^2(U)}^2 + \|Tu\|_{L^2(\partial U)}^2 ) $$
 
 现在，我们验证了 \(B[\;, \;]\) 满足 Lax-Milgram 条件，那么由 Lax-Milgram 定理，
 
@@ -542,5 +517,152 @@ $$ \beta \|u\|_{H^1(U)}^2 \le C(n, U) \|Du\|_{L^2(U)}^2 + \|Tu\|_{L^2(\partial U
 $$ B[u,v] = \int_U fv \; dx $$
 
 即弱解存在。
+
+<!-- 由于 \(H^1\) 是 Hilbert 空间，属于自反 Banach 空间，而  \(u_k\) 一致有界，
+那么由 [Kakutani 定理]()     
+见 [Brezis Functional Analysis, Sobolev Spaces and Partial Differential Equations Theorem 4.17](../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf)
+
+存在弱收敛子列，仍记为 
+
+$$ u_k \rightharpoonup u  \text{ in }  H^1(U) \Rightarrow
+\begin{gather*}
+    u_k \rightharpoonup u  \text{ in }  L^2(U)   \\
+    Du_k \rightharpoonup Du  \text{ in }  L^2(U)
+\end{gather*}$$   
+
+（why? \(L^2\)中的有界线性泛函也是 \(H^1\) 中的有界线性泛函，即 \(\int_U Du f \le \|Du\|_{L^2}\|f\|_{L^2}\le \|u\|_{H^1}\|f\|_{L^2}\)）      
+
+又因为 \(\partial U\) 是 \(C^1\) 光滑的，根据 [Rellich-Kondrachov Compactness Theorem](../SobolevSpaces/SobolevInequalities2.md#rellich-kondrachov-compactness-theorem-2)，我们有
+
+$$ H^1(U) \subset\subset L^2(U) $$
+
+因为 弱收敛 + 紧嵌入 = 强收敛，因此 
+
+$$ \begin{gather*}
+    u_k \to u \text{ in } L^2(U)    \\
+    Du_k \rightharpoonup Du  \text{ in }  L^2(U)   \\
+\end{gather*}  $$
+
+由 [一致有界原理]()         
+参考 [Brezis Functional Analysis, Sobolev Spaces and Partial Differential Equations Corollary 2.3](../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf)
+
+$$ \|Du\|_{L^2(U)} \le  \liminf_{k\to\infty} \|Du_k\|_{L^2(U)} \to 0 $$
+
+那么有 \(Du = 0 \text{  a.e.}\)， -->
+
+
+!!! question "6"
+
+    假设 \(U\subset \mathbb{R}^n\) 是 有界连通开集，
+    \(\partial U\) 光滑，且 \(\partial U = \Gamma_1\cup \Gamma_2\) 由两个不相交的闭集组成。         
+    定义带 混合 Dirichlet - Neumann 边界条件的泊松方程
+
+    $$ \begin{cases}
+        -\Delta u =  f  & \text{ in  } U \\
+        u = 0           & \text{ on  } \Gamma_1 \\
+        \frac{\partial u}{\partial \nu} = 0  & \text{ on  } \Gamma_2
+    \end{cases} $$
+
+    的弱解 \(u\) ，并讨论弱解的存在唯一性。
+
+
+!!! Try
+
+    一个边界的例子
+
+    ![DirichletNeumannbc](./media/images/SE/DirichletNeumann_ManimCE_v0.18.0.png)
+
+    对于 \(u, v\in C^\infty(U)\)，
+
+    $$ \begin{aligned}
+        \int_U -\Delta u \; v \; dx &= -\int_{\partial U}\frac{\partial u}{\partial \nu} v \; dS +  \int_U \nabla u \cdot \nabla v \; dx \\
+        &= \int_U \nabla u \cdot \nabla v \; dx - \int_{\Gamma_1 }\frac{\partial u}{\partial \nu} v \; dS - \int_{\Gamma_2 }\frac{\partial u}{\partial \nu} v \; dS \quad  (\frac{\partial u}{\partial \nu} = 0   \text{ on  } \Gamma_2) \\
+        &= \int_U \nabla u \cdot \nabla v \; dx - \int_{\Gamma_1 }\frac{\partial u}{\partial \nu} v \; dS
+    \end{aligned} $$
+
+    我们发现，边界项怎么都处理不了。
+
+    回顾我们一开始 Dirichlet 边界条件的弱解，我们就 **没处理过边界项**，我们用 \(H_0^1\) 规避了。
+
+    ----
+
+    当 \(\Gamma_1 = \varnothing\) ，退化到 Neuman 边界条件 question 4.
+
+
+定义
+
+$$ H_\sigma^1(U) = \overline{C_c^\infty(U\cup\Gamma_2)}_{H^1(U)} $$
+
+显然这是\(H^1(U)\) 的闭子空间 ，是一个 Hilbert 空间。
+
+若函数 \(u\in H_\sigma^1(U)\) 满足
+
+$$ \int_U Du \cdot Dv \; dx =  \int_U fv\; dx \quad \forall v \in H_\sigma^1(U) $$
+
+我们称 \(u\) 是 Dirichlet-Neumann 边界问题的 弱解。
+
+----
+
+定义 \(H_\sigma^1(U)\) 中的双线性映射
+
+$$ B[u,v] = \int_U Du \cdot Dv \; dx \quad u, v \in H_\sigma^1(U) $$
+
+我们验证 Lax-Milgram 的假设条件：
+
+1 . 
+
+$$ \begin{aligned}
+    |B[u,v]| &\le  \int_U |Du| |Dv| \; dx \le \|Du\|_{L^2} \|Dv\|_{L^2} \le \|u\|_{H_\sigma^1} \|v\|_{H_\sigma^1}
+\end{aligned} $$
+
+2 .
+
+$$ \begin{aligned}
+    B[u,u] &= \|Du\|_{L^2(U)}^2 \\
+\end{aligned} $$
+
+!!! Lemma
+
+    Poincaré 不等式
+
+    设 \(U\) 是有界连通开集，\(\partial U\) 是 \(C^1\) 的，且 \(\Gamma\subset \partial U \) 是边界的一个闭子集。       
+    令 \(H_\sigma^1(U) = \overline{C_c^\infty(\bar{U}\setminus \Gamma)}_{H^1(U)}\)，
+    则存在常数 \(C=C(n, U)\) 满足
+
+    $$ \|u\|_{H_\sigma^1(U)} \le C(n, U) \|Du\|_{L^2(U)} $$
+
+    否则，存在 \(u_k\in H_\sigma^1(U)\) 满足 
+    
+    $$  \|u_k\|_{H_\sigma^1(U)} = 1 \quad \|Du_k\|_{L^2(U)} \le \frac{1}{k} $$
+
+    那么存在子列，仍记为 \(u_k\)，有
+
+    $$ u_k \to u \text{  in  } L^2(U) \quad Du = 0 \text{  a.e.  } \quad \|u\|_{H_\sigma^1(U)} = 1 $$
+
+    因此 \(u=c \text{  in  } U\)。
+    但是，\(Tu = 0 \text{  on  } \Gamma \)，所以 \(u=0 \text{  in  } U\)，这与 \(\|u\|_{H_\sigma^1(U)}=1\) 矛盾。
+
+    因此，存在 \(C(n, U)\) 使得
+
+    $$ \|u\|_{H_\sigma^1(U)} \le C(n, U) \|Du\|_{L^2(U)} $$
+
+
+由引理，存在 \(\beta>0\)，使得
+
+$$ \beta \|u\|_{H_\sigma^1(U)}^2 \le \|Du\|_{L^2(U)}^2  $$
+
+
+那么由 Lax-Milgram 定理，对于 \(f\in L^2(U)\)，
+存在唯一的 \(u\in H_\sigma^1(U)\) 使得
+
+$$ B[u, v] = (f, v) \quad \forall v \in H_\sigma^1(U) $$
+
+
+
+
+
+
+
+
 
 

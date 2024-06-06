@@ -119,6 +119,8 @@ nav:
   - "\u4E8C\u9636\u692D\u5706\u65B9\u7A0B":
     - PartialDifferentialEquations/SecondOrderEllipticEquations/index.md
     - "\u5F31\u89E3": PartialDifferentialEquations/SecondOrderEllipticEquations/WeakSolutions.md
+    - "\u6B63\u5219\u6027": PartialDifferentialEquations/SecondOrderEllipticEquations/Regularity.md
+    - "\u6781\u5927\u503C\u539F\u7406": PartialDifferentialEquations/SecondOrderEllipticEquations/MaximumPrinciples.md
   - HW1: PartialDifferentialEquations/HW1.md
   - HW2: PartialDifferentialEquations/HW2.md
 - FractionalDifferentialEquations:

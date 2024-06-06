@@ -16,7 +16,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../../HW1/">
+        <link rel="next" href="../Regularity/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -2399,6 +2399,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -2553,6 +2557,48 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Regularity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    正则性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MaximumPrinciples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    极大值原理
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -3321,7 +3367,7 @@
 <p><strong>2</strong></p>
 <div class="arithmatex">\[ B[u, u] = \|Du\|_{L^2(U)}^2 +  \|Tu\|_{L^2(\partial U)}^2 \]</div>
 <p>我们只要能证明</p>
-<div class="arithmatex">\[ \|u\|_{H^1(U)} \le C(n, U) \left( \|Du\|_{L^2(U)} + \|Tu\|_{L^2(\partial U)} \right)^2 \]</div>
+<div class="arithmatex">\[ \|u\|_{H^1(U)} \le C(n, U) \left( \|Du\|_{L^2(U)} + \|Tu\|_{L^2(\partial U)} \right) \]</div>
 <p>即可。</p>
 <div class="admonition lemma">
 <p class="admonition-title">Lemma</p>
@@ -3333,27 +3379,9 @@
 <p><strong>proof</strong></p>
 <p>否则，存在 <span class="arithmatex">\(u_k \in H^1(U), k=1, 2, ...\)</span> 使得 <span class="arithmatex">\(\|u_k\|_{H^1(U)}=1\)</span>，且</p>
 <div class="arithmatex">\[ \|Du_k\|_{L^2(U)} + \|Tu_k\|_{L^2(\partial U)} &lt; \frac{1}{k} \]</div>
-<p>由于 <span class="arithmatex">\(H^1\)</span> 是 Hilbert 空间，属于自反 Banach 空间，而  <span class="arithmatex">\(u_k\)</span> 一致有界，
-那么由 <a href="">Kakutani 定理</a>   <br />
-见 <a href="../../../Library/Brezis%20-%202011%20-%20Functional%20Analysis%2C%20Sobolev%20Spaces%20and%20Partial%20Di.pdf">Brezis Functional Analysis, Sobolev Spaces and Partial Differential Equations Theorem 4.17</a></p>
-<p>存在弱收敛子列，仍记为 </p>
-<div class="arithmatex">\[ u_k \rightharpoonup u  \text{ in }  H^1(U) \Rightarrow
-\begin{gather*}
-    u_k \rightharpoonup u  \text{ in }  L^2(U)   \\
-    Du_k \rightharpoonup Du  \text{ in }  L^2(U)
-\end{gather*}\]</div>
-<p>又因为 <span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 光滑的，根据 <a href="../../SobolevSpaces/SobolevInequalities2/#rellich-kondrachov-compactness-theorem-2">Rellich-Kondrachov Compactness Theorem</a>，我们有</p>
-<div class="arithmatex">\[ H^1(U) \subset\subset L^2(U) \]</div>
-<p>所以存在子列，仍记为 <span class="arithmatex">\(u_k\)</span> ，使得 </p>
-<div class="arithmatex">\[ \begin{gather*}
-    u_k \to u \text{ in } L^2(U)
-    Du_k \rightharpoonup Du  \text{ in }  L^2(U)   \\
-\end{gather*}  \]</div>
-<p>由 <a href="">一致有界原理</a>       <br />
-参考 <a href="../../../Library/Brezis%20-%202011%20-%20Functional%20Analysis%2C%20Sobolev%20Spaces%20and%20Partial%20Di.pdf">Brezis Functional Analysis, Sobolev Spaces and Partial Differential Equations Corollary 2.3</a></p>
-<div class="arithmatex">\[ \|Du\|_{L^2(U)} \le  \liminf_{k\to\infty} \|Du_k\|_{L^2(U)} \to 0 \]</div>
-<p>那么有 <span class="arithmatex">\(Du = 0 \text{  a.e.}\)</span>，
-<!-- 那么 --></p>
+<p>由于 <span class="arithmatex">\(\|Du_k\|_{L^2(U)}\le \dfrac{1}{k}\)</span>， 
+仿照 Poincaré 不等式的证明，存在子列，仍记为 <span class="arithmatex">\(u_k\)</span> ，满足</p>
+<div class="arithmatex">\[ u_k \to u \text{  in  } L^2(U) \quad Du = 0 \text{  a.e.  } \]</div>
 <p>我们就有</p>
 <div class="arithmatex">\[ \begin{aligned}
     \|u_k-u\|_{H^1(U)}^2 &amp;= \|u_k-u\|_{L^2(U)}^2 + \|Du_k-Du\|_{L^2(U)}^2   \\
@@ -3368,7 +3396,7 @@
 <p>但是根据 <a href="../../SobolevSpaces/Extensions/#trace-theorem">迹定理</a>，以及 <span class="arithmatex">\(u_k \to u \text{  in  }  H^1(U)\)</span></p>
 <div class="arithmatex">\[ \begin{aligned}
     \|Tu\|_{L^2(\partial U)} &amp;=  \lim_{k\to\infty} \|Tu_k\|_{L^2(\partial U)} \to 0 \text{ as  } k\to\infty \\
-    \Rightarrow u=0 \text{  a.e. on  } \partial U
+    &amp;\Rightarrow u=0 \text{  a.e. on  } \partial U
 \end{aligned}\]</div>
 <p>那么根据 <a href="../../SobolevSpaces/Extensions/#trace-zero-functions">迹零定理</a>，
 <span class="arithmatex">\(u\in H_0^1(U)\)</span>，但是由 Poincaré 不等式</p>
@@ -3378,11 +3406,109 @@
 <div class="arithmatex">\[ \|u\|_{H^1(U)} \le C(n, U) \left( \|Du\|_{L^2(U)} + \|Tu\|_{L^2(\partial U)} \right) \]</div>
 </div>
 <p>根据引理，我们得到存在 <span class="arithmatex">\(\beta&gt;0\)</span> 使得</p>
-<div class="arithmatex">\[ \beta \|u\|_{H^1(U)}^2 \le C(n, U) \|Du\|_{L^2(U)}^2 + \|Tu\|_{L^2(\partial U)}^2 \]</div>
+<div class="arithmatex">\[ \beta \|u\|_{H^1(U)}^2 \le C(n, U) (\|Du\|_{L^2(U)}^2 + \|Tu\|_{L^2(\partial U)}^2 ) \]</div>
 <p>现在，我们验证了 <span class="arithmatex">\(B[\;, \;]\)</span> 满足 Lax-Milgram 条件，那么由 Lax-Milgram 定理，</p>
 <p>对于 <span class="arithmatex">\(v\in H^1(U)\)</span>，存在唯一的 <span class="arithmatex">\(u\in H^1(U)\)</span> 使得</p>
 <div class="arithmatex">\[ B[u,v] = \int_U fv \; dx \]</div>
 <p>即弱解存在。</p>
+<!-- 由于 \(H^1\) 是 Hilbert 空间，属于自反 Banach 空间，而  \(u_k\) 一致有界，
+那么由 [Kakutani 定理]()     
+见 [Brezis Functional Analysis, Sobolev Spaces and Partial Differential Equations Theorem 4.17](../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf)
+
+存在弱收敛子列，仍记为 
+
+$$ u_k \rightharpoonup u  \text{ in }  H^1(U) \Rightarrow
+\begin{gather*}
+    u_k \rightharpoonup u  \text{ in }  L^2(U)   \\
+    Du_k \rightharpoonup Du  \text{ in }  L^2(U)
+\end{gather*}$$   
+
+（why? \(L^2\)中的有界线性泛函也是 \(H^1\) 中的有界线性泛函，即 \(\int_U Du f \le \|Du\|_{L^2}\|f\|_{L^2}\le \|u\|_{H^1}\|f\|_{L^2}\)）      
+
+又因为 \(\partial U\) 是 \(C^1\) 光滑的，根据 [Rellich-Kondrachov Compactness Theorem](../SobolevSpaces/SobolevInequalities2.md#rellich-kondrachov-compactness-theorem-2)，我们有
+
+$$ H^1(U) \subset\subset L^2(U) $$
+
+因为 弱收敛 + 紧嵌入 = 强收敛，因此 
+
+$$ \begin{gather*}
+    u_k \to u \text{ in } L^2(U)    \\
+    Du_k \rightharpoonup Du  \text{ in }  L^2(U)   \\
+\end{gather*}  $$
+
+由 [一致有界原理]()         
+参考 [Brezis Functional Analysis, Sobolev Spaces and Partial Differential Equations Corollary 2.3](../../Library/Brezis%20-%202011%20-%20Functional%20Analysis,%20Sobolev%20Spaces%20and%20Partial%20Di.pdf)
+
+$$ \|Du\|_{L^2(U)} \le  \liminf_{k\to\infty} \|Du_k\|_{L^2(U)} \to 0 $$
+
+那么有 \(Du = 0 \text{  a.e.}\)， -->
+
+<div class="admonition question">
+<p class="admonition-title">6</p>
+<p>假设 <span class="arithmatex">\(U\subset \mathbb{R}^n\)</span> 是 有界连通开集，
+<span class="arithmatex">\(\partial U\)</span> 光滑，且 <span class="arithmatex">\(\partial U = \Gamma_1\cup \Gamma_2\)</span> 由两个不相交的闭集组成。       <br />
+定义带 混合 Dirichlet - Neumann 边界条件的泊松方程</p>
+<div class="arithmatex">\[ \begin{cases}
+    -\Delta u =  f  &amp; \text{ in  } U \\
+    u = 0           &amp; \text{ on  } \Gamma_1 \\
+    \frac{\partial u}{\partial \nu} = 0  &amp; \text{ on  } \Gamma_2
+\end{cases} \]</div>
+<p>的弱解 <span class="arithmatex">\(u\)</span> ，并讨论弱解的存在唯一性。</p>
+</div>
+<div class="admonition try">
+<p class="admonition-title">Try</p>
+<p>一个边界的例子</p>
+<p><a class="glightbox" href="../media/images/SE/DirichletNeumann_ManimCE_v0.18.0.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="DirichletNeumannbc" src="../media/images/SE/DirichletNeumann_ManimCE_v0.18.0.png" /></a></p>
+<p>对于 <span class="arithmatex">\(u, v\in C^\infty(U)\)</span>，</p>
+<div class="arithmatex">\[ \begin{aligned}
+    \int_U -\Delta u \; v \; dx &amp;= -\int_{\partial U}\frac{\partial u}{\partial \nu} v \; dS +  \int_U \nabla u \cdot \nabla v \; dx \\
+    &amp;= \int_U \nabla u \cdot \nabla v \; dx - \int_{\Gamma_1 }\frac{\partial u}{\partial \nu} v \; dS - \int_{\Gamma_2 }\frac{\partial u}{\partial \nu} v \; dS \quad  (\frac{\partial u}{\partial \nu} = 0   \text{ on  } \Gamma_2) \\
+    &amp;= \int_U \nabla u \cdot \nabla v \; dx - \int_{\Gamma_1 }\frac{\partial u}{\partial \nu} v \; dS
+\end{aligned} \]</div>
+<p>我们发现，边界项怎么都处理不了。</p>
+<p>回顾我们一开始 Dirichlet 边界条件的弱解，我们就 <strong>没处理过边界项</strong>，我们用 <span class="arithmatex">\(H_0^1\)</span> 规避了。</p>
+<hr />
+<p>当 <span class="arithmatex">\(\Gamma_1 = \varnothing\)</span> ，退化到 Neuman 边界条件 question 4.</p>
+</div>
+<p>定义</p>
+<div class="arithmatex">\[ H_\sigma^1(U) = \overline{C_c^\infty(U\cup\Gamma_2)}_{H^1(U)} \]</div>
+<p>显然这是<span class="arithmatex">\(H^1(U)\)</span> 的闭子空间 ，是一个 Hilbert 空间。</p>
+<p>若函数 <span class="arithmatex">\(u\in H_\sigma^1(U)\)</span> 满足</p>
+<div class="arithmatex">\[ \int_U Du \cdot Dv \; dx =  \int_U fv\; dx \quad \forall v \in H_\sigma^1(U) \]</div>
+<p>我们称 <span class="arithmatex">\(u\)</span> 是 Dirichlet-Neumann 边界问题的 弱解。</p>
+<hr />
+<p>定义 <span class="arithmatex">\(H_\sigma^1(U)\)</span> 中的双线性映射</p>
+<div class="arithmatex">\[ B[u,v] = \int_U Du \cdot Dv \; dx \quad u, v \in H_\sigma^1(U) \]</div>
+<p>我们验证 Lax-Milgram 的假设条件：</p>
+<p>1 . </p>
+<div class="arithmatex">\[ \begin{aligned}
+    |B[u,v]| &amp;\le  \int_U |Du| |Dv| \; dx \le \|Du\|_{L^2} \|Dv\|_{L^2} \le \|u\|_{H_\sigma^1} \|v\|_{H_\sigma^1}
+\end{aligned} \]</div>
+<p>2 .</p>
+<div class="arithmatex">\[ \begin{aligned}
+    B[u,u] &amp;= \|Du\|_{L^2(U)}^2 \\
+\end{aligned} \]</div>
+<div class="admonition lemma">
+<p class="admonition-title">Lemma</p>
+<p>Poincaré 不等式</p>
+<p>设 <span class="arithmatex">\(U\)</span> 是有界连通开集，<span class="arithmatex">\(\partial U\)</span> 是 <span class="arithmatex">\(C^1\)</span> 的，且 <span class="arithmatex">\(\Gamma\subset \partial U \)</span> 是边界的一个闭子集。     <br />
+令 <span class="arithmatex">\(H_\sigma^1(U) = \overline{C_c^\infty(\bar{U}\setminus \Gamma)}_{H^1(U)}\)</span>，
+则存在常数 <span class="arithmatex">\(C=C(n, U)\)</span> 满足</p>
+<div class="arithmatex">\[ \|u\|_{H_\sigma^1(U)} \le C(n, U) \|Du\|_{L^2(U)} \]</div>
+<p>否则，存在 <span class="arithmatex">\(u_k\in H_\sigma^1(U)\)</span> 满足 </p>
+<div class="arithmatex">\[  \|u_k\|_{H_\sigma^1(U)} = 1 \quad \|Du_k\|_{L^2(U)} \le \frac{1}{k} \]</div>
+<p>那么存在子列，仍记为 <span class="arithmatex">\(u_k\)</span>，有</p>
+<div class="arithmatex">\[ u_k \to u \text{  in  } L^2(U) \quad Du = 0 \text{  a.e.  } \quad \|u\|_{H_\sigma^1(U)} = 1 \]</div>
+<p>因此 <span class="arithmatex">\(u=c \text{  in  } U\)</span>。
+但是，<span class="arithmatex">\(Tu = 0 \text{  on  } \Gamma \)</span>，所以 <span class="arithmatex">\(u=0 \text{  in  } U\)</span>，这与 <span class="arithmatex">\(\|u\|_{H_\sigma^1(U)}=1\)</span> 矛盾。</p>
+<p>因此，存在 <span class="arithmatex">\(C(n, U)\)</span> 使得</p>
+<div class="arithmatex">\[ \|u\|_{H_\sigma^1(U)} \le C(n, U) \|Du\|_{L^2(U)} \]</div>
+</div>
+<p>由引理，存在 <span class="arithmatex">\(\beta&gt;0\)</span>，使得</p>
+<div class="arithmatex">\[ \beta \|u\|_{H_\sigma^1(U)}^2 \le \|Du\|_{L^2(U)}^2  \]</div>
+<p>那么由 Lax-Milgram 定理，对于 <span class="arithmatex">\(f\in L^2(U)\)</span>，
+存在唯一的 <span class="arithmatex">\(u\in H_\sigma^1(U)\)</span> 使得</p>
+<div class="arithmatex">\[ B[u, v] = (f, v) \quad \forall v \in H_\sigma^1(U) \]</div>
 
 <!-- Source file information -->
 
@@ -3427,9 +3553,9 @@ aria-label="页脚"
 
   
   <a
-    href="../../HW1/"
+    href="../Regularity/"
     class="md-footer__link md-footer__link--next"
-    aria-label="下一页: HW1"
+    aria-label="下一页: 正则性"
     rel="next"
   >
     <div class="md-footer__title">
@@ -3437,7 +3563,7 @@ aria-label="页脚"
         下一页
       </span>
       <div class="md-ellipsis">
-        HW1
+        正则性
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -3492,13 +3618,13 @@ aria-label="页脚"
         
         
           
-          <a href="../../HW1/" class="md-footer__link md-footer__link--next" aria-label="下一页: HW1">
+          <a href="../Regularity/" class="md-footer__link md-footer__link--next" aria-label="下一页: 正则性">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                HW1
+                正则性
               </div>
             </div>
             <div class="md-footer__button md-icon">
