@@ -3023,6 +3023,7 @@
 <h2 id="problems">Problems<a class="headerlink" href="#problems" title="Permanent link">&para;</a></h2>
 <div class="admonition question">
 <p class="admonition-title">8</p>
+<p><font size="3"></p>
 <p>设 <span class="arithmatex">\(U\)</span> 是有界开集，<span class="arithmatex">\(\partial U\)</span> 光滑。令 <span class="arithmatex">\(u\)</span> 是一致椭圆方程</p>
 <div class="arithmatex">\[ Lu = -\sum_{i, j=1}^n a^{ij}(x) \partial_j \partial_i u = 0 \text{  in  } U \]</div>
 <p>的光滑解。
@@ -3031,6 +3032,7 @@
 <div class="arithmatex">\[ Lv \le 0 \text{  in  }  U \]</div>
 <p>并得到</p>
 <div class="arithmatex">\[ \|Du\|_{L^\infty(U)} \le C( \|Du\|_{L^\infty(\partial U)} + \|u\|_{L^\infty(\partial U)} ) \]</div>
+<p></font></p>
 </div>
 <p><strong>proof</strong></p>
 <p>由于 <span class="arithmatex">\(Lu = 0\)</span>，则</p>
@@ -3082,10 +3084,78 @@
 <p>我们可以令 <span class="arithmatex">\(2\theta = \epsilon C(n,A)\)</span>，那么我们有</p>
 <div class="arithmatex">\[ Lv \le (\frac{C^2}{2\theta} - 2\lambda \theta)|\nabla u|^2 \]</div>
 <p>则只要 <span class="arithmatex">\(\lambda &gt; \frac{C^2}{4\theta^2}\)</span>，就有 <span class="arithmatex">\(Lv \le 0\)</span>.</p>
-<p>那么应用极大值原理，我们有</p>
-<div class="arithmatex">\[ \max_{U} |Du|^2 \le \max_{U} v \le \max_{\partial U} v \le \max_{\partial U} |Du|^2 + \max_{\partial U} \lambda |u|^2 \le C(n, A)(\max_{\partial U} |Du| + \max_{\partial U} |u|)^2 \]</div>
+<p>那么应用 弱极大值原理，我们有</p>
+<div class="arithmatex">\[ \max_{\bar{U}} |Du|^2 \le \max_{\bar{U}} v \le \max_{\partial U} v \le \max_{\partial U} |Du|^2 + \max_{\partial U} \lambda |u|^2 \le C(n, A)(\max_{\partial U} |Du| + \max_{\partial U} |u|)^2 \]</div>
 <p>因此</p>
-<div class="arithmatex">\[ \max_{U} |Du| \le C(\max_{\partial U} |Du| + \max_{\partial U} |u|) \]</div>
+<div class="arithmatex">\[ \max_{\bar{U}} |Du| \le C(\max_{\partial U} |Du| + \max_{\partial U} |u|) \]</div>
+<div class="admonition question">
+<p class="admonition-title">9</p>
+<p><font size="3"></p>
+<p>设 <span class="arithmatex">\(U\)</span> 是有界开集，<span class="arithmatex">\(\partial U\)</span> 光滑。
+假设 <span class="arithmatex">\(u\)</span> 是一致椭圆方程</p>
+<div class="arithmatex">\[ \begin{cases}
+    Lu = -\sum_{i, j=1}^n a^{ij}(x) \partial_j \partial_i u = f  &amp; \text{  in  } U  \\
+    u = 0 &amp; \text{  on  } \partial U \\
+\end{cases} \]</div>
+<p>的光滑解，<span class="arithmatex">\(f\)</span> 有界。    <br />
+固定 <span class="arithmatex">\(x^0\in \partial U\)</span>，定义在 <span class="arithmatex">\(x^0\)</span> 处的 <strong>势垒 barrier</strong> 为一个 <span class="arithmatex">\(C^2\)</span> 函数 <span class="arithmatex">\(w\)</span>，满足</p>
+<div class="arithmatex">\[ Lw \ge 1 \text{  in  } U ,\quad  w(x^0) = 0,\quad w \ge 0 \text{  on  } \partial U  \]</div>
+<p>证明如果 <span class="arithmatex">\(w\)</span> 是 <span class="arithmatex">\(x^0\)</span> 处的势垒，则存在一个常数 <span class="arithmatex">\(C\)</span> 使得</p>
+<div class="arithmatex">\[ |Du(x^0)| \le C \Big| \frac{\partial w}{\partial \nu}(x^0) \Big| \]</div>
+<p></font></p>
+</div>
+<p><strong>proof</strong></p>
+<p>根据 弱极大值原理，以及 <span class="arithmatex">\(w \ge 0 \text{  on  } \partial U \)</span> ，我们有</p>
+<div class="arithmatex">\[ \min_{\bar{U}} w = \min_{\partial U} w = w(x^0) = 0 \]</div>
+<p>令 <span class="arithmatex">\(v = u - \|f\|_{L^\infty(U)} w\)</span>，那么我们有</p>
+<div class="arithmatex">\[ \begin{cases}
+    Lv = Lu - \|f\|_{L^\infty(U)} L w \le f - \|f\|_{L^\infty(U)} 1 \le 0   &amp; \text{ in  } U    \\
+    v \le 0   &amp; \text{  on  } \partial U
+\end{cases} \]</div>
+<p>那么再次使用 弱极大值原理，我们有</p>
+<div class="arithmatex">\[ \max_{\bar{U}} v = \max_{\partial U} v = v(x^0) = 0 \]</div>
+<p>因此，有</p>
+<div class="arithmatex">\[ 0 \le \frac{\partial v}{\partial \nu}(x^0) = \frac{\partial u}{\partial \nu}(x^0) - \|f\|_{L^\infty(U)}\frac{\partial w}{\partial \nu}(x^0)  \]</div>
+<p>即</p>
+<div class="arithmatex">\[ \frac{\partial u}{\partial \nu}(x^0) \ge \|f\|_{L^\infty(U)}\frac{\partial w}{\partial \nu}(x^0) \]</div>
+<p>同理，令 <span class="arithmatex">\(v = u + \|f\|_{L^\infty(U)} w\)</span>，我们可以得到</p>
+<div class="arithmatex">\[ \frac{\partial u}{\partial \nu}(x^0) \le -\|f\|_{L^\infty(U)}\frac{\partial w}{\partial \nu}(x^0) \]</div>
+<p>又因为 <span class="arithmatex">\(u=0 \text{  on  } \partial U \)</span>，边界光滑，因此 <span class="arithmatex">\(Du(x^0) = \dfrac{\partial u}{\partial \nu}(x^0) \)</span>，我们得到</p>
+<div class="arithmatex">\[ |Du(x^0)| \le \|f\|_{L^\infty(U)} \Big| \frac{\partial w}{\partial \nu}(x^0) \Big| \]</div>
+<div class="admonition question">
+<p class="admonition-title">10</p>
+<p><font size="3"></p>
+<p>假设 <span class="arithmatex">\(U\)</span> 是连通有界开集，<span class="arithmatex">\(\partial U\)</span> 光滑。      <br />
+证明 Neumann 边界条件的 调和方程</p>
+<div class="arithmatex">\[ \begin{cases}
+    -\Delta u = 0 &amp; \text{  in  } U  \\
+    \frac{\partial u}{\partial \nu} = 0 &amp; \text{  on  } \partial U \\
+\end{cases} \]</div>
+<p>的光滑解只有一种 <span class="arithmatex">\(u \equiv C\)</span>，<span class="arithmatex">\(C\)</span> 是某个常数。</p>
+<p></font></p>
+</div>
+<p><strong>proof</strong></p>
+<p>(a)</p>
+<p>由于 <span class="arithmatex">\(-\Delta u = 0\)</span>，对于任意的 <span class="arithmatex">\(\forall v \in C^\infty(U)\)</span>，我们有</p>
+<div class="arithmatex">\[ \begin{aligned}
+    0 &amp;= -\int_U \Delta u \; v\;dx  \\
+    &amp;= -\int_{\partial U} \frac{\partial u}{\partial \nu} v \; dS + \int_U \nabla u \cdot \nabla v \; dx \quad (\text{by Green formula}) \\
+    &amp;= \int_U \nabla u \cdot \nabla v \; dx \qquad \qquad\qquad (\frac{\partial u}{\partial \nu} = 0 \text{  on  } \partial U) \\
+\end{aligned} \]</div>
+<p>令 <span class="arithmatex">\(v=u\)</span>，则有</p>
+<div class="arithmatex">\[ \int_U |\nabla u|^2 \; dx = 0  \Rightarrow \nabla u = 0 \text{  in  } U \]</div>
+<p>且 <span class="arithmatex">\(U\)</span> 连通，因此，<span class="arithmatex">\(u \equiv C\)</span>.</p>
+<p>(b)</p>
+<p>因为 <span class="arithmatex">\(-\Delta u = 0\)</span>，
+由 强极大值原理，要么最大值点在 <span class="arithmatex">\(U\)</span> 内部取得，则 <span class="arithmatex">\(u \equiv C\)</span>；   <br />
+要么最大值只能在边界取得 <span class="arithmatex">\(x^0\in \partial U\)</span>，<span class="arithmatex">\(u(x^0)&gt;u(x) \forall x \in U\)</span>，
+则由 Hopf 引理，我们得到 </p>
+<div class="arithmatex">\[ \frac{\partial u}{\partial \nu}(x^0) &gt; 0 \]</div>
+<p>矛盾。</p>
+<p>所以只能是 <span class="arithmatex">\(u \equiv C\)</span>。</p>
+<div class="admonition question">
+<p class="admonition-title">11</p>
+</div>
 
 <!-- Source file information -->
 
