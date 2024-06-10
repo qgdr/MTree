@@ -16,7 +16,7 @@
         <link rel="prev" href="../Regularity/">
       
       
-        <link rel="next" href="../../HW1/">
+        <link rel="next" href="../Eigen/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -1891,6 +1891,8 @@
       
         
       
+        
+      
     
     
     
@@ -2403,6 +2405,8 @@
       
         
       
+        
+      
     
     
     
@@ -2553,6 +2557,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Eigen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    特征值与特征函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2594,6 +2619,27 @@
   
   <span class="md-ellipsis">
     HW2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HW3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HW3
   </span>
   
 
@@ -3155,7 +3201,44 @@
 <p>所以只能是 <span class="arithmatex">\(u \equiv C\)</span>。</p>
 <div class="admonition question">
 <p class="admonition-title">11</p>
+<p><font size="3"></p>
+<p>假设 <span class="arithmatex">\(U\)</span> 是有界开集，<span class="arithmatex">\(\partial U\)</span> 光滑。
+<span class="arithmatex">\(u\in H^1(U)\)</span> 是方程</p>
+<div class="arithmatex">\[ -\sum_{i, j=1}^n \partial_j (a^{ij}(x)  \partial_i u) = 0  \text{  in  } U  \]</div>
+<p>的有界弱解。</p>
+<p>令 <span class="arithmatex">\(\phi: \mathbb{R} \to \mathbb{R}\)</span> 是光滑的 <strong>凸函数</strong> ，设 <span class="arithmatex">\(w = \phi(u)\)</span>。             <br />
+证明 <span class="arithmatex">\(w\)</span> 是 <strong>弱下解 subsolution</strong> ；
+即对于 <span class="arithmatex">\(\forall v\in H_0^1(U)，v≥0\)</span>，有 <span class="arithmatex">\(B[w ,v]\le 0\)</span>.`</p>
+<p></font></p>
 </div>
+<p><strong>proof</strong></p>
+<p>由于 <span class="arithmatex">\(u\)</span> 是弱解，因此有</p>
+<div class="arithmatex">\[ B[u, v] = \sum_{i, j=1}^n \int_U a^{ij}(x) \; D_i u \; D_j v \; dx = 0 \quad \forall v\in H_0^1(U) \]</div>
+<p>根据 <a href="../../SobolevSpaces/Approximation/#chain-rule">Chain Rule</a> ， <span class="arithmatex">\(u\)</span> 有界，则 <span class="arithmatex">\(\phi'(u)\)</span> 有界我们有</p>
+<div class="arithmatex">\[ Dw = \phi'(u) Du \]</div>
+<p>对于 <span class="arithmatex">\(v\in C_c^\infty(U)，v≥0\)</span>，</p>
+<div class="arithmatex">\[ \begin{aligned}
+    B[w, v] &amp;= \sum_{i, j=1}^n \int_U a^{ij}(x) \; D_i w \; D_j v \; dx \\
+    &amp;= \sum_{i, j=1}^n \int_U a^{ij}(x)\phi'(u) \; D_i u \; D_j v \; dx \\
+    &amp;= \sum_{i, j=1}^n \int_U a^{ij}(x)D_i u \; D_j(\phi'(u) v)\; dx - \int_U a^{ij}(x)D_i u \; \phi''(u)D_j u \; v \; dx \quad (\text{Leibniz})\\
+    &amp;= \sum_{i, j=1}^n 0- \int_U a^{ij}(x)D_i u \; \phi''(u)D_j u \; v \; dx \\
+\end{aligned} \]</div>
+<p>最后一步是由  <a href="../../SobolevSpaces/Approximation/#chain-rule">Chain Rule</a>， <span class="arithmatex">\(u\)</span> 有界，则 <span class="arithmatex">\(\phi''(u)\)</span> 有界，因此 <span class="arithmatex">\(\phi'(u)\in H^1(U), \phi'(u) v\in H_0^1(U)\)</span>，推出 <span class="arithmatex">\(B[u, \phi'(u)v] = 0\)</span>.</p>
+<div class="arithmatex">\[ \begin{aligned}
+    B[w, v] &amp;= - \sum_{i, j=1}^n \int_U a^{ij}(x)D_i u \; \phi''(u)D_j u \; v \; dx \\
+    &amp;= -\sum_{i, j=1}^n \int_U \phi''(u) a^{ij}(x)D_i u \; D_j u \; v \; dx \\
+    &amp;\le - \int_U \phi''(u) \theta |Du|^2 \; v \; dx \le 0 \quad (\phi''(u) \ge 0, v \ge 0)  \\
+\end{aligned} \]</div>
+<p>因此，对于 <span class="arithmatex">\(v\in C_c^\infty(U)，v≥0\)</span>，<span class="arithmatex">\(B[w, v]\le 0\)</span>。
+而对于 <span class="arithmatex">\(v\in H_0^1(U), v\ge 0\)</span>，存在一列 <span class="arithmatex">\(v_k \in C_c^\infty(U)，v_k≥0\)</span> 在 <span class="arithmatex">\(H^1(U)\)</span> 中收敛到 <span class="arithmatex">\(v\)</span>。    <br />
+（ <a href="../../../Library/Evans-2010-PartialDifferentialEquations.pdf">Evans 5.5 Traces Theorem 2 迹零定理</a> 的证明。 ）</p>
+<p>1 . 存在 <span class="arithmatex">\(z_k\in C_c^\infty(U) \to v \text{  in  } H^1(U)\)</span>，    <br />
+2 . 由于 <span class="arithmatex">\(v\ge 0\)</span> ，能得到 <span class="arithmatex">\(z_k^+ \to v \text{  in  } H^1(U)\)</span> ，    <br />
+3 . 利用 Problem 5.10.18，对于每个 <span class="arithmatex">\(k\)</span> 可以选取足够小的 <span class="arithmatex">\(\epsilon_k\)</span> ，使得 </p>
+<div class="arithmatex">\[ v_k := F_{\epsilon_k}(z_k) = F_{\epsilon_k}(z_k^+) \in C_c^\infty(U) \to v \text{  in  } H^1(U) \]</div>
+<p>而且 <span class="arithmatex">\(v_k\ge 0\)</span>，那么由控制收敛定理，有</p>
+<div class="arithmatex">\[ B[w, v] = \lim_{k\to \infty} B[w, v_k] \le 0 \]</div>
+<p>因此，对于 <span class="arithmatex">\(\forall v\in H_0^1(U), v\ge 0\)</span>，<span class="arithmatex">\(B[w, v]\le 0\)</span>。</p>
 
 <!-- Source file information -->
 
@@ -3200,9 +3283,9 @@ aria-label="页脚"
 
   
   <a
-    href="../../HW1/"
+    href="../Eigen/"
     class="md-footer__link md-footer__link--next"
-    aria-label="下一页: HW1"
+    aria-label="下一页: 特征值与特征函数"
     rel="next"
   >
     <div class="md-footer__title">
@@ -3210,7 +3293,7 @@ aria-label="页脚"
         下一页
       </span>
       <div class="md-ellipsis">
-        HW1
+        特征值与特征函数
       </div>
     </div>
     <div class="md-footer__button md-icon">
@@ -3265,13 +3348,13 @@ aria-label="页脚"
         
         
           
-          <a href="../../HW1/" class="md-footer__link md-footer__link--next" aria-label="下一页: HW1">
+          <a href="../Eigen/" class="md-footer__link md-footer__link--next" aria-label="下一页: 特征值与特征函数">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                HW1
+                特征值与特征函数
               </div>
             </div>
             <div class="md-footer__button md-icon">

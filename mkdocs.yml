@@ -121,8 +121,10 @@ nav:
     - "\u5F31\u89E3": PartialDifferentialEquations/SecondOrderEllipticEquations/WeakSolutions.md
     - "\u6B63\u5219\u6027": PartialDifferentialEquations/SecondOrderEllipticEquations/Regularity.md
     - "\u6781\u5927\u503C\u539F\u7406": PartialDifferentialEquations/SecondOrderEllipticEquations/MaximumPrinciples.md
+    - "\u7279\u5F81\u503C\u4E0E\u7279\u5F81\u51FD\u6570": PartialDifferentialEquations/SecondOrderEllipticEquations/Eigen.md
   - HW1: PartialDifferentialEquations/HW1.md
   - HW2: PartialDifferentialEquations/HW2.md
+  - HW3: PartialDifferentialEquations/HW3.md
 - FractionalDifferentialEquations:
   - FractionalDifferentialEquations/index.md
   - "\u5206\u6570\u9636\u5FAE\u79EF\u5206": FractionalDifferentialEquations/RLFIDF.md

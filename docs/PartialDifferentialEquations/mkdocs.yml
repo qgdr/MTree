@@ -23,5 +23,7 @@ nav:
   - 弱解: SecondOrderEllipticEquations/WeakSolutions.md
   - 正则性: SecondOrderEllipticEquations/Regularity.md
   - 极大值原理: SecondOrderEllipticEquations/MaximumPrinciples.md
+  - 特征值与特征函数: SecondOrderEllipticEquations/Eigen.md
 - HW1: HW1.md
 - HW2: HW2.md
+- HW3: HW3.md

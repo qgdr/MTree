@@ -224,9 +224,66 @@ $$ \frac{\partial u}{\partial \nu}(x^0) > 0 $$
 
 !!! question "11"
 
+    <font size="3">
+
+    假设 \(U\) 是有界开集，\(\partial U\) 光滑。
+    \(u\in H^1(U)\) 是方程
+
+    $$ -\sum_{i, j=1}^n \partial_j (a^{ij}(x)  \partial_i u) = 0  \text{  in  } U  $$
+
+    的有界弱解。
+
+    令 \(\phi: \mathbb{R} \to \mathbb{R}\) 是光滑的 **凸函数** ，设 \(w = \phi(u)\)。               
+    证明 \(w\) 是 **弱下解 subsolution** ；
+    即对于 \(\forall v\in H_0^1(U)，v≥0\)，有 \(B[w ,v]\le 0\).`
+
+    </font>
 
 
+**proof**
 
+由于 \(u\) 是弱解，因此有
+
+$$ B[u, v] = \sum_{i, j=1}^n \int_U a^{ij}(x) \; D_i u \; D_j v \; dx = 0 \quad \forall v\in H_0^1(U) $$
+
+根据 [Chain Rule](../SobolevSpaces/Approximation.md#chain-rule) ， \(u\) 有界，则 \(\phi'(u)\) 有界我们有
+
+$$ Dw = \phi'(u) Du $$
+
+
+对于 \(v\in C_c^\infty(U)，v≥0\)，
+
+$$ \begin{aligned}
+    B[w, v] &= \sum_{i, j=1}^n \int_U a^{ij}(x) \; D_i w \; D_j v \; dx \\
+    &= \sum_{i, j=1}^n \int_U a^{ij}(x)\phi'(u) \; D_i u \; D_j v \; dx \\
+    &= \sum_{i, j=1}^n \int_U a^{ij}(x)D_i u \; D_j(\phi'(u) v)\; dx - \int_U a^{ij}(x)D_i u \; \phi''(u)D_j u \; v \; dx \quad (\text{Leibniz})\\
+    &= \sum_{i, j=1}^n 0- \int_U a^{ij}(x)D_i u \; \phi''(u)D_j u \; v \; dx \\
+\end{aligned} $$
+
+最后一步是由  [Chain Rule](../SobolevSpaces/Approximation.md#chain-rule)， \(u\) 有界，则 \(\phi''(u)\) 有界，因此 \(\phi'(u)\in H^1(U), \phi'(u) v\in H_0^1(U)\)，推出 \(B[u, \phi'(u)v] = 0\).
+
+
+$$ \begin{aligned}
+    B[w, v] &= - \sum_{i, j=1}^n \int_U a^{ij}(x)D_i u \; \phi''(u)D_j u \; v \; dx \\
+    &= -\sum_{i, j=1}^n \int_U \phi''(u) a^{ij}(x)D_i u \; D_j u \; v \; dx \\
+    &\le - \int_U \phi''(u) \theta |Du|^2 \; v \; dx \le 0 \quad (\phi''(u) \ge 0, v \ge 0)  \\
+\end{aligned} $$
+
+因此，对于 \(v\in C_c^\infty(U)，v≥0\)，\(B[w, v]\le 0\)。
+而对于 \(v\in H_0^1(U), v\ge 0\)，存在一列 \(v_k \in C_c^\infty(U)，v_k≥0\) 在 \(H^1(U)\) 中收敛到 \(v\)。      
+（ [Evans 5.5 Traces Theorem 2 迹零定理](../../Library/Evans-2010-PartialDifferentialEquations.pdf) 的证明。 ）
+
+1 . 存在 \(z_k\in C_c^\infty(U) \to v \text{  in  } H^1(U)\)，      
+2 . 由于 \(v\ge 0\) ，能得到 \(z_k^+ \to v \text{  in  } H^1(U)\) ，      
+3 . 利用 Problem 5.10.18，对于每个 \(k\) 可以选取足够小的 \(\epsilon_k\) ，使得 
+
+$$ v_k := F_{\epsilon_k}(z_k) = F_{\epsilon_k}(z_k^+) \in C_c^\infty(U) \to v \text{  in  } H^1(U) $$      
+
+而且 \(v_k\ge 0\)，那么由控制收敛定理，有
+
+$$ B[w, v] = \lim_{k\to \infty} B[w, v_k] \le 0 $$
+
+因此，对于 \(\forall v\in H_0^1(U), v\ge 0\)，\(B[w, v]\le 0\)。
 
 
 
