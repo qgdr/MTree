@@ -2,10 +2,11 @@ copyright: Copyright &copy; 2024-2025 qgdr</br>The website content is licensed u
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
 extra_css:
 - stylesheets/extra.css
+- https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css
 extra_javascript:
-- javascripts/mathjax.js
-- https://polyfill.io/v3/polyfill.min.js?features=es6
-- https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+- javascripts/katex.js
+- https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js
+- https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js
 markdown_extensions:
 - abbr
 - admonition
@@ -46,6 +47,7 @@ nav:
     - "Gauss-Green\u516C\u5F0F": MathematicalAnalysis/SurfaceIntegral/GaussGreen.md
 - LinearAlgebra:
   - LinearAlgebra/index.md
+  - "\u884C\u5217\u5F0F": LinearAlgebra/Determinant/index.md
   - SVD: LinearAlgebra/svd.md
   - "\u77E9\u9635\u8303\u6570": LinearAlgebra/MatrixNorm.md
 - Topology:
@@ -140,6 +142,9 @@ nav:
         - FractionalCalculus: Research/CQHF/HTFDE/Preliminaries/FractionalCalculus.md
 plugins:
 - search
+- macros
+- minify:
+    minify_html: true
 - glightbox:
     auto_caption: false
     caption_position: bottom

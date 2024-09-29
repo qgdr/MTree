@@ -14,7 +14,7 @@ $$ A=\begin{bmatrix}
 我们知道椭圆的长短轴是 $\|Ax\|, x^Tx=1$ 的极值点,
 也就是 $\|Ax\|^2=x^TA^TAx$ 的极值点。
 
-那么，由 [Lagrange 乘数法定理](../ConvexOptimization/Duality/LagrangeDual.md)，极值点满足，存在一个 $\lambda$ 使得
+那么，由 [Lagrange 乘数法定理](../ConvexOptimization/Theory/LagrangeDual.md)，极值点满足，存在一个 $\lambda$ 使得
 
 $$ \dfrac{\partial}{\partial{x}}(x^TA^TAx-\lambda x^Tx)=0 $$
 

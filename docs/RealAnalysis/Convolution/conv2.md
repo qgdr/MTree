@@ -27,7 +27,6 @@ $$ \begin{aligned} \|f-\tau_{y-x}f\|_{L^{p}(\mathbb{R}^n)}
 &\le \|f-\phi\|_{L^{p}(\mathbb{R}^n)} + \|\tau_{y-x}\phi-\tau_{y-x}f\|_{L^{p}(\mathbb{R}^n)} + \|\phi-\tau_{y-x}\phi\|_{L^{p}(\mathbb{R}^n)}        \\
 &= 2\|f-\phi\|_{L^{p}(\mathbb{R}^n)} + \|\phi-\tau_{y-x}\phi\|_{L^{p}(\mathbb{R}^n)}        \\
 &< 2\epsilon +  \|\|\phi'\|_{L^\infty}(y-x)\|_{L^{p}(\mathbb{R}^n)}       \\
-% &< 2\epsilon + \left( \int_{\mathbb{R}^n} \|\phi'(t)\|_{L^\infty}^p dt \right)^{\frac{1}{p}}        \\
 &= 2\epsilon +  \|\phi'\|_{L^\infty}|y-x|\mu(\text{supp}(\phi)+B(0,y-x))       \\
 &\to 2\epsilon \quad \text{ as } y-x\to 0.
 \end{aligned} $$
