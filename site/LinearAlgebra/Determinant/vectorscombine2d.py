@@ -136,8 +136,104 @@ class VectorsCombine2D(Scene):
         self.wait(1)
 
 
+class TransformAB(Scene):
+    def construct(self):
+        axes = Axes(
+            x_range=[-1, 5],
+            y_range=[-1, 5],
+            x_length=10,
+            y_length=10,
+            axis_config={"color": BLUE},
+        ).scale(0.7).shift(DOWN+3*LEFT)
+        # 创建两个向量
+        v1 = np.array([4, 2])
+        v2 = np.array([1, 3])
+        vector1 = Arrow(start=axes.c2p(0, 0), end=axes.c2p(*v1), color=RED, buff=0.02)
+        vector2 = Arrow(start=axes.c2p(0, 0), end=axes.c2p(*v2), color=GREEN, buff=0.02) 
 
+        # 标签， 向量1
+        label_O = MathTex(r"O", color=WHITE).next_to(axes.c2p(0, 0), UL)
 
+        label1 = MathTex(r"A", color=RED)
+        label1.next_to(vector1.get_end(), RIGHT)
+        # 标签， 向量2
+        label2 = MathTex(r"B", color=GREEN)
+        label2.next_to(vector2.get_end(), LEFT)
+
+        # 再创建一个向量是前两各向量的线性组合
+        x,y = 1/2, 1
+        vector3 = Arrow(start=axes.c2p(0, 0), end=axes.c2p(*(x * v1 + y * v2)), color=BLUE, buff=0.02)
+        # 标签， 向量3
+        label3 = MathTex(r"\vec{OC}=x\vec{OA}+y\vec{OB}", color=BLUE)
+        label3.next_to(vector3.get_end(), RIGHT)
+
+        vec_x = Arrow(start=axes.c2p(0, 0), end=axes.c2p(1, 0), color=RED, buff=0.02)
+        label_x = MathTex(r"\mathbf{e}_1", color=RED).next_to(vec_x.get_end(), RIGHT)
+        vec_y = Arrow(start=axes.c2p(0, 0), end=axes.c2p(0, 1), color=GREEN, buff=0.02)
+        label_y = MathTex(r"\mathbf{e}_2", color=GREEN).next_to(vec_y.get_end(), UP)
+        vec_xy = Arrow(start=axes.c2p(0, 0), end=axes.c2p(x, y), color=BLUE, buff=0.02)
+        label_xy = MathTex(r"x\mathbf{e}_1 + y\mathbf{e}_2", color=BLUE).next_to(vec_xy.get_end(), RIGHT)
+
+        dle12 = DashedLine(axes.c2p(1,0), axes.c2p(0, 1), dash_length=0.05)
+        
+        self.add(axes)
+        self.play(
+            FadeIn(vec_x), Create(label_x),
+            FadeIn(vec_y), Create(label_y),
+            FadeIn(vec_xy), Create(label_xy),
+            FadeIn(dle12), Create(label_O))
+        self.wait()
+        
+        triangle_12 = Polygon(axes.c2p(0, 0), axes.c2p(1, 0), axes.c2p(0,1), color=BLUE, fill_opacity=0.2, stroke_width=0.05)
+        triangle_x = Polygon(axes.c2p(0, 0), axes.c2p(1,0), axes.c2p(x,y), color=RED_B, fill_opacity=0.2, stroke_width=0.05)
+        triangle_y = Polygon(axes.c2p(0, 0), axes.c2p(x,y), axes.c2p(0,1), color=GREEN_B, fill_opacity=0.2, stroke_width=0.05)
+        self.play(FadeIn(triangle_12), FadeIn(triangle_x), FadeIn(triangle_y))
+        self.wait()
+        
+        triangle_OAB = Polygon(axes.c2p(0, 0), axes.c2p(*v1), axes.c2p(*v2), color=BLUE_B, fill_opacity=0.2, stroke_width=0.05)
+        triangle_OAC = Polygon(axes.c2p(0, 0), axes.c2p(*v1), vector3.get_end(), color=RED_B, fill_opacity=0.2, stroke_width=0.05)
+        triangle_OCB = Polygon(axes.c2p(0, 0), vector3.get_end(), axes.c2p(*v2), color=GREEN_B, fill_opacity=0.2, stroke_width=0.05)
+        ratio = np.linalg.norm(v1-v2)/np.sqrt(2)
+        dlab = DashedLine(axes.c2p(*v1), axes.c2p(*v2), dash_length=0.05*ratio)
+
+        #
+        self.play(
+            ReplacementTransform(vec_x, vector1),
+            ReplacementTransform(vec_y, vector2),
+            ReplacementTransform(vec_xy, vector3),
+            ReplacementTransform(label_x, label1),
+            ReplacementTransform(label_y, label2),
+            ReplacementTransform(label_xy, label3),
+            ReplacementTransform(triangle_12, triangle_OAB),
+            ReplacementTransform(triangle_x, triangle_OAC),
+            ReplacementTransform(triangle_y, triangle_OCB),
+            ReplacementTransform(dle12, dlab),
+            run_time = 3
+        )
+        self.wait()
+        
+        ratio_eq = MathTex(
+            r"\frac{  S_{\triangle OCB}  }{ S_{\triangle OAB}  }  = x \quad \frac{  S_{\triangle OAC}  }{ S_{\triangle OAB}  }  = y ", 
+            color=BLUE_C).shift(RIGHT*3)
+        ratio_eq[0][13:18].set_color(RED_B)
+        ratio_eq[0][24:].set_color(RED)
+        ratio_eq[0][0:5].set_color(GREEN_B)
+        ratio_eq[0][12:13].set_color(GREEN)
+        self.play(Write(ratio_eq))
+        self.wait()
+
+class RatioEq(Scene):
+    def construct(self):
+        ratio_eq = MathTex(
+            r"\frac{  S_{\triangle OCB}  }{ S_{\triangle OAB}  }  = x \quad \frac{  S_{\triangle OAC}  }{ S_{\triangle OAB}  }  = y ", 
+            color=BLUE_C)
+        self.add(index_labels(ratio_eq[0]))
+        ratio_eq[0][13:18].set_color(RED_B)
+        ratio_eq[0][24:].set_color(RED)
+        ratio_eq[0][0:5].set_color(GREEN_B)
+        ratio_eq[0][12:13].set_color(GREEN)
+        self.add(ratio_eq)
+        
 
 
 

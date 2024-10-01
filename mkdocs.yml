@@ -95,6 +95,8 @@ nav:
     - RealAnalysis/Approximation/index.md
 - FunctionalAnalysis:
   - FunctionalAnalysis/index.md
+  - HahnBanach:
+    - FunctionalAnalysis/HahnBanach/index.md
   - CompactOperators:
     - FunctionalAnalysis/CompactOperators/index.md
 - PartialDifferentialEquations:
